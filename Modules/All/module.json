@@ -1,0 +1,16 @@
+{
+    "name": "All",
+    "alias": "all",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\All\\Providers\\AllServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
