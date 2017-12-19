@@ -9,9 +9,15 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "nwidart/laravel-modules": "^2.6"
+        "laravolt/indonesia": "^0.7.0",
+        "lavary/laravel-menu": "^1.7",
+        "maatwebsite/excel": "~2.1.0",
+        "nwidart/laravel-modules": "^2.6",
+        "santigarcor/laratrust": "5.0.*",
+        "yajra/laravel-datatables-oracle": "~8.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.1",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
