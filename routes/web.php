@@ -14,3 +14,9 @@
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['web','auth'], 'prefix' => 'administrasi'], function()
+{
+    Route::get('alamat/getKecamatan', 'DaerahController@getKecamatan')->name('getKecamatan');
+    Route::get('alamat/getKelurahan', 'DaerahController@getKelurahan')->name('getKelurahan');
+    Route::get('menu/getkategorimenu', 'KategoriController@getKategoriMenu')->name('getKategoriMenu');
+});

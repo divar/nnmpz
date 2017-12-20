@@ -2,21 +2,16 @@
 
 namespace Modules\All\Http\Controllers;
 
-use Modules\All\Entities\Pelanggan;
-use Modules\All\Entities\Alamat;
-use Indonesia;
+use Modules\All\Entities\ListMenu;
+use Modules\All\Entities\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
 
-class PelangganController extends Controller
+class MenuController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Response
-     */
     public function __construct()
     {
         // $this->middleware('permission:stok-opname-read', ['only' => ['index','create','loadData']]);
@@ -27,20 +22,22 @@ class PelangganController extends Controller
 
     protected function view($view, $data = [])
     {
-      return view('all::Pelanggan.'.$view, $data);
+      return view('all::Menu.'.$view, $data);
     }
-
+    /**
+     * Display a listing of the resource.
+     * @return Response
+     */
     public function index()
     {
         return $this->view('index');
     }
-    public function tambahPelanggan()
+    public function tambahMenu()
     {
-        $send['kabupaten']=Indonesia::findProvince(34, $with = ['cities'])->toArray();
+        $send['kategori']= Kategori::select('*');
     
         return $this->view('form',$send);
     }
-
     /**
      * Show the form for creating a new resource.
      * @return Response
@@ -60,28 +57,19 @@ class PelangganController extends Controller
         DB::beginTransaction();
         try {
             $r = $request->all();
-            $dataPelanggan = [
-                'nama'=>$r['nama'],
-                'no_hp'=>$r['no_hp'],
-                'email'=>(isset($r['email'])?$r['email']:''),
+            $dataMenu = [
+                'id_kategori'=>(isset($r['kategori'])?$r['kategori']:''),
+                'nama_menu'=>(isset($r['nama'])?$r['nama']:''),
+                'harga'=>(isset($r['harga'])?$r['harga']:''),
+                'keterangan'=>(isset($r['keterangan'])?$r['keterangan']:''),
             ];
-            $insertPelanggan = Pelanggan::create($dataPelanggan);
-            $dataAlamat = [
-                'id_pelanggan'=>$insertPelanggan->id,
-                'alamat'=>(isset($r['alamat'])?$r['alamat']:''),
-                'kelurahan'=>(isset($r['kelurahan'])?$r['kelurahan']:''),
-                'kecamatan'=>(isset($r['kecamatan'])?$r['kecamatan']:''),
-                'kabupaten'=>(isset($r['kabupaten'])?$r['kabupaten']:''),
-                'provinsi'=>(isset($r['id_provinsi'])?$r['id_provinsi']:''),
-            ];
-            $insertAlamat = Alamat::create($dataAlamat);
-            $insertPelanggan->update(['id_alamat'=>$insertAlamat->id]);
+            $insertMenu = ListMenu::create($dataMenu);
         } catch (Exception $e) {
             DB::rollBack();
 
         }
         DB::commit();
-        return redirect('all/pelanggan');
+        return redirect('all/menu');
     }
 
     /**
@@ -118,23 +106,27 @@ class PelangganController extends Controller
     public function destroy()
     {
     }
+
     public function loadData()
     {
         $GLOBALS['nomor']=\Request::input('start',1)+1;
-        $dataList = Pelanggan::select('*');
+        $dataList = ListMenu::select('*');
         // dd($dataList->get()[0]->nama);
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
         })
         ->addColumn('nama',function($data){
-          return $data->nama;
+          return $data->nama_menu;
         })
-        ->addColumn('alamat',function($data){
-          return $data->alamat['alamat'];
+        ->addColumn('kategori',function($data){
+          return $data->kategori['nama'];
         })
-        ->addColumn('no_hp',function($data){
-          return $data->no_hp;
+        ->addColumn('harga',function($data){
+          return $data->harga;
+        })        
+        ->addColumn('keterangan',function($data){
+          return $data->keterangan;
         })
         ->make(true);
     }

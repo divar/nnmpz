@@ -15,13 +15,13 @@ class CreateDetailTransaksisTable extends Migration
     {
         Schema::create('detail_transaksis', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_transaksi');
-            $table->integer('id_menu');
-            $table->integer('harga');
-            $table->integer('jml');
-            $table->integer('sub_total');
-            $table->string('keterangan');
-            $table->string('trash');
+            $table->integer('id_transaksi')->nullable();
+            $table->integer('id_menu')->nullable();
+            $table->integer('harga')->nullable();
+            $table->integer('jml')->nullable();
+            $table->integer('sub_total')->nullable();
+            $table->string('keterangan')->nullable();
+            $table->string('trash')->nullable();
             $table->timestamps();
         });
     }

@@ -15,11 +15,11 @@ class CreatePelanggansTable extends Migration
     {
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->integer('id_alamat');
-            $table->text('email');
-            $table->text('no_hp');
-            $table->string('trash');
+            $table->string('nama')->nullable();
+            $table->integer('id_alamat')->nullable();
+            $table->text('email')->nullable();
+            $table->text('no_hp')->nullable();
+            $table->string('trash')->nullable();
             $table->timestamps();
         });
     }

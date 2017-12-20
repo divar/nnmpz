@@ -21,6 +21,10 @@
     <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
     <!-- Datatable -->
     <link href="{{ asset('datatables/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('datatables/DataTables-1.10.16/css/dataTables.foundation.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('datatables/DataTables-1.10.16/css/dataTables.jqueryui.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('datatables/DataTables-1.10.16/css/dataTables.semanticui.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('datatables/DataTables-1.10.16/css/jquery.dataTables.min.css') }}" rel="stylesheet">
 </head>
 <body class="sidenav-toggled">
     <div id="app">
@@ -45,10 +49,10 @@
               </a>
               <ul class="sidenav-second-level collapse" id="pelanggan">
                 <li>
-                  <a href="#">Tambah Data Pelanggan</a>
+                  <a href="{{ route('tambahPelanggan') }}">Tambah Data Pelanggan</a>
                 </li>
                 <li>
-                  <a href="#">Data Pelanggan</a>
+                  <a href="{{ route('loaddataPelanggan') }}">Data Pelanggan</a>
                 </li>
               </ul>
             </li>
@@ -73,10 +77,10 @@
               </a>
               <ul class="sidenav-second-level collapse" id="menu">
                 <li>
-                  <a href="#">Tambah Menu</a>
+                  <a href="{{ route('tambahMenu') }}">Tambah Menu</a>
                 </li>
                 <li>
-                  <a href="#">Data Menu</a>
+                  <a href="{{ url('all/menu') }}">Data Menu</a>
                 </li>
               </ul>
             </li>
@@ -250,6 +254,16 @@
     {{-- <script src="{{ asset('js/sb-admin-charts.min.js') }}"></script> --}}
     <!-- Data Table -->
     <script src="{{ asset('datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.foundation.min.js') }}"></script>
+    <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.jqueryui.min.js') }}"></script>
+    <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.semanticui.min.js') }}"></script>
+    <script src="{{ asset('datatables/DataTables-1.10.16/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('js/jszip.min.js') }}"></script>
+    <script src="{{ asset('js/pdfmake.min.js') }}"></script>
+    <script src='{{ asset('js/vfs_fonts.js') }}'></script>
+    <script src="{{ asset('js/buttons.html5.min.js') }}"></script>
     @yield('js')
     @stack('js')
 </body>

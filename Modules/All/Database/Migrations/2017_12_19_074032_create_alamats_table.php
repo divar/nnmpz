@@ -15,13 +15,13 @@ class CreateAlamatsTable extends Migration
     {
         Schema::create('alamats', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_pelanggan');
-            $table->text('alamat');
-            $table->string('kelurahan');
-            $table->string('kecamatan');
-            $table->string('kabupaten');
-            $table->string('provinsi');
-            $table->string('trash');
+            $table->integer('id_pelanggan')->nullable();
+            $table->text('alamat')->nullable();
+            $table->string('kelurahan')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kabupaten')->nullable();
+            $table->string('provinsi')->nullable();
+            $table->string('trash')->nullable();
             $table->timestamps();
         });
     }

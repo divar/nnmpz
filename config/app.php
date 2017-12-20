@@ -179,7 +179,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
-
+        Laravolt\Indonesia\ServiceProvider::class
     ],
 
     /*
@@ -231,6 +231,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Indonesia' => Laravolt\Indonesia\Facade::class
     ],
 
 ];
