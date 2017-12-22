@@ -6,15 +6,15 @@
         <div class="col-md-12 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <H3>Data Daftar Menu</H3>
+                    <H3>Data Daftar Transaksi Pesanan</H3>
                 </div>
                 <div class="clearfix">&nbsp;</div>
 
                 <div class="portlet-body" style="display: block;">
                     <div class="row">
                         <div class="col-md-2">
-                            <a href="{{ url('all/menu/tambah') }}" class="btn btn-info btn-sm">
-                                <span class="fa fa-fw fa-plus"></span> Tambah Menu
+                            <a href="{{ url('all/transaksi/tambah') }}" class="btn btn-info btn-sm">
+                                <span class="fa fa-fw fa-plus"></span> Tambah Pesanan
                             </a>
                         </div>
                     </div>
@@ -25,9 +25,11 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Kategori</th>
-                                    <th>Harga</th>
-                                    <th>Keterangan</th>                                    
+                                    <th>No Hp</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Pesanan</th>                                    
+                                    <th>Tanggal Pesan</th>                                    
+                                    <th>Alamat</th>                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,7 +55,7 @@
         pageLength:20,
         // ajax: '{{ url('all/pelanggan/load-data') }}',
         ajax: {
-            url:"{{ url('all/menu/load-data') }}",
+            url:"{{ url('all/transaksi/load-data') }}",
                                 data: function (d) {
                                     return $.extend( {}, d, {
                                     
@@ -63,10 +65,12 @@
         },
         columns: [
             { data: 'nomor', name: 'nomor', searchable:false,orderable:true},
-            { data: 'nama', name: 'nama', searchable:true,orderable:true},
-            { data: 'kategori', name: 'kategori', searchable:false,orderable:true},
-            { data: 'harga', name: 'harga', searchable:false,orderable:true},
-            { data: 'keterangan', name: 'keterangan', searchable:false,orderable:true},
+            { data: 'nama', name: 'nama', searchable:false,orderable:true},
+            { data: 'no_hp', name: 'no_hp', searchable:true,orderable:true},
+            { data: 'tgl_lahir', name: 'tgl_lahir', searchable:false,orderable:true},
+            { data: 'pesanan', name: 'pesanan', searchable:false,orderable:true},
+            { data: 'tgl_pesan', name: 'tgl_pesan', searchable:false,orderable:true},
+            { data: 'alamat', name: 'alamat', searchable:false,orderable:true},
         ],
         language: {
             lengthMenu : '{{ "Menampilkan _MENU_ data" }}',
@@ -84,14 +88,7 @@
                 previous :  '{{ "Sebelumnya" }}'
             }
         },
-        // buttons: [ 
-        //     'excelHtml5',
-        //     'csvHtml5',
-        //     'pdfHtml5'
-        // ],
-        // dom: 'Bfrtip',
         buttons: [
-            // 'csvHtml5',
            {
                text: '<i class="fa fa-refresh"></i>',
                className: 'btn btn-sm btn-info',

@@ -52,7 +52,7 @@
                   <a href="{{ route('tambahPelanggan') }}">Tambah Data Pelanggan</a>
                 </li>
                 <li>
-                  <a href="{{ route('loaddataPelanggan') }}">Data Pelanggan</a>
+                  <a href="{{ url('all/menu') }}">Data Pelanggan</a>
                 </li>
               </ul>
             </li>
@@ -234,6 +234,7 @@
         </div>
         <div class="col-md-8 col-md-offset-2">&nbsp;
         </div>
+        <div class="modal fade" id="myModelDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         @yield('content')
     </div>
 

@@ -36,4 +36,8 @@ class ListMenu extends Model
     {
         return $this->belongsTo('Modules\All\Entities\Kategori','id_kategori');
     }
+    public function Size()
+    {
+        return $this->belongsTo('Modules\All\Entities\Size','id_size');
+    }
 }

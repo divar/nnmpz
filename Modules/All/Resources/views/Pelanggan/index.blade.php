@@ -48,7 +48,7 @@
     $('#pelanggan-table').DataTable({
         stateSave: true,
         processing: true,
-        serverSide: true,
+        // serverSide: true, 
         pageLength:20,
         // ajax: '{{ url('all/pelanggan/load-data') }}',
         ajax: {
@@ -61,10 +61,10 @@
                                 }
         },
         columns: [
-            { data: 'nomor', name: 'nomor' },
-            { data: 'nama', name: 'nama' },
-            { data: 'alamat', name: 'alamat' },
-            { data: 'no_hp', name: 'no_hp' },
+            { data: 'nomor', name: 'nomor',searchable:false,orderable:true},
+            { data: 'nama', name: 'nama', searchable:false,orderable:true},
+            { data: 'alamat', name: 'alamat', bSearchable:false,orderable:true},
+            { data: 'no_hp', name: 'no_hp', searchable:true,orderable:true},
         ],
         language: {
             lengthMenu : '{{ "Menampilkan _MENU_ data" }}',
@@ -100,15 +100,15 @@
             },
             { extend: 'excel', className: 'btn btn-sm btn-info',text: '<i class="fa fa-file-excel-o"></i>',
                 exportOptions:{
-                   columns:[0,1]
+                   columns:[0,1,2,3]
                 }
             }
 
         ],
-        // bFilter : true,
+        bFilter : true,
         bLengthChange : true, 
         "columnDefs": [ 
-            { className: "center", "targets": [ 0,1 ] }
+            { className: "center", "targets": [ 0,1,2,3 ] }
         ],
         "dom": "<'row'<'col-md-6 col-sm-6'><'col-md-6 col-sm-6'fB>r><'table-scrollable't><'row'<'col-md-6 col-sm-6'i><'col-md-6 col-sm-6'p>>",
     });

@@ -31,4 +31,12 @@ class Transaksi extends Model
         // paginate results
         return $query->paginate(15);
     }
+    public function Pelanggan()
+    {
+        return $this->belongsTo('Modules\All\Entities\Pelanggan','id_pelanggan');
+    }
+    public function Alamat()
+    {
+        return $this->belongsTo('Modules\All\Entities\Alamat','id_alamat');
+    }
 }

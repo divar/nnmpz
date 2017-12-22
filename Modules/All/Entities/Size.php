@@ -4,26 +4,22 @@ namespace Modules\All\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pelanggan extends Model
+class Size extends Model
 {
-    protected $table = 'pelanggans';
+    protected $table = 'sizes';
 	public $guarded = ["id","created_at","updated_at"];
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['nama','id_alamat','email','no_hp','tgl_lahir'];
+    protected $fillable = ['nama'];
     
     public static function findRequested()
     {
-        $query = Alamat::query();
+        $query = ListMenu::query();
 
         // search results based on user input
         \Request::input('id') and $query->where('id',\Request::input('id'));
         \Request::input('nama') and $query->where('nama',\Request::input('nama'));
-        \Request::input('id_alamat') and $query->where('id_alamat',\Request::input('id_alamat'));
-        \Request::input('email') and $query->where('email',\Request::input('email'));
-        \Request::input('no_hp') and $query->where('no_hp',\Request::input('no_hp'));
-        \Request::input('tgl_lahir') and $query->where('no_hp',\Request::input('no_hp'));
         \Request::input('created_at') and $query->where('created_at',\Request::input('created_at'));
         \Request::input('updated_at') and $query->where('updated_at',\Request::input('updated_at'));
         
@@ -33,8 +29,5 @@ class Pelanggan extends Model
         // paginate results
         return $query->paginate(15);
     }
-    public function Alamat()
-    {
-        return $this->belongsTo('Modules\All\Entities\Alamat','id_alamat');
-    }
+
 }

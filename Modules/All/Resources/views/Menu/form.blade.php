@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<?php
-                                    // dd($kabupaten['cities']);
-                                  ?>
+
 <div class="content-wrapper">
 <form action="{{ route('postTambahMenu') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
     <div class="container-fluid">

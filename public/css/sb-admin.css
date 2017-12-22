@@ -194,7 +194,7 @@ body.sidenav-toggled #mainNav.fixed-top #sidenavToggler i {
 
 #mainNav.static-top .sidenav-toggler {
   display: none; }
-
+/* Full width modal */.modal-full.modal-dialog {width: 99%;}@media (max-width: 768px) {.modal-full.modal-dialog {width: auto;}}
 @media (min-width: 992px) {
   #mainNav.static-top .sidenav-toggler {
     display: flex; } }

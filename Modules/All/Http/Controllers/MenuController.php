@@ -38,6 +38,17 @@ class MenuController extends Controller
     
         return $this->view('form',$send);
     }
+    public function popUpMenu()
+    {    
+        $no['no']=\Request::get('no',null);
+        $no['kategori'] = Kategori::all(); 
+        return $this->view('popUpMenu',$no);
+    }
+    public function getSize()
+    {    
+        $no['kategori'] = Kategori::all(); 
+        return $this->view('popUpMenu',$no);
+    }
     /**
      * Show the form for creating a new resource.
      * @return Response
@@ -107,14 +118,27 @@ class MenuController extends Controller
     {
     }
 
+    public function getById()
+    {
+        $idmenu=\Request::get('id_menu',null);
+        $send['dataList'] = ListMenu::select('*')->where('id',$idmenu)->get()->toArray()[0];
+        return $send;
+    }
+
     public function loadData()
     {
-        $GLOBALS['nomor']=\Request::input('start',1)+1;
+        $GLOBALS['nomor']=\Request::input('start',0)+1;
+        $from=\Request::get('from',null);
+        $jenis=\Request::get('jenis',null);
+        $ukuran=\Request::get('ukuran',null);
+        $no=\Request::get('no',null);
         $dataList = ListMenu::select('*');
-        // dd($dataList->get()[0]->nama);
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
+        })
+        ->addColumn('action',function($data) use($from,$no) {
+          return '<button id="pilih" class="btn btn-info" onclick="getMenuById('.$data->id.','.$no.')">Pilih</button>';
         })
         ->addColumn('nama',function($data){
           return $data->nama_menu;

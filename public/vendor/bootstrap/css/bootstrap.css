@@ -5006,7 +5006,7 @@ button.close {
   border: 0;
   -webkit-appearance: none;
 }
-
+/* Full width modal */.modal-full.modal-dialog {width: 99%;}@media (max-width: 768px) {.modal-full.modal-dialog {width: auto;}}
 .modal-open {
   overflow: hidden;
 }

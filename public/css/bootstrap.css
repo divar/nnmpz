@@ -5419,6 +5419,8 @@ button.close {
   outline: 0;
 }
 
+/* Full width modal */.modal-full.modal-dialog {width: 99%;}@media (max-width: 768px) {.modal-full.modal-dialog {width: auto;}}
+    
 .modal.fade .modal-dialog {
   -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
