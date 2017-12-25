@@ -11,7 +11,7 @@ class ListMenu extends Model
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['id_kategori','nama_menu','harga','keterangan'];
+    protected $fillable = ['id_kategori','nama_menu','harga','keterangan','id_size'];
     
     public static function findRequested()
     {

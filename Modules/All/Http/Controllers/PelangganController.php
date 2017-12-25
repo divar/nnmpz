@@ -120,9 +120,8 @@ class PelangganController extends Controller
     }
     public function loadData()
     {
-        $GLOBALS['nomor']=\Request::input('start',1)+1;
+        $GLOBALS['nomor']=\Request::input('start',0)+1;
         $dataList = Pelanggan::select('*');
-        // dd($dataList->get()[0]->nama);
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;

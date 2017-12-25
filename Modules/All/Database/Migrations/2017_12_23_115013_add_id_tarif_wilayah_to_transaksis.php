@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddIdSizeToMenusTable extends Migration
+class AddIdTarifWilayahToTransaksis extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddIdSizeToMenusTable extends Migration
      */
     public function up()
     {
-        Schema::table('menus', function (Blueprint $table) {
-            $table->integer('id_size');
+        Schema::table('transaksis', function (Blueprint $table) {
+            $table->integer('id_tarif_wilayah')->nullable();
         });
     }
 
@@ -25,7 +25,7 @@ class AddIdSizeToMenusTable extends Migration
      */
     public function down()
     {
-        Schema::table('menus', function (Blueprint $table) {
+        Schema::table('', function (Blueprint $table) {
 
         });
     }

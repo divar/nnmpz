@@ -34,4 +34,8 @@ class DetailTransaksi extends Model
         // paginate results
         return $query->paginate(15);
     }
+    public function menu()
+    {
+        return $this->belongsTo('Modules\All\Entities\ListMenu','id_menu');
+    }
 }

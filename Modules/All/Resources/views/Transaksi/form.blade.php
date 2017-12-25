@@ -24,6 +24,7 @@
                 <div class="tab-content">
                     <div class="clearfix">&nbsp;</div>
                     <div class="tab-pane" id="tab_data_pelanggan">
+                             <a href="javascript:window.print();">Print</a>
                         <div class="row">
                             <div class="clearfix">&nbsp;</div>
                             <div class="col-md-5">
@@ -101,16 +102,55 @@
                                   </tr>
                                 </thead>
                                 <tbody id="detail-data-table">
-                                  
+                                    <tr class="data_menu" id="data_ke-0" role="row">
+                                        <td id="layanan_nama_place_0">
+                                        </td>
+                                        <td class="row">
+                                            <div class="col-md-9"><input id="menu_0" type="text" name="menu[]" class="form-control" required="required"/><input type="hidden" id="idmenu_0" name="id_menu[]"/></div>
+                                            <div class="col-md-2">&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button></div>
+                                        </td>
+                                        <td align="right">
+                                            <label id="harga_0"><input type="hidden" id="harga_0" name="harga[]"/></label>
+                                        </td>
+                                        <td class="row">
+                                            <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number" required="required" name="jml[]" class="form-control qtyx"/></div>
+                                        </td>
+                                        <td align="right">
+                                            <label id="total_0"></label>
+                                        </td>
+                                    </tr>
                                 </tbody>
                                 <tfoot id="foot-data-table">
                                     <tr>
-                                        <td colspan="4" align="right">Total</td>
-                                        <td align="right"><label id="grandtotal"><input type="hidden" id="grandtotal" name="grandtotal"></label></td>
+                                        <td colspan="4" align="right">
+                                            <div class="form-inline pull-right">
+                                                <label class="" for="tarifwilayah">Wilayah</label>
+                                                <div class="col-md-2" id="tempattarifwilayah">
+                                                    <select class="form-control" name="tarifwilayah" id="tarifwilayah"> 
+                                                        @foreach ($TarifWilayah as $val)
+                                                            <option value="{{ $val['id'] }}" harga="{{ $val['harga'] }}">{{ $val['nama'] }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td align="right"><label id="texttarifwilayah"><input type="hidden" id="grandtotal" name="grandtotal"></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" align="right">Tax / PPN</td>
+                                        <td align="right"><label id="textppn"><input type="hidden" id="textppn" name="ppn"></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" align="right">Grand Total</td>
+                                        <td align="right"><label id="textgrandtotal"><input type="hidden" id="grandtotal" name="grandtotal"></label></td>
                                     </tr>
                                 </tfoot>
-                                <input type="hidden" value="0" class="hide_count_menu" id="hide_count_menu" type="button" name="hide_count_menu"/>
+                                <input type="hidden" value="1" class="hide_count_menu" id="hide_count_menu" type="button" name="hide_count_menu"/>
                             </table>
+                        </div>
+                        <div class="pull-right">
+                            <input type="submit" name="submit" value="Simpan Pesanan" class="btn btn-info">
+                            <input type="submit" name="submit" value="Input Lagi" class="btn btn-info">
                         </div>
                     </div>
                 </div>
@@ -127,7 +167,8 @@
 @push('js')
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#tab_menu2').click();
+        $('#tab_data_pelanggan2').click();
+        $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
         $('#add_menu').on('click',function(){
             from=$(this).attr('id');
             count=$('#hide_count_menu').val();
@@ -136,6 +177,9 @@
         $('#menu-table').on('change','.qtyx',function(){
             count=$(this).attr('untuk');
             hitungPerbaris(count);
+        });
+        $('#menu-table').on('change','#tarifwilayah',function(){
+            grandTotal();
         });
     });
     function add_data_barang_to_table(count){
@@ -148,27 +192,42 @@
             <td class="row"><div class="col-md-9"><input id="menu_'+count+'" type="text" name="menu[]" class="form-control" required="required"/><input type="hidden" id="idmenu_'+count+'" name="id_menu[]"/></div>\n\
             <div class="col-md-2">&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="showMenu('+count+')" title="Cari Menu"><i class="fa fa-search-plus"></i></button></div></td>\n\
             <td align="right"><label id="harga_'+count+'"><input type="hidden" id="harga_'+count+'" name="harga[]"/></label></td>\n\
-            <td class="row"><div class="col-sm-9"><input id="qty_menu_'+count+'" untuk="'+count+'" type="number" required="required" name="qty[]" class="form-control qtyx"/></div></td>\n\
+            <td class="row"><div class="col-sm-9"><input id="qty_menu_'+count+'" untuk="'+count+'" type="number" required="required" name="jml[]" class="form-control qtyx"/></div></td>\n\
             <td align="right"><label id="total_'+count+'"></label></td>\n\
         </tr>').appendTo('#detail-data-table');
     }
     function delete_data_table(no,stat){
-    if(confirm("Anda yakin akan menghapus data ini?")){
-        var count = $('#hide_count_barang').val();
-        count = count-1;
-        $('#hide_count_barang').val(count);
-        $('#data_ke-'+no).detach();
-        return false;
+        if(confirm("Anda yakin akan menghapus data ini?")){
+            var count = $('#hide_count_menu').val();
+            count = count-1;
+            $('#hide_count_menu').val(count);
+            $('#data_ke-'+no).detach();
+            return false;
+        }
     }
-}
 function hitungPerbaris(no){
-    qty = parseInt($('#qty_menu_'+no).val());
-    harga = parseInt($('#harga_'+no).val());
+    qty = currencyToNumber($('#qty_menu_'+no).val());
+    harga = currencyToNumber($('#harga_'+no).val());
     total = qty*harga;
-    $('#total_'+no).html(total);
-    gt = $('#grandtotal').html();
-    gt = parseInt(gt)+total
-    $('#grandtotal').html(total);
+    $('#total_'+no).html(addCommas(total));
+    grandTotal();
+}
+function grandTotal(){
+    var count = $('#hide_count_menu').val();
+    total=0;
+    console.log(count);
+    for(var i = 0; i < count; i++){
+        total = total + currencyToNumber($('#total_'+i).html());
+        console.log($('#total_'+i).html());
+    }
+    tarifwilayah = $('#tarifwilayah option:selected').attr('harga');
+    gtotal = parseInt(total)+currencyToNumber(tarifwilayah);
+    ppn = gtotal*0.1;
+    gtotal = Math.round(gtotal*1.1);
+    $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
+    $('#textgrandtotal').html(addCommas(gtotal));
+    $('#textppn').html(addCommas(ppn));
+    $('#grandtotal').val(gtotal);
 }
 function getMenuById(idmenu,no){
     $.ajax({
@@ -182,11 +241,12 @@ function getMenuById(idmenu,no){
                 $('#menu_'+no).val(response.dataList.nama_menu);
                 $('#menu_'+no).prop('disabled',true);
                 $('#idmenu_'+no).val(response.dataList.id);
-                $('#harga_'+no).html(response.dataList.harga);
+                $('#harga_'+no).html(addCommas(response.dataList.harga));
                 $('#harga_'+no).val(response.dataList.harga);
                 $('#qty_menu_'+no).val(1);
-                $('#total_'+no).html(response.dataList.harga);
+                $('#total_'+no).html(addCommas(response.dataList.harga));
                 $('.close').click();
+                hitungPerbaris(no);
             }
         });
 }
@@ -206,7 +266,7 @@ function showMenu(no){
         dataType: 'html',
         success: function(msg){
             $('#myModelDialog').on('shown.bs.modal', function () {
-                $('#layanan').focus();
+                // $('#layanan').focus();
             });
 
             $('#myModelDialog').html(msg);
@@ -220,5 +280,8 @@ function showMenu(no){
     });
     return true;
 }
+</script>
+<script language='javascript'>
+
 </script>
 @endpush

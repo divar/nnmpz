@@ -11,17 +11,22 @@
                 <div class="clearfix">&nbsp;</div>
 
                 <div class="portlet-body" style="display: block;">
-                    <div class="col-md-2" id="tempatKategoriMenu">
-                        <select class="form-control" id="kategoriMenu">
-                            @foreach ($kategori as $val)
-                                <option value="{{ $val['id'] }}">{{ $val['nama'] }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-md-2" id="tempatSize">
-                        <select class="form-control" id="size">
-                            
-                        </select>
+                    <div class="">
+                        <div class="form-group form-inline">
+                            <label class="" for="kategoriMenu">jenis menu</label>
+                            <div class="col-md-2" id="tempatKategoriMenu">
+                                <select class="form-control" name="kategori_menu" id="kategoriMenu"> 
+                                    @foreach ($selectKategori as $val)
+                                        <option value="{{ $val['id'] }}">{{ $val['nama'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <label class="" id="labeltempatSize" for="tempatSize">Size</label>
+                            <div class="col-md-2" id="tempatSize">
+                                <select class="form-control" name="size" id="size"> 
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="clearfix">&nbsp;</div>
                     <div class="table-responsive">
@@ -51,14 +56,16 @@
 @push('js')
 <script type="text/javascript">
 $(document).ready(function(){
-    $('#kategoriMenu').on('change',function(){
-        console.log('asdasd');
+    getSize();
+    $('#kategoriMenu').on('change',function(){ 
         getSize();
     });
-    
+    $('#size').on('change',function(){ 
+        table.ajax.reload();
+    }); 
 });
- $(function() {
-    table = $('#menu-table').DataTable({
+
+table = $('#menu-table').DataTable({
         stateSave: true,
         processing: true,
         // serverSide: true,
@@ -69,7 +76,9 @@ $(document).ready(function(){
                                 data: function (d) {
                                     return $.extend( {}, d, {
                                         'from':'popup',
-                                        'no':'{{ $no }}'
+                                        'no':'{{ $no }}',
+                                        'jenis':$('#kategoriMenu option:selected').val(),
+                                        'ukuran':$('#size option:selected').val(),
                                 } );
 
                                 }
@@ -104,12 +113,11 @@ $(document).ready(function(){
         ],
         // "dom": "<'row'<'col-md-6 col-sm-6'><'col-md-6 col-sm-6'fB>r><'table-scrollable't><'row'<'col-md-6 col-sm-6'i><'col-md-6 col-sm-6'p>>",
     });
-    $('.dt-buttons').appendTo('div.dataTables_filter');
-    $('#menu-table_filter').attr('style','float:none;');
-});
+$('.dt-buttons').appendTo('div.dataTables_filter');
+$('#menu-table_filter').attr('style','float:none;');
 
-function getSize(){
-    console.log('asdasd');
+
+function getSize(){ 
     $.ajax({
         type: "GET",
         url: "{{ route('menugetsize') }}",
@@ -118,13 +126,23 @@ function getSize(){
         },  
         dataType: 'json',
         success: function(response){
-            $("#kecamatan").find('option').remove().end();
-            $("#kecamatan").append('<option> Kecamatan </option>');
-        for(var i = 0; i < response.districts.length; i++){
-            
-            $("#kecamatan").append('<option value="' + response.districts[i]['id'] + '">' + response.districts[i]['name'] + '</option>');
-        }
-        $("#kecamatan").prop('disabled',false);
+            if(response.size.length>0){
+                $('#labeltempatSize').attr('class','');
+                $('#tempatSize').attr('class','col-md-2');
+                $('#size').attr('name','size');
+
+                $("#size").find('option').remove().end(); 
+                for(var i = 0; i < response.size.length; i++){ 
+                    $("#size").append('<option value="' + response.size[i]['id'] + '">' + response.size[i]['nama'] + '</option>');
+                }
+            }else {
+                $('#labeltempatSize').attr('class','d-none');
+                $('#tempatSize').attr('class','d-none');
+                $('#size').attr('name','');
+                $("#size").find('option').remove().end();
+                $("#size").append('<option value="all">all</option>'); 
+            }
+            table.ajax.reload();
         }
     });
 }

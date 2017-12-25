@@ -23,15 +23,16 @@
                         <table class="table table-striped table-bordered table-sm table-hover" id="menu-table">
                             <thead>
                                 <tr>
+                                    <th width="13%">#</th>
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Kategori</th>
                                     <th>Harga</th>
+                                    <th>Size</th>
                                     <th>Keterangan</th>                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                
                             </tbody>
                         </table>
                     </div>
@@ -45,8 +46,14 @@
 
 @push('js')
 <script type="text/javascript">
- $(function() {
-    $('#menu-table').DataTable({
+$(document).ready(function(){
+    $('#menu-table').on('click','.DeleteData',function(){
+        id_menu = $(this).attr('id-menu');
+        deleteData(id_menu);
+    });
+});
+ 
+    xtable = $('#menu-table').DataTable({
         stateSave: true,
         processing: true,
         // serverSide: true,
@@ -62,10 +69,12 @@
                                 }
         },
         columns: [
+            { data: 'action', name: 'action', searchable:false,orderable:true},
             { data: 'nomor', name: 'nomor', searchable:false,orderable:true},
             { data: 'nama', name: 'nama', searchable:true,orderable:true},
             { data: 'kategori', name: 'kategori', searchable:false,orderable:true},
             { data: 'harga', name: 'harga', searchable:false,orderable:true},
+            { data: 'ukuran', name: 'ukuran', searchable:false,orderable:true},
             { data: 'keterangan', name: 'keterangan', searchable:false,orderable:true},
         ],
         language: {
@@ -93,14 +102,14 @@
         buttons: [
             // 'csvHtml5',
            {
-               text: '<i class="fa fa-refresh"></i>',
+               text: '<i class="fa fa-refresh"> refresh</i>',
                className: 'btn btn-sm btn-info',
                action: function ( e, dt, node, config ) {
                    dt.ajax.reload();
                    // alert('Datatable reloaded!');
                }
             },
-            { extend: 'excel', className: 'btn btn-sm btn-info',text: '<i class="fa fa-file-excel-o"></i>',
+            { extend: 'excel', className: 'btn btn-sm btn-info',text: '<i class="fa fa-file-excel-o"> export</i>',
                 exportOptions:{
                    columns:[0,1]
                 }
@@ -116,7 +125,20 @@
     });
     $('.dt-buttons').appendTo('div.dataTables_filter');
     $('#menu-table_filter').attr('style','float:none;');
-});
 
+function deleteData(id_menu){
+    $.ajax({
+        type: "GET",
+        url: "{{ url('all/menu/delete') }}/"+id_menu,
+        data: {
+                        
+        },  
+        dataType: 'json',
+        success: function(response){
+            
+        }
+    });
+    xtable.ajax.reload();
+}
 </script>
 @endpush

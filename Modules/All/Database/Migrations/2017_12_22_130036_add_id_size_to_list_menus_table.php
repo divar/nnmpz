@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarifWilayahsTable extends Migration
+class AddIdSizeToListMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateTarifWilayahsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarif_wilayahs', function (Blueprint $table) {
-            $table->increments('id');
-
-            $table->timestamps();
+        Schema::table('list_menus', function (Blueprint $table) {
+            $table->integer('id_size');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateTarifWilayahsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarif_wilayahs');
+        Schema::table('menus', function (Blueprint $table) {
+
+        });
     }
 }

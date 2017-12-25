@@ -19,6 +19,17 @@
                         </div>
                     </div>
                     <div class="clearfix">&nbsp;</div>
+                    <div class="row">
+                        <div class='col-sm-2'>
+                            <input type="text" value="{{ date('d-m-Y') }}" id="fromdate" readonly class="date-picker">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" value="{{ date('d-m-Y') }}" id="todate" readonly class="date-picker">
+                        </div>
+                        <div class="col-md-2">
+                            <button onclick="refresh()" class="btn btn-info" type="button">Cari</button>
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-sm table-hover" id="menu-table">
                             <thead>
@@ -47,8 +58,14 @@
 
 @push('js')
 <script type="text/javascript">
+    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+ $("#fromdate").datepicker({format: 'dd-mm-yyyy',uiLibrary: 'bootstrap4',iconsLibrary: 'fontawesome',maxDate: today});
+ $("#todate").datepicker({format: 'dd-mm-yyyy',uiLibrary: 'bootstrap4',iconsLibrary: 'fontawesome',maxDate: today});
+function refresh(){
+    table.ajax.reload();
+}
  $(function() {
-    $('#menu-table').DataTable({
+    table = $('#menu-table').DataTable({
         stateSave: true,
         processing: true,
         // serverSide: true,
@@ -58,7 +75,8 @@
             url:"{{ url('all/transaksi/load-data') }}",
                                 data: function (d) {
                                     return $.extend( {}, d, {
-                                    
+                                    'from':$('#fromdate').val(),
+                                    'to':$('#todate').val(),
                                 } );
 
                                 }
@@ -90,16 +108,16 @@
         },
         buttons: [
            {
-               text: '<i class="fa fa-refresh"></i>',
+               text: '<i class="fa fa-refresh"> refresh</i>',
                className: 'btn btn-sm btn-info',
                action: function ( e, dt, node, config ) {
                    dt.ajax.reload();
                    // alert('Datatable reloaded!');
                }
             },
-            { extend: 'excel', className: 'btn btn-sm btn-info',text: '<i class="fa fa-file-excel-o"></i>',
+            { extend: 'excel', className: 'btn btn-sm btn-info',text: '<i class="fa fa-file-excel-o"> export excel</i>',
                 exportOptions:{
-                   columns:[0,1]
+                   columns:[0,1,2,3,4,5,7]
                 }
             }
 
@@ -107,7 +125,7 @@
         // bFilter : true,
         bLengthChange : true, 
         "columnDefs": [ 
-            { className: "center", "targets": [ 0,1 ] }
+            { className: "center", "targets": [ 0,6 ] }
         ],
         "dom": "<'row'<'col-md-6 col-sm-6'><'col-md-6 col-sm-6'fB>r><'table-scrollable't><'row'<'col-md-6 col-sm-6'i><'col-md-6 col-sm-6'p>>",
     });
