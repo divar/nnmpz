@@ -12,6 +12,7 @@
         "laravolt/indonesia": "^0.7.0",
         "lavary/laravel-menu": "^1.7",
         "maatwebsite/excel": "~2.1.0",
+        "nesbot/carbon": "^1.22",
         "nwidart/laravel-modules": "^2.6",
         "santigarcor/laratrust": "5.0.*",
         "yajra/laravel-datatables-oracle": "~8.0"

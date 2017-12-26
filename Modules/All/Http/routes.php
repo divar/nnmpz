@@ -21,6 +21,8 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::get('menu/load-data', 'MenuController@loadData');
     Route::get('menu', 'MenuController@index')->name('loaddataMenu');
 
+    Route::get('transaksi/edit/{id}', 'TransaksiController@edit')->name('editTransaksi');
+    Route::post('transaksi/postedit', 'TransaksiController@update')->name('postEditTransaksi');
     Route::get('transaksi/tambah', 'TransaksiController@tambahTransaksi')->name('tambahTransaksi');
     Route::post('transaksi/posttambah', 'TransaksiController@store')->name('postTambahTransaksi');
     Route::get('transaksi/load-data', 'TransaksiController@loadData');

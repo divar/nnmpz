@@ -47,12 +47,12 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('#TarifWilayah-table').on('click','.DeleteData',function(){
-        id_menu = $(this).attr('id-tarif');
-        deleteData(id_menu);
+        id_tarif = $(this).attr('id-tarif');
+        deleteData(id_tarif);
     });
 });
  $(function() {
-    table = $('#TarifWilayah-table').DataTable({
+    xtable = $('#TarifWilayah-table').DataTable({
         stateSave: true,
         processing: true,
         // serverSide: true,
@@ -122,10 +122,10 @@ $(document).ready(function(){
     $('.dt-buttons').appendTo('div.dataTables_filter');
     $('#TarifWilayah-table_filter').attr('style','float:none;');
 });
-function deleteData(id_menu){
+function deleteData(id_tarif){
     $.ajax({
         type: "GET",
-        url: "{{ url('all/menu/delete') }}/"+id_menu,
+        url: "{{ url('all/TarifWilayah/delete') }}/"+id_tarif,
         data: {
                         
         },  

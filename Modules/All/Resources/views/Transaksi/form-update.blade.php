@@ -2,12 +2,12 @@
 
 @section('sub-content')
 <div class="content-wrapper">
-<form action="{{ route('postTambahTransaksi') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+<form action="{{ route('postEditTransaksi') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
     <div class="container-fluid">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <H3>Tambah Transaksi</H3>
+                    <H3>Edit Transaksi</H3>
                 </div>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="clearfix">&nbsp;</div>
@@ -21,6 +21,9 @@
                         </li>
                     </ul>
                 </nav>
+                <input type="hidden" name="id_pelanggan" value="{{ $Pelanggan['id'] }}">
+                <input type="hidden" name="id_alamat" value="{{ $Alamat['id'] }}">
+                <input type="hidden" name="id_transaksi" value="{{ $Transaksi['id'] }}">
                 <div class="tab-content">
                     <div class="clearfix">&nbsp;</div>
                     <div class="tab-pane" id="tab_data_pelanggan">
@@ -30,26 +33,26 @@
                                 <div class="form-group row">
                                     <label for="nama" class="col-md-3 col-form-label">Nama</label>
                                     <div class="col-md-9">
-                                        <input id="nama" type="text" name="nama" class="form-control" placeholder="Nama" required="required">
+                                        <input id="nama" type="text" name="nama" class="form-control" placeholder="Nama" required="required" value="{{ $Pelanggan['nama'] }}">
                                     </div>  
                                 </div>
                                 <div class="form-group row">
                                     <label for="no_hp" class="col-md-3 col-form-label">No Hp</label>
                                     <div class="col-md-9">
-                                        <input id="no_hp" type="text" name="no_hp" class="form-control" placeholder="0821xxxxxx" required="required">
+                                        <input id="no_hp" type="text" name="no_hp" class="form-control" placeholder="0821xxxxxx" required="required" value="{{ $Pelanggan['no_hp'] }}">
                                     </div>  
                                 </div>
                                 <div class="form-group d-none row">
                                     <label for="email" class="col-md-3 col-form-label">E-mail</label>
                                     <div class="col-md-9">
-                                        <input id="email" type="email" name="email" class="form-control" placeholder="nanamia@nanamiapizza.com">
+                                        <input id="email" type="email" name="email" class="form-control" placeholder="nanamia@nanamiapizza.com" value="{{ $Pelanggan['email'] }}">
                                     </div>  
                                 </div>
                                 <div class="form-group row">
                                     <label for="alamat" class="col-md-3 col-form-label">Alamat</label>
                                     <div class="col-md-9">
                                         <textarea id="alamat" class="form-control" name="alamat">
-                                            
+                                            {{ $Alamat['alamat'] }}
                                         </textarea>
                                     </div>  
                                 </div>
@@ -108,19 +111,40 @@
                                         <td id="layanan_nama_place_0">
                                         </td>
                                         <td class="row">
-                                            <div class="col-md-9"><input id="menu_0" type="text" name="menu[]" class="form-control" required="required"/><input type="hidden" id="idmenu_0" name="id_menu[]"/></div>
+                                            <div class="col-md-9"><input id="menu_0" type="text" name="menu[]" class="form-control" required="required" value="{{ $DetailTransaksi['0']->menu->nama_menu }}" /><input type="hidden" value="{{ $DetailTransaksi[0]->menu->id }}" id="idmenu_0" name="id_menu[]"/></div>
                                             <div class="col-md-2">&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button></div>
                                         </td>
                                         <td align="right">
-                                            <label id="harga_0"><input type="hidden" id="harga_0" name="harga[]"/></label>
+                                            <label id="textharga_0">{{ $DetailTransaksi[0]->harga }}<input type="hidden" id="harga_0" name="harga[]" value="{{ nominalKoma($DetailTransaksi[0]->harga, false) }}" /></label>
                                         </td>
                                         <td class="row">
-                                            <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number" required="required" name="jml[]" class="form-control qtyx"/></div>
+                                            <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number" value="{{ $DetailTransaksi[0]->jml }}" required="required" name="jml[]" class="form-control qtyx"/></div>
                                         </td>
                                         <td align="right">
-                                            <label id="total_0"></label>
+                                            <label id="total_0">{{ nominalKoma($DetailTransaksi[0]->sub_total, false) }}</label>
                                         </td>
+                                        <input type="hidden" name="id_detail_transaksi[]" value="{{ $DetailTransaksi[0]->id }}">
                                     </tr>
+                                    @for ($i = 1; $i < count($DetailTransaksi); $i++)
+                                        <tr class="data_menu" id="data_ke-{{ $i }}" role="row">
+                                        <td id="layanan_nama_place_0">
+                                        </td>
+                                        <td class="row">
+                                            <div class="col-md-9"><input id="menu_{{ $i }}" type="text" name="menu[]" class="form-control" required="required" value="{{ $DetailTransaksi['0']->menu->nama_menu }}" /><input type="hidden" value="{{ $DetailTransaksi[$i]->menu->id }}" id="idmenu_{{ $i }}" name="id_menu[]"/></div>
+                                            <div class="col-md-2">&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button></div>
+                                        </td>
+                                        <td align="right">
+                                            <label id="textharga_{{ $i }}">{{ nominalKoma($DetailTransaksi[$i]->harga,false) }}<input type="hidden" id="harga_{{ $i }}" name="harga[]" value="{{ $DetailTransaksi[$i]->harga }}" /></label>
+                                        </td>
+                                        <td class="row">
+                                            <div class="col-sm-9"><input id="qty_menu_{{ $i }}" untuk="{{ $i }}" type="number" value="{{ $DetailTransaksi[$i]->jml }}" required="required" name="jml[]" class="form-control qtyx"/></div>
+                                        </td>
+                                        <td align="right">
+                                            <label id="total_{{ $i }}">{{ nominalKoma($DetailTransaksi[$i]->sub_total,false) }}</label>
+                                        </td>
+                                        <input type="hidden" name="id_detail_transaksi[]" value="{{ $DetailTransaksi[$i]->id }}">
+                                    </tr>
+                                    @endfor
                                 </tbody>
                                 <tfoot id="foot-data-table">
                                     <tr>
@@ -130,7 +154,7 @@
                                                 <div class="col-md-2" id="tempattarifwilayah">
                                                     <select class="form-control" name="tarifwilayah" id="tarifwilayah"> 
                                                         @foreach ($TarifWilayah as $val)
-                                                            <option value="{{ $val['id'] }}" harga="{{ $val['harga'] }}">{{ $val['nama'] }}</option>
+                                                            <option value="{{ $val['id'] }}" {{ $Transaksi['id_tarif_wilayah']==$val['id']?'selected="selected"':'' }} harga="{{ $val['harga'] }}">{{ $val['nama'] }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -140,14 +164,14 @@
                                     </tr>
                                     <tr>
                                         <td colspan="4" align="right">Tax / PPN</td>
-                                        <td align="right"><label id="textppn"><input type="hidden" id="textppn" name="ppn"></label></td>
+                                        <td align="right"><label id="textppn">{{ nominalKoma($Transaksi['ppn'],false) }}<input type="hidden" id="textppn" name="ppn"></label></td>
                                     </tr>
                                     <tr>
                                         <td colspan="4" align="right">Grand Total</td>
-                                        <td align="right"><label id="textgrandtotal"><input type="hidden" id="grandtotal" name="grandtotal"></label></td>
+                                        <td align="right"><label id="textgrandtotal">{{ nominalKoma($Transaksi['total_harga']+$Transaksi['ppn'],false) }}<input type="hidden" id="grandtotal" name="grandtotal"></label></td>
                                     </tr>
                                 </tfoot>
-                                <input type="hidden" value="1" class="hide_count_menu" id="hide_count_menu" type="button" name="hide_count_menu"/>
+                                <input type="hidden" value="{{ isset($DetailTransaksi)?count($DetailTransaksi):1 }}" class="hide_count_menu" id="hide_count_menu" type="button" name="hide_count_menu"/>
                             </table>
                         </div>
                         <div class="pull-right">
@@ -193,7 +217,7 @@
             </td>\n\
             <td class="row"><div class="col-md-9"><input id="menu_'+count+'" type="text" name="menu[]" class="form-control" required="required"/><input type="hidden" id="idmenu_'+count+'" name="id_menu[]"/></div>\n\
             <div class="col-md-2">&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="showMenu('+count+')" title="Cari Menu"><i class="fa fa-search-plus"></i></button></div></td>\n\
-            <td align="right"><label id="harga_'+count+'"><input type="hidden" id="harga_'+count+'" name="harga[]"/></label></td>\n\
+            <td align="right"><label id="textharga_'+count+'"><input type="hidden" id="harga_'+count+'" name="harga[]"/></label></td>\n\
             <td class="row"><div class="col-sm-9"><input id="qty_menu_'+count+'" untuk="'+count+'" type="number" required="required" name="jml[]" class="form-control qtyx"/></div></td>\n\
             <td align="right"><label id="total_'+count+'"></label></td>\n\
         </tr>').appendTo('#detail-data-table');
@@ -211,16 +235,15 @@ function hitungPerbaris(no){
     qty = currencyToNumber($('#qty_menu_'+no).val());
     harga = currencyToNumber($('#harga_'+no).val());
     total = qty*harga;
+    console.log(qty+' '+harga);
     $('#total_'+no).html(addCommas(total));
     grandTotal();
 }
 function grandTotal(){
     var count = $('#hide_count_menu').val();
-    total=0;
-    console.log(count);
+    total=0; 
     for(var i = 0; i < count; i++){
-        total = total + currencyToNumber($('#total_'+i).html());
-        console.log($('#total_'+i).html());
+        total = total + currencyToNumber($('#total_'+i).html()); 
     }
     tarifwilayah = $('#tarifwilayah option:selected').attr('harga');
     gtotal = parseInt(total)+currencyToNumber(tarifwilayah);
@@ -243,7 +266,7 @@ function getMenuById(idmenu,no){
                 $('#menu_'+no).val(response.dataList.nama_menu);
                 $('#menu_'+no).prop('disabled',true);
                 $('#idmenu_'+no).val(response.dataList.id);
-                $('#harga_'+no).html(addCommas(response.dataList.harga));
+                $('#textharga_'+no).html(addCommas(response.dataList.harga));
                 $('#harga_'+no).val(response.dataList.harga);
                 $('#qty_menu_'+no).val(1);
                 $('#total_'+no).html(addCommas(response.dataList.harga));

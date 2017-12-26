@@ -34,11 +34,13 @@
                         <table class="table table-striped table-bordered table-sm table-hover" id="menu-table">
                             <thead>
                                 <tr>
+                                    <th width="7%">#</th>
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>No Hp</th>
                                     <th>Tanggal Lahir</th>
                                     <th>Pesanan</th>                                    
+                                    <th>Total</th>                                    
                                     <th>Tanggal Pesan</th>                                    
                                     <th>Alamat</th>                                    
                                 </tr>
@@ -58,7 +60,7 @@
 
 @push('js')
 <script type="text/javascript">
-    today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    today = {{ date('d-m-Y') }};
  $("#fromdate").datepicker({format: 'dd-mm-yyyy',uiLibrary: 'bootstrap4',iconsLibrary: 'fontawesome',maxDate: today});
  $("#todate").datepicker({format: 'dd-mm-yyyy',uiLibrary: 'bootstrap4',iconsLibrary: 'fontawesome',maxDate: today});
 function refresh(){
@@ -82,11 +84,13 @@ function refresh(){
                                 }
         },
         columns: [
+            { data: 'action', name: 'action', searchable:false,orderable:true},
             { data: 'nomor', name: 'nomor', searchable:false,orderable:true},
             { data: 'nama', name: 'nama', searchable:false,orderable:true},
             { data: 'no_hp', name: 'no_hp', searchable:true,orderable:true},
             { data: 'tgl_lahir', name: 'tgl_lahir', searchable:false,orderable:true},
             { data: 'pesanan', name: 'pesanan', searchable:false,orderable:true},
+            { data: 'total', name: 'total', searchable:false,orderable:true},
             { data: 'tgl_pesan', name: 'tgl_pesan', searchable:false,orderable:true},
             { data: 'alamat', name: 'alamat', searchable:false,orderable:true},
         ],
