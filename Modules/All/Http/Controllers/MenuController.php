@@ -181,13 +181,13 @@ class MenuController extends Controller
         $jenis=\Request::get('jenis',null);
         $ukuran=\Request::get('ukuran',null);
         $no=\Request::get('no',null);
-        $dataList = ListMenu::select('*')->whereNull('trash');
+        $dataList = ListMenu::select('*')->whereNull('trash'); 
         if(!empty($jenis) && $jenis != null && $jenis != ''){
           $dataList->where('id_kategori',$jenis);
         }
         if(!empty($ukuran) && $ukuran != null && $ukuran != ''){
           $dataList->where('id_size',$ukuran);
-        }
+        } 
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
@@ -204,7 +204,7 @@ class MenuController extends Controller
           return $data->nama_menu;
         })
         ->addColumn('kategori',function($data){
-          return $data->kategori['nama'];
+          return $data->kategori->nama;
         })
         ->addColumn('harga',function($data){
           return $data->harga;
@@ -213,7 +213,10 @@ class MenuController extends Controller
           return $data->keterangan;
         })
         ->addColumn('ukuran',function($data){
-          return $data->size->nama;
+          if($data->id_size != 0 && isset($data->id_size) && !empty($data->id_size)){
+            return $data->size->nama;
+          }
+          return 'tidak ada ukuran';
         })
         ->make(true);
     }
