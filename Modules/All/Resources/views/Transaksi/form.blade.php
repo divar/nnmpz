@@ -48,9 +48,7 @@
                                 <div class="form-group row">
                                     <label for="alamat" class="col-md-3 col-form-label">Alamat</label>
                                     <div class="col-md-9">
-                                        <textarea id="alamat" class="form-control" name="alamat">
-                                            
-                                        </textarea>
+                                        <textarea id="alamat" class="form-control" name="alamat"></textarea>
                                     </div>  
                                 </div>
                                 <div class="form-group d-none row">

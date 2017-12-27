@@ -81,10 +81,12 @@ class TransaksiController extends Controller
                 'created_at'=>date('Y-m-d'),
             ];
             $insertAlamat = Alamat::create($dataAlamat);
+            $getNextNoKwitansi = getNextNoKwitansi();
             $dataTransaksi = [
                 'id_pelanggan'=>$insertPelanggan->id,
                 'id_alamat'=>$insertAlamat->id,
                 'id_tarif_wilayah'=>$tarifwilayah,
+                'no_kwitansi'=> $getNextNoKwitansi,
                 'created_at'=>date('Y-m-d'),
             ];
             $insertTransaksi = Transaksi::create($dataTransaksi);
@@ -127,8 +129,8 @@ class TransaksiController extends Controller
 
     public function cetakNota(Request $request, $id=3)
     {
-        $sendNota['Transaksi'] = Transaksi::where('id',$id)->get();
-        $sendNota['DetailTransaksi'] = DetailTransaksi::where('id_transaksi',$id)->get();
+        $sendNota['Transaksi'] = Transaksi::with('Pelanggan')->where('id',$id)->get();
+        $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->where('id_transaksi',$id)->get();
         return $this->view('kwitansi',$sendNota); 
     }
 

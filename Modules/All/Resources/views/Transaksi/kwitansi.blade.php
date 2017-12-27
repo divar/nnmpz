@@ -7,87 +7,83 @@
                 <div class="panel-heading"> 
                 </div>
                 <div class="container">
-    <div class="row">
+    <div id="print-area" class="row">
         <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <address>
-                        <strong>AllyTees.com</strong>
+                        <strong>NanamiaPizza.com</strong>
                         <br>
-                        P.O. Box 2012
+                        Jl. MOSES GATOTKACA B9-17
                         <br>
-                        Detroit, Mi 48000
+                        Yogyakarta
                         <br>
-                        <abbr title="Phone">P:</abbr> (213) 484-6829
+                        <abbr>Phone :</abbr> (0274) 556-494
                     </address>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 text-right">
                     <p>
-                        <em>Date: November, 12 2013</em>
+                        <em>Date: {{ date('d F Y') }}</em>
                     </p>
                     <p>
-                        <em>Receipt #: 0000015</em>
+                        <em>Receipt #: {{ $Transaksi[0]->no_kwitansi }}</em>
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div class="text-center"> 
-                    <h1>Receipt</h1>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center"> 
+                    <h3>Pesanan A.N : {{ $Transaksi[0]->pelanggan->nama }}</h3>
                 </div>
-                </span>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Product</th>
-                            <th>#</th>
-                            <th class="text-center">Price</th>
+                            <th>Menu</th>
+                            <th>QTY</th>
+                            <th class="text-center">Harga</th>
                             <th class="text-center">Total</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($DetailTransaksi as $val)
                         <tr>
-                            <td class="col-md-9"><em>my best-friend is transgender</em></h4></td>
-                            <td class="col-md-1" style="text-align: center"> 2 </td>
-                            <td class="col-md-1 text-center">$28</td>
-                            <td class="col-md-1 text-center">$56</td>
+                            <td><em>{{ $val['menu']->nama_menu }}</em></td>
+                            <td style="text-align: center"> {{ $val['jml'] }} </td>
+                            <td align="right">{{ nominalKoma($val['harga'],true) }}</td>
+                            <td align="right">{{ nominalKoma($val['sub_total'],true) }}</td>
                         </tr>
-                        <tr>
-                            <td class="col-md-9"><em>my best-friend is transgender</em></h4></td>
-                            <td class="col-md-1" style="text-align: center"> 1 </td>
-                            <td class="col-md-1 text-center">$28</td>
-                            <td class="col-md-1 text-center">$28</td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td class="text-right">
-                            <p>
-                                <strong>Subtotal: </strong>
-                            </p>
-                            <p>
-                                <strong>Tax: </strong>
-                            </p></td>
-                            <td class="text-center">
-                            <p>
-                                <strong>$6.94</strong>
-                            </p>
-                            <p>
-                                <strong>$6.94</strong>
-                            </p></td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                            <td class="text-center text-danger"><h4><strong>$31.53</strong></h4></td>
-                        </tr>
+                        @endforeach
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>   </td>
+                            <td colspan="2" class="text-right">
+                                <p><strong>Subtotal: </strong></p>
+                                <p><strong>Tax 10%: </strong></p>
+                            </td>
+                            <td  align="right">
+                            <p>
+                                <strong>{{ nominalKoma($Transaksi[0]->total_harga,true) }}</strong>
+                            </p>
+                            <p>
+                                <strong>{{ nominalKoma($Transaksi[0]->ppn,true) }}</strong>
+                            </p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"  align="right">
+                                <div class=" pull-right form-inline">
+                                <h4><strong>Total: </strong></h4>
+                                <h5><strong class="text-danger">
+                                {{ nominalKoma($Transaksi[0]->total_harga+$Transaksi[0]->ppn,true) }}</strong></h5>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
                 <div>
-                    <h1 style="text-align:center;">
+                    {{-- <h1 style="text-align:center;">
                         Thank you for your order.
                     </h1>
-                    
+                     --}}
                 </div>
             </div>
         </div>
@@ -101,6 +97,8 @@
 
 @push('js')
 <script type="text/javascript">
- 
+    $(document).ready(function(){
+        $('#print-area').printArea();
+    });
 </script>
 @endpush
