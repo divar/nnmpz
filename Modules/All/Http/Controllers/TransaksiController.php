@@ -10,6 +10,7 @@ use Modules\All\Entities\TarifWilayah;
 use Modules\All\Entities\Size;
 use Modules\All\Entities\ListMenu;
 use Indonesia;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -131,7 +132,11 @@ class TransaksiController extends Controller
     {
         $sendNota['Transaksi'] = Transaksi::with('Pelanggan')->where('id',$id)->get();
         $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->where('id_transaksi',$id)->get();
-        return $this->view('kwitansi',$sendNota); 
+        $height = count($sendNota['DetailTransaksi'])*45;
+        $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
+        $pdf= PDF::loadView('all::Transaksi.kwitansi', $sendNota);
+        $pdf = $pdf->setPaper(array(20,20,204,350+$height),'portrait')->setWarnings(false)->save($namafile);
+        return redirect('all/transaksi');
     }
 
     /**
