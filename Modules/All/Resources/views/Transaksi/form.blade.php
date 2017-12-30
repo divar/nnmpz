@@ -2,7 +2,7 @@
 
 @section('sub-content')
 <div class="content-wrapper">
-<form action="{{ route('postTambahTransaksi') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+<form action="{{ route('postTambahTransaksi') }}" id="form-transaksi" method="POST" target="_blank" name="tambahMenu-form" enctype="multipart/form-data">
     <div class="container-fluid">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -149,8 +149,8 @@
                             </table>
                         </div>
                         <div class="pull-right">
-                            <input type="submit" name="submit" value="Simpan Pesanan" class="btn btn-info">
-                            <input type="submit" name="submit" value="Input Lagi" class="btn btn-info">
+                            <input type="submit" id="simpan" name="submit" value="Simpan Pesanan" class="btn btn-info submit">
+                            <input type="submit" id="inputlagi" name="submit" value="Input Lagi" class="btn btn-info submit">
                         </div>
                     </div>
                 </div>
@@ -180,6 +180,13 @@
         });
         $('#menu-table').on('change','#tarifwilayah',function(){
             grandTotal();
+        });
+        $('#form-transaksi').on('click','.submit', function(e){
+            // e.preventDefault(e);
+            window.open('{{ url('all/transaksi') }}','_blank'); 
+            $.when($('#form-transaksi').submit()).then(
+                window.close()
+            );    
         });
     });
     function add_data_barang_to_table(count){

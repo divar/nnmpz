@@ -136,7 +136,8 @@ class TransaksiController extends Controller
         $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
         $pdf= PDF::loadView('all::Transaksi.kwitansi', $sendNota);
         $pdf = $pdf->setPaper(array(20,20,204,350+$height),'portrait')->setWarnings(false)->save($namafile);
-        return redirect('all/transaksi');
+        return $pdf->stream($namafile);
+        // return redirect('all/transaksi');
     }
 
     /**

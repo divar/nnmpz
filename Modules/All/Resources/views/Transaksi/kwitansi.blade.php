@@ -7,7 +7,7 @@
     line-height: 24px;
     font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
     color: #555;
-    transform: scale(0.70);
+    transform: scale(0.59);
     position: absolute;
     transform-origin: 0 0;
 }
@@ -180,7 +180,7 @@
                         </td>
                         
                         <td>
-                            $10.00
+                            {{ nominalKoma($Transaksi[0]->ppn,true) }}
                         </td>
                     </tr>
                     
@@ -188,7 +188,7 @@
                         <td colspan="3"></td>
                         
                         <td>
-                           Total: $385.00
+                           {{ nominalKoma($Transaksi[0]->ppn + $Transaksi[0]->total_harga, true) }}
                         </td>
                     </tr>
                 </table>
