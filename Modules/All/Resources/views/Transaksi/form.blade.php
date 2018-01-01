@@ -2,7 +2,7 @@
 
 @section('sub-content')
 <div class="content-wrapper">
-<form action="{{ route('postTambahTransaksi') }}" id="form-transaksi" method="POST" target="_blank" name="tambahMenu-form" enctype="multipart/form-data">
+<form action="{{ route('postTambahTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
     <div class="container-fluid">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -167,6 +167,9 @@
 @push('js')
 <script type="text/javascript">
     $(document).ready(function(){
+        @if(session('id'))
+            open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); 
+        @endif
         $('#tab_data_pelanggan2').click();
         $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
         $('#add_menu').on('click',function(){
@@ -180,13 +183,6 @@
         });
         $('#menu-table').on('change','#tarifwilayah',function(){
             grandTotal();
-        });
-        $('#form-transaksi').on('click','.submit', function(e){
-            // e.preventDefault(e);
-            window.open('{{ url('all/transaksi') }}','_blank'); 
-            $.when($('#form-transaksi').submit()).then(
-                window.close()
-            );    
         });
     });
     function add_data_barang_to_table(count){

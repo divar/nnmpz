@@ -60,7 +60,12 @@
 
 @push('js')
 <script type="text/javascript">
-    today = {{ date('d-m-Y') }};
+$(document).ready(function(){
+    @if(session('id'))
+        open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); 
+    @endif
+});
+today = {{ date('d-m-Y') }};
  $("#fromdate").datepicker({format: 'dd-mm-yyyy',uiLibrary: 'bootstrap4',iconsLibrary: 'fontawesome',maxDate: today});
  $("#todate").datepicker({format: 'dd-mm-yyyy',uiLibrary: 'bootstrap4',iconsLibrary: 'fontawesome',maxDate: today});
 function refresh(){

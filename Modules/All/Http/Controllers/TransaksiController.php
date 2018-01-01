@@ -63,7 +63,7 @@ class TransaksiController extends Controller
     {
         DB::beginTransaction();
         try {
-            $r = $request->all(); 
+            $r = $request->all();
             $nama = (isset($r['nama'])?$r['nama']:'');
             $email = (isset($r['email'])?$r['email']:'');
             $no_hp = (isset($r['no_hp'])?$r['no_hp']:'');
@@ -117,22 +117,27 @@ class TransaksiController extends Controller
             $insertTransaksi->ppn = $grandtotal*0.1;
             $insertTransaksi->save();
             $return = 'sukses';
-            if(!empty($r['return'])){
-                $return = $r['return'];
+            if(!empty($r['submit']) && $r['submit']== 'Input Lagi'){
+                $return = $r['submit'];
             }
         } catch (Exception $e) {
             DB::rollBack();
             $return = 'gagal';
+            // , 'id'=>$insertTransaksi->id
         }
         DB::commit();
-        return redirect("all/cetaknota/$insertTransaksi->id");
+        if($return == 'Input Lagi'){
+            return redirect('all/transaksi/tambah')->with('return',$return)->with('id',$insertTransaksi->id);
+        }else{
+            return redirect('all/transaksi')->with('return',$return)->with('id',$insertTransaksi->id);
+        }
     }
 
-    public function cetakNota(Request $request, $id=3)
+    public function cetakNota(Request $request, $id=0)
     {
         $sendNota['Transaksi'] = Transaksi::with('Pelanggan')->where('id',$id)->get();
         $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->where('id_transaksi',$id)->get();
-        $height = count($sendNota['DetailTransaksi'])*45;
+        $height = count($sendNota['DetailTransaksi'])*48;
         $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
         $pdf= PDF::loadView('all::Transaksi.kwitansi', $sendNota);
         $pdf = $pdf->setPaper(array(20,20,204,350+$height),'portrait')->setWarnings(false)->save($namafile);

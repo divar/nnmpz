@@ -1,13 +1,14 @@
 
 <style>
 .invoice-box {
-    max-width: 800px;
+    width: 310px;
     margin: auto;
-    font-size: 16px;
+    margin-top: 0;
+    font-size: 12px;
     line-height: 24px;
     font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
     color: #555;
-    transform: scale(0.59);
+    transform: scale(0.69);
     position: absolute;
     transform-origin: 0 0;
 }
@@ -92,26 +93,8 @@
     text-align: left;
 }
 </style>
-
 <div class="invoice-box">
     <table cellpadding="0" cellspacing="0">
-        <!-- <tr class="top">
-            <td colspan="2">
-                <table>
-                    <tr>
-                        <td class="title">
-                            <!--{{-- <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;"> --}}--
-                        </td>
-                        
-                        <td>
-                            Invoice :  {{ $Transaksi[0]->no_kwitansi }}<br>
-                            Created : {{ date('d F Y') }}
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-         -->
         <tr class="information">
             <td colspan="2">
                 <table>
@@ -145,16 +128,16 @@
             <td colspan="2">
                 <table>
                     <tr class="heading">
-                        <td width="50%">
+                        <td width="35%">
                             Nama Menu
                         </td>
-                        <td>
+                        <td width="5%">
                             Qty
                         </td>
-                        <td width="20%">
+                        <td width="30%">
                             Harga
                         </td>
-                        <td width="20%">
+                        <td width="30%">
                             Subtotal
                         </td>
                     </tr>
