@@ -139,9 +139,12 @@
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('logout') }}">
+              {{-- <a class="nav-link" href="{{ route('logout') }}">
                 <i class="fa fa-fw fa-sign-out"></i>Logout
-              </a>
+              </a> --}}
+              <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
             </li>
             {{-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
