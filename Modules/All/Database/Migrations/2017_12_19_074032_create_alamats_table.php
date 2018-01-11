@@ -22,6 +22,8 @@ class CreateAlamatsTable extends Migration
             $table->string('kabupaten')->nullable();
             $table->string('provinsi')->nullable();
             $table->string('trash')->nullable();
+            $table->integer('user_input')->nullable();
+            $table->integer('user_update')->nullable();
             $table->timestamps();
         });
     }

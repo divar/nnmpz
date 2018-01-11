@@ -78,7 +78,6 @@ class PelangganController extends Controller
             $insertPelanggan->update(['id_alamat'=>$insertAlamat->id]);
         } catch (Exception $e) {
             DB::rollBack();
-
         }
         DB::commit();
         return redirect('loaddataPelanggan');

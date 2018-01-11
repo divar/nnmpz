@@ -17,7 +17,12 @@ class CreateTransaksisTable extends Migration
             $table->increments('id');
             $table->integer('id_pelanggan')->nullable();
             $table->integer('id_alamat')->nullable();
+            $table->integer('id_jalan')->nullable();
             $table->integer('total_harga')->nullable();
+            $table->integer('ppn')->nullable();
+            $table->string('no_kwitansi',100)->nullable();
+            $table->integer('user_input')->nullable();
+            $table->integer('user_update')->nullable();
             $table->string('trash')->nullable();
             $table->timestamps();
         });

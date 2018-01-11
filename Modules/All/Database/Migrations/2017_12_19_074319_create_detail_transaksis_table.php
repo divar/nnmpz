@@ -21,6 +21,8 @@ class CreateDetailTransaksisTable extends Migration
             $table->integer('jml')->nullable();
             $table->integer('sub_total')->nullable();
             $table->string('keterangan')->nullable();
+            $table->integer('user_input')->nullable();
+            $table->integer('user_update')->nullable();
             $table->string('trash')->nullable();
             $table->timestamps();
         });

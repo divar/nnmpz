@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddIdTarifWilayahToTransaksis extends Migration
+class CreateJalansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,14 @@ class AddIdTarifWilayahToTransaksis extends Migration
      */
     public function up()
     {
-        Schema::table('transaksis', function (Blueprint $table) {
+        Schema::create('jalans', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('id_tarif_wilayah')->nullable();
+            $table->text('nama')->nullable();
+            $table->integer('user_input')->nullable();
+            $table->integer('user_update')->nullable();
+            $table->string('trash',1)->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +31,6 @@ class AddIdTarifWilayahToTransaksis extends Migration
      */
     public function down()
     {
-        Schema::table('', function (Blueprint $table) {
-
-        });
+        Schema::dropIfExists('jalans');
     }
 }

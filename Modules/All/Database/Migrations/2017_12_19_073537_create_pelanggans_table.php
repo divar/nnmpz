@@ -20,6 +20,9 @@ class CreatePelanggansTable extends Migration
             $table->text('email')->nullable();
             $table->text('no_hp')->nullable();
             $table->string('trash')->nullable();
+            $table->date('tgl_lahir')->nullable();
+            $table->integer('user_input')->nullable();
+            $table->integer('user_update')->nullable();
             $table->timestamps();
         });
     }

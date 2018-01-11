@@ -11,7 +11,7 @@ class Pelanggan extends Model
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['nama','id_alamat','email','no_hp','tgl_lahir'];
+    protected $fillable = ['nama','id_alamat','email','no_hp','tgl_lahir','user_input','user_update'];
     
     public static function findRequested()
     {
@@ -24,6 +24,8 @@ class Pelanggan extends Model
         \Request::input('email') and $query->where('email',\Request::input('email'));
         \Request::input('no_hp') and $query->where('no_hp',\Request::input('no_hp'));
         \Request::input('tgl_lahir') and $query->where('no_hp',\Request::input('no_hp'));
+        \Request::input('user_input') and $query->where('user_input',\Request::input('user_input'));
+        \Request::input('user_update') and $query->where('user_update',\Request::input('user_update'));
         \Request::input('created_at') and $query->where('created_at',\Request::input('created_at'));
         \Request::input('updated_at') and $query->where('updated_at',\Request::input('updated_at'));
         

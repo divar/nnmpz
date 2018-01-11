@@ -11,7 +11,7 @@ class Transaksi extends Model
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['id_pelanggan','id_alamat','total_harga','id_tarif_wilayah','ppn','no_kwitansi'];
+    protected $fillable = ['id_pelanggan','id_alamat','total_harga','id_tarif_wilayah','ppn','no_kwitansi','user_input','user_update'];
     
     public static function findRequested()
     {
@@ -25,6 +25,8 @@ class Transaksi extends Model
         \Request::input('id_tarif_wilayah') and $query->where('id_tarif_wilayah',\Request::input('id_tarif_wilayah'));
         \Request::input('ppn') and $query->where('ppn',\Request::input('ppn'));
         \Request::input('no_kwitansi') and $query->where('no_kwitansi',\Request::input('no_kwitansi'));
+        \Request::input('user_input') and $query->where('user_input',\Request::input('user_input'));
+        \Request::input('user_update') and $query->where('user_update',\Request::input('user_update'));
         \Request::input('created_at') and $query->where('created_at',\Request::input('created_at'));
         \Request::input('updated_at') and $query->where('updated_at',\Request::input('updated_at'));
         

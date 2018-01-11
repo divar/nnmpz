@@ -18,6 +18,9 @@ class CreateTarifWilayahsTable extends Migration
             $table->string('nama');
             $table->string('harga');
             $table->string('keterangan')->nullable();
+            $table->integer('user_input')->nullable();
+            $table->integer('user_update')->nullable();
+            $table->string('trash',1)->nullable();
             $table->timestamps();
         });
     }

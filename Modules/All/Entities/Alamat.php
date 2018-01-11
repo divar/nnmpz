@@ -11,7 +11,7 @@ class Alamat extends Model
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['id_pelanggan','alamat','kelurahan','kecamatan','kabupaten','provinsi'];
+    protected $fillable = ['id_pelanggan','alamat','kelurahan','kecamatan','kabupaten','provinsi','user_input','user_update'];
     
     public static function findRequested()
     {
@@ -25,6 +25,8 @@ class Alamat extends Model
         \Request::input('kecamatan') and $query->where('kecamatan',\Request::input('kecamatan'));
         \Request::input('kabupaten') and $query->where('kabupaten',\Request::input('kabupaten'));
         \Request::input('provinsi') and $query->where('provinsi',\Request::input('provinsi'));
+        \Request::input('user_input') and $query->where('user_input',\Request::input('user_input'));
+        \Request::input('user_update') and $query->where('user_update',\Request::input('user_update'));
         \Request::input('created_at') and $query->where('created_at',\Request::input('created_at'));
         \Request::input('updated_at') and $query->where('updated_at',\Request::input('updated_at'));
         

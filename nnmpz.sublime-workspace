@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"iss",
+				"isset"
+			],
+			[
+				"isset",
+				"isset"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"data",
+				"dataJalan"
+			],
+			[
+				"Tar",
+				"tarifWilayah"
+			],
+			[
 				"col-m",
 				"col-md-4 \tBootstrap 3 Class"
 			],
@@ -80,10 +100,6 @@
 				"if\tif"
 			],
 			[
-				"con",
-				"console"
-			],
-			[
 				"a",
 				"array\t$… = array (…)"
 			],
@@ -150,10 +166,6 @@
 			[
 				"size",
 				"sizeof"
-			],
-			[
-				"data",
-				"datamap"
 			],
 			[
 				"pad",
@@ -412,55 +424,19 @@
 	"buffers":
 	[
 		{
+			"file": "resources/views/layouts/app.blade.php",
+			"settings":
+			{
+				"buffer_size": 13840,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "Modules/All/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 1188,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Modules/All/Http/Controllers/TransaksiController.php",
-			"settings":
-			{
-				"buffer_size": 2997,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Modules/All/Http/Controllers/PelangganController.php",
-			"settings":
-			{
-				"buffer_size": 3871,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
-			"settings":
-			{
-				"buffer_size": 8840,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Modules/All/Entities/Transaksi.php",
-			"settings":
-			{
-				"buffer_size": 1551,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 4770,
-				"encoding": "UTF-8",
+				"buffer_size": 3197,
 				"line_ending": "Windows"
 			}
 		}
@@ -526,26 +502,81 @@
 	},
 	"expanded_folders":
 	[
-		"/D/xampp/htdocs/a/nnmpz",
-		"/D/xampp/htdocs/a/nnmpz/app",
-		"/D/xampp/htdocs/a/nnmpz/app/Http",
-		"/D/xampp/htdocs/a/nnmpz/app/Http/Controllers",
-		"/D/xampp/htdocs/a/nnmpz/Modules",
-		"/D/xampp/htdocs/a/nnmpz/Modules/All",
-		"/D/xampp/htdocs/a/nnmpz/Modules/All/Database",
-		"/D/xampp/htdocs/a/nnmpz/Modules/All/Entities",
-		"/D/xampp/htdocs/a/nnmpz/Modules/All/Http",
-		"/D/xampp/htdocs/a/nnmpz/Modules/All/Resources",
-		"/D/xampp/htdocs/a/nnmpz/Modules/All/Resources/views",
-		"/D/xampp/htdocs/a/nnmpz/Modules/All/Resources/views/Menu",
-		"/D/xampp/htdocs/a/nnmpz/Modules/All/Resources/views/Pelanggan",
-		"/D/xampp/htdocs/a/nnmpz/Modules/All/Resources/views/Transaksi",
-		"/D/xampp/htdocs/a/nnmpz/resources",
-		"/D/xampp/htdocs/a/nnmpz/resources/views",
-		"/D/xampp/htdocs/a/nnmpz/resources/views/layouts"
+		"/D/xampp/htdocs/nnmpz",
+		"/D/xampp/htdocs/nnmpz/Modules",
+		"/D/xampp/htdocs/nnmpz/Modules/All",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Http",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views",
+		"/D/xampp/htdocs/nnmpz/resources",
+		"/D/xampp/htdocs/nnmpz/resources/views",
+		"/D/xampp/htdocs/nnmpz/resources/views/layouts"
 	],
 	"file_history":
 	[
+		"/D/xampp/htdocs/nnmpz/Modules/All/Http/routes.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Jalan/form.blade.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Jalan/index.blade.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/JalanController.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/TarifWilayah.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Transaksi.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Kategori.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/ListMenu.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Pelanggan.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Size.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Jalan.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/DetailTransaksi.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Alamat.php",
+		"/D/xampp/htdocs/nnmpz/app/User.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2018_01_11_055424_create_jalans_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/PelangganController.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/form-update.blade.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/TarifWilayah/form.blade.php",
+		"/D/xampp/htdocs/nnmpz/resources/views/layouts/app.blade.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Pelanggan/form.blade.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Menu/form.blade.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_19_074303_create_transaksis_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_19_074032_create_alamats_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/MenuController.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_19_074319_create_detail_transaksis_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_23_003754_create_tarif_wilayahs_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_20_122554_create_list_menus_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_20_131443_create_kategoris_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_22_111413_create_sizes_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_19_073537_create_pelanggans_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_26_190729_add_no_kwitansi_to_transaksis_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_25_153913_add_ppn_to_transaksis_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_25_142257_add_trash_to_tarif_wilayahs_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_23_115013_add_id_tarif_wilayah_to_transaksis.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_22_130036_add_id_size_to_list_menus_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_20_170155_add_tgl_lahir_to_pelanggan_table.php",
+		"/D/xampp/htdocs/nnmpz/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RedirectsUsers.php",
+		"/D/xampp/htdocs/nnmpz/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php",
+		"/D/xampp/htdocs/nnmpz/app/Http/Controllers/Auth/LoginController.php",
+		"/D/xampp/htdocs/nnmpz/app/Http/Middleware/AuthenticatesUsersCustoms.php",
+		"/D/xampp/htdocs/nnmpz/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+		"/D/xampp/htdocs/nnmpz/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ThrottlesLogins.php",
+		"/D/xampp/htdocs/nnmpz/vendor/mockery/mockery/tests/Mockery/Fixtures/SemiReservedWordsAsMethods.php",
+		"/D/xampp/htdocs/nnmpz/vendor/laravel/framework/src/Illuminate/Foundation/Auth/User.php",
+		"/D/xampp/htdocs/nnmpz/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
+		"/D/xampp/htdocs/nnmpz/vendor/santigarcor/laratrust/src/Traits/LaratrustUserTrait.php",
+		"/D/xampp/htdocs/stable5-IM2/.bowerrc",
+		"/D/xampp/htdocs/stable5-IM2/.DS_Store",
+		"/D/xampp/htdocs/nnmpz/vendor/laravel/framework/src/Illuminate/Support/Facades/Auth.php",
+		"/D/xampp/htdocs/nnmpz/routes/web.php",
+		"/D/xampp/htdocs/nnmpz/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authorize.php",
+		"/D/xampp/htdocs/nnmpz/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php",
+		"/D/xampp/htdocs/nnmpz/bootstrap/app.php",
+		"/D/xampp/htdocs/nnmpz/vendor/symfony/routing/Route.php",
+		"/D/xampp/htdocs/nnmpz/vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php",
+		"/D/xampp/htdocs/nnmpz/.env",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/TransaksiController.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/form.blade.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/index.blade.php",
 		"/D/xampp/htdocs/a/nnmpz/Modules/All/Entities/Pelanggan.php",
 		"/D/xampp/htdocs/a/nnmpz/Modules/All/Resources/views/Menu/index.blade.php",
 		"/D/xampp/htdocs/a/nnmpz/Modules/All/Resources/views/Pelanggan/form.blade.php",
@@ -614,66 +645,7 @@
 		"/F/xampp7/htdocs/zarva/.env",
 		"/F/xampp7/htdocs/zarva/config/session.php",
 		"/F/xampp7/htdocs/zarva/config/app.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_154006_create_transaksi_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153643_create_detail_transaksi_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153816_create_detail_konsinyasi_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153833_create_penyewa_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153844_create_barang_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153901_create_stok_barang_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153943_create_pengeluaran_uang_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_155236_create_pengembalian_uang_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153517_create_pegawai_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153538_create_alamat_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153558_create_jenis_barang_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153625_create_nomor_akun_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153707_create_jaminan_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_153924_create_konsinyasi_table.php",
-		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_25_165718_create_foto_table.php",
-		"/F/xampp/htdocs/stable5/Modules/Poliklinik/Http/routes.php",
-		"/F/xampp/htdocs/stable5/Modules/PenunjangMedis/Http/routes.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Http/Controllers/PenerimaanKonsinasiController.php",
-		"/F/xampp/htdocs/stable5/app/Support/Helpers.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Resources/views/PenerimaanKonsinasi/detail-penerimaan-konsinasi.blade.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Resources/views/PenerimaanKonsinasi/detail-penerimaan-konsinasi-js.blade.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Http/Controllers/PackingBarangController.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Resources/views/PackingBarang/popup-barang-pemesanan.blade.php",
-		"/F/xampp/htdocs/stable5/config/laratrust_seeder.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Database/Migrations/2017_07_06_093605_create_detail_retur_penjualan_table.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Database/Migrations/2017_09_16_132527_add_ppn_dan_diskon_to_penerimaan_konsinasi_table.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Http/Controllers/BARANGController.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Resources/views/PenerimaanKonsinasi/form.blade.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Models/PenerimaanKonsinasi.php",
-		"/F/xampp/htdocs/stable5/Modules/Report/Http/Controllers/SetoranUangController.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Http/routes.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Resources/views/PenerimaanKonsinasi/index.blade.php",
-		"/F/xampp/htdocs/stable5/Modules/Logistik/Resources/views/PenerimaanKonsinasi/form-js.blade.php",
-		"/F/xampp/htdocs/stable5/Modules/Farmasi/Http/routes.php",
-		"/F/xampp/htdocs/stable5/Modules/Farmasi/Http/Controllers/Tr/ResepLuarController.php",
-		"/F/xampp/htdocs/stable5/Modules/Farmasi/Resources/views/Tr/ResepLuar/form.blade.php",
-		"/F/xampp/htdocs/stable5/Modules/Farmasi/Resources/views/Tr/ResepLuar/form-js.blade.php",
-		"/F/xampp/htdocs/ministreetview2/app/controllers/Aflog/InputCube.php",
-		"/F/xampp/htdocs/ministreetview2/app/controllers/Auth/AuthController.php",
-		"/F/xampp/htdocs/ministreetview2/bootstrap/app.php",
-		"/F/xampp/htdocs/ministreetview2/app/appauth/Auth.php",
-		"/F/xampp/htdocs/ministreetview2/resources/views/templates/partials/navigation.twig",
-		"/F/xampp/htdocs/ministreetview2/app/middleware/AuthMiddleware.php",
-		"/F/xampp/htdocs/ministreetview2/app/models/User.php",
-		"/F/xampp/htdocs/ministreetview2/app/controllers/Content/Content.php",
-		"/F/xampp/htdocs/ministreetview2/app/controllers/Aflog/updateCubemap.php",
-		"/F/xampp/htdocs/ministreetview2/resources/views/home.twig",
-		"/F/xampp/htdocs/ministreetview2/vendor/codeguy/upload/src/Upload/Storage/FileSystem.php",
-		"/F/xampp/htdocs/ministreetview2/vendor/codeguy/upload/src/Upload/File.php",
-		"/F/xampp/htdocs/ministreetview2/app/middleware/Middleware.php",
-		"/F/xampp/htdocs/ministreetview2/app/route.php",
-		"/F/xampp/htdocs/ministreetview2/resources/views/afterlogin/TableCubeMap.twig",
-		"/F/xampp/htdocs/ministreetview2/resources/views/templates/partials/navigationpolos.twig",
-		"/F/xampp/htdocs/ministreetview2/resources/views/afterlogin/forminput/InputTambahKeterangan.twig",
-		"/F/xampp/htdocs/ministreetview2/resources/views/afterlogin/TableKategori.twig",
-		"/F/xampp/htdocs/ministreetview2/resources/views/afterlogin/tableKeterangan.twig",
-		"/F/xampp/htdocs/ministreetview2/public/assets/js/customtablefilter.js",
-		"/F/xampp/htdocs/ministreetview2/app/validation/Validator.php",
-		"/F/xampp/htdocs/ministreetview2/app/controllers/Content/TableContent.php",
-		"/F/xampp/htdocs/ministreetview2/app/controllers/Aflog/TableOfKeteranganMap.php"
+		"/F/xampp7/htdocs/zarva/database/migrations/2017_09_24_154006_create_transaksi_table.php"
 	],
 	"find":
 	{
@@ -691,6 +663,19 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"LM",
+			"id_tarif",
+			"TarifWilayah",
+			"nama",
+			"harga",
+			"Jalan",
+			"jalan",
+			"transaksi",
+			"TransaksiController",
+			"return view",
+			"keterangan",
+			"a",
+			"login",
 			"tabRadiologi",
 			"tab_radiologi",
 			"tabLaboratorium",
@@ -718,6 +703,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"return $this->view"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -728,142 +714,54 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Modules/All/Http/routes.php",
+					"file": "resources/views/layouts/app.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1188,
+						"buffer_size": 13840,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1005,
-								1024
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Modules/All/Http/Controllers/TransaksiController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2997,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								411,
-								411
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Modules/All/Http/Controllers/PelangganController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3871,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								131,
-								117
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8840,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5788,
-								5788
+								3189,
+								3189
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1401.0,
+						"translation.y": 507.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "Modules/All/Entities/Transaksi.php",
+					"buffer": 1,
+					"file": "Modules/All/Http/routes.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1551,
+						"buffer_size": 3197,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1343,
-								1343
+								3019,
+								3024
 							]
 						],
 						"settings":
@@ -873,37 +771,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 245.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4770,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2388,
-								2388
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 855.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -914,11 +782,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 21.0
 	},
 	"input":
 	{
-		"height": 31.0
+		"height": 38.0
 	},
 	"layout":
 	{
@@ -951,7 +819,7 @@
 	"project": "nnmpz.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -960,6 +828,42 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"allro",
+				"Modules\\All\\Http\\routes.php"
+			],
+			[
+				"appb",
+				"resources\\views\\layouts\\app.blade.php"
+			],
+			[
+				"user",
+				"app\\User.php"
+			],
+			[
+				"jalanindex",
+				"Modules\\All\\Resources\\views\\Jalan\\index.blade.php"
+			],
+			[
+				"allroute",
+				"Modules\\All\\Http\\routes.php"
+			],
+			[
+				"pelangganform",
+				"Modules\\All\\Resources\\views\\Pelanggan\\form.blade.php"
+			],
+			[
+				"app.bla",
+				"resources\\views\\layouts\\app.blade.php"
+			],
+			[
+				"web",
+				"routes\\web.php"
+			],
+			[
+				"app",
+				"bootstrap\\app.php"
+			],
 			[
 				"pelangganc",
 				"Modules\\All\\Http\\Controllers\\PelangganController.php"
@@ -973,15 +877,7 @@
 				"Modules\\All\\Resources\\views\\Pelanggan\\form.blade.php"
 			],
 			[
-				"app.bla",
-				"resources\\views\\layouts\\app.blade.php"
-			],
-			[
 				"we",
-				"routes\\web.php"
-			],
-			[
-				"web",
 				"routes\\web.php"
 			],
 			[
@@ -999,10 +895,6 @@
 			[
 				"help",
 				"vendor\\barryvdh\\laravel-debugbar\\src\\helpers.php"
-			],
-			[
-				"pelangganform",
-				"Modules\\All\\Resources\\views\\Pelanggan\\form.blade.php"
 			],
 			[
 				"pelangganin",
@@ -1265,10 +1157,6 @@
 				"public\\assets\\js\\customtablefilter.js"
 			],
 			[
-				"app",
-				"bootstrap\\app.php"
-			],
-			[
 				"authc",
 				"app\\controllers\\Auth\\AuthController.php"
 			],
@@ -1457,7 +1345,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 347.0,
+	"side_bar_width": 477.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

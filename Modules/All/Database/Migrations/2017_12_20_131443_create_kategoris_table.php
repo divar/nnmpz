@@ -16,6 +16,8 @@ class CreateKategorisTable extends Migration
         Schema::create('kategoris', function (Blueprint $table) {
             $table->increments('id');
             $table->text('nama')->nullable();
+            $table->integer('user_input')->nullable();
+            $table->integer('user_update')->nullable();
 
             $table->timestamps();
         });

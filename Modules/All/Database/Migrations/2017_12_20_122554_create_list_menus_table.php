@@ -19,6 +19,9 @@ class CreateListMenusTable extends Migration
             $table->string('nama_menu')->nullable();
             $table->integer('harga')->nullable();
             $table->text('keterangan')->nullable();
+            $table->integer('id_size');
+            $table->integer('user_input')->nullable();
+            $table->integer('user_update')->nullable();
             $table->string('trash')->nullable();
             $table->timestamps();
         });

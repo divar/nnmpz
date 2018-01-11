@@ -11,7 +11,7 @@ class Size extends Model
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['nama'];
+    protected $fillable = ['nama','nama','nama'];
     
     public static function findRequested()
     {
@@ -20,6 +20,8 @@ class Size extends Model
         // search results based on user input
         \Request::input('id') and $query->where('id',\Request::input('id'));
         \Request::input('nama') and $query->where('nama',\Request::input('nama'));
+        \Request::input('user_input') and $query->where('user_input',\Request::input('user_input'));
+        \Request::input('user_update') and $query->where('user_update',\Request::input('user_update'));
         \Request::input('created_at') and $query->where('created_at',\Request::input('created_at'));
         \Request::input('updated_at') and $query->where('updated_at',\Request::input('updated_at'));
         

@@ -35,4 +35,12 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::post('TarifWilayah/posttambah', 'TarifWilayahController@store')->name('postTambahTarifWilayah');
     Route::get('TarifWilayah/load-data', 'TarifWilayahController@loadData');
     Route::get('TarifWilayah', 'TarifWilayahController@index')->name('loaddataTarifWilayah');
+
+    Route::get('jalan/delete/{id}', 'JalanController@destroy')->name('hapusjalan');
+    Route::get('jalan/edit/{id}', 'JalanController@edit')->name('editJalan');
+    Route::get('jalan/create', 'JalanController@create')->name('tambahJalan');
+    Route::get('jalan/load-data', 'JalanController@loadData')->name('jalanloadData');
+    Route::get('jalan', 'JalanController@index')->name('jalan');
+    Route::post('jalan/posttambah', 'JalanController@store')->name('createJalan');
+    Route::post('jalan/postedit', 'JalanController@update')->name('updateJalan');
 });

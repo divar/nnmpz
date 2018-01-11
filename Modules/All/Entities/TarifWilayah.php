@@ -11,7 +11,7 @@ class TarifWilayah extends Model
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['nama','harga','keterangan','trash'];
+    protected $fillable = ['nama','harga','keterangan','trash','user_input','user_update'];
     
     public static function findRequested()
     {
@@ -22,6 +22,8 @@ class TarifWilayah extends Model
         \Request::input('nama') and $query->where('nama',\Request::input('nama'));
         \Request::input('harga') and $query->where('harga',\Request::input('harga'));
         \Request::input('keterangan') and $query->where('keterangan',\Request::input('keterangan'));
+        \Request::input('user_input') and $query->where('user_input',\Request::input('user_input'));
+        \Request::input('user_update') and $query->where('user_update',\Request::input('user_update'));
         \Request::input('trash') and $query->where('trash',\Request::input('trash'));
         \Request::input('created_at') and $query->where('created_at',\Request::input('created_at'));
         \Request::input('updated_at') and $query->where('updated_at',\Request::input('updated_at'));
