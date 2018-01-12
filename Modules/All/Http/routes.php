@@ -36,6 +36,8 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::get('TarifWilayah/load-data', 'TarifWilayahController@loadData');
     Route::get('TarifWilayah', 'TarifWilayahController@index')->name('loaddataTarifWilayah');
 
+    Route::get('jalan/popUpMenu', 'JalanController@popUpJalan')->name('popupjalan');
+    Route::get('jalan/getById', 'JalanController@getById')->name('jalanGetById');
     Route::get('jalan/delete/{id}', 'JalanController@destroy')->name('hapusjalan');
     Route::get('jalan/edit/{id}', 'JalanController@edit')->name('editJalan');
     Route::get('jalan/create', 'JalanController@create')->name('tambahJalan');

@@ -28,9 +28,15 @@
                             <div class="clearfix">&nbsp;</div>
                             <div class="col-md-5">
                                 <div class="form-group row">
-                                    <label for="nama" class="col-md-3 col-form-label">Nama</label>
+                                    <label for="nama" class="col-md-3 col-form-label">Pemesan</label>
                                     <div class="col-md-9">
                                         <input id="nama" type="text" name="nama" class="form-control" placeholder="Nama" required="required">
+                                    </div>  
+                                </div>
+                                <div class="form-group row">
+                                    <label for="nama_penerima" class="col-md-3 col-form-label">Penerima</label>
+                                    <div class="col-md-9">
+                                        <input id="nama_penerima" type="text" name="nama_penerima" class="form-control" placeholder="Nama Penerima" required="required">
                                     </div>  
                                 </div>
                                 <div class="form-group row">
@@ -43,6 +49,17 @@
                                     <label for="email" class="col-md-3 col-form-label">E-mail</label>
                                     <div class="col-md-9">
                                         <input id="email" type="email" name="email" class="form-control" placeholder="nanamia@nanamiapizza.com">
+                                    </div>  
+                                </div>
+                                <div class="form-group row">
+                                    <label for="alamat" class="col-md-3 col-form-label">Jalan</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly">
+                                        <input type="hidden" class="form-control" id="id_jalan" name="id_jalan">
+                                        <input type="hidden" class="form-control" id="harga_tarif_wilayah" name="harga_tarif_wilayah">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button id="cariJalan" type="button" onclick="showJalan()" class="btn btn-primary">Cari</button>
                                     </div>  
                                 </div>
                                 <div class="form-group row">
@@ -105,15 +122,30 @@
                                     <tr class="data_menu" id="data_ke-0" role="row">
                                         <td id="layanan_nama_place_0">
                                         </td>
-                                        <td class="row">
-                                            <div class="col-md-9"><input id="menu_0" type="text" name="menu[]" class="form-control" required="required"/><input type="hidden" id="idmenu_0" name="id_menu[]"/></div>
-                                            <div class="col-md-2">&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button></div>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-md-9"><input id="menu_0" type="text" name="menu[]" class="form-control" required="required"/><input type="hidden" id="idmenu_0" name="id_menu[]"/></div>
+                                                <div class="col-md-2">&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button></div>
+                                            </div>
+                                            <div class="d-flex flex-row flex-wrap" addon="addon_baris_ke-0"> 
+                                                <div class="p-1" addon-data="add_on_ke-">
+                                                    <label class="label-info" id="teks_addon_">kami adadasda</label>
+                                                    <input type="hidden" name="harga_addon[][]">
+                                                    <input type="hidden" name="id_addon[][]">
+                                                    &nbsp;
+                                                    <button type="button" class="close" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </td>
                                         <td align="right">
                                             <label id="harga_0"><input type="hidden" id="harga_0" name="harga[]"/></label>
                                         </td>
-                                        <td class="row">
-                                            <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number" required="required" name="jml[]" class="form-control qtyx"/></div>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number" required="required" name="jml[]" class="form-control qtyx"/></div>
+                                            </div>
                                         </td>
                                         <td align="right">
                                             <label id="total_0"></label>
@@ -126,15 +158,16 @@
                                             <div class="form-inline pull-right">
                                                 <label class="" for="tarifwilayah">Wilayah</label>
                                                 <div class="col-md-2" id="tempattarifwilayah">
-                                                    <select class="form-control" name="tarifwilayah" id="tarifwilayah"> 
+                                                    {{-- <select class="form-control" name="tarifwilayah" id="tarifwilayah"> 
                                                         @foreach ($TarifWilayah as $val)
                                                             <option value="{{ $val['id'] }}" harga="{{ $val['harga'] }}">{{ $val['nama'] }}</option>
                                                         @endforeach
-                                                    </select>
+                                                    </select> --}}
+                                                    <input type="hidden" id="tarifwilayah" name="tarifwilayah">
                                                 </div>
                                             </div>
                                         </td>
-                                        <td align="right"><label id="texttarifwilayah"><input type="hidden" id="grandtotal" name="grandtotal"></label></td>
+                                        <td align="right"><label id="texttarifwilayah"></label></td>
                                     </tr>
                                     <tr>
                                         <td colspan="4" align="right">Tax / PPN</td>
@@ -166,48 +199,48 @@
 
 @push('js')
 <script type="text/javascript">
-    $(document).ready(function(){
-        @if(session('id'))
-            open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); 
-        @endif
-        $('#tab_data_pelanggan2').click();
-        $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
-        $('#add_menu').on('click',function(){
-            from=$(this).attr('id');
-            count=$('#hide_count_menu').val();
-            add_data_barang_to_table(count);
-        });
-        $('#menu-table').on('change','.qtyx',function(){
-            count=$(this).attr('untuk');
-            hitungPerbaris(count);
-        });
-        $('#menu-table').on('change','#tarifwilayah',function(){
-            grandTotal();
-        });
+$(document).ready(function(){
+    @if(session('id'))
+        open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); 
+    @endif
+    $('#tab_data_pelanggan2').click();
+    $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
+    $('#add_menu').on('click',function(){
+        from=$(this).attr('id');
+        count=$('#hide_count_menu').val();
+        add_data_barang_to_table(count);
     });
-    function add_data_barang_to_table(count){
-        $('#hide_count_menu').val(parseInt(count)+1);
-        $('<tr class="data_menu" id="data_ke-'+count+'" role="row">\n\
-            <td id="layanan_nama_place_'+count+'">\n\
-                <button id="'+count+'" class="delete_data_detail btn btn-xs btn-danger hapus" type="button" onclick="delete_data_table(\''+count+'\',\'new\')">\n\
-                <span title="Batal" class="fa fa-trash"></span></button>\n\
-            </td>\n\
-            <td class="row"><div class="col-md-9"><input id="menu_'+count+'" type="text" name="menu[]" class="form-control" required="required"/><input type="hidden" id="idmenu_'+count+'" name="id_menu[]"/></div>\n\
-            <div class="col-md-2">&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="showMenu('+count+')" title="Cari Menu"><i class="fa fa-search-plus"></i></button></div></td>\n\
-            <td align="right"><label id="harga_'+count+'"><input type="hidden" id="harga_'+count+'" name="harga[]"/></label></td>\n\
-            <td class="row"><div class="col-sm-9"><input id="qty_menu_'+count+'" untuk="'+count+'" type="number" required="required" name="jml[]" class="form-control qtyx"/></div></td>\n\
-            <td align="right"><label id="total_'+count+'"></label></td>\n\
-        </tr>').appendTo('#detail-data-table');
+    $('#menu-table').on('change','.qtyx',function(){
+        count=$(this).attr('untuk');
+        hitungPerbaris(count);
+    });
+    $('#menu-table').on('change','#tarifwilayah',function(){
+        grandTotal();
+    });
+});
+function add_data_barang_to_table(count){
+    $('#hide_count_menu').val(parseInt(count)+1);
+    $('<tr class="data_menu" id="data_ke-'+count+'" role="row">\n\
+        <td id="layanan_nama_place_'+count+'">\n\
+            <button id="'+count+'" class="delete_data_detail btn btn-xs btn-danger hapus" type="button" onclick="delete_data_table(\''+count+'\',\'new\')">\n\
+            <span title="Batal" class="fa fa-trash"></span></button>\n\
+        </td>\n\
+        <td><div class="row"><div class="col-md-9"><input id="menu_'+count+'" type="text" name="menu[]" class="form-control" required="required"/><input type="hidden" id="idmenu_'+count+'" name="id_menu[]"/></div>\n\
+        <div class="col-md-2">&nbsp;<button type="button" class="btn btn-sm btn-info" onclick="showMenu('+count+')" title="Cari Menu"><i class="fa fa-search-plus"></i></button></div></td></div>\n\
+        <td align="right"><label id="harga_'+count+'"><input type="hidden" id="harga_'+count+'" name="harga[]"/></label></td>\n\
+        <td><div class="row"><div class="col-sm-9"><input id="qty_menu_'+count+'" untuk="'+count+'" type="number" required="required" name="jml[]" class="form-control qtyx"/></div></div></td>\n\
+        <td align="right"><label id="total_'+count+'"></label></td>\n\
+    </tr>').appendTo('#detail-data-table');
+}
+function delete_data_table(no,stat){
+    if(confirm("Anda yakin akan menghapus data ini?")){
+        var count = $('#hide_count_menu').val();
+        count = count-1;
+        $('#hide_count_menu').val(count);
+        $('#data_ke-'+no).detach();
+        return false;
     }
-    function delete_data_table(no,stat){
-        if(confirm("Anda yakin akan menghapus data ini?")){
-            var count = $('#hide_count_menu').val();
-            count = count-1;
-            $('#hide_count_menu').val(count);
-            $('#data_ke-'+no).detach();
-            return false;
-        }
-    }
+}
 function hitungPerbaris(no){
     qty = currencyToNumber($('#qty_menu_'+no).val());
     harga = currencyToNumber($('#harga_'+no).val());
@@ -253,6 +286,25 @@ function getMenuById(idmenu,no){
             }
         });
 }
+function getJalanById(id_jalan){
+    $.ajax({
+            type: "GET",
+            url: "{{ url("all/jalan/getById") }}",
+            data: {
+                "id_jalan":id_jalan,
+            },  
+            dataType: 'json',
+            success: function(response){
+                console.log(response);
+                $('#jalan').val(response.dataList.nama);
+                $('#id_jalan').val(response.dataList.id);
+                $('#harga_tarif_wilayah').val(response.dataList.tarif_wilayah.harga);
+                $('#tarifwilayah').val(response.dataList.tarif_wilayah.id);
+                $('#texttarifwilayah').html(response.dataList.tarif_wilayah.harga);
+            }
+        });
+    $('.close').click();
+}
 function showMenu(no){
     $('body').attr('class','sidenav-toggled');
     var url = "{{url('all/Menu/popUpMenu')}}";
@@ -264,6 +316,35 @@ function showMenu(no){
         data:{
           'ajax':1,
           'no':no,
+        },
+        cache: false,
+        dataType: 'html',
+        success: function(msg){
+            $('#myModelDialog').on('shown.bs.modal', function () {
+                // $('#layanan').focus();
+            });
+
+            $('#myModelDialog').html(msg);
+            $('#myModelDialog').modal({backdrop: 'static'});
+        },
+        error: function(){
+            $('#myModelDialog').html("request gagal dibuka");
+            $('#myModelDialog').modal('show');
+            console.log('gagal');
+        }
+    });
+    return true;
+}
+function showJalan(){
+    $('body').attr('class','sidenav-toggled');
+    var url = "{{url('all/jalan/popUpMenu')}}";
+    $('.modal-dialog').addClass('modal-lg');
+    $('#myModelDialog').html('');
+
+    $.ajax({
+        url: url,
+        data:{
+          'ajax':1,
         },
         cache: false,
         dataType: 'html',

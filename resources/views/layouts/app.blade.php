@@ -27,6 +27,8 @@
   <link href="{{ asset('datatables/DataTables-1.10.16/css/dataTables.jqueryui.min.css') }}" rel="stylesheet">
   <link href="{{ asset('datatables/DataTables-1.10.16/css/dataTables.semanticui.min.css') }}" rel="stylesheet">
   <link href="{{ asset('datatables/DataTables-1.10.16/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+  @yield('css')
+  @stack('css')
 </head>
 <body class="sidenav-toggled">
   <div id="app">
@@ -140,6 +142,7 @@
     <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.semanticui.min.js') }}"></script>
     <script src="{{ asset('datatables/DataTables-1.10.16/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('js/jszip.min.js') }}"></script>
     <script src="{{ asset('js/pdfmake.min.js') }}"></script>
     <script src='{{ asset('js/vfs_fonts.js') }}'></script>

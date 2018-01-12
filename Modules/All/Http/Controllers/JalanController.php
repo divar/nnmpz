@@ -130,9 +130,22 @@ class JalanController extends Controller
         return 'ok';
     }
 
+    public function popUpJalan()
+    {
+      return $this->view('popUpJalan');
+    }
+
+    public function getById()
+    {
+        $id_jalan=\Request::get('id_jalan',null);
+        $send['dataList'] = Jalan::select('*')->with('tarifWilayah')->where('id',$id_jalan)->whereNull('trash')->get()->toArray()[0];
+        return $send;
+    }
+
     public function loadData()
     {
         $GLOBALS['nomor']=\Request::input('start',0)+1;
+        $from=\Request::get('from',null);
         
         $dataList = Jalan::whereNull('trash');
         return Datatables::of($dataList)
@@ -145,9 +158,15 @@ class JalanController extends Controller
         ->addColumn('harga',function($data){
           return $data->tarifWilayah->harga;
         })
-        ->addColumn('action',function($data) { 
-          $content ='<a href="'.url('all/jalan/edit/'.$data->id).'" target="ajax-modal" class="btn btn-info"> Edit </a>';
-          $content .= '<button type="button" id-jalan="'.$data->id.'" class="btn btn-danger btn-sm DeleteData"><i class="fa fa-trash-o"> Hapus</i></button>';
+        ->addColumn('action',function($data) use($from) { 
+          $content = '';
+          if($from != 'popup'){
+            $content .='<a href="'.url('all/jalan/edit/'.$data->id).'" target="ajax-modal" class="btn btn-info"> Edit </a>';
+            $content .= '<button type="button" id-jalan="'.$data->id.'" class="btn btn-danger btn-sm DeleteData"><i class="fa fa-trash-o"> Hapus</i></button>';
+          }
+          if ($from == 'popup') {
+             $content = '<button type="button" onclick="getJalanById('.$data->id.')" class="btn btn-primary btn-sm"> pilih </button>';
+          }
           return $content;
         })
         ->make(true);

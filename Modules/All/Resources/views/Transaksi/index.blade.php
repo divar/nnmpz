@@ -21,7 +21,7 @@
                     <div class="clearfix">&nbsp;</div>
                     <div class="row">
                         <div class='col-sm-2'>
-                            <input type="text" value="{{ date('d-m-Y') }}" id="fromdate" readonly class="date-picker">
+                            <input type="text" value="{{ date('1-1-2015') }}" id="fromdate" readonly class="date-picker">
                         </div>
                         <div class="col-md-2">
                             <input type="text" value="{{ date('d-m-Y') }}" id="todate" readonly class="date-picker">
