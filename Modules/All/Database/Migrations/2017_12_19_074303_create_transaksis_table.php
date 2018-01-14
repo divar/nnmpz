@@ -23,6 +23,7 @@ class CreateTransaksisTable extends Migration
             $table->integer('tarif_wilayah')->nullable();
             $table->integer('ppn')->nullable();
             $table->string('no_kwitansi',100)->nullable();
+            $table->string('penerima',100)->nullable();
             $table->integer('user_input')->nullable();
             $table->integer('user_update')->nullable();
             $table->string('trash')->nullable();

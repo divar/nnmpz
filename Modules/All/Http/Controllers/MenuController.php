@@ -2,6 +2,7 @@
 
 namespace Modules\All\Http\Controllers;
 
+use Modules\All\Entities\Satuan;
 use Modules\All\Entities\ListMenu;
 use Modules\All\Entities\Kategori;
 use Modules\All\Entities\Size;
@@ -38,6 +39,7 @@ class MenuController extends Controller
     {
         $sendTambahMenu['kategori']= Kategori::select('*'); 
         $sendTambahMenu['size']=Size::all();
+        $sendTambahMenu['Satuan']=Satuan::all();
         return $this->view('form',$sendTambahMenu);
     }
     public function popUpMenu()
@@ -75,6 +77,7 @@ class MenuController extends Controller
             if(isset($r['pilihsize']) && $r['pilihsize']=="tidak"){
               $dataMenu = [
                 'id_kategori'=>(isset($r['kategori'])?$r['kategori']:''),
+                'id_satuan'=>(isset($r['id_satuan'])?$r['id_satuan']:''),
                 'nama_menu'=>(isset($r['nama'])?$r['nama']:''),
                 'harga'=>(isset($r['harga'])?$r['harga']:''),
                 'keterangan'=>(isset($r['keterangan'])?$r['keterangan']:''),
@@ -120,6 +123,7 @@ class MenuController extends Controller
     {
         $sendEditMenu['Menu'] = ListMenu::find($id);
         $sendEditMenu['size']=Size::all();
+        $sendEditMenu['Satuan']=Satuan::all();
         return $this->view('form',$sendEditMenu);
     }
 
@@ -136,6 +140,7 @@ class MenuController extends Controller
           $dataUpdate = [
               'nama_menu'=> (isset($r['nama'])?$r['nama']:''),
               'harga'=> (isset($r['harga'])?$r['harga']:''),
+              'id_satuan'=>(isset($r['id_satuan'])?$r['id_satuan']:''),
               'keterangan'=>(isset($r['keterangan'])?$r['keterangan']:''),
               'id_kategori  '=>(isset($r['kategori'])?$r['kategori']:''),
               'id_size'=>(isset($r['id_size'])?$r['id_size']:null),

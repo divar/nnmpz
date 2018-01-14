@@ -67,4 +67,12 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::post('Size/posttambah', 'SizeController@store')->name('postTambahSize');
     Route::get('Size/load-data', 'SizeController@loadData')->name('lodadatasize');
     Route::get('Size', 'SizeController@index')->name('loaddataSize');
+
+    Route::get('Satuan/delete/{id}', 'SatuanController@destroy')->name('hapusSatuan');
+    Route::get('Satuan/edit/{id}', 'SatuanController@edit')->name('editSatuan');
+    Route::post('Satuan/postedit', 'SatuanController@update')->name('updateSatuan');
+    Route::get('Satuan/tambah', 'SatuanController@create')->name('tambahSatuan');
+    Route::post('Satuan/posttambah', 'SatuanController@store')->name('postTambahSatuan');
+    Route::get('Satuan/load-data', 'SatuanController@loadData')->name('loadsatuan');
+    Route::get('Satuan', 'SatuanController@index')->name('satuan');
 });

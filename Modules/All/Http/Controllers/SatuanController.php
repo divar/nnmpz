@@ -4,14 +4,13 @@ namespace Modules\All\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Modules\All\Entities\Size;
+use Modules\All\Entities\Satuan;
 use Illuminate\Routing\Controller;
 use Indonesia; 
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
-class SizeController extends Controller
+class SatuanController extends Controller
 {
     public function __construct()
     {
@@ -23,7 +22,7 @@ class SizeController extends Controller
 
     protected function view($view, $data = [])
     {
-      return view('all::Size.'.$view, $data);
+      return view('all::Satuan.'.$view, $data);
     }
     /**
      * Display a listing of the resource.
@@ -54,15 +53,15 @@ class SizeController extends Controller
         try {
             $r = $request->all();
             $dataCreate = [
-                'nama'=> (isset($r['nama'])?$r['nama']:''),
+                'satuan'=> (isset($r['nama'])?$r['nama']:''),
                 'user_input'=>Auth::user()->id,
             ];
-            $createTarif = Size::create($dataCreate);
+            $createTarif = Satuan::create($dataCreate);
         } catch (Exception $e) {
             DB::rollBack();
         }
         DB::commit();
-        return redirect('all/Size');
+        return redirect('all/Satuan');
     }
 
     /**
@@ -71,7 +70,7 @@ class SizeController extends Controller
      */
     public function show()
     {
-        return $this->view('show');
+        return view('all::show');
     }
 
     /**
@@ -80,7 +79,7 @@ class SizeController extends Controller
      */
     public function edit($id)
     {
-        $send['Size']=Size::find($id);
+        $send['Satuan']=Satuan::find($id);
         return $this->view('form',$send);
     }
 
@@ -95,16 +94,16 @@ class SizeController extends Controller
         try {
             $r = $request->all();
             $dataUpdate = [
-                'nama'=> (isset($r['nama'])?$r['nama']:''),
+                'satuan'=> (isset($r['nama'])?$r['nama']:''),
                 'user_update'=> Auth::user()->id,
             ];
-            $S = Size::find($r['id_size']);
+            $S = Satuan::find($r['id_satuan']);
             $S->update($dataUpdate);
         } catch (Exception $e) {    
             DB::rollBack();
         }
         DB::commit();
-        return redirect('all/Size');
+        return redirect('all/Satuan');
     }
 
     /**
@@ -115,7 +114,7 @@ class SizeController extends Controller
     {
         DB::beginTransaction();
         try {
-            $Jl = Size::find($id);
+            $Jl = Satuan::find($id);
             $Jl->trash='Y';
             $Jl->save();
         }catch(Exception $e){
@@ -125,20 +124,18 @@ class SizeController extends Controller
         DB::commit();
         return 'ok';
     }
+
     public function loadData()
     {
         $GLOBALS['nomor']=\Request::input('start',0)+1;
-        $dataList = Size::select('*')->whereNull('trash');
+        $dataList = Satuan::select('*')->whereNull('trash');
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
         })
-        ->addColumn('nama',function($data){
-          return $data->nama;
-        })
         ->addColumn('action',function($data){
-          $content = '<a type="button" href="'.url("all/Size/edit/$data->id").'" target="ajax-modal" class="btn btn-primary btn-sm">Edit</a>&nbsp;&nbsp;';
-          $content .= '<button type="button" id-size="'.$data->id.'" class="btn btn-danger btn-sm DeleteData"><i class="fa fa-trash-o"> Hapus</i></button>';
+          $content = '<a type="button" href="'.url("all/Satuan/edit/$data->id").'" target="ajax-modal" class="btn btn-primary btn-sm">Edit</a>&nbsp;&nbsp;';
+          $content .= '<button type="button" id-satuan="'.$data->id.'" class="btn btn-danger btn-sm DeleteData"><i class="fa fa-trash-o"> Hapus</i></button>';
           return $content;
         })
         ->make(true);

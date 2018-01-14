@@ -6,15 +6,15 @@
         <div class="col-md-12 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <H3>Data Size</H3>
+                    <H3>Data Satuan</H3>
                 </div>
                 <div class="clearfix">&nbsp;</div>
 
                 <div class="portlet-body" style="display: block;">
                     <div class="row">
                         <div class="col-md-2">
-                            <a href="{{ route('tambahSize') }}" target="ajax-modal" class="btn btn-info btn-sm">
-                                <span class="fa fa-fw fa-plus"></span> Tambah Size
+                            <a href="{{ route('tambahSatuan') }}" target="ajax-modal" class="btn btn-info btn-sm">
+                                <span class="fa fa-fw fa-plus"></span> Tambah Satuan
                             </a>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                                 <tr>
                                     <th width="15%">#</th>
                                     <th width="7%">No</th>
-                                    <th>Size</th>
+                                    <th>Satuan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,8 +45,9 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('#Size-table').on('click','.DeleteData',function(){
-        id_size = $(this).attr('id-size');
-        deleteData(id_size);
+        id_satuan = $(this).attr('id-satuan');
+        deleteData(id_satuan);
+        xtable.ajax.reload();
     });
 });
  $(function() {
@@ -56,7 +57,7 @@ $(document).ready(function(){
         // serverSide: true,
         pageLength:20,
         ajax: {
-            url:"{{ route('lodadatasize') }}",
+            url:"{{ route('loadsatuan') }}",
                                 data: function (d) {
                                     return $.extend( {}, d, {
                                     
@@ -67,7 +68,7 @@ $(document).ready(function(){
         columns: [
             { data: 'action', name: 'action', searchable:false,orderable:true},
             { data: 'nomor', name: 'nomor', searchable:false,orderable:true},
-            { data: 'nama', name: 'nama', searchable:true,orderable:true}, 
+            { data: 'satuan', name: 'satuan', searchable:true,orderable:true}, 
         ],
         language: {
             lengthMenu : '{{ "Menampilkan _MENU_ data" }}',
@@ -118,10 +119,10 @@ $(document).ready(function(){
     $('.dt-buttons').appendTo('div.dataTables_filter');
     $('#Size-table_filter').attr('style','float:none;');
 });
-function deleteData(id_size){
+function deleteData(id_satuan){
     $.ajax({
         type: "GET",
-        url: "{{ url('all/Size/delete') }}/"+id_size,
+        url: "{{ url('all/Satuan/delete') }}/"+id_satuan,
         data: {
                         
         },  

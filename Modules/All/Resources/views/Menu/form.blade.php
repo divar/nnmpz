@@ -93,6 +93,16 @@
                                 <input id="nama" type="text" name="nama" class="form-control" placeholder="Nama Menu" required="required" value="{{ isset($Menu)?$Menu['nama_menu']:'' }}">
                             </div>  
                         </div>
+                        <div id="tempatSatuan" class="form-group row">
+                            <label for="Satuan" class="col-md-3 col-form-label">Satuan</label>
+                            <div class="col-md-9">
+                                <select id="satuan" name="id_satuan" class="form-control custom-select" >
+                                    @foreach($Satuan as $val)
+                                        <option value="{{ $val['id'] }}" {{ isset($Menu['id_satuan']) && $Menu['id_satuan']==$val['id']?'selected="selected"':'' }}>{{ $val['satuan'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>  
+                        </div>
                         <div id="tempatHarga" class="form-group row">
                             <label for="Harga" class="col-md-3 col-form-label">Harga</label>
                             <div class="col-md-9">

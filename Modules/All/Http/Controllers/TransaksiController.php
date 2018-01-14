@@ -241,12 +241,13 @@ class TransaksiController extends Controller
             $id_pelanggan = (isset($r['id_pelanggan'])?$r['id_pelanggan']:'');
             $tarifwilayah = (isset($r['id_tarifwilayah'])?$r['id_tarifwilayah']:'');
             $harga_tarif_wilayah = (isset($r['harga_tarif_wilayah'])?$r['harga_tarif_wilayah']:'');
-            $userinput = Auth::user()->id;
+            $user_update = Auth::user()->id;
             $created_at = date('Y-m-d');
             $dataTransaksi = [
                 'id_alamat'=>$id_alamat,
                 'penerima'=> $nama_penerima,
                 'id_tarif_wilayah'=>$tarifwilayah,
+                'user_update'=>$user_update,
                 'updated_at'=>date('Y-m-d'),
             ];
             $insertTransaksi = Transaksi::find($id_transaksi);
@@ -267,7 +268,7 @@ class TransaksiController extends Controller
                     'jml'=> $jml,
                     'sub_total'=> $harga*$jml,
                     'keterangan'=> $keterangan,
-                    'user_input'=> $userinput,
+                    'user_update'=>$user_update,
                     'created_at'=>$created_at,
                 ];
                 $insertDetailTransaksi = DetailTransaksi::where('id',$id_detail_transaksi)->update($dataDetailTransaksi);
@@ -283,7 +284,7 @@ class TransaksiController extends Controller
                             'id_detail_transaksi'=>$id_dt,
                             'id_add_on'=>$id_addon[$z],
                             'harga'=>$itemharga_addon[$z],
-                            'user_input'=>$userinput,
+                            'user_update'=>$user_update,
                             'created_at'=>$created_at,
                         ];
                         $insertDetailAddOn = DetailAddOn::create($dataDetailAddon);

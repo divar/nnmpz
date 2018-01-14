@@ -49,7 +49,7 @@
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Data Master">
             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#datamaster" data-parent="#exampleAccordion">
-              <i class="fa fa-fw fa-dashboard"></i>
+              <i class="fa fa-fw fa-cog"></i>
               <span class="nav-link-text">Data Master</span>
             </a>
             <ul class="sidenav-second-level collapse" id="datamaster">
@@ -65,9 +65,15 @@
               <li>
                 <a href="{{ route('addon') }}">Add On Menu</a>
               </li>
+              <li>
+                <a href="{{ route('satuan') }}">Satuan</a>
+              </li>
+              <li>
+                <a href="{{ route('loaddataSize') }}">Size</a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pelanggan">
+          {{-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pelanggan">
             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#pelanggan" data-parent="#exampleAccordion">
               <i class="fa fa-fw fa-dashboard"></i>
               <span class="nav-link-text">Pelanggan</span>
@@ -80,7 +86,7 @@
                 <a href="{{ url('all/pelanggan') }}">Data Pelanggan</a>
               </li>
             </ul>
-          </li>
+          </li> --}}
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="transaksi">
             <a class="nav-link" href="{{ route('loaddataTransaksi') }}">
               <i class="fa fa-fw fa-table"></i>
