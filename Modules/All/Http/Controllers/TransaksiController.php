@@ -5,6 +5,7 @@ namespace Modules\All\Http\Controllers;
 use Modules\All\Entities\Pelanggan;
 use Modules\All\Entities\Transaksi;
 use Modules\All\Entities\DetailTransaksi;
+use Modules\All\Entities\DetailAddOn;
 use Modules\All\Entities\Alamat;
 use Modules\All\Entities\TarifWilayah;
 use Modules\All\Entities\Size;
@@ -17,6 +18,7 @@ use Illuminate\Routing\Controller;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
@@ -49,9 +51,12 @@ class TransaksiController extends Controller
      * Show the form for creating a new resource.
      * @return Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('all::create');
+        $send['kabupaten']=Indonesia::findProvince(34, $with = ['cities'])->toArray();
+        $send['TarifWilayah']=TarifWilayah::all();
+        $send['Pelanggan'] = Pelanggan::find($id);
+        return $this->view('form',$send);
     }
 
     /**
@@ -64,39 +69,61 @@ class TransaksiController extends Controller
         DB::beginTransaction();
         try {
             $r = $request->all();
+            // dd($r);
             $nama = (isset($r['nama'])?$r['nama']:'');
             $email = (isset($r['email'])?$r['email']:'');
             $no_hp = (isset($r['no_hp'])?$r['no_hp']:'');
             $alamat = (isset($r['alamat'])?$r['alamat']:'');
-            $tarifwilayah = (isset($r['tarifwilayah'])?$r['tarifwilayah']:'');
-            $datapelanggan = [
-                'nama'=>$nama,
-                'email'=>$email,
-                'no_hp'=>$no_hp,
-                'created_at'=>date('Y-m-d'),
-            ];
-            $insertPelanggan = Pelanggan::create($datapelanggan);
-            $dataAlamat = [
-                'id_pelanggan'=>$insertPelanggan->id,
-                'alamat'=>$alamat,
-                'created_at'=>date('Y-m-d'),
-            ];
-            $insertAlamat = Alamat::create($dataAlamat);
+            $id_alamat = (isset($r['id_alamat'])?$r['id_alamat']:'');
+            $id_pelanggan = (isset($r['id_pelanggan'])?$r['id_pelanggan']:'');
+            $tarifwilayah = (isset($r['id_tarifwilayah'])?$r['id_tarifwilayah']:'');
+            $harga_tarif_wilayah = (isset($r['harga_tarif_wilayah'])?$r['harga_tarif_wilayah']:'');
+            $userinput = Auth::user()->id;
+            $created_at = date('Y-m-d');
+            if(isset($id_pelanggan) && empty($id_pelanggan)){
+                $datapelanggan = [
+                    'nama'=>$nama,
+                    'email'=>$email,
+                    'no_hp'=>$no_hp,
+                    'user_input'=>$userinput,
+                    'created_at'=>$created_at,
+                ];
+                $insertPelanggan = Pelanggan::create($datapelanggan);
+                $id_pelanggan = $insertPelanggan->id;
+
+                $dataAlamat = [
+                    'id_pelanggan'=> $id_pelanggan,
+                    'alamat'=>$alamat,
+                    'id_jalan'=>$r['id_jalan'],
+                    'user_input'=> $userinput,
+                    'created_at'=>$created_at,
+                ];
+                $insertAlamat = Alamat::create($dataAlamat);
+                $id_alamat = $insertAlamat->id;
+            }else{
+                $insertPelanggan=Pelanggan::find($id_pelanggan);
+            }
+
             $getNextNoKwitansi = getNextNoKwitansi();
+            
             $dataTransaksi = [
-                'id_pelanggan'=>$insertPelanggan->id,
-                'id_alamat'=>$insertAlamat->id,
+                'id_pelanggan'=>$id_pelanggan,
+                'id_alamat'=>$id_alamat,
+                'id_jalan'=>$r['id_jalan'],
                 'id_tarif_wilayah'=>$tarifwilayah,
                 'no_kwitansi'=> $getNextNoKwitansi,
-                'created_at'=>date('Y-m-d'),
+                'user_input'=> $userinput,
+                'created_at'=>$created_at,
             ];
             $insertTransaksi = Transaksi::create($dataTransaksi);
             $grandtotal = 0;
-            for($i=0;$i<$r['hide_count_menu'];$i++){
-                $id_menu = (isset($r['id_menu'][$i])?$r['id_menu'][$i]:'');
+            for($i=0;$i<count($r['count_menu']);$i++){
+                $nama_baris = $r['count_menu'][$i];
+                $baris = $r[$nama_baris];
+                $id_menu = (isset($baris['id_menu'])?$baris['id_menu']:'');
                 $harga = ListMenu::select('harga')->where('id',$id_menu)->whereNull('trash')->get()[0]->harga;;
-                $jml = (isset($r['jml'][$i])?$r['jml'][$i]:0); 
-                $keterangan = (isset($r['keterangan'][$i])?$r['keterangan'][$i]:''); 
+                $jml = (isset($baris['jml'])?$baris['jml']:0); 
+                $keterangan = (isset($baris['keterangan'])?$baris['keterangan']:''); 
                 $dataDetailTransaksi = [
                     'id_transaksi'=> $insertTransaksi->id,
                     'id_menu'=> $id_menu,
@@ -104,17 +131,37 @@ class TransaksiController extends Controller
                     'jml'=> $jml,
                     'sub_total'=> $harga*$jml,
                     'keterangan'=> $keterangan,
-                    'created_at'=>date('Y-m-d'),
+                    'user_input'=> $userinput,
+                    'created_at'=>$created_at,
                 ];
                 $insertDetailTransaksi = DetailTransaksi::create($dataDetailTransaksi);
-                $sub_total = ($harga*$jml);
+                $id_dt = $insertDetailTransaksi->id;
+                $total_harga_addon = 0;
+                if (isset($baris['id_addon'])) {
+                    $id_addon = $baris['id_addon'];
+                    $itemharga_addon = $baris['itemharga_addon'];
+                    $total_harga_addon = array_sum($baris['itemharga_addon']);
+                    for ($z=0; $z < count($baris['id_addon']) ; $z++) { 
+                        $dataDetailAddon = [
+                            'id_detail_transaksi'=>$id_dt,
+                            'id_add_on'=>$id_addon[$z],
+                            'harga'=>$itemharga_addon[$z],
+                            'user_input'=>$userinput,
+                            'created_at'=>$created_at,
+                        ];
+                        $insertDetailAddOn = DetailAddOn::create($dataDetailAddon);
+                    }
+                }
+                $sub_total = (($harga+$total_harga_addon)*$jml);
                 $grandtotal = $grandtotal+$sub_total;
             }
+            // dd($id_alamat);
             //update data yang belum terinput
-            $insertPelanggan->id_alamat = $insertAlamat->id;
+            $insertPelanggan->id_alamat = $id_alamat;
             $insertPelanggan->save();
             $insertTransaksi->total_harga = $grandtotal*1.1;
             $insertTransaksi->ppn = $grandtotal*0.1;
+            $insertTransaksi->tarif_wilayah = $harga_tarif_wilayah;
             $insertTransaksi->save();
             $return = 'sukses';
             if(!empty($r['submit']) && $r['submit']== 'Input Lagi'){
@@ -137,10 +184,10 @@ class TransaksiController extends Controller
     {
         $sendNota['Transaksi'] = Transaksi::with('Pelanggan')->where('id',$id)->get();
         $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->where('id_transaksi',$id)->get();
-        $height = count($sendNota['DetailTransaksi'])*48;
+        $height = PDF::loadView('all::Transaksi.kwitansi', $sendNota)->getDomPDF()->getCanvas()->get_height();
         $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
         $pdf= PDF::loadView('all::Transaksi.kwitansi', $sendNota);
-        $pdf = $pdf->setPaper(array(20,20,204,350+$height),'portrait')->setWarnings(false)->save($namafile);
+        $pdf = $pdf->setPaper(array(20,20,204,($height*0.514)),'portrait')->setWarnings(false)->save($namafile);
         return $pdf->stream($namafile);
         // return redirect('all/transaksi');
     }
@@ -260,7 +307,7 @@ class TransaksiController extends Controller
     public function loadData()
     {
         $GLOBALS['nomor']=\Request::input('start',0)+1;
-        $from=\Request::get('from',null); 
+        $from=\Request::get('from',null);
         $from=Carbon::createFromFormat('d-m-Y', $from);
         $from=$from->format('Y-m-d');
         $to=\Request::get('to',null);
@@ -275,7 +322,8 @@ class TransaksiController extends Controller
           return $data->Pelanggan->nama;
         })
         ->addColumn('action',function($data){
-          $content = '<a class="btn btn-primary btn-sm" href="'.url("all/transaksi/edit/$data->id").'"><i class="fa fa-pencil-square-o"> Edit</a>';
+          $content = '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/edit/$data->id").'"><i class="fa fa-pencil-square-o"></i>Edit</a>';
+          $content .= '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/create-from/$data->id_pelanggan").'"><i class="fa fa-pencil-square-o"></i> Order</a>';
           return $content;
         })
         ->addColumn('alamat',function($data){

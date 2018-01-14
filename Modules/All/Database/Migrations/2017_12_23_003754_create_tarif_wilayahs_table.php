@@ -15,8 +15,8 @@ class CreateTarifWilayahsTable extends Migration
     {
         Schema::create('tarif_wilayahs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('harga');
+            $table->string('nama')->nullable();
+            $table->string('harga')->nullable();
             $table->string('keterangan')->nullable();
             $table->integer('user_input')->nullable();
             $table->integer('user_update')->nullable();

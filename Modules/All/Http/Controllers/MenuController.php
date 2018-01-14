@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
 {
@@ -42,7 +43,7 @@ class MenuController extends Controller
     public function popUpMenu()
     {    
         $sendPopUpMenu['no']=\Request::get('no',null);
-        $sendPopUpMenu['selectKategori'] = Kategori::all(); 
+        $sendPopUpMenu['selectKategori'] = Kategori::where('flag_addon','<>','Y')->get()->toArray(); 
         return $this->view('popUpMenu',$sendPopUpMenu);
     }
     public function getSize()
@@ -137,7 +138,7 @@ class MenuController extends Controller
               'harga'=> (isset($r['harga'])?$r['harga']:''),
               'keterangan'=>(isset($r['keterangan'])?$r['keterangan']:''),
               'id_kategori  '=>(isset($r['kategori'])?$r['kategori']:''),
-              'id_size'=>(isset($r['id_size'])?$r['id_size']:''),
+              'id_size'=>(isset($r['id_size'])?$r['id_size']:null),
           ];
           $LM = ListMenu::find($r['id_menu']);
           $LM->update($dataUpdate);
@@ -187,7 +188,7 @@ class MenuController extends Controller
         }
         if(!empty($ukuran) && $ukuran != null && $ukuran != ''){
           $dataList->where('id_size',$ukuran);
-        } 
+        }
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;

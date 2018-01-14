@@ -59,6 +59,12 @@
               <li>
                 <a href="{{ route('jalan') }}">Jalan</a>
               </li>
+              <li>
+                <a href="{{ route('kategori') }}">Kategori</a>
+              </li>
+              <li>
+                <a href="{{ route('addon') }}">Add On Menu</a>
+              </li>
             </ul>
           </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pelanggan">
@@ -101,7 +107,7 @@
               {{-- <a class="nav-link" href="{{ route('logout') }}">
                 <i class="fa fa-fw fa-sign-out"></i>Logout
               </a> --}}
-              <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
+              <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
             </li>
@@ -142,6 +148,7 @@
     <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.semanticui.min.js') }}"></script>
     <script src="{{ asset('datatables/DataTables-1.10.16/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('datatables/DataTables-1.10.16/js/buttons.colVis.js') }}"></script>
     <script src="{{ asset('js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('js/jszip.min.js') }}"></script>
     <script src="{{ asset('js/pdfmake.min.js') }}"></script>

@@ -21,8 +21,9 @@ class Transaksi extends Model
         \Request::input('id') and $query->where('id',\Request::input('id'));
         \Request::input('id_pelanggan') and $query->where('id_pelanggan',\Request::input('id_pelanggan'));
         \Request::input('id_alamat') and $query->where('id_alamat',\Request::input('id_alamat'));
-        \Request::input('total_harga') and $query->where('total_harga',\Request::input('total_harga'));
         \Request::input('id_tarif_wilayah') and $query->where('id_tarif_wilayah',\Request::input('id_tarif_wilayah'));
+        \Request::input('total_harga') and $query->where('total_harga',\Request::input('total_harga'));
+        \Request::input('tarif_wilayah') and $query->where('tarif_wilayah',\Request::input('tarif_wilayah'));
         \Request::input('ppn') and $query->where('ppn',\Request::input('ppn'));
         \Request::input('no_kwitansi') and $query->where('no_kwitansi',\Request::input('no_kwitansi'));
         \Request::input('user_input') and $query->where('user_input',\Request::input('user_input'));

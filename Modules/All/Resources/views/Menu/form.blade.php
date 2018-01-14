@@ -4,7 +4,7 @@
 @section('sub-content')
 <style>
 /* The container */
-.container {
+.radio-pilih-container {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -18,7 +18,7 @@
 }
 
 /* Hide the browser's default radio button */
-.container input {
+.radio-pilih-container input {
     position: absolute;
     opacity: 0;
 }
@@ -35,12 +35,12 @@
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.radio-pilih-container:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.radio-pilih-container input:checked ~ .checkmark {
     background-color: #2196F3;
 }
 
@@ -52,12 +52,12 @@
 }
 
 /* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
+.radio-pilih-container input:checked ~ .checkmark:after {
     display: block;
 }
 
 /* Style the indicator (dot/circle) */
-.container .checkmark:after {
+.radio-pilih-container .checkmark:after {
     top: 9px;
     left: 9px;
     width: 8px;
@@ -113,25 +113,28 @@
                                 </select>
                             </div>  
                         </div>
+                        @if(isset($Menu))
                         <div class="form-group row">
                             <label for="Ukuran" class="col-md-3 col-form-label">Ukuran</label>
                             <div class="col-md-9">
-                                <select id="ukuran" name="id_size" class="form-control custom-select" required="required">
+                                <select id="ukuran" name="id_size" class="form-control custom-select" >
+                                    <option value="">Menu yang tidak mempunyai Ukuran</option>
                                     @foreach($size as $val)
-                                        <option value="{{ $val['id'] }}" {{ $Menu['id_size']==$val['id']?'selected="selected"':'' }}>{{ $val['nama'] }}</option>
+                                        <option value="{{ $val['id'] }}" {{ isset($Menu['id_size']) && $Menu['id_size']==$val['id']?'selected="selected"':'' }}>{{ $val['nama'] }}</option>
                                     @endforeach
                                 </select>
                             </div>  
                         </div>
+                        @endif
                         @if(!isset($Menu))
                         <div class="form-group row">
                             <label for="size" class="col-md-3 col-form-label">Ukuran</label>
                             <div class="col-md-9"> 
-                                <label class="container">Tidak
+                                <label class="radio-pilih-container">Tidak
                                     <input type="radio" id="pilihsizetidak" class="pilihsize" checked="checked" name="pilihsize" value="tidak">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="container">Ya
+                                <label class="radio-pilih-container">Ya
                                     <input type="radio" id="pilihsizeya" class="pilihsize" value="ya" name="pilihsize">
                                     <span class="checkmark"></span>
                                 </label>
@@ -239,7 +242,7 @@
                 <td id="layanan_nama_place_'+count+'">\n\
                 </td>\n\
                 <td id="size" class="row">\n\
-                @foreach($size as $val) <div class="col-md-4"> <label class="container ">{{ $val['nama'] }}<input type="radio" tujuan="'+count+'" class="hagia rdx_'+count+'" name="xsize[{{ $val['nama'] }}]" value="{{ $val['id'] }}"><span class="checkmark"></span></label> </div> @endforeach\n\
+                @foreach($size as $val) <div class="col-md-4"> <label class="radio-pilih-container ">{{ $val['nama'] }}<input type="radio" tujuan="'+count+'" class="hagia rdx_'+count+'" name="xsize[{{ $val['nama'] }}]" value="{{ $val['id'] }}"><span class="checkmark"></span></label> </div> @endforeach\n\
                 </td>\n\
                 <td align="right"><input type="number" id="hargaSize_'+count+'" class="form-control" name="hargaSize[]"></td>\n\
             </tr>').appendTo('#detail-data-table');
@@ -250,7 +253,7 @@
                     <span title="Batal" class="fa fa-trash"></span></button>\n\
                 </td>\n\
                 <td id="size" class="row">\n\
-                @foreach($size as $val) <div class="col-md-4"> <label class="container ">{{ $val['nama'] }}<input type="radio" class="hagia rdx_'+count+'" tujuan="'+count+'" name="xsize[{{ $val['nama'] }}]" value="{{ $val['id'] }}"><span class="checkmark"></span></label> </div> @endforeach\n\
+                @foreach($size as $val) <div class="col-md-4"> <label class="radio-pilih-container ">{{ $val['nama'] }}<input type="radio" class="hagia rdx_'+count+'" tujuan="'+count+'" name="xsize[{{ $val['nama'] }}]" value="{{ $val['id'] }}"><span class="checkmark"></span></label> </div> @endforeach\n\
                 </td>\n\
                 <td align="right"><input type="number" id="hargaSize_'+count+'" class="form-control" name="hargaSize[]" required="required"></td>\n\
             </tr>').appendTo('#detail-data-table');

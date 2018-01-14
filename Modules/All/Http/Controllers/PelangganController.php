@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PelangganController extends Controller
 {
@@ -135,5 +136,24 @@ class PelangganController extends Controller
           return $data->no_hp;
         })
         ->make(true);
+    }
+    public function createAlamat($id){
+        return $this->view('formTambahAlamat',["id_pelanggan"=>$id]);
+    }
+    public function storeAlamat(Request $request){
+        $r = $request->all();
+        $id=$r['id_pelanggan'];
+        $data=[
+            'id_pelanggan'=>$r['id_pelanggan'],
+            'alamat'=>$r['alamats']
+        ];
+        Alamat::create($data);
+        return redirect("all/transaksi/create-from/$id");
+    }
+    public function loadAlamat()
+    {
+        $id_pelanggan=\Request::input('id_pelanggan',null);
+        $send['alamat'] = Alamat::where('id_pelanggan',$id_pelanggan)->get()->toArray();
+        return $send;
     }
 }

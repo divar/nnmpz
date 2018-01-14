@@ -140,7 +140,7 @@ function getSize(){
                 $('#tempatSize').attr('class','d-none');
                 $('#size').attr('name','');
                 $("#size").find('option').remove().end();
-                $("#size").append('<option value="all">all</option>'); 
+                $("#size").append('<option value="">all</option>'); 
             }
             table.ajax.reload();
         }

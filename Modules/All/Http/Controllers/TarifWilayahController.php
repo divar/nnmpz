@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 use Indonesia; 
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TarifWilayahController extends Controller
 {
@@ -60,6 +61,7 @@ class TarifWilayahController extends Controller
                 'nama'=> (isset($r['nama'])?$r['nama']:''),
                 'harga'=> (isset($r['harga'])?$r['harga']:''),
                 'keterangan'=> (isset($r['keterangan'])?$r['keterangan']:''),
+                'user_input'=>Auth::user()->id,
             ];
             $createTarif = TarifWilayah::create($dataTarif);
         } catch (Exception $e) {
@@ -102,6 +104,7 @@ class TarifWilayahController extends Controller
                 'nama'=>$r['nama'],
                 'harga'=>$r['harga'],
                 'keterangan'=>$r['keterangan'],
+                'user_update'=>Auth::user()->id,
             ];
             $Tw = Tarifwilayah::find($r['id_tarif_wilayah']);
             $Tw->update($dataUpdate);

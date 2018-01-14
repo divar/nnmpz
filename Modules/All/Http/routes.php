@@ -9,6 +9,8 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::post('pelanggan/posttambah', 'PelangganController@store')->name('postTambahPelanggan');
     Route::get('pelanggan/load-data', 'PelangganController@loadData');
     Route::get('pelanggan', 'PelangganController@index')->name('loaddataPelanggan');
+    Route::get('pelanggan/alamat/tambah/{id}', 'PelangganController@createAlamat')->name('tambahAlamat');
+    Route::post('pelanggan/alamat/posttambah', 'PelangganController@storeAlamat')->name('postTambahAlamat');
  
     Route::get('menu/delete/{id}', 'MenuController@destroy')->name('hapusmenu');
     Route::get('menu/edit/{id}', 'MenuController@edit')->name('editmenu');
@@ -24,9 +26,11 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::get('transaksi/edit/{id}', 'TransaksiController@edit')->name('editTransaksi');
     Route::post('transaksi/postedit', 'TransaksiController@update')->name('postEditTransaksi');
     Route::get('transaksi/tambah', 'TransaksiController@tambahTransaksi')->name('tambahTransaksi');
+    Route::get('transaksi/create-from/{id}', 'TransaksiController@create')->name('tambahTransaksiDari');
     Route::post('transaksi/posttambah', 'TransaksiController@store')->name('postTambahTransaksi');
     Route::get('transaksi/load-data', 'TransaksiController@loadData');
     Route::get('transaksi', 'TransaksiController@index')->name('loaddataTransaksi');
+    Route::get('transaksi/load-alamat', 'PelangganController@loadAlamat')->name('loadAlamat');
 
     Route::get('TarifWilayah/delete/{id}', 'TarifWilayahController@destroy')->name('hapusTarifWilayah');
     Route::get('TarifWilayah/edit/{id}', 'TarifWilayahController@edit')->name('editTarifWilayah');
@@ -45,4 +49,22 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::get('jalan', 'JalanController@index')->name('jalan');
     Route::post('jalan/posttambah', 'JalanController@store')->name('createJalan');
     Route::post('jalan/postedit', 'JalanController@update')->name('updateJalan');
+
+    Route::get('addon/delete/{id}', 'AddOnController@destroy')->name('hapusaddon');
+    Route::get('addon/edit/{id}', 'AddOnController@edit')->name('editaddon');
+    Route::post('addon/postedit', 'AddOnController@update')->name('updateaddon');
+    Route::get('addon/getById', 'AddOnController@getById')->name('addonGetById');
+    Route::get('addon/popUpaddon', 'AddOnController@popUpAddon')->name('popupaddon');
+    Route::post('addon/posttambah', 'AddOnController@store')->name('posttambahaddon');
+    Route::get('addon/load-data', 'AddOnController@loadData');
+    Route::get('addon/create', 'AddOnController@create')->name('tambahaddon');
+    Route::get('addon', 'AddOnController@index')->name('addon');
+
+    Route::get('Size/delete/{id}', 'SizeController@destroy')->name('hapusSize');
+    Route::get('Size/edit/{id}', 'SizeController@edit')->name('editSize');
+    Route::post('Size/postedit', 'SizeController@update')->name('updateSize');
+    Route::get('Size/tambah', 'SizeController@create')->name('tambahSize');
+    Route::post('Size/posttambah', 'SizeController@store')->name('postTambahSize');
+    Route::get('Size/load-data', 'SizeController@loadData')->name('lodadatasize');
+    Route::get('Size', 'SizeController@index')->name('loaddataSize');
 });
