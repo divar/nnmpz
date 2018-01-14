@@ -69,11 +69,12 @@ class TransaksiController extends Controller
         DB::beginTransaction();
         try {
             $r = $request->all();
-            // dd($r);
             $nama = (isset($r['nama'])?$r['nama']:'');
+            $nama_penerima = (isset($r['nama_penerima'])?$r['nama_penerima']:'');
             $email = (isset($r['email'])?$r['email']:'');
             $no_hp = (isset($r['no_hp'])?$r['no_hp']:'');
             $alamat = (isset($r['alamat'])?$r['alamat']:'');
+            $id_jalan = intval(isset($r['id_jalan'])?$r['id_jalan']:'');
             $id_alamat = (isset($r['id_alamat'])?$r['id_alamat']:'');
             $id_pelanggan = (isset($r['id_pelanggan'])?$r['id_pelanggan']:'');
             $tarifwilayah = (isset($r['id_tarifwilayah'])?$r['id_tarifwilayah']:'');
@@ -94,7 +95,7 @@ class TransaksiController extends Controller
                 $dataAlamat = [
                     'id_pelanggan'=> $id_pelanggan,
                     'alamat'=>$alamat,
-                    'id_jalan'=>$r['id_jalan'],
+                    'id_jalan'=>$id_jalan,
                     'user_input'=> $userinput,
                     'created_at'=>$created_at,
                 ];
@@ -109,7 +110,8 @@ class TransaksiController extends Controller
             $dataTransaksi = [
                 'id_pelanggan'=>$id_pelanggan,
                 'id_alamat'=>$id_alamat,
-                'id_jalan'=>$r['id_jalan'],
+                'id_jalan'=>$id_jalan,
+                'penerima'=>$nama_penerima,
                 'id_tarif_wilayah'=>$tarifwilayah,
                 'no_kwitansi'=> $getNextNoKwitansi,
                 'user_input'=> $userinput,
@@ -159,9 +161,10 @@ class TransaksiController extends Controller
             //update data yang belum terinput
             $insertPelanggan->id_alamat = $id_alamat;
             $insertPelanggan->save();
-            $insertTransaksi->total_harga = $grandtotal*1.1;
-            $insertTransaksi->ppn = $grandtotal*0.1;
+            $insertTransaksi->total_harga = ($grandtotal+$harga_tarif_wilayah)*1.1;
+            $insertTransaksi->ppn = ($grandtotal+$harga_tarif_wilayah)*0.1;
             $insertTransaksi->tarif_wilayah = $harga_tarif_wilayah;
+            $insertTransaksi->id_jalan = $id_jalan;
             $insertTransaksi->save();
             $return = 'sukses';
             if(!empty($r['submit']) && $r['submit']== 'Input Lagi'){
@@ -212,8 +215,8 @@ class TransaksiController extends Controller
         $send['Transaksi']=Transaksi::find($id);
         $send['Pelanggan']=Pelanggan::find($send['Transaksi']->id_pelanggan);
         $send['Alamat']=Alamat::find($send['Transaksi']->id_alamat);
-        $send['DetailTransaksi']=DetailTransaksi::with('menu')->where('id_transaksi',$send['Transaksi']->id)->get();
-        return $this->view('form-update',$send);
+        $send['DetailTransaksi']=DetailTransaksi::with('menu')->where('id_transaksi',$send['Transaksi']->id)->get(); 
+        return $this->view('form',$send);
     }
 
     /**
@@ -226,61 +229,70 @@ class TransaksiController extends Controller
         DB::beginTransaction();
         try {
             $r = $request->all();
-            $id_pelanggan = (isset($r['id_pelanggan'])?$r['id_pelanggan']:'');
-            $id_alamat = (isset($r['id_alamat'])?$r['id_alamat']:'');
-            $id_transaksi = (isset($r['id_transaksi'])?$r['id_transaksi']:'');
-            $nama = (isset($r['nama'])? $r['nama']:'');
+            // dd($r);
+            $nama = (isset($r['nama'])?$r['nama']:'');
+            $nama_penerima = (isset($r['nama_penerima'])?$r['nama_penerima']:'');
             $email = (isset($r['email'])?$r['email']:'');
             $no_hp = (isset($r['no_hp'])?$r['no_hp']:'');
             $alamat = (isset($r['alamat'])?$r['alamat']:'');
-            $tarifwilayah = (isset($r['tarifwilayah'])?$r['tarifwilayah']:'');
-            $datapelanggan = [
-                'nama'=>$nama,
-                'email'=>$email,
-                'no_hp'=>$no_hp,
-                'updated_at'=>date('Y-m-d'),
-            ];
-            $insertPelanggan = Pelanggan::find($id_pelanggan);
-            $insertPelanggan->update($datapelanggan);
-            $dataAlamat = [
-                'id_pelanggan'=>$insertPelanggan->id,
-                'alamat'=>$alamat,
-                'updated_at'=>date('Y-m-d'),
-            ];
-            $insertAlamat = Alamat::find($id_alamat);
-            $insertAlamat->update($dataAlamat);
+            $id_transaksi = (isset($r['id_transaksi'])?$r['id_transaksi']:'');
+            $id_jalan = intval(isset($r['id_jalan'])?$r['id_jalan']:'');
+            $id_alamat = (isset($r['id_alamat'])?$r['id_alamat']:'');
+            $id_pelanggan = (isset($r['id_pelanggan'])?$r['id_pelanggan']:'');
+            $tarifwilayah = (isset($r['id_tarifwilayah'])?$r['id_tarifwilayah']:'');
+            $harga_tarif_wilayah = (isset($r['harga_tarif_wilayah'])?$r['harga_tarif_wilayah']:'');
+            $userinput = Auth::user()->id;
+            $created_at = date('Y-m-d');
             $dataTransaksi = [
-                'id_pelanggan'=>$insertPelanggan->id,
-                'id_alamat'=>$insertAlamat->id,
+                'id_alamat'=>$id_alamat,
+                'penerima'=> $nama_penerima,
                 'id_tarif_wilayah'=>$tarifwilayah,
                 'updated_at'=>date('Y-m-d'),
             ];
             $insertTransaksi = Transaksi::find($id_transaksi);
             $insertTransaksi->update($dataTransaksi);
             $grandtotal = 0;
-            for($i=0;$i<$r['hide_count_menu'];$i++){
-                $id_detail_transaksi = (isset($r['id_detail_transaksi'][$i])?$r['id_detail_transaksi'][$i]:'');
-                $id_menu = (isset($r['id_menu'][$i])?$r['id_menu'][$i]:'');
+            for($i=0;$i<count($r['count_menu']);$i++){
+                $nama_baris = $r['count_menu'][$i];
+                $baris = $r[$nama_baris];
+                $id_detail_transaksi = (isset($baris['id_detail_transaksi'])?$baris['id_detail_transaksi']:'');
+                $id_menu = (isset($baris['id_menu'])?$baris['id_menu']:'');
                 $harga = ListMenu::select('harga')->where('id',$id_menu)->whereNull('trash')->get()[0]->harga;;
-                $jml = (isset($r['jml'][$i])?$r['jml'][$i]:0); 
-                $keterangan = (isset($r['keterangan'][$i])?$r['keterangan'][$i]:''); 
+                $jml = (isset($baris['jml'])?$baris['jml']:0); 
+                $keterangan = (isset($baris['keterangan'])?$baris['keterangan']:''); 
                 $dataDetailTransaksi = [
-                    'id_transaksi'=> $insertTransaksi->id,
+                    'id_transaksi'=> $id_transaksi,
                     'id_menu'=> $id_menu,
                     'harga'=> $harga,
                     'jml'=> $jml,
                     'sub_total'=> $harga*$jml,
                     'keterangan'=> $keterangan,
-                    'updated_at'=>date('Y-m-d'),
+                    'user_input'=> $userinput,
+                    'created_at'=>$created_at,
                 ];
-                $insertDetailTransaksi = DetailTransaksi::find($id_detail_transaksi);
-                $insertDetailTransaksi->update($dataDetailTransaksi);
-                $sub_total = ($harga*$jml);
+                $insertDetailTransaksi = DetailTransaksi::where('id',$id_detail_transaksi)->update($dataDetailTransaksi);
+                $id_dt = $id_detail_transaksi;
+                $total_harga_addon = 0;
+                DetailAddOn::where('id_detail_transaksi',$id_dt)->delete();
+                if (isset($baris['id_addon'])){
+                    $id_addon = $baris['id_addon'];
+                    $itemharga_addon = $baris['itemharga_addon'];
+                    $total_harga_addon = array_sum($baris['itemharga_addon']);
+                    for ($z=0; $z < count($baris['id_addon']) ; $z++) { 
+                        $dataDetailAddon = [
+                            'id_detail_transaksi'=>$id_dt,
+                            'id_add_on'=>$id_addon[$z],
+                            'harga'=>$itemharga_addon[$z],
+                            'user_input'=>$userinput,
+                            'created_at'=>$created_at,
+                        ];
+                        $insertDetailAddOn = DetailAddOn::create($dataDetailAddon);
+                    }
+                }
+                $sub_total = (($harga+$total_harga_addon)*$jml);
                 $grandtotal = $grandtotal+$sub_total;
             }
             //update data yang belum terinput
-            $insertPelanggan->id_alamat = $insertAlamat->id;
-            $insertPelanggan->save();
             $insertTransaksi->total_harga = $grandtotal*1.1;
             $insertTransaksi->ppn = $grandtotal*0.1;
             $insertTransaksi->save();

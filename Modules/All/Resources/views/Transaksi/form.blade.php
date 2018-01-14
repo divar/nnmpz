@@ -66,12 +66,16 @@
     }
 </style>
 <div class="content-wrapper">
+    @if(!isset($DetailTransaksi))
     <form action="{{ route('postTambahTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+    @else
+    <form action="{{ route('postEditTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+    @endif
         <div class="container-fluid">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <H3>Tambah Transaksi</H3>
+                        <H3>{{ isset($DetailTransaksi)?'Edit':'Tambah ' }} Transaksi</H3>
                     </div>
                     
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -84,7 +88,7 @@
                                 <a href="#tab_data_pelanggan" data-toggle="tab" class="nav-link loadtable" from="data_pelanggan" id="tab_data_pelanggan2">Data Pelanggan</a>
                             </li>
                             <li id="tab_menu" class="tab-pane table-active">
-                                <a href="#tab_input_menu" data-toggle="tab" class="nav-link loadtable disabled" from="input_menu" id="tab_menu2">Tab Menu</a>
+                                <a href="#tab_input_menu" data-toggle="tab" class="nav-link loadtable {{ isset($DetailTransaksi)?'':'disabled' }}" from="input_menu" id="tab_menu2">Tab Menu</a>
                             </li>
                         </ul>
                     </nav>
@@ -103,7 +107,7 @@
                                     <div class="form-group row">
                                         <label for="nama_penerima" class="col-md-3 col-form-label">Penerima</label>
                                         <div class="col-md-9">
-                                            <input id="nama_penerima" type="text" name="nama_penerima" class="form-control" placeholder="Nama Penerima" required="required" value="" >
+                                            <input id="nama_penerima" type="text" name="nama_penerima" class="form-control" placeholder="Nama Penerima" required="required" value="{{ isset($Transaksi)?$Transaksi->penerima:'' }}" >
                                         </div>  
                                     </div>
                                     <div class="form-group row">
@@ -121,9 +125,10 @@
                                     <div class="form-group row">
                                         <label for="alamat" class="col-md-3 col-form-label">Jalan</label>
                                         <div class="col-md-7">
-                                            <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly">
-                                            <input type="hidden" class="form-control" id="id_jalan" name="id_jalan">
-                                            <input type="hidden" class="form-control" id="harga_tarif_wilayah" name="harga_tarif_wilayah">
+                                            <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly" value="{{ isset($Transaksi)?$Transaksi->Jalan->nama
+                                                :'' }}">
+                                            <input type="hidden" class="form-control" id="id_jalan" name="id_jalan" value="{{ isset($Transaksi)?$Transaksi->id_tarif_wilayah:'' }}">
+                                            <input type="hidden" class="form-control" id="harga_tarif_wilayah" name="harga_tarif_wilayah" value="{{ isset($Transaksi)?$Transaksi->tarif_wilayah:0 }}">
                                         </div>
                                         <div class="col-md-2">
                                             <button id="cariJalan" type="button" onclick="showJalan()" class="btn btn-primary">Cari</button>
@@ -165,7 +170,7 @@
                                         </div>  
                                     </div>
                                     <div class="form-group row pull-right">
-                                        <button id="nexttab" class="btn btn-primary disabled" onclick="javascript:tab_menu2.click();" type="button">next</button>
+                                        <button id="nexttab" class="btn btn-primary {{ isset($DetailTransaksi)?'':'disabled' }}" onclick="javascript:tab_menu2.click();" type="button">next</button>
                                     </div>
                                     <input type="hidden" name="provinsi" value="yogyakarta">
                                     <input type="hidden" name="id_provinsi" value="34">
@@ -210,13 +215,16 @@
                           </tr>
                       </thead>
                       <tbody id="detail-data-table">
+                        @if(!isset($DetailTransaksi))
                         <tr class="data_menu" id="data_ke-0" role="row">
                             <td id="layanan_nama_place_0">
                             </td>
                                 <input type="hidden" name="count_menu[]" value="baris_0">
                             <td>
                                 <div class="row">
-                                    <div class="col-md-9"><input id="menu_0" type="text" name="baris_0[menu]" class="form-control" required="required"/><input type="hidden" id="idmenu_0" name="baris_0[id_menu]"/></div>
+                                    <div class="col-md-9">
+                                        <input id="menu_0" type="text" name="baris_0[menu]" class="form-control" required="required"/>
+                                        <input type="hidden" id="idmenu_0" name="baris_0[id_menu]"/></div>
                                     <div class="col-md-3">&nbsp;
                                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
                                         <button disabled="disabled" id="sowaddon0" type="button" no="0" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>
@@ -260,6 +268,78 @@
                                 <label id="total_0" class="total_perbaris"></label>
                             </td>
                         </tr>
+                        @else
+                        <input type="hidden" name="id_transaksi" value="{{ $Transaksi->id }}">
+                        @for ($i = 0; $i < count($DetailTransaksi); $i++)
+                            <tr class="data_menu" id="data_ke-{{$i}}" role="row">
+                                <td id="layanan_nama_place_{{$i}}">
+                                    <input type="hidden" name="count_menu[]" value="baris_{{$i}}">
+                                    <input type="hidden" name="baris_{{$i}}[id_detail_transaksi]" value="{{ $DetailTransaksi[$i]->id }}">
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <input id="menu_{{$i}}" type="text" name="baris_{{$i}}[menu]"  value="{{ $DetailTransaksi[$i]->menu->nama_menu }}" class="form-control" required="required" disabled="disabled" />
+                                            <input type="hidden" id="idmenu_{{$i}}" name="baris_{{$i}}[id_menu]" value="{{ $DetailTransaksi[$i]->id_menu }}" />
+                                        </div>
+                                        <div class="col-md-3">&nbsp;
+                                            <button type="button" class="btn btn-sm btn-info" onclick="showMenu({{$i}})" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
+                                            <button id="sowaddon{{$i}}" type="button" no="{{$i}}" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <hr class="mb-1">
+                                            <label class="control-label pull-left">Add On</label>
+                                            <div class="clearfix">&nbsp;</div>
+                                            <div class="border border-light rounded d-flex flex-row flex-wrap align-content-center " id="addon_baris_ke-{{$i}}">
+                                                <input type="hidden" value="{{ $DetailTransaksi[$i] }}" class="hide_count_addon" id="hide_count_addon{{$i}}" type="button" />
+                                                <?php $totaladdon=0; $ii=0;?>
+                                                @foreach ($DetailTransaksi[$i]->addons as $val)
+                                                    <div class="mr-3 p-2" id="add_on_ke-{{ $i }}">
+                                                        <label class="label-info" id="teks_addon_'{{ $i }}'"> {{ $val->Addons->nama }} ~ Rp {{ nominalKoma($val->Addons->harga) }} </label>
+                                                        <input type="hidden" class="hargaaddon{{ $i }}" value="{{ $val->harga }}" name="baris_{{ $i }}[itemharga_addon][]">
+                                                        <input type="hidden" value="{{ $val->id_add_on }}'" name="baris_{{ $i }}[id_addon][]">
+                                                        &nbsp;
+                                                        <button type="button" row="{{ $i }}" no="{{ $i }}" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeAddonMenu" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <?php $totaladdon = $val->harga+$totaladdon; $ii++?>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td align="right">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            Menu =>
+                                        </div>
+                                        <div class="col-5">
+                                            <label id="hargateks_{{$i}}">{{ nominalKoma($DetailTransaksi[$i]->harga) }}</label><input type="hidden" id="harga_{{$i}}" value="{{$DetailTransaksi[$i]->harga}}" name="baris_{{$i}}[harga]">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            Addon =>
+                                        </div>
+                                        <div class="col-5">
+                                            <label id="hargateks_addon_{{$i}}">{{ nominalKoma($totaladdon ) }}</label><input type="hidden" id="harga_addon_{{$i}}" value="{{ $totaladdon }}" name="baris_{{$i}}[harga_addon]"/>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-sm-9"><input id="qty_menu_{{$i}}" untuk="{{$i}}" type="number" value="{{ $DetailTransaksi[$i]->jml }}" required="required" name="baris_{{$i}}[jml]" class="form-control qtyx"/></div>
+                                    </div>
+                                </td>
+                                <td align="right">
+                                    <label id="total_{{$i}}" class="total_perbaris">{{ nominalKoma($DetailTransaksi[$i]->harga + $totaladdon) }}</label>
+                                </td>
+                            </tr>
+                        @endfor
+                        @endif
                     </tbody>
                     <tfoot id="foot-data-table">
                         <tr>
@@ -272,19 +352,19 @@
                                                 <option value="{{ $val['id'] }}" harga="{{ $val['harga'] }}">{{ $val['nama'] }}</option>
                                             @endforeach
                                         </select> --}}
-                                        <input type="hidden" id="id_tarifwilayah" name="id_tarifwilayah">
+                                        <input type="hidden" id="id_tarifwilayah" value="{{ isset($Transaksi->id_tarif_wilayah)?$Transaksi->id_tarif_wilayah:'' }}" name="id_tarifwilayah">
                                     </div>
                                 </div>
                             </td>
-                            <td align="right"><label id="texttarifwilayah"></label></td>
+                            <td align="right"><label id="texttarifwilayah">{{ isset($Transaksi->tarif_wilayah)?nominalKoma($Transaksi->tarif_wilayah):'' }}</label></td>
                         </tr>
                         <tr>
                             <td colspan="4" align="right">Tax / PPN</td>
-                            <td align="right"><label id="textppn"><input type="hidden" id="textppn" name="ppn"></label></td>
+                            <td align="right"><label id="textppn">{{ isset($Transaksi->ppn)?nominalKoma($Transaksi->ppn):'' }}</label><input value="{{ isset($Transaksi->ppn)?$Transaksi->ppn:'' }}" type="hidden" id="textppn" name="ppn"></td>
                         </tr>
                         <tr>
                             <td colspan="4" align="right">Grand Total</td>
-                            <td align="right"><label id="textgrandtotal"><input type="hidden" id="grandtotal" name="grandtotal"></label></td>
+                            <td align="right"><label id="textgrandtotal">{{ isset($Transaksi->total_harga)?nominalKoma($Transaksi->total_harga):'' }}</label><input value="{{ isset($Transaksi->total_harga)?$Transaksi->total_harga:'' }}" type="hidden" id="grandtotal" name="grandtotal"></td>
                         </tr>
                     </tfoot>
                     <input type="hidden" value="1" class="hide_count_menu" id="hide_count_menu" type="button" name="hide_count_menu"/>
@@ -292,15 +372,15 @@
             </div>
             <div class="pull-right">
                 <input type="submit" id="simpan" name="submit" value="Simpan Pesanan" class="btn btn-info submit">
-                <input type="submit" id="inputlagi" name="submit" value="Input Lagi" class="btn btn-info submit">
+                @if(!isset($Pelanggan))<input type="submit" id="inputlagi" name="submit" value="Input Lagi" class="btn btn-info submit">@endif
             </div>
         </div>
     </div>
-
 </div>
 </div>
 </div>
 </div>
+<div class="mb-xl-5">&nbsp;</div>
 </form>
 </div>
 
@@ -308,43 +388,6 @@
 
 @push('js')
 <script type="text/javascript">
-    $(document).ready(function(){
-        @if(session('id'))
-        open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); 
-        @endif
-        $('#tab_data_pelanggan2').click();
-        // $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
-        $('#add_menu').on('click',function(){
-            from=$(this).attr('id');
-            count=$('#hide_count_menu').val();
-            add_data_barang_to_table(count);
-        });
-        $('#menu-table').on('change','.qtyx',function(){
-            count=$(this).attr('untuk');
-            hitungPerbaris(count);
-        });
-
-        $('#menu-table').on('click','.showAddOn',function(){
-            count=$(this).attr('no');
-            showAddOn(count);
-        });
-        $('#myModelDialog').on('click','.pilihAddon',function(){
-            no=$(this).attr('no');
-            id=$(this).attr('id-addon');
-            nama=$(this).attr('nama-addon');
-            harga=$(this).attr('harga-addon');
-            tambahAddOn(no,nama,harga,id);
-            $('.close').click();
-        });
-        loadAlamat();
-        $('#tempatuntukalamat').on('click','.pilihalamat',function(){
-            id=$(this).attr('id');
-            alamat=$(this).val();
-            nama=$('#alamat').html(alamat);
-            harga=$('#id_alamat').val(id);
-        });
-    });
-
     function add_data_barang_to_table(count){
         $('#hide_count_menu').val(parseInt(count)+1);
         $('<tr class="data_menu" id="data_ke-'+count+'" role="row">\n\
@@ -497,7 +540,7 @@
         });
         $('.close').click();
     }
-    @if($Pelanggan)
+    @if(isset($Pelanggan))
     function loadAlamat(){
         $.ajax({
             type: "GET",
@@ -644,5 +687,51 @@
         });
         return true;
     }
+    $(document).ready(function(){
+        @if(session('id'))
+        open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); 
+        @endif
+        $('#tab_data_pelanggan2').click();
+        // $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
+        $('#add_menu').on('click',function(){
+            from=$(this).attr('id');
+            count=$('#hide_count_menu').val();
+            add_data_barang_to_table(count);
+        });
+        $('#menu-table').on('change','.qtyx',function(){
+            count=$(this).attr('untuk');
+            hitungPerbaris(count);
+        });
+
+        $('#menu-table').on('click','.showAddOn',function(){
+            count=$(this).attr('no');
+            showAddOn(count);
+        });
+        $('#myModelDialog').on('click','.pilihAddon',function(){
+            no=$(this).attr('no');
+            id=$(this).attr('id-addon');
+            nama=$(this).attr('nama-addon');
+            harga=$(this).attr('harga-addon');
+            tambahAddOn(no,nama,harga,id);
+            $('.close').click();
+        });
+        loadAlamat();
+        $('#tempatuntukalamat').on('click','.pilihalamat',function(){
+            id=$(this).attr('id');
+            alamat=$(this).val();
+            nama=$('#alamat').html(alamat);
+            harga=$('#id_alamat').val(id);
+        });
+        @if(isset($DetailTransaksi))
+        $('.closeAddonMenu').on('click',function(){
+            no=$(this).attr('no');
+            row=$(this).attr('row');
+
+            $('#addon_baris_ke-'+row).find('#add_on_ke-'+no).detach();
+            hitungPerbaris(row);
+            // $('#hide_count_addon'+row).val(count-1);
+        });
+        @endif
+    });
 </script> 
 @endpush

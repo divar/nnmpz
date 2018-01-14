@@ -11,7 +11,7 @@ class Transaksi extends Model
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['id_pelanggan','id_alamat','total_harga','id_tarif_wilayah','ppn','no_kwitansi','user_input','user_update'];
+    protected $fillable = ['id_pelanggan','id_alamat','id_jalan','penerima','total_harga','id_tarif_wilayah','ppn','no_kwitansi','user_input','user_update'];
     
     public static function findRequested()
     {
@@ -21,6 +21,8 @@ class Transaksi extends Model
         \Request::input('id') and $query->where('id',\Request::input('id'));
         \Request::input('id_pelanggan') and $query->where('id_pelanggan',\Request::input('id_pelanggan'));
         \Request::input('id_alamat') and $query->where('id_alamat',\Request::input('id_alamat'));
+        \Request::input('id_jalan') and $query->where('id_jalan',\Request::input('id_jalan'));
+        \Request::input('penerima') and $query->where('penerima',\Request::input('penerima'));
         \Request::input('id_tarif_wilayah') and $query->where('id_tarif_wilayah',\Request::input('id_tarif_wilayah'));
         \Request::input('total_harga') and $query->where('total_harga',\Request::input('total_harga'));
         \Request::input('tarif_wilayah') and $query->where('tarif_wilayah',\Request::input('tarif_wilayah'));
@@ -48,5 +50,9 @@ class Transaksi extends Model
     public function TarifWilayah()
     {
         return $this->belongsTo('Modules\All\Entities\TarifWilayah','id_tarif_wilayah');
+    }
+    public function Jalan()
+    {
+        return $this->belongsTo('Modules\All\Entities\Jalan','id_jalan');
     }
 }

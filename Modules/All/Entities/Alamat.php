@@ -11,7 +11,7 @@ class Alamat extends Model
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['id_pelanggan','alamat','kelurahan','kecamatan','kabupaten','provinsi','user_input','user_update'];
+    protected $fillable = ['id_pelanggan','id_jalan','alamat','kelurahan','kecamatan','kabupaten','provinsi','user_input','user_update'];
     
     public static function findRequested()
     {
@@ -21,6 +21,7 @@ class Alamat extends Model
         \Request::input('id') and $query->where('id',\Request::input('id'));
         \Request::input('id_pelanggan') and $query->where('id_pelanggan',\Request::input('id_pelanggan'));
         \Request::input('alamat') and $query->where('alamat',\Request::input('alamat'));
+        \Request::input('id_jalan') and $query->where('id_jalan',\Request::input('id_jalan'));
         \Request::input('kelurahan') and $query->where('kelurahan',\Request::input('kelurahan'));
         \Request::input('kecamatan') and $query->where('kecamatan',\Request::input('kecamatan'));
         \Request::input('kabupaten') and $query->where('kabupaten',\Request::input('kabupaten'));
@@ -35,5 +36,9 @@ class Alamat extends Model
 
         // paginate results
         return $query->paginate(15);
+    }
+    public function Jalan()
+    {
+        return $this->belongsTo('Modules\All\Entities\Jalan','id_jalan');
     }
 }

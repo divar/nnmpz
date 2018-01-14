@@ -38,4 +38,8 @@ class DetailAddOn extends Model
     {
         return $this->belongsTo('Modules\All\Entities\DetailTransaksi','id_detail_transaksi');
     }
+    public function Addons()
+    {
+        return $this->belongsTo('Modules\All\Entities\AddOnMenu','id_add_on');
+    }
 }

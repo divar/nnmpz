@@ -40,4 +40,8 @@ class DetailTransaksi extends Model
     {
         return $this->belongsTo('Modules\All\Entities\ListMenu','id_menu');
     }
+    public function addons()
+    {
+        return $this->hasMany('Modules\All\Entities\DetailAddOn','id_detail_transaksi');
+    }
 }
