@@ -11,17 +11,17 @@
                 <div class="clearfix">&nbsp;</div>
 
                 <div class="portlet-body" style="display: block;">
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-md-2">
                             <a href="{{ url('all/transaksi/tambah') }}" class="btn btn-info btn-sm">
                                 <span class="fa fa-fw fa-plus"></span> Tambah Pesanan
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="clearfix">&nbsp;</div>
                     <div class="row">
                         <div class='col-sm-2'>
-                            <input type="text" value="{{ date('d-m-Y') }}" id="fromdate" readonly class="date-picker">
+                            <input type="text" value="{{ date('1-1-2015') }}" id="fromdate" readonly class="date-picker">
                         </div>
                         <div class="col-md-2">
                             <input type="text" value="{{ date('d-m-Y') }}" id="todate" readonly class="date-picker">
@@ -84,6 +84,7 @@ function refresh(){
                                     return $.extend( {}, d, {
                                     'from':$('#fromdate').val(),
                                     'to':$('#todate').val(),
+                                    'laporan':'laporan',
                                 } );
 
                                 }

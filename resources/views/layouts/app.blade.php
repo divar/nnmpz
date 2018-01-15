@@ -93,6 +93,12 @@
               <span class="nav-link-text">Pemesanan</span>
             </a>
           </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Laporan">
+            <a class="nav-link" href="{{ route('loaddataTransaksi-laporan') }}">
+              <i class="fa fa-fw fa-table"></i>
+              <span class="nav-link-text">Laporan</span>
+            </a>
+          </li>
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu">
             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#menu" >
               <i class="fa fa-fw fa-table"></i>

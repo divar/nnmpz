@@ -64,7 +64,7 @@ class KategoriController extends Controller
     	DB::beginTransaction();
   		try {
         $dataCreate['nama']=isset($r['nama'])?$r['nama']:'';
-        $dataCreate['flag_addon']=isset($r['addon']) && $r['addon']=='Y'?'Y':'';
+        $dataCreate['flag_addon']=isset($r['addon']) && $r['addon']=='Y'?'Y':'N';
   			$dataCreate['user_input']= Auth::user()->id;
   			$createKategori = Kategori::create($dataCreate);	
   		} catch (Exception $e) {

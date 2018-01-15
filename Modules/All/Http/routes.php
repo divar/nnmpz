@@ -30,6 +30,7 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::post('transaksi/posttambah', 'TransaksiController@store')->name('postTambahTransaksi');
     Route::get('transaksi/load-data', 'TransaksiController@loadData');
     Route::get('transaksi', 'TransaksiController@index')->name('loaddataTransaksi');
+    Route::get('transaksi/laporan', 'TransaksiController@index2')->name('loaddataTransaksi-laporan');
     Route::get('transaksi/load-alamat', 'PelangganController@loadAlamat')->name('loadAlamat');
 
     Route::get('TarifWilayah/delete/{id}', 'TarifWilayahController@destroy')->name('hapusTarifWilayah');

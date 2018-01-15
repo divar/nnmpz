@@ -37,7 +37,7 @@ class MenuController extends Controller
     }
     public function tambahMenu()
     {
-        $sendTambahMenu['kategori']= Kategori::select('*'); 
+        $sendTambahMenu['kategori']= Kategori::select('*')->get(); 
         $sendTambahMenu['size']=Size::all();
         $sendTambahMenu['Satuan']=Satuan::all();
         return $this->view('form',$sendTambahMenu);

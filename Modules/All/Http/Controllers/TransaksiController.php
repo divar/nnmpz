@@ -39,6 +39,10 @@ class TransaksiController extends Controller
     {
         return $this->view('index');
     }
+    public function index2()
+    {
+        return $this->view('index-laporan');
+    }
     public function tambahTransaksi()
     {
         $send['kabupaten']=Indonesia::findProvince(34, $with = ['cities'])->toArray();
@@ -321,6 +325,7 @@ class TransaksiController extends Controller
     {
         $GLOBALS['nomor']=\Request::input('start',0)+1;
         $from=\Request::get('from',null);
+        $laporan=\Request::get('laporan',null);
         $from=Carbon::createFromFormat('d-m-Y', $from);
         $from=$from->format('Y-m-d');
         $to=\Request::get('to',null);
@@ -334,10 +339,13 @@ class TransaksiController extends Controller
         ->addColumn('nama',function($data){
           return $data->Pelanggan->nama;
         })
-        ->addColumn('action',function($data){
+        ->addColumn('action',function($data) use($laporan) {
+        if(empty($laporan)){
           $content = '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/edit/$data->id").'"><i class="fa fa-pencil-square-o"></i>Edit</a>';
           $content .= '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/create-from/$data->id_pelanggan").'"><i class="fa fa-pencil-square-o"></i> Order</a>';
           return $content;
+        }
+          return '';
         })
         ->addColumn('alamat',function($data){
           return $data->Alamat->alamat;
