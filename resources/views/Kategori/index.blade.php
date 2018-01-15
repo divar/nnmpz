@@ -6,7 +6,7 @@
         <div class="col-md-12 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <H3>Data Tarif Wilayah</H3>
+                    <H3>Data Kategori</H3>
                 </div>
                 <div class="clearfix">&nbsp;</div>
 

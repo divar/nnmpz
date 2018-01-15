@@ -23,8 +23,8 @@
                         <table class="table table-striped table-bordered table-sm table-hover" id="jalan-table">
                             <thead>
                                 <tr>
-                                    <th width="7%">No</th>
                                     <th width="15%">#</th>
+                                    <th width="7%">No</th>
                                     <th>wilayah</th>
                                     <th>Jalan</th> 
                                     <th>Tarif</th>
