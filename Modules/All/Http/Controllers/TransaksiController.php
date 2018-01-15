@@ -180,10 +180,12 @@ class TransaksiController extends Controller
             // , 'id'=>$insertTransaksi->id
         }
         DB::commit();
+        Auth::logout();
+        return redirect('/');
         if($return == 'Input Lagi'){
-            return redirect('all/transaksi/tambah')->with('return',$return)->with('id',$insertTransaksi->id);
+            // return redirect('all/transaksi/tambah')->with('return',$return)->with('id',$insertTransaksi->id);
         }else{
-            return redirect('all/transaksi')->with('return',$return)->with('id',$insertTransaksi->id);
+            // return redirect('all/transaksi')->with('return',$return)->with('id',$insertTransaksi->id);
         }
     }
 
@@ -366,12 +368,18 @@ class TransaksiController extends Controller
         ->addColumn('tgl_pesan',function($data){
           return $data->created_at;
         })
+        ->addColumn('penerima',function($data){
+          return $data->penerima;
+        })
         ->addColumn('total',function($data){
             $nominal = nominalKoma($data->total_harga+$data->ppn,true);
           return $nominal;
         })
         ->addColumn('no_hp',function($data){
           return $data->Pelanggan->no_hp;
+        })
+        ->addColumn('pegawai',function($data){
+          return $data->userinput->name;
         })
         ->rawColumns(['pesanan','action'])
         ->make(true);

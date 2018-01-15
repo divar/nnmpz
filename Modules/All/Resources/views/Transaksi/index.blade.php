@@ -38,11 +38,12 @@
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>No Hp</th>
-                                    <th>Tanggal Lahir</th>
+                                    <th>Penerima</th>
                                     <th>Pesanan</th>                                    
                                     <th>Total</th>                                    
                                     <th>Tanggal Pesan</th>                                    
                                     <th>Alamat</th>                                    
+                                    <th>pegawai</th>                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,11 +94,12 @@ function refresh(){
             { data: 'nomor', name: 'nomor', searchable:false,orderable:true},
             { data: 'nama', name: 'nama', searchable:false,orderable:true},
             { data: 'no_hp', name: 'no_hp', searchable:true,orderable:true},
-            { data: 'tgl_lahir', name: 'tgl_lahir', searchable:false,orderable:true},
+            { data: 'penerima', name: 'penerima', searchable:false,orderable:true},
             { data: 'pesanan', name: 'pesanan', searchable:false,orderable:true},
             { data: 'total', name: 'total', searchable:false,orderable:true},
             { data: 'tgl_pesan', name: 'tgl_pesan', searchable:false,orderable:true},
             { data: 'alamat', name: 'alamat', searchable:false,orderable:true},
+            { data: 'pegawai', name: 'pegawai', searchable:false,orderable:true},
         ],
         language: {
             lengthMenu : '{{ "Menampilkan _MENU_ data" }}',

@@ -55,4 +55,8 @@ class Transaksi extends Model
     {
         return $this->belongsTo('Modules\All\Entities\Jalan','id_jalan');
     }
+    public function userinput()
+    {
+        return $this->belongsTo('App\User','user_input');
+    }
 }
