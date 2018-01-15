@@ -6,7 +6,7 @@
         <div class="col-md-12 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <H3>Data Daftar Transaksi Pesanan</H3>
+                    <H3>LAPORAN TRANSAKSI</H3>
                 </div>
                 <div class="clearfix">&nbsp;</div>
 
@@ -21,7 +21,7 @@
                     <div class="clearfix">&nbsp;</div>
                     <div class="row">
                         <div class='col-sm-2'>
-                            <input type="text" value="{{ date('1-1-2015') }}" id="fromdate" readonly class="date-picker">
+                            <input type="text" value="{{ date('d-m-Y') }}" id="fromdate" readonly class="date-picker">
                         </div>
                         <div class="col-md-2">
                             <input type="text" value="{{ date('d-m-Y') }}" id="todate" readonly class="date-picker">

@@ -67,9 +67,9 @@
 </style>
 <div class="content-wrapper">
     @if(!isset($DetailTransaksi))
-    <form action="{{ route('postTambahTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+    <form onsubmit="return validateForm()" action="{{ route('postTambahTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
     @else
-    <form action="{{ route('postEditTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+    <form onsubmit="return validateForm()" action="{{ route('postEditTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
     @endif
         <div class="container-fluid">
             <div class="col-md-12">
@@ -101,19 +101,19 @@
                                     <div class="form-group row">
                                         <label for="nama" class="col-md-3 col-form-label">Pemesan</label>
                                         <div class="col-md-9">
-                                            <input id="nama" type="text" name="nama" class="form-control" placeholder="Nama" required="required" value="{{ isset($Pelanggan)?$Pelanggan->nama:'' }}" {{ isset($Pelanggan)?'readonly="readonly"':'' }}>
+                                            <input id="nama" type="text" name="nama" class="form-control required" placeholder="Nama" value="{{ isset($Pelanggan)?$Pelanggan->nama:'' }}" {{ isset($Pelanggan)?'readonly="readonly"':'' }}>
                                         </div>  
                                     </div>
                                     <div class="form-group row">
                                         <label for="nama_penerima" class="col-md-3 col-form-label">Penerima</label>
                                         <div class="col-md-9">
-                                            <input id="nama_penerima" type="text" name="nama_penerima" class="form-control" placeholder="Nama Penerima" required="required" value="{{ isset($Transaksi)?$Transaksi->penerima:'' }}" >
+                                            <input id="nama_penerima" type="text" name="nama_penerima" class="form-control required" placeholder="Nama Penerima"  value="{{ isset($Transaksi)?$Transaksi->penerima:'' }}" >
                                         </div>  
                                     </div>
                                     <div class="form-group row">
                                         <label for="no_hp" class="col-md-3 col-form-label">No Hp</label>
                                         <div class="col-md-9">
-                                            <input id="no_hp" type="text" name="no_hp" class="form-control" placeholder="0821xxxxxx" required="required" {{ isset($Pelanggan)?'readonly="readonly"':'' }} value="{{ isset($Pelanggan)?$Pelanggan->no_hp:'' }}">
+                                            <input id="no_hp" type="text" name="no_hp" class="form-control required" placeholder="0821xxxxxx"  {{ isset($Pelanggan)?'readonly="readonly"':'' }} value="{{ isset($Pelanggan)?$Pelanggan->no_hp:'' }}">
                                         </div>  
                                     </div>
                                     <div class="form-group d-none row">
@@ -223,7 +223,7 @@
                             <td>
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <input id="menu_0" type="text" name="baris_0[menu]" class="form-control" required="required"/>
+                                        <input id="menu_0" type="text" name="baris_0[menu]" class="form-control required" />
                                         <input type="hidden" id="idmenu_0" name="baris_0[id_menu]"/></div>
                                     <div class="col-md-3">&nbsp;
                                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
@@ -261,7 +261,7 @@
                             </td>
                             <td>
                                 <div class="row">
-                                    <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number" required="required" name="baris_0[jml]" class="form-control qtyx"/></div>
+                                    <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number"  name="baris_0[jml]" class="form-control qtyx required"/></div>
                                 </div>
                             </td>
                             <td align="right">
@@ -279,7 +279,7 @@
                                 <td>
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <input id="menu_{{$i}}" type="text" name="baris_{{$i}}[menu]"  value="{{ $DetailTransaksi[$i]->menu->nama_menu }}" class="form-control" required="required" disabled="disabled" />
+                                            <input id="menu_{{$i}}" type="text" name="baris_{{$i}}[menu]"  value="{{ $DetailTransaksi[$i]->menu->nama_menu }}" class="form-control required"  disabled="disabled" />
                                             <input type="hidden" id="idmenu_{{$i}}" name="baris_{{$i}}[id_menu]" value="{{ $DetailTransaksi[$i]->id_menu }}" />
                                         </div>
                                         <div class="col-md-3">&nbsp;
@@ -331,7 +331,7 @@
                                 </td>
                                 <td>
                                     <div class="row">
-                                        <div class="col-sm-9"><input id="qty_menu_{{$i}}" untuk="{{$i}}" type="number" value="{{ $DetailTransaksi[$i]->jml }}" required="required" name="baris_{{$i}}[jml]" class="form-control qtyx"/></div>
+                                        <div class="col-sm-9"><input id="qty_menu_{{$i}}" untuk="{{$i}}" type="number" value="{{ $DetailTransaksi[$i]->jml }}"  name="baris_{{$i}}[jml]" class="form-control qtyx required"/></div>
                                     </div>
                                 </td>
                                 <td align="right">
@@ -397,7 +397,7 @@
                             </td>\n\
                             <td>\n\
                                 <div class="row">\n\
-                                    <div class="col-md-9"><input id="menu_'+count+'" type="text" name="baris_'+count+'[menu]" class="form-control" required="required"/><input type="hidden" id="idmenu_'+count+'" name="baris_'+count+'[id_menu]"/></div>\n\
+                                    <div class="col-md-9"><input id="menu_'+count+'" type="text" name="baris_'+count+'[menu]" class="form-control required" /><input type="hidden" id="idmenu_'+count+'" name="baris_'+count+'[id_menu]"/></div>\n\
                                     <div class="col-md-3">&nbsp;\n\
                                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu('+count+')" title="Cari Menu"><i class="fa fa-search-plus"></i></button>\n\
                                         <button disabled="disabled" id="sowaddon'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>\n\
@@ -434,7 +434,7 @@
                             </td>\n\
                             <td>\n\
                                 <div class="row">\n\
-                                    <div class="col-sm-9"><input id="qty_menu_'+count+'" untuk="'+count+'" type="number" required="required" name="baris_'+count+'[jml]" class="form-control qtyx"/></div>\n\
+                                    <div class="col-sm-9"><input id="qty_menu_'+count+'" untuk="'+count+'" type="number"  name="baris_'+count+'[jml]" class="form-control qtyx required"/></div>\n\
                                 </div>\n\
                             </td>\n\
                             <td align="right">\n\
@@ -722,6 +722,9 @@
             nama=$('#alamat').html(alamat);
             harga=$('#id_alamat').val(id);
         });
+        $('#form-transaksi').on('submit',function(){
+            validateForm();
+        });
         @if(isset($DetailTransaksi))
         $('.closeAddonMenu').on('click',function(){
             no=$(this).attr('no');
@@ -733,5 +736,17 @@
         });
         @endif
     });
+    function validateForm() {
+        var x1 = document.forms["form-transaksi"]["nama"].value;
+        var x2 = document.forms["form-transaksi"]["nama_penerima"].value;
+        var x3 = document.forms["form-transaksi"]["no_hp"].value;
+        var x4 = document.forms["form-transaksi"]["alamat"].value;
+        if (x1 == "" || x2 == "" || x3 == "" || x4 == "") {
+            alert("ada field yang kosong di tab sebelumnya");
+            return false;
+        }else {
+            $(this).submit();
+        }
+    }
 </script> 
 @endpush
