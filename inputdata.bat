@@ -1,3 +1,6 @@
+php artisan migrate
+php artissan migrate:fresh 
+
 php artisan module:migrate-refresh
 php artisan cache:clear
 php artisan config:cache
