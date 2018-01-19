@@ -59,4 +59,8 @@ class Transaksi extends Model
     {
         return $this->belongsTo('App\User','user_input');
     }
+    public function DetailTransaksi()
+    {
+        return $this->hasMany('Modules\All\Entities\DetailTransaksi','id_transaksi');
+    }
 }

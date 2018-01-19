@@ -39,10 +39,12 @@
                                     <th>Nama</th>
                                     <th>No Hp</th>
                                     <th>Tanggal Lahir</th>
-                                    <th>Pesanan</th>                                    
-                                    <th>Total</th>                                    
-                                    <th>Tanggal Pesan</th>                                    
-                                    <th>Alamat</th>                                    
+                                    <th>Pesanan</th>
+                                    <th>Total</th>
+                                    <th>Tanggal Pesan</th>
+                                    <th>Alamat</th>
+                                    <th>Addon</th>
+                                    <th>Modifier</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -99,6 +101,8 @@ function refresh(){
             { data: 'total', name: 'total', searchable:false,orderable:true},
             { data: 'tgl_pesan', name: 'tgl_pesan', searchable:false,orderable:true},
             { data: 'alamat', name: 'alamat', searchable:false,orderable:true},
+            { data: 'addon', name: 'addon', searchable:false,orderable:true},
+            { data: 'Modifier', name: 'Modifier', searchable:false,orderable:true},
         ],
         language: {
             lengthMenu : '{{ "Menampilkan _MENU_ data" }}',

@@ -4,12 +4,88 @@
 		"selected_items":
 		[
 			[
-				"id_",
-				"id_satuan"
+				"Deta",
+				"DetailAddOn"
+			],
+			[
+				"for",
+				"for\tfor …"
 			],
 			[
 				"id",
-				"id_detail_transaksi"
+				"id_jalan"
+			],
+			[
+				"Mod",
+				"Modifier"
+			],
+			[
+				"hide_count_modi",
+				"hide_count_modifier"
+			],
+			[
+				"modi",
+				"modifier_baris_ke"
+			],
+			[
+				"close",
+				"closeModifierMenu"
+			],
+			[
+				"hide_count_mod",
+				"hide_count_modifier"
+			],
+			[
+				"col",
+				"col-md \tBootstrap 4 Class"
+			],
+			[
+				"input-",
+				"input-lg \tBootstrap 3 Class"
+			],
+			[
+				"col-md",
+				"col-md-7 \tBootstrap 3 Class"
+			],
+			[
+				"form-c",
+				"form-control \tBootstrap 3 Class"
+			],
+			[
+				"sma",
+				"small \tBootstrap 4 Class"
+			],
+			[
+				"p",
+				"p-0 \tBootstrap 4 Class"
+			],
+			[
+				"sub",
+				"submit"
+			],
+			[
+				"nama",
+				"nama_penerima"
+			],
+			[
+				"form-",
+				"form-transaksi"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"user",
+				"user_input"
+			],
+			[
+				"sen",
+				"sendTambahMenu"
+			],
+			[
+				"id_",
+				"id_satuan"
 			],
 			[
 				"curren",
@@ -48,10 +124,6 @@
 				"mb-3 \tBootstrap 4 Class"
 			],
 			[
-				"form-c",
-				"form-control \tBootstrap 4 Class"
-			],
-			[
 				"ml",
 				"ml-auto \tBootstrap 4 Class"
 			],
@@ -68,10 +140,6 @@
 				"tempatuntukalamat"
 			],
 			[
-				"for",
-				"for"
-			],
-			[
 				"load",
 				"loadAlamat"
 			],
@@ -82,10 +150,6 @@
 			[
 				"mr-xl",
 				"mr-xl-5 \tBootstrap 4 Class"
-			],
-			[
-				"p",
-				"p-5 \tBootstrap 4 Class"
 			],
 			[
 				"mar",
@@ -178,10 +242,6 @@
 			[
 				"scroll",
 				"pre-scrollable \tBootstrap 4 Class"
-			],
-			[
-				"col-md",
-				"col-md-5 \tBootstrap 3 Class"
 			],
 			[
 				"hide",
@@ -340,10 +400,6 @@
 				"isset"
 			],
 			[
-				"con",
-				"content"
-			],
-			[
 				"Tar",
 				"tarifWilayah"
 			],
@@ -394,10 +450,6 @@
 			[
 				"a",
 				"array\t$… = array (…)"
-			],
-			[
-				"nama",
-				"nama_lokasi"
 			],
 			[
 				"cube",
@@ -462,138 +514,59 @@
 			[
 				"jso",
 				"json_encode"
-			],
-			[
-				"encode",
-				"json_encode"
-			],
-			[
-				"va",
-				"var_dump"
-			],
-			[
-				"dum",
-				"var_dump"
-			],
-			[
-				"name",
-				"namelocation"
-			],
-			[
-				"tmp",
-				"tmp_name"
-			],
-			[
-				"s3",
-				"S3Client"
-			],
-			[
-				"png",
-				"pngfile"
-			],
-			[
-				"imagep",
-				"imagepng"
-			],
-			[
-				"new",
-				"newfile_type"
-			],
-			[
-				"vali",
-				"validate"
-			],
-			[
-				"user",
-				"userlevel"
-			],
-			[
-				"inp",
-				"inputan"
-			],
-			[
-				"ma",
-				"margin-top"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "database/seeds/TarifWilayahTableSeeder.php",
+			"file": "Modules/All/Http/Controllers/TransaksiController.php",
 			"settings":
 			{
-				"buffer_size": 968,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "database/seeds/MenuTableSeeder.php",
-			"settings":
-			{
-				"buffer_size": 20967,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "database/seeds/AddOnTableSeeder.php",
-			"settings":
-			{
-				"buffer_size": 205,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 9771 files for \"seeder\"\n\nD:\\xampp\\htdocs\\nnmpz\\bootstrap\\cache\\config.php:\n  768      'magic_can_method_case' => 'kebab_case',\n  769    ),\n  770:   'laratrust_seeder' => \n  771    array (\n  772      'role_structure' => \n  ...\n  934            'generate' => true,\n  935          ),\n  936:         'seeder' => \n  937          array (\n  938:           'path' => 'Database/Seeders',\n  939            'generate' => true,\n  940          ),\n\nD:\\xampp\\htdocs\\nnmpz\\bootstrap\\cache\\services.php:\n  144      'command.resource.make' => 'Illuminate\\\\Foundation\\\\Providers\\\\ConsoleSupportServiceProvider',\n  145      'command.rule.make' => 'Illuminate\\\\Foundation\\\\Providers\\\\ConsoleSupportServiceProvider',\n  146:     'command.seeder.make' => 'Illuminate\\\\Foundation\\\\Providers\\\\ConsoleSupportServiceProvider',\n  147      'command.session.table' => 'Illuminate\\\\Foundation\\\\Providers\\\\ConsoleSupportServiceProvider',\n  148      'command.serve' => 'Illuminate\\\\Foundation\\\\Providers\\\\ConsoleSupportServiceProvider',\n\nD:\\xampp\\htdocs\\nnmpz\\config\\modules.php:\n   96              'command' => ['path' => 'Console', 'generate' => true],\n   97              'migration' => ['path' => 'Database/Migrations', 'generate' => true],\n   98:             'seeder' => ['path' => 'Database/Seeders', 'generate' => true],\n   99              'factory' => ['path' => 'Database/factories', 'generate' => true],\n  100              'model' => ['path' => 'Entities', 'generate' => true],\n\nD:\\xampp\\htdocs\\nnmpz\\database\\seeds\\AddOnTableSeeder.php:\n    1  <?php\n    2  \n    3: use Illuminate\\Database\\Seeder;\n    4  \n    5: class AddOnTableSeeder extends Seeder\n    6  {\n    7      /**\n\nD:\\xampp\\htdocs\\nnmpz\\database\\seeds\\DatabaseSeeder.php:\n    1  <?php\n    2  \n    3: use Illuminate\\Database\\Seeder;\n    4  \n    5: class DatabaseSeeder extends Seeder\n    6  {\n    7      /**\n    .\n   12      public function run()\n   13      {\n   14:         // $this->call(UsersTableSeeder::class);\n   15:         $this->call(LaratrustSeeder::class);\n   16      }\n   17  }\n\nD:\\xampp\\htdocs\\nnmpz\\database\\seeds\\JalanTableSeeder.php:\n    1  <?php\n    2  \n    3: use Illuminate\\Database\\Seeder;\n    4  \n    5: class JalanTableSeeder extends Seeder\n    6  {\n    7      /**\n\nD:\\xampp\\htdocs\\nnmpz\\database\\seeds\\KategoriTableSeeder.php:\n    1  <?php\n    2  \n    3: use Illuminate\\Database\\Seeder;\n    4  \n    5: class KategoriTableSeeder extends Seeder\n    6  {\n    7      /**\n\nD:\\xampp\\htdocs\\nnmpz\\database\\seeds\\LaratrustSeeder.php:\n    1  <?php\n    2  use Illuminate\\Support\\Facades\\Schema;\n    3: use Illuminate\\Database\\Seeder;\n    4  use Illuminate\\Support\\Facades\\DB;\n    5  \n    6: class LaratrustSeeder extends Seeder\n    7  {\n    8      /**\n    .\n   16          $this->truncateLaratrustTables();\n   17  \n   18:         $config = config('laratrust_seeder.role_structure');\n   19:         $userPermission = config('laratrust_seeder.permission_structure');\n   20:         $mapPermission = collect(config('laratrust_seeder.permissions_map'));\n   21  \n   22          foreach ($config as $key => $modules) {\n\nD:\\xampp\\htdocs\\nnmpz\\database\\seeds\\MenuTableSeeder.php:\n    1  <?php\n    2  \n    3: use Illuminate\\Database\\Seeder;\n    4  \n    5: class MenuTableSeeder extends Seeder\n    6  {\n    7      /**\n\nD:\\xampp\\htdocs\\nnmpz\\database\\seeds\\SatuanTableSeeder.php:\n    1  <?php\n    2  \n    3: use Illuminate\\Database\\Seeder;\n    4  \n    5: class SatuanTableSeeder extends Seeder\n    6  {\n    7      /**\n\nD:\\xampp\\htdocs\\nnmpz\\database\\seeds\\SizesTableSeeder.php:\n    1  <?php\n    2  \n    3: use Illuminate\\Database\\Seeder;\n    4  use Illuminate\\Support\\Facades\\DB;\n    5  \n    6: class SizesTableSeeder extends Seeder\n    7  {\n    8      /**\n\nD:\\xampp\\htdocs\\nnmpz\\database\\seeds\\TarifWilayahTableSeeder.php:\n    1  <?php\n    2  \n    3: use Illuminate\\Database\\Seeder;\n    4  \n    5: class TarifWilayahTableSeeder extends Seeder\n    6  {\n    7      /**\n\nD:\\xampp\\htdocs\\nnmpz\\inputdata.bat:\n    5  php artisan cache:clear\n    6  php artisan config:cache\n    7: php artisan db:seed --class=SizesTableSeeder\n    8: php artisan db:seed --class=JalanTableSeeder\n    9: php artisan db:seed --class=KategoriTableSeeder\n   10: php artisan db:seed --class=MenuTableSeeder\n   11: php artisan db:seed --class=SatuanTableSeeder\n   12: php artisan db:seed --class=TarifWilayahTableSeeder\n   13  php artisan cache:clear\n   14  php artisan config:cache\n\nD:\\xampp\\htdocs\\nnmpz\\Modules\\All\\Database\\Seeders\\AllDatabaseSeeder.php:\n    1  <?php\n    2  \n    3: namespace Modules\\All\\Database\\Seeders;\n    4  \n    5: use Illuminate\\Database\\Seeder;\n    6  use Illuminate\\Database\\Eloquent\\Model;\n    7  \n    8: class AllDatabaseSeeder extends Seeder\n    9  {\n   10      /**\n   ..\n   17          Model::unguard();\n   18  \n   19:         // $this->call(\"OthersTableSeeder\");\n   20      }\n   21  }\n\nD:\\xampp\\htdocs\\nnmpz\\storage\\logs\\laravel.log:\n 32859  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2118): Illuminate\\\\Database\\\\Connection->insert('insert into `li...', Array)\n 32860  #4 D:\\\\xampp\\\\htdocs\\\n 32861: nmpz\\\\database\\\\seeds\\\\MenuTableSeeder.php(140): Illuminate\\\\Database\\\\Query\\\\Builder->insert(Array)\n 32862: #5 [internal function]: MenuTableSeeder->run()\n 32863  #6 D:\\\\xampp\\\\htdocs\\\n 32864  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 32870  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 32871  #10 D:\\\\xampp\\\\htdocs\\\n 32872: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 32873  #11 D:\\\\xampp\\\\htdocs\\\n 32874: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 32875  #12 D:\\\\xampp\\\\htdocs\\\n 32876  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 32919  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2118): Illuminate\\\\Database\\\\Connection->insert('insert into `li...', Array)\n 32920  #4 D:\\\\xampp\\\\htdocs\\\n 32921: nmpz\\\\database\\\\seeds\\\\MenuTableSeeder.php(140): Illuminate\\\\Database\\\\Query\\\\Builder->insert(Array)\n 32922: #5 [internal function]: MenuTableSeeder->run()\n 32923  #6 D:\\\\xampp\\\\htdocs\\\n 32924  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 32930  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 32931  #10 D:\\\\xampp\\\\htdocs\\\n 32932: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 32933  #11 D:\\\\xampp\\\\htdocs\\\n 32934: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 32935  #12 D:\\\\xampp\\\\htdocs\\\n 32936  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 32979  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2118): Illuminate\\\\Database\\\\Connection->insert('insert into `li...', Array)\n 32980  #4 D:\\\\xampp\\\\htdocs\\\n 32981: nmpz\\\\database\\\\seeds\\\\MenuTableSeeder.php(140): Illuminate\\\\Database\\\\Query\\\\Builder->insert(Array)\n 32982: #5 [internal function]: MenuTableSeeder->run()\n 32983  #6 D:\\\\xampp\\\\htdocs\\\n 32984  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 32990  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 32991  #10 D:\\\\xampp\\\\htdocs\\\n 32992: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 32993  #11 D:\\\\xampp\\\\htdocs\\\n 32994: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 32995  #12 D:\\\\xampp\\\\htdocs\\\n 32996  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33039  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2118): Illuminate\\\\Database\\\\Connection->insert('insert into `li...', Array)\n 33040  #4 D:\\\\xampp\\\\htdocs\\\n 33041: nmpz\\\\database\\\\seeds\\\\MenuTableSeeder.php(140): Illuminate\\\\Database\\\\Query\\\\Builder->insert(Array)\n 33042: #5 [internal function]: MenuTableSeeder->run()\n 33043  #6 D:\\\\xampp\\\\htdocs\\\n 33044  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33050  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33051  #10 D:\\\\xampp\\\\htdocs\\\n 33052: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33053  #11 D:\\\\xampp\\\\htdocs\\\n 33054: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33055  #12 D:\\\\xampp\\\\htdocs\\\n 33056  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33099  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2118): Illuminate\\\\Database\\\\Connection->insert('insert into `li...', Array)\n 33100  #4 D:\\\\xampp\\\\htdocs\\\n 33101: nmpz\\\\database\\\\seeds\\\\MenuTableSeeder.php(140): Illuminate\\\\Database\\\\Query\\\\Builder->insert(Array)\n 33102: #5 [internal function]: MenuTableSeeder->run()\n 33103  #6 D:\\\\xampp\\\\htdocs\\\n 33104  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33110  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33111  #10 D:\\\\xampp\\\\htdocs\\\n 33112: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33113  #11 D:\\\\xampp\\\\htdocs\\\n 33114: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33115  #12 D:\\\\xampp\\\\htdocs\\\n 33116  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33380  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `si...', Array)\n 33381  #4 D:\\\\xampp\\\\htdocs\\\n 33382: nmpz\\\\database\\\\seeds\\\\SizesTableSeeder.php(15): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 33383: #5 [internal function]: SizesTableSeeder->run()\n 33384  #6 D:\\\\xampp\\\\htdocs\\\n 33385  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33391  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33392  #10 D:\\\\xampp\\\\htdocs\\\n 33393: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33394  #11 D:\\\\xampp\\\\htdocs\\\n 33395: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33396  #12 D:\\\\xampp\\\\htdocs\\\n 33397  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33440  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `ja...', Array)\n 33441  #4 D:\\\\xampp\\\\htdocs\\\n 33442: nmpz\\\\database\\\\seeds\\\\JalanTableSeeder.php(14): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 33443: #5 [internal function]: JalanTableSeeder->run()\n 33444  #6 D:\\\\xampp\\\\htdocs\\\n 33445  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33451  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33452  #10 D:\\\\xampp\\\\htdocs\\\n 33453: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33454  #11 D:\\\\xampp\\\\htdocs\\\n 33455: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33456  #12 D:\\\\xampp\\\\htdocs\\\n 33457  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33500  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `ka...', Array)\n 33501  #4 D:\\\\xampp\\\\htdocs\\\n 33502: nmpz\\\\database\\\\seeds\\\\KategoriTableSeeder.php(14): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 33503: #5 [internal function]: KategoriTableSeeder->run()\n 33504  #6 D:\\\\xampp\\\\htdocs\\\n 33505  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33511  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33512  #10 D:\\\\xampp\\\\htdocs\\\n 33513: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33514  #11 D:\\\\xampp\\\\htdocs\\\n 33515: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33516  #12 D:\\\\xampp\\\\htdocs\\\n 33517  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33560  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `li...', Array)\n 33561  #4 D:\\\\xampp\\\\htdocs\\\n 33562: nmpz\\\\database\\\\seeds\\\\MenuTableSeeder.php(14): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 33563: #5 [internal function]: MenuTableSeeder->run()\n 33564  #6 D:\\\\xampp\\\\htdocs\\\n 33565  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33571  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33572  #10 D:\\\\xampp\\\\htdocs\\\n 33573: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33574  #11 D:\\\\xampp\\\\htdocs\\\n 33575: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33576  #12 D:\\\\xampp\\\\htdocs\\\n 33577  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33620  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `sa...', Array)\n 33621  #4 D:\\\\xampp\\\\htdocs\\\n 33622: nmpz\\\\database\\\\seeds\\\\SatuanTableSeeder.php(14): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 33623: #5 [internal function]: SatuanTableSeeder->run()\n 33624  #6 D:\\\\xampp\\\\htdocs\\\n 33625  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33631  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33632  #10 D:\\\\xampp\\\\htdocs\\\n 33633: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33634  #11 D:\\\\xampp\\\\htdocs\\\n 33635: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33636  #12 D:\\\\xampp\\\\htdocs\\\n 33637  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33680  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `ta...', Array)\n 33681  #4 D:\\\\xampp\\\\htdocs\\\n 33682: nmpz\\\\database\\\\seeds\\\\TarifWilayahTableSeeder.php(14): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 33683: #5 [internal function]: TarifWilayahTableSeeder->run()\n 33684  #6 D:\\\\xampp\\\\htdocs\\\n 33685  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33691  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33692  #10 D:\\\\xampp\\\\htdocs\\\n 33693: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33694  #11 D:\\\\xampp\\\\htdocs\\\n 33695: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33696  #12 D:\\\\xampp\\\\htdocs\\\n 33697  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33814  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `si...', Array)\n 33815  #4 D:\\\\xampp\\\\htdocs\\\n 33816: nmpz\\\\database\\\\seeds\\\\SizesTableSeeder.php(15): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 33817: #5 [internal function]: SizesTableSeeder->run()\n 33818  #6 D:\\\\xampp\\\\htdocs\\\n 33819  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33825  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33826  #10 D:\\\\xampp\\\\htdocs\\\n 33827: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33828  #11 D:\\\\xampp\\\\htdocs\\\n 33829: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33830  #12 D:\\\\xampp\\\\htdocs\\\n 33831  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33874  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `ja...', Array)\n 33875  #4 D:\\\\xampp\\\\htdocs\\\n 33876: nmpz\\\\database\\\\seeds\\\\JalanTableSeeder.php(14): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 33877: #5 [internal function]: JalanTableSeeder->run()\n 33878  #6 D:\\\\xampp\\\\htdocs\\\n 33879  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33885  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33886  #10 D:\\\\xampp\\\\htdocs\\\n 33887: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33888  #11 D:\\\\xampp\\\\htdocs\\\n 33889: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33890  #12 D:\\\\xampp\\\\htdocs\\\n 33891  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33934  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `ka...', Array)\n 33935  #4 D:\\\\xampp\\\\htdocs\\\n 33936: nmpz\\\\database\\\\seeds\\\\KategoriTableSeeder.php(14): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 33937: #5 [internal function]: KategoriTableSeeder->run()\n 33938  #6 D:\\\\xampp\\\\htdocs\\\n 33939  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 33945  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 33946  #10 D:\\\\xampp\\\\htdocs\\\n 33947: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 33948  #11 D:\\\\xampp\\\\htdocs\\\n 33949: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 33950  #12 D:\\\\xampp\\\\htdocs\\\n 33951  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 33994  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `li...', Array)\n 33995  #4 D:\\\\xampp\\\\htdocs\\\n 33996: nmpz\\\\database\\\\seeds\\\\MenuTableSeeder.php(14): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 33997: #5 [internal function]: MenuTableSeeder->run()\n 33998  #6 D:\\\\xampp\\\\htdocs\\\n 33999  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 34005  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 34006  #10 D:\\\\xampp\\\\htdocs\\\n 34007: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 34008  #11 D:\\\\xampp\\\\htdocs\\\n 34009: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 34010  #12 D:\\\\xampp\\\\htdocs\\\n 34011  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 34054  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `sa...', Array)\n 34055  #4 D:\\\\xampp\\\\htdocs\\\n 34056: nmpz\\\\database\\\\seeds\\\\SatuanTableSeeder.php(14): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 34057: #5 [internal function]: SatuanTableSeeder->run()\n 34058  #6 D:\\\\xampp\\\\htdocs\\\n 34059  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 34065  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 34066  #10 D:\\\\xampp\\\\htdocs\\\n 34067: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 34068  #11 D:\\\\xampp\\\\htdocs\\\n 34069: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 34070  #12 D:\\\\xampp\\\\htdocs\\\n 34071  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n .....\n 34114  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php(2228): Illuminate\\\\Database\\\\Connection->delete('delete from `ta...', Array)\n 34115  #4 D:\\\\xampp\\\\htdocs\\\n 34116: nmpz\\\\database\\\\seeds\\\\TarifWilayahTableSeeder.php(14): Illuminate\\\\Database\\\\Query\\\\Builder->delete()\n 34117: #5 [internal function]: TarifWilayahTableSeeder->run()\n 34118  #6 D:\\\\xampp\\\\htdocs\\\n 34119  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php(29): call_user_func_array(Array, Array)\n .....\n 34125  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php(549): Illuminate\\\\Container\\\\BoundMethod::call(Object(Illuminate\\\\Foundation\\\\Application), Array, Array, NULL)\n 34126  #10 D:\\\\xampp\\\\htdocs\\\n 34127: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Seeder.php(122): Illuminate\\\\Container\\\\Container->call(Array)\n 34128  #11 D:\\\\xampp\\\\htdocs\\\n 34129: nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand.php(63): Illuminate\\\\Database\\\\Seeder->__invoke()\n 34130  #12 D:\\\\xampp\\\\htdocs\\\n 34131  nmpz\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Concerns\\\\GuardsAttributes.php(122): Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand->Illuminate\\\\Database\\\\Console\\\\Seeds\\\\{closure}()\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\composer\\autoload_classmap.php:\n    7  \n    8  return array(\n    9:     'AddOnTableSeeder' => $baseDir . '/database/seeds/AddOnTableSeeder.php',\n   10      'App\\\\Console\\\\Kernel' => $baseDir . '/app/Console/Kernel.php',\n   11      'App\\\\Exceptions\\\\Handler' => $baseDir . '/app/Exceptions/Handler.php',\n   ..\n   86      'Cron\\\\MonthField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/MonthField.php',\n   87      'Cron\\\\YearField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/YearField.php',\n   88:     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',\n   89      'DebugBar\\\\Bridge\\\\CacheCacheCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',\n   90      'DebugBar\\\\Bridge\\\\DoctrineCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',\n   ..\n 1082      'Illuminate\\\\Database\\\\Console\\\\Migrations\\\\StatusCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Database/Console/Migrations/StatusCommand.php',\n 1083      'Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php',\n 1084:     'Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeederMakeCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Database/Console/Seeds/SeederMakeCommand.php',\n 1085      'Illuminate\\\\Database\\\\DatabaseManager' => $vendorDir . '/laravel/framework/src/Illuminate/Database/DatabaseManager.php',\n 1086      'Illuminate\\\\Database\\\\DatabaseServiceProvider' => $vendorDir . '/laravel/framework/src/Illuminate/Database/DatabaseServiceProvider.php',\n ....\n 1168      'Illuminate\\\\Database\\\\Schema\\\\SQLiteBuilder' => $vendorDir . '/laravel/framework/src/Illuminate/Database/Schema/SQLiteBuilder.php',\n 1169      'Illuminate\\\\Database\\\\Schema\\\\SqlServerBuilder' => $vendorDir . '/laravel/framework/src/Illuminate/Database/Schema/SqlServerBuilder.php',\n 1170:     'Illuminate\\\\Database\\\\Seeder' => $vendorDir . '/laravel/framework/src/Illuminate/Database/Seeder.php',\n 1171      'Illuminate\\\\Database\\\\SqlServerConnection' => $vendorDir . '/laravel/framework/src/Illuminate/Database/SqlServerConnection.php',\n 1172      'Illuminate\\\\Encryption\\\\Encrypter' => $vendorDir . '/laravel/framework/src/Illuminate/Encryption/Encrypter.php',\n ....\n 1628      'JakubOnderka\\\\PhpConsoleColor\\\\InvalidStyleException' => $vendorDir . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',\n 1629      'JakubOnderka\\\\PhpConsoleHighlighter\\\\Highlighter' => $vendorDir . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',\n 1630:     'JalanTableSeeder' => $baseDir . '/database/seeds/JalanTableSeeder.php',\n 1631:     'KategoriTableSeeder' => $baseDir . '/database/seeds/KategoriTableSeeder.php',\n 1632:     'LaratrustSeeder' => $baseDir . '/database/seeds/LaratrustSeeder.php',\n 1633      'Laratrust\\\\Commands\\\\AddLaratrustUserTraitUseCommand' => $vendorDir . '/santigarcor/laratrust/src/Commands/AddLaratrustUserTraitUseCommand.php',\n 1634      'Laratrust\\\\Commands\\\\MakePermissionCommand' => $vendorDir . '/santigarcor/laratrust/src/Commands/MakePermissionCommand.php',\n 1635      'Laratrust\\\\Commands\\\\MakeRoleCommand' => $vendorDir . '/santigarcor/laratrust/src/Commands/MakeRoleCommand.php',\n 1636:     'Laratrust\\\\Commands\\\\MakeSeederCommand' => $vendorDir . '/santigarcor/laratrust/src/Commands/MakeSeederCommand.php',\n 1637      'Laratrust\\\\Commands\\\\MakeTeamCommand' => $vendorDir . '/santigarcor/laratrust/src/Commands/MakeTeamCommand.php',\n 1638      'Laratrust\\\\Commands\\\\MigrationCommand' => $vendorDir . '/santigarcor/laratrust/src/Commands/MigrationCommand.php',\n ....\n 1675      'Laravolt\\\\Indonesia\\\\Models\\\\Province' => $vendorDir . '/laravolt/indonesia/src/Models/Province.php',\n 1676      'Laravolt\\\\Indonesia\\\\Models\\\\Village' => $vendorDir . '/laravolt/indonesia/src/Models/Village.php',\n 1677:     'Laravolt\\\\Indonesia\\\\Seeds\\\\CitiesSeeder' => $vendorDir . '/laravolt/indonesia/src/Seeds/CitiesSeeder.php',\n 1678      'Laravolt\\\\Indonesia\\\\Seeds\\\\CsvtoArray' => $vendorDir . '/laravolt/indonesia/src/Seeds/CsvtoArray.php',\n 1679:     'Laravolt\\\\Indonesia\\\\Seeds\\\\DatabaseSeeder' => $vendorDir . '/laravolt/indonesia/src/Seeds/DatabaseSeeder.php',\n 1680:     'Laravolt\\\\Indonesia\\\\Seeds\\\\DistrictsSeeder' => $vendorDir . '/laravolt/indonesia/src/Seeds/DistrictsSeeder.php',\n 1681:     'Laravolt\\\\Indonesia\\\\Seeds\\\\ProvincesSeeder' => $vendorDir . '/laravolt/indonesia/src/Seeds/ProvincesSeeder.php',\n 1682:     'Laravolt\\\\Indonesia\\\\Seeds\\\\VillagesSeeder' => $vendorDir . '/laravolt/indonesia/src/Seeds/VillagesSeeder.php',\n 1683      'Laravolt\\\\Indonesia\\\\ServiceProvider' => $vendorDir . '/laravolt/indonesia/src/ServiceProvider.php',\n 1684      'Lavary\\\\Menu\\\\Builder' => $vendorDir . '/lavary/laravel-menu/src/Lavary/Menu/Builder.php',\n ....\n 1763      'Maatwebsite\\\\Excel\\\\Writers\\\\CellWriter' => $vendorDir . '/maatwebsite/excel/src/Maatwebsite/Excel/Writers/CellWriter.php',\n 1764      'Maatwebsite\\\\Excel\\\\Writers\\\\LaravelExcelWriter' => $vendorDir . '/maatwebsite/excel/src/Maatwebsite/Excel/Writers/LaravelExcelWriter.php',\n 1765:     'MenuTableSeeder' => $baseDir . '/database/seeds/MenuTableSeeder.php',\n 1766      'Mockery' => $vendorDir . '/mockery/mockery/library/Mockery.php',\n 1767      'Mockery\\\\Adapter\\\\Phpunit\\\\MockeryPHPUnitIntegration' => $vendorDir . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',\n ....\n 1841      'Mockery\\\\VerificationDirector' => $vendorDir . '/mockery/mockery/library/Mockery/VerificationDirector.php',\n 1842      'Mockery\\\\VerificationExpectation' => $vendorDir . '/mockery/mockery/library/Mockery/VerificationExpectation.php',\n 1843:     'Modules\\\\All\\\\Database\\\\Seeders\\\\AllDatabaseSeeder' => $baseDir . '/Modules/All/Database/Seeders/AllDatabaseSeeder.php',\n 1844      'Modules\\\\All\\\\Entities\\\\AddOnMenu' => $baseDir . '/Modules/All/Entities/AddOnMenu.php',\n 1845      'Modules\\\\All\\\\Entities\\\\Alamat' => $baseDir . '/Modules/All/Entities/Alamat.php',\n ....\n 3189      'Sabberworm\\\\CSS\\\\Value\\\\Value' => $vendorDir . '/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/Value.php',\n 3190      'Sabberworm\\\\CSS\\\\Value\\\\ValueList' => $vendorDir . '/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/ValueList.php',\n 3191:     'SatuanTableSeeder' => $baseDir . '/database/seeds/SatuanTableSeeder.php',\n 3192      'SebastianBergmann\\\\CodeCoverage\\\\CodeCoverage' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage.php',\n 3193      'SebastianBergmann\\\\CodeCoverage\\\\CoveredCodeNotExecutedException' => $vendorDir . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',\n ....\n 3283      'SebastianBergmann\\\\Version' => $vendorDir . '/sebastian/version/src/Version.php',\n 3284      'SessionUpdateTimestampHandlerInterface' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',\n 3285:     'SizesTableSeeder' => $baseDir . '/database/seeds/SizesTableSeeder.php',\n 3286      'SuperClosure\\\\Analyzer\\\\AstAnalyzer' => $vendorDir . '/jeremeamia/SuperClosure/src/Analyzer/AstAnalyzer.php',\n 3287      'SuperClosure\\\\Analyzer\\\\ClosureAnalyzer' => $vendorDir . '/jeremeamia/SuperClosure/src/Analyzer/ClosureAnalyzer.php',\n ....\n 3886      'Symfony\\\\Polyfill\\\\Util\\\\BinaryOnFuncOverload' => $vendorDir . '/symfony/polyfill-util/BinaryOnFuncOverload.php',\n 3887      'Symfony\\\\Polyfill\\\\Util\\\\TestListener' => $vendorDir . '/symfony/polyfill-util/TestListener.php',\n 3888:     'TarifWilayahTableSeeder' => $baseDir . '/database/seeds/TarifWilayahTableSeeder.php',\n 3889      'Tests\\\\CreatesApplication' => $baseDir . '/tests/CreatesApplication.php',\n 3890      'Tests\\\\Feature\\\\ExampleTest' => $baseDir . '/tests/Feature/ExampleTest.php',\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\composer\\autoload_static.php:\n  417  \n  418      public static $classMap = array (\n  419:         'AddOnTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AddOnTableSeeder.php',\n  420          'App\\\\Console\\\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',\n  421          'App\\\\Exceptions\\\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',\n  ...\n  496          'Cron\\\\MonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/MonthField.php',\n  497          'Cron\\\\YearField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/YearField.php',\n  498:         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',\n  499          'DebugBar\\\\Bridge\\\\CacheCacheCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',\n  500          'DebugBar\\\\Bridge\\\\DoctrineCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',\n  ...\n 1492          'Illuminate\\\\Database\\\\Console\\\\Migrations\\\\StatusCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/Migrations/StatusCommand.php',\n 1493          'Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeedCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php',\n 1494:         'Illuminate\\\\Database\\\\Console\\\\Seeds\\\\SeederMakeCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Console/Seeds/SeederMakeCommand.php',\n 1495          'Illuminate\\\\Database\\\\DatabaseManager' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/DatabaseManager.php',\n 1496          'Illuminate\\\\Database\\\\DatabaseServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/DatabaseServiceProvider.php',\n ....\n 1578          'Illuminate\\\\Database\\\\Schema\\\\SQLiteBuilder' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Schema/SQLiteBuilder.php',\n 1579          'Illuminate\\\\Database\\\\Schema\\\\SqlServerBuilder' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Schema/SqlServerBuilder.php',\n 1580:         'Illuminate\\\\Database\\\\Seeder' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/Seeder.php',\n 1581          'Illuminate\\\\Database\\\\SqlServerConnection' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Database/SqlServerConnection.php',\n 1582          'Illuminate\\\\Encryption\\\\Encrypter' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Encryption/Encrypter.php',\n ....\n 2038          'JakubOnderka\\\\PhpConsoleColor\\\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',\n 2039          'JakubOnderka\\\\PhpConsoleHighlighter\\\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',\n 2040:         'JalanTableSeeder' => __DIR__ . '/../..' . '/database/seeds/JalanTableSeeder.php',\n 2041:         'KategoriTableSeeder' => __DIR__ . '/../..' . '/database/seeds/KategoriTableSeeder.php',\n 2042:         'LaratrustSeeder' => __DIR__ . '/../..' . '/database/seeds/LaratrustSeeder.php',\n 2043          'Laratrust\\\\Commands\\\\AddLaratrustUserTraitUseCommand' => __DIR__ . '/..' . '/santigarcor/laratrust/src/Commands/AddLaratrustUserTraitUseCommand.php',\n 2044          'Laratrust\\\\Commands\\\\MakePermissionCommand' => __DIR__ . '/..' . '/santigarcor/laratrust/src/Commands/MakePermissionCommand.php',\n 2045          'Laratrust\\\\Commands\\\\MakeRoleCommand' => __DIR__ . '/..' . '/santigarcor/laratrust/src/Commands/MakeRoleCommand.php',\n 2046:         'Laratrust\\\\Commands\\\\MakeSeederCommand' => __DIR__ . '/..' . '/santigarcor/laratrust/src/Commands/MakeSeederCommand.php',\n 2047          'Laratrust\\\\Commands\\\\MakeTeamCommand' => __DIR__ . '/..' . '/santigarcor/laratrust/src/Commands/MakeTeamCommand.php',\n 2048          'Laratrust\\\\Commands\\\\MigrationCommand' => __DIR__ . '/..' . '/santigarcor/laratrust/src/Commands/MigrationCommand.php',\n ....\n 2085          'Laravolt\\\\Indonesia\\\\Models\\\\Province' => __DIR__ . '/..' . '/laravolt/indonesia/src/Models/Province.php',\n 2086          'Laravolt\\\\Indonesia\\\\Models\\\\Village' => __DIR__ . '/..' . '/laravolt/indonesia/src/Models/Village.php',\n 2087:         'Laravolt\\\\Indonesia\\\\Seeds\\\\CitiesSeeder' => __DIR__ . '/..' . '/laravolt/indonesia/src/Seeds/CitiesSeeder.php',\n 2088          'Laravolt\\\\Indonesia\\\\Seeds\\\\CsvtoArray' => __DIR__ . '/..' . '/laravolt/indonesia/src/Seeds/CsvtoArray.php',\n 2089:         'Laravolt\\\\Indonesia\\\\Seeds\\\\DatabaseSeeder' => __DIR__ . '/..' . '/laravolt/indonesia/src/Seeds/DatabaseSeeder.php',\n 2090:         'Laravolt\\\\Indonesia\\\\Seeds\\\\DistrictsSeeder' => __DIR__ . '/..' . '/laravolt/indonesia/src/Seeds/DistrictsSeeder.php',\n 2091:         'Laravolt\\\\Indonesia\\\\Seeds\\\\ProvincesSeeder' => __DIR__ . '/..' . '/laravolt/indonesia/src/Seeds/ProvincesSeeder.php',\n 2092:         'Laravolt\\\\Indonesia\\\\Seeds\\\\VillagesSeeder' => __DIR__ . '/..' . '/laravolt/indonesia/src/Seeds/VillagesSeeder.php',\n 2093          'Laravolt\\\\Indonesia\\\\ServiceProvider' => __DIR__ . '/..' . '/laravolt/indonesia/src/ServiceProvider.php',\n 2094          'Lavary\\\\Menu\\\\Builder' => __DIR__ . '/..' . '/lavary/laravel-menu/src/Lavary/Menu/Builder.php',\n ....\n 2173          'Maatwebsite\\\\Excel\\\\Writers\\\\CellWriter' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Writers/CellWriter.php',\n 2174          'Maatwebsite\\\\Excel\\\\Writers\\\\LaravelExcelWriter' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Writers/LaravelExcelWriter.php',\n 2175:         'MenuTableSeeder' => __DIR__ . '/../..' . '/database/seeds/MenuTableSeeder.php',\n 2176          'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',\n 2177          'Mockery\\\\Adapter\\\\Phpunit\\\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',\n ....\n 2251          'Mockery\\\\VerificationDirector' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationDirector.php',\n 2252          'Mockery\\\\VerificationExpectation' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationExpectation.php',\n 2253:         'Modules\\\\All\\\\Database\\\\Seeders\\\\AllDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/All/Database/Seeders/AllDatabaseSeeder.php',\n 2254          'Modules\\\\All\\\\Entities\\\\AddOnMenu' => __DIR__ . '/../..' . '/Modules/All/Entities/AddOnMenu.php',\n 2255          'Modules\\\\All\\\\Entities\\\\Alamat' => __DIR__ . '/../..' . '/Modules/All/Entities/Alamat.php',\n ....\n 3599          'Sabberworm\\\\CSS\\\\Value\\\\Value' => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/Value.php',\n 3600          'Sabberworm\\\\CSS\\\\Value\\\\ValueList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/ValueList.php',\n 3601:         'SatuanTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SatuanTableSeeder.php',\n 3602          'SebastianBergmann\\\\CodeCoverage\\\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',\n 3603          'SebastianBergmann\\\\CodeCoverage\\\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',\n ....\n 3693          'SebastianBergmann\\\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',\n 3694          'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',\n 3695:         'SizesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SizesTableSeeder.php',\n 3696          'SuperClosure\\\\Analyzer\\\\AstAnalyzer' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Analyzer/AstAnalyzer.php',\n 3697          'SuperClosure\\\\Analyzer\\\\ClosureAnalyzer' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Analyzer/ClosureAnalyzer.php',\n ....\n 4296          'Symfony\\\\Polyfill\\\\Util\\\\BinaryOnFuncOverload' => __DIR__ . '/..' . '/symfony/polyfill-util/BinaryOnFuncOverload.php',\n 4297          'Symfony\\\\Polyfill\\\\Util\\\\TestListener' => __DIR__ . '/..' . '/symfony/polyfill-util/TestListener.php',\n 4298:         'TarifWilayahTableSeeder' => __DIR__ . '/../..' . '/database/seeds/TarifWilayahTableSeeder.php',\n 4299          'Tests\\\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',\n 4300          'Tests\\\\Feature\\\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\fzaninotto\\faker\\CHANGELOG.md:\n  220  - Fixed important distinction between ORM and database framework in README’s reference to an external Faker provider for POMM that I have never even tested. Anyway, POMM is highly recommended if you are a Postgres fan, or if you want to please Grégoire and help him finish his lifelong project of listening to music on a hi-fi audio equipment he built from his own hands [\\#696](https://github.com/fzaninotto/Faker/pull/696) ([chanmix51](https://github.com/chanmix51))\n  221  - Fixed example `text()` output in README [\\#694](https://github.com/fzaninotto/Faker/pull/694) ([vlakoff](https://github.com/vlakoff))\n  222: - Added mention of CakePHP 2.x Seeder Plugin to readme [\\#691](https://github.com/fzaninotto/Faker/pull/691) ([ravage84](https://github.com/ravage84))\n  223  - Fixed invalid email bug for Korean (ko\\_KR) [\\#690](https://github.com/fzaninotto/Faker/pull/690) ([pearlc](https://github.com/pearlc))\n  224  - Removed an invalid Dutch (nl\\_NL) lastname that breaks email generator [\\#689](https://github.com/fzaninotto/Faker/pull/689) ([SpaceK33z](https://github.com/SpaceK33z))\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\fzaninotto\\faker\\readme.md:\n 1536  * [pragmafabrik/Pomm2Faker](https://github.com/pragmafabrik/Pomm2Faker): Faker client for Pomm database framework (PostgreSQL)\n 1537  * [nelmio/alice](https://packagist.org/packages/nelmio/alice): Fixtures/object generator with a yaml DSL that can use Faker as data generator.\n 1538: * [CakePHP 2.x Fake Seeder Plugin](https://github.com/ravage84/cakephp-fake-seeder) A CakePHP 2.x shell to seed your database with fake and/or fixed data.\n 1539  * [images-generator](https://github.com/bruceheller/images-generator): An image generator provider using GD for placeholder type pictures\n 1540  * [pattern-lab/plugin-php-faker](https://github.com/pattern-lab/plugin-php-faker): Pattern Lab is a Styleguide, Component Library, and Prototyping tool. This creates unique content each time Pattern Lab is generated.\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php:\n   49  \n   50          if ($this->needsSeeding()) {\n   51:             $this->runSeeder($database);\n   52          }\n   53      }\n   ..\n   73      protected function needsSeeding()\n   74      {\n   75:         return $this->option('seed') || $this->option('seeder');\n   76      }\n   77  \n   78      /**\n   79:      * Run the database seeder command.\n   80       *\n   81       * @param  string  $database\n   82       * @return void\n   83       */\n   84:     protected function runSeeder($database)\n   85      {\n   86          $this->call('db:seed', [\n   87              '--database' => $database,\n   88:             '--class' => $this->option('seeder') ?: 'DatabaseSeeder',\n   89              '--force' => $this->option('force'),\n   90          ]);\n   ..\n  107              ['seed', null, InputOption::VALUE_NONE, 'Indicates if the seed task should be re-run.'],\n  108  \n  109:             ['seeder', null, InputOption::VALUE_OPTIONAL, 'The class name of the root seeder.'],\n  110          ];\n  111      }\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\RefreshCommand.php:\n   66  \n   67          if ($this->needsSeeding()) {\n   68:             $this->runSeeder($database);\n   69          }\n   70      }\n   ..\n  113      protected function needsSeeding()\n  114      {\n  115:         return $this->option('seed') || $this->option('seeder');\n  116      }\n  117  \n  118      /**\n  119:      * Run the database seeder command.\n  120       *\n  121       * @param  string  $database\n  122       * @return void\n  123       */\n  124:     protected function runSeeder($database)\n  125      {\n  126          $this->call('db:seed', [\n  127              '--database' => $database,\n  128:             '--class' => $this->option('seeder') ?: 'DatabaseSeeder',\n  129              '--force' => $this->option('force'),\n  130          ]);\n  ...\n  147              ['seed', null, InputOption::VALUE_NONE, 'Indicates if the seed task should be re-run.'],\n  148  \n  149:             ['seeder', null, InputOption::VALUE_OPTIONAL, 'The class name of the root seeder.'],\n  150  \n  151              ['step', null, InputOption::VALUE_OPTIONAL, 'The number of migrations to be reverted & re-run.'],\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php:\n   61  \n   62          Model::unguarded(function () {\n   63:             $this->getSeeder()->__invoke();\n   64          });\n   65      }\n   66  \n   67      /**\n   68:      * Get a seeder instance from the container.\n   69       *\n   70:      * @return \\Illuminate\\Database\\Seeder\n   71       */\n   72:     protected function getSeeder()\n   73      {\n   74          $class = $this->laravel->make($this->input->getOption('class'));\n   ..\n   97      {\n   98          return [\n   99:             ['class', null, InputOption::VALUE_OPTIONAL, 'The class name of the root seeder', 'DatabaseSeeder'],\n  100  \n  101              ['database', null, InputOption::VALUE_OPTIONAL, 'The database connection to seed'],\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeederMakeCommand.php:\n    7  use Illuminate\\Console\\GeneratorCommand;\n    8  \n    9: class SeederMakeCommand extends GeneratorCommand\n   10  {\n   11      /**\n   ..\n   14       * @var string\n   15       */\n   16:     protected $name = 'make:seeder';\n   17  \n   18      /**\n   ..\n   21       * @var string\n   22       */\n   23:     protected $description = 'Create a new seeder class';\n   24  \n   25      /**\n   ..\n   28       * @var string\n   29       */\n   30:     protected $type = 'Seeder';\n   31  \n   32      /**\n   ..\n   70      protected function getStub()\n   71      {\n   72:         return __DIR__.'/stubs/seeder.stub';\n   73      }\n   74  \n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\stubs\\seeder.stub:\n    1  <?php\n    2  \n    3: use Illuminate\\Database\\Seeder;\n    4  \n    5: class DummyClass extends Seeder\n    6  {\n    7      /**\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php:\n    8  use Illuminate\\Container\\Container;\n    9  \n   10: abstract class Seeder\n   11  {\n   12      /**\n   ..\n   58  \n   59      /**\n   60:      * Resolve an instance of the given seeder class.\n   61       *\n   62       * @param  string  $class\n   63:      * @return \\Illuminate\\Database\\Seeder\n   64       */\n   65      protected function resolve($class)\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Providers\\ArtisanServiceProvider.php:\n   46  use Illuminate\\Foundation\\Console\\VendorPublishCommand;\n   47  use Illuminate\\Console\\Scheduling\\ScheduleFinishCommand;\n   48: use Illuminate\\Database\\Console\\Seeds\\SeederMakeCommand;\n   49  use Illuminate\\Foundation\\Console\\PackageDiscoverCommand;\n   50  use Illuminate\\Database\\Console\\Migrations\\MigrateCommand;\n   ..\n  151          'ResourceMake' => 'command.resource.make',\n  152          'RuleMake' => 'command.rule.make',\n  153:         'SeederMake' => 'command.seeder.make',\n  154          'SessionTable' => 'command.session.table',\n  155          'Serve' => 'command.serve',\n  ...\n  773       * @return void\n  774       */\n  775:     protected function registerSeederMakeCommand()\n  776      {\n  777:         $this->app->singleton('command.seeder.make', function ($app) {\n  778:             return new SeederMakeCommand($app['files'], $app['composer']);\n  779          });\n  780      }\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Testing\\Concerns\\InteractsWithDatabase.php:\n   83       * @return $this\n   84       */\n   85:     public function seed($class = 'DatabaseSeeder')\n   86      {\n   87          $this->artisan('db:seed', ['--class' => $class]);\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravolt\\indonesia\\README.md:\n   38  ```\n   39  \n   40: ### Jalankan Seeder Untuk Mengisi Data Wilayah\n   41  ```\n   42  php artisan laravolt:indonesia:seed\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravolt\\indonesia\\README_en.md:\n   41  ```\n   42  \n   43: ### Run Database Seeder to Populate the Database\n   44  ```\n   45  php artisan laravolt:indonesia:seed\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravolt\\indonesia\\src\\Commands\\SeedCommand.php:\n   38      public function handle()\n   39      {\n   40:         \\Artisan::call('db:seed', ['--class' => 'Laravolt\\Indonesia\\Seeds\\DatabaseSeeder']);\n   41:         $this->info('Seeded: Laravolt\\Indonesia\\Seeds\\IndonesiaSeeder');\n   42      }\n   43  }\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravolt\\indonesia\\src\\Seeds\\CitiesSeeder.php:\n    3  namespace Laravolt\\Indonesia\\Seeds;\n    4  \n    5: use Illuminate\\Database\\Seeder;\n    6  \n    7: class CitiesSeeder extends Seeder\n    8  {\n    9      public function run()\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravolt\\indonesia\\src\\Seeds\\DatabaseSeeder.php:\n    3  namespace Laravolt\\Indonesia\\Seeds;\n    4  \n    5: use Illuminate\\Database\\Seeder;\n    6  \n    7: class DatabaseSeeder extends Seeder\n    8  {\n    9      /**\n   ..\n   16          $this->clear_data();\n   17  \n   18:         $this->call(ProvincesSeeder::class);\n   19:         $this->call(CitiesSeeder::class);\n   20:         $this->call(DistrictsSeeder::class);\n   21:         $this->call(VillagesSeeder::class);\n   22      }\n   23  \n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravolt\\indonesia\\src\\Seeds\\DistrictsSeeder.php:\n    3  namespace Laravolt\\Indonesia\\Seeds;\n    4  \n    5: use Illuminate\\Database\\Seeder;\n    6  \n    7: class DistrictsSeeder extends Seeder\n    8  {\n    9      public function run()\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravolt\\indonesia\\src\\Seeds\\ProvincesSeeder.php:\n    3  namespace Laravolt\\Indonesia\\Seeds;\n    4  \n    5: use Illuminate\\Database\\Seeder;\n    6  \n    7: class ProvincesSeeder extends Seeder\n    8  {\n    9      public function run()\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravolt\\indonesia\\src\\Seeds\\VillagesSeeder.php:\n    3  namespace Laravolt\\Indonesia\\Seeds;\n    4  \n    5: use Illuminate\\Database\\Seeder;\n    6  \n    7: class VillagesSeeder extends Seeder\n    8  {\n    9      public function run()\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\laravolt\\indonesia\\tests\\IndonesiaTest.php:\n    9      public function test()\n   10      {\n   11:         $this->checkSeeder();\n   12          $this->checkProvinces();\n   13          $this->checkCities();\n   ..\n   16      }\n   17  \n   18:     public function checkSeeder()\n   19      {\n   20          $this->seeInDatabase('provinces', ['name' => 'ACEH']);\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\nwidart\\laravel-modules\\CHANGELOG.md:\n   18  \n   19  - Adding the ability to correctly load modules from multiple locations, together\n   20: - Custom seeder path now also used in the `module:seed` command\n   21  \n   22  ## 2.5.1 - 2017-10-13\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\nwidart\\laravel-modules\\config\\config.php:\n   96              'command' => ['path' => 'Console', 'generate' => true],\n   97              'migration' => ['path' => 'Database/Migrations', 'generate' => true],\n   98:             'seeder' => ['path' => 'Database/Seeders', 'generate' => true],\n   99              'factory' => ['path' => 'Database/factories', 'generate' => true],\n  100              'model' => ['path' => 'Entities', 'generate' => true],\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\nwidart\\laravel-modules\\src\\Commands\\SeedCommand.php:\n   31       * @var string\n   32       */\n   33:     protected $description = 'Run database seeder from the specified module or from all modules.';\n   34  \n   35      /**\n   ..\n   98      public function moduleSeed(Module $module)\n   99      {\n  100:         $seeders = [];\n  101          $name = $module->getName();\n  102          $config = $module->get('migration');\n  ...\n  104              foreach ((array)$config['seeds'] as $class) {\n  105                  if (class_exists($class)) {\n  106:                     $seeders[] = $class;\n  107                  }\n  108              }\n  109          } else {\n  110:             $class = $this->getSeederName($name); //legacy support\n  111              if (class_exists($class)) {\n  112:                 $seeders[] = $class;\n  113              }\n  114          }\n  115  \n  116:         if (count($seeders) > 0) {\n  117:             array_walk($seeders, [$this, 'dbSeed']);\n  118              $this->info(\"Module [$name] seeded.\");\n  119          }\n  ...\n  143  \n  144      /**\n  145:      * Get master database seeder name for the specified module.\n  146       *\n  147       * @param string $name\n  ...\n  149       * @return string\n  150       */\n  151:     public function getSeederName($name)\n  152      {\n  153          $name = Str::studly($name);\n  154  \n  155          $namespace = $this->laravel['modules']->config('namespace');\n  156:         $seederPath = GenerateConfigReader::read('seeder');\n  157:         $seederPath = str_replace('/', '\\\\', $seederPath->getPath());\n  158  \n  159:         return $namespace . '\\\\' . $name . '\\\\' . $seederPath . '\\\\' . $name . 'DatabaseSeeder';\n  160      }\n  161  \n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\nwidart\\laravel-modules\\src\\Commands\\SeedMakeCommand.php:\n   29       * @var string\n   30       */\n   31:     protected $description = 'Generate new seeder for the specified module.';\n   32  \n   33      /**\n   ..\n   39      {\n   40          return [\n   41:             ['name', InputArgument::REQUIRED, 'The name of seeder will be created.'],\n   42              ['module', InputArgument::OPTIONAL, 'The name of module will be used.'],\n   43          ];\n   ..\n   56                  null,\n   57                  InputOption::VALUE_NONE,\n   58:                 'Indicates the seeder will created is a master database seeder.',\n   59              ],\n   60          ];\n   ..\n   68          $module = $this->laravel['modules']->findOrFail($this->getModuleName());\n   69  \n   70:         return (new Stub('/seeder.stub', [\n   71:             'NAME' => $this->getSeederName(),\n   72              'MODULE' => $this->getModuleName(),\n   73              'NAMESPACE' => $this->getClassNamespace($module),\n   ..\n   85          $path = $this->laravel['modules']->getModulePath($this->getModuleName());\n   86  \n   87:         $seederPath = GenerateConfigReader::read('seeder');\n   88  \n   89:         return $path . $seederPath->getPath() . '/' . $this->getSeederName() . '.php';\n   90      }\n   91  \n   92      /**\n   93:      * Get seeder name.\n   94       *\n   95       * @return string\n   96       */\n   97:     private function getSeederName()\n   98      {\n   99:         $end = $this->option('master') ? 'DatabaseSeeder' : 'TableSeeder';\n  100  \n  101          return Str::studly($this->argument('name')) . $end;\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\nwidart\\laravel-modules\\src\\Commands\\stubs\\seeder.stub:\n    1  <?php\n    2  \n    3: namespace $NAMESPACE$\\Database\\Seeders;\n    4  \n    5: use Illuminate\\Database\\Seeder;\n    6  use Illuminate\\Database\\Eloquent\\Model;\n    7  \n    8: class $NAME$ extends Seeder\n    9  {\n   10      /**\n   ..\n   17          Model::unguard();\n   18  \n   19:         // $this->call(\"OthersTableSeeder\");\n   20      }\n   21  }\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\nwidart\\laravel-modules\\tests\\BaseTestCase.php:\n   57                  'model' => ['path' => 'Entities', 'generate' => true],\n   58                  'repository' => ['path' => 'Repositories', 'generate' => true],\n   59:                 'seeder' => ['path' => 'Database/Seeders', 'generate' => true],\n   60                  'controller' => ['path' => 'Http/Controllers', 'generate' => true],\n   61                  'filter' => ['path' => 'Http/Middleware', 'generate' => true],\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\nwidart\\laravel-modules\\tests\\Commands\\__snapshots__\\ModuleMakeCommandTest__it_generates_module_resources__3.php:\n    1  <?php return '<?php\n    2  \n    3: namespace Modules\\\\Blog\\\\Database\\\\Seeders;\n    4  \n    5: use Illuminate\\\\Database\\\\Seeder;\n    6  use Illuminate\\\\Database\\\\Eloquent\\\\Model;\n    7  \n    8: class BlogDatabaseSeeder extends Seeder\n    9  {\n   10      /**\n   ..\n   17          Model::unguard();\n   18  \n   19:         // $this->call(\"OthersTableSeeder\");\n   20      }\n   21  }\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\nwidart\\laravel-modules\\tests\\Commands\\ModuleMakeCommandTest.php:\n  101          $this->assertMatchesSnapshot($this->finder->get($path));\n  102  \n  103:         $path = base_path('modules/Blog') . '/Database/Seeders/BlogDatabaseSeeder.php';\n  104          $this->assertTrue($this->finder->exists($path));\n  105          $this->assertMatchesSnapshot($this->finder->get($path));\n  ...\n  145          $this->assertFalse($this->finder->exists($path));\n  146  \n  147:         $path = base_path('modules/ModuleName') . '/Database/Seeders/ModuleNameDatabaseSeeder.php';\n  148          $this->assertFalse($this->finder->exists($path));\n  149      }\n  ...\n  211              'model' => 'Entities',\n  212              'repository' => 'Repositories',\n  213:             'seeder' => 'Database/Seeders',\n  214              'controller' => 'Http/Controllers',\n  215              'filter' => 'Http/Middleware',\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\nwidart\\laravel-modules\\tests\\GenerateConfigReaderTest.php:\n   11      public function it_can_read_a_configuration_value_with_new_format()\n   12      {\n   13:         $seedConfig = GenerateConfigReader::read('seeder');\n   14  \n   15          $this->assertInstanceOf(GeneratorPath::class, $seedConfig);\n   16:         $this->assertEquals('Database/Seeders', $seedConfig->getPath());\n   17          $this->assertTrue($seedConfig->generate());\n   18      }\n   ..\n   21      public function it_can_read_a_configuration_value_with_new_format_set_to_false()\n   22      {\n   23:         $this->app['config']->set('modules.paths.generator.seeder', ['path' => 'Database/Seeders', 'generate' => false]);\n   24  \n   25:         $seedConfig = GenerateConfigReader::read('seeder');\n   26  \n   27          $this->assertInstanceOf(GeneratorPath::class, $seedConfig);\n   28:         $this->assertEquals('Database/Seeders', $seedConfig->getPath());\n   29          $this->assertFalse($seedConfig->generate());\n   30      }\n   ..\n   33      public function it_can_read_a_configuration_value_with_old_format()\n   34      {\n   35:         $this->app['config']->set('modules.paths.generator.seeder', 'Database/Seeders');\n   36  \n   37:         $seedConfig = GenerateConfigReader::read('seeder');\n   38  \n   39          $this->assertInstanceOf(GeneratorPath::class, $seedConfig);\n   40:         $this->assertEquals('Database/Seeders', $seedConfig->getPath());\n   41          $this->assertTrue($seedConfig->generate());\n   42      }\n   ..\n   45      public function it_can_read_a_configuration_value_with_old_format_set_to_false()\n   46      {\n   47:         $this->app['config']->set('modules.paths.generator.seeder', false);\n   48  \n   49:         $seedConfig = GenerateConfigReader::read('seeder');\n   50  \n   51          $this->assertInstanceOf(GeneratorPath::class, $seedConfig);\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\nwidart\\laravel-modules\\tests\\stubs\\valid\\Recipe\\Database\\Seeders\\RecipeDatabaseSeeder.php:\n    1  <?php\n    2  \n    3: namespace Modules\\Recipe\\Database\\Seeders;\n    4  \n    5  use Illuminate\\Database\\Eloquent\\Model;\n    6: use Illuminate\\Database\\Seeder;\n    7  \n    8: class RecipeDatabaseSeeder extends Seeder\n    9  {\n   10      /**\n   ..\n   17          Model::unguard();\n   18  \n   19:         // $this->call(\"OthersTableSeeder\");\n   20      }\n   21  }\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\santigarcor\\laratrust\\src\\Commands\\MakeSeederCommand.php:\n   15  use Illuminate\\Support\\Facades\\Config;\n   16  \n   17: class MakeSeederCommand extends Command\n   18  {\n   19      /**\n   ..\n   22       * @var string\n   23       */\n   24:     protected $name = 'laratrust:seeder';\n   25  \n   26      /**\n   ..\n   29       * @var string\n   30       */\n   31:     protected $description = 'Creates the seeder following the Laratrust specifications.';\n   32  \n   33      /**\n   ..\n   40          $this->laravel->view->addNamespace('laratrust', substr(__DIR__, 0, -8).'views');\n   41  \n   42:         if (file_exists($this->seederPath())) {\n   43              $this->line('');\n   44  \n   45:             $this->warn(\"The LaratrustSeeder file already exists. Delete the existing one if you want to create a new one.\");\n   46              $this->line('');\n   47              return;\n   48          }\n   49  \n   50:         if ($this->createSeeder()) {\n   51:             $this->info(\"Seeder successfully created!\");\n   52          } else {\n   53              $this->error(\n   54:                 \"Couldn't create seeder.\\n\".\n   55                  \"Check the write permissions within the database/seeds directory.\"\n   56              );\n   ..\n   61  \n   62      /**\n   63:      * Create the seeder\n   64       *\n   65       * @return bool\n   66       */\n   67:     protected function createSeeder()\n   68      {\n   69          $permission = Config::get('laratrust.models.permission', 'App\\Permission');\n   ..\n   74          $user = $user->first();\n   75  \n   76:         $output = $this->laravel->view->make('laratrust::seeder')\n   77              ->with(compact([\n   78                  'role',\n   ..\n   84              ->render();\n   85  \n   86:         if ($fs = fopen($this->seederPath(), 'x')) {\n   87              fwrite($fs, $output);\n   88              fclose($fs);\n   ..\n   94  \n   95      /**\n   96:      * Get the seeder path.\n   97       *\n   98       * @return string\n   99       */\n  100:     protected function seederPath()\n  101      {\n  102:         return database_path(\"seeds/LaratrustSeeder.php\");\n  103      }\n  104  }\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\santigarcor\\laratrust\\src\\LaratrustServiceProvider.php:\n   36          'Setup' => 'command.laratrust.setup',\n   37          'SetupTeams' => 'command.laratrust.setup-teams',\n   38:         'MakeSeeder' => 'command.laratrust.seeder',\n   39          'Upgrade' => 'command.laratrust.upgrade'\n   40      ];\n   ..\n   61          $this->publishes([\n   62              __DIR__.'/config/laratrust.php' => config_path('laratrust.php'),\n   63:             __DIR__.'/config/laratrust_seeder.php' => config_path('laratrust_seeder.php'),\n   64          ], 'laratrust');\n   65  \n   ..\n  214      }\n  215  \n  216:     protected function registerMakeSeederCommand()\n  217      {\n  218:         $this->app->singleton('command.laratrust.seeder', function () {\n  219:             return new \\Laratrust\\Commands\\MakeSeederCommand();\n  220          });\n  221      }\n\nD:\\xampp\\htdocs\\nnmpz\\vendor\\santigarcor\\laratrust\\src\\views\\seeder.blade.php:\n    2  \n    3  use Illuminate\\Support\\Facades\\Schema;\n    4: use Illuminate\\Database\\Seeder;\n    5  use Illuminate\\Support\\Facades\\DB;\n    6  \n    7: class LaratrustSeeder extends Seeder\n    8  {\n    9      /**\n   ..\n   17          $this->truncateLaratrustTables();\n   18  \n   19:         $config = config('laratrust_seeder.role_structure');\n   20:         $userPermission = config('laratrust_seeder.permission_structure');\n   21:         $mapPermission = collect(config('laratrust_seeder.permissions_map'));\n   22  \n   23          foreach ($config as $key => $modules) {\n\n354 matches across 49 files\n",
-			"settings":
-			{
-				"buffer_size": 66833,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "app/Http/Controllers/KategoriController.php",
-			"settings":
-			{
-				"buffer_size": 5132,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "inputdata.bat",
-			"settings":
-			{
-				"buffer_size": 461,
+				"buffer_size": 18561,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "resources/views/Kategori/index.blade.php",
+			"file": "Modules/All/Entities/DetailAddOn.php",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "database/seeds/SizesTableSeeder.php",
-			"settings":
-			{
-				"buffer_size": 546,
-				"encoding": "UTF-8",
+				"buffer_size": 1903,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Petto di Pollo Milanese\t56000\nPollo alla Nanamia con Patate Arraganate\t63000\nPolpettoni al Sugo di Pomodor e Patate\t63000\nInvoltini di Manzo con Patata Duchessa\t69000\nBrasato con Patata Duchessa\t69000\nFarsumagru con Gnocchi alla Romana\t69000\nCalamaro Ripieno con Salsa al Arancia\t75000\n\t\nDolci\t\nGelato Con Cioccolato\t17000\nPanna Cotta\t27000\nDolce Vita Cioccolata\t27000\nCrema Di Cioccolato\t27000\nCreme Brulee\t27000\nTiramisu Italiana\t29000\nTorta di Mirtilli\t29000\nTorta Mia\t29000\nStrudel di Mele\t29000\n\t\n\t\nMineral Water\t8000\nCoca Cola\t10000\nSoda Water\t10000\nSprite\t10000\nHot Tea\t10000\nIce tea\t10000\nHot Lemon Tea\t14000\nIce Lemon Tea\t14000\nHot Orange\t14000\nIce Orange\t14000\nHot Lime\t14000\nIce Lime\t14000\nCoca- cola Zero\t18000\nCola Float\t18000\nInfuso Miele\t18000\nSpezi\t18000\nLime Squash\t18000\nOrange Squash\t18000\n\t\n\nEspresso\t16000\nDouble Espresso\t25000\nEspresso Macchiato\t19000\nHot Americano\t19000\nIce Americano\t19000\nHot Cappucino\t22000\nIce Cappucino\t22000\nLatte Macchiato\t22000\nHot Caffe Latte\t22000\nIce Caffe Latte\t22000\nHot Chocolate\t24000\nIce Chocolate\t24000\nHot Vanilla Latte\t22000\nIce Vanilla Latte\t22000\nHot Caramel Latte\t22000\nIce Caramel Latte\t22000\nHot Jam Hazelnut\t22000\nIce Jam Hazelnut\t22000\nHot Mochacino\t24000\nIce Mochacino\t24000\n\t",
+			"file": "Modules/All/Entities/Transaksi.php",
 			"settings":
 			{
-				"buffer_size": 1243,
+				"buffer_size": 2935,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Modules/All/Entities/DetailTransaksi.php",
+			"settings":
+			{
+				"buffer_size": 2205,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 6553,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
+			"settings":
+			{
+				"buffer_size": 46069,
 				"line_ending": "Windows"
 			}
 		}
@@ -660,41 +633,54 @@
 	"expanded_folders":
 	[
 		"/D/xampp/htdocs/nnmpz",
-		"/D/xampp/htdocs/nnmpz/database"
+		"/D/xampp/htdocs/nnmpz/Modules",
+		"/D/xampp/htdocs/nnmpz/Modules/All",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities"
 	],
 	"file_history":
 	[
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/index-laporan.blade.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/index.blade.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Modifier.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/DetailTransaksi.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/form.blade.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2018_01_14_234712_create_satuans_table.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2018_01_18_232738_create_modifiers_table.php",
+		"/D/xampp/htdocs/nnmpz/database/seeds/TarifWilayahTableSeeder.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/MenuController.php",
+		"/D/xampp/htdocs/nnmpz/database/seeds/MenuTableSeeder.php",
+		"/D/xampp/htdocs/nnmpz/app/Http/Controllers/KategoriController.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/TransaksiController.php",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Transaksi.php",
+		"/D/xampp/htdocs/nnmpz/app/User.php",
+		"/D/xampp/htdocs/nnmpz/inputdata.bat",
+		"/D/xampp/htdocs/nnmpz/Modules/All/Http/routes.php",
+		"/D/xampp/htdocs/nnmpz/resources/views/layouts/app.blade.php",
+		"/D/xampp/htdocs/nnmpz/resources/views/Kategori/index.blade.php",
+		"/D/xampp/htdocs/nnmpz/database/seeds/SizesTableSeeder.php",
+		"/D/xampp/htdocs/nnmpz/database/seeds/KategoriTableSeeder.php",
 		"/D/xampp/htdocs/nnmpz/database/seeds/LaratrustSeeder.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Seeders/AllDatabaseSeeder.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Jalan/index.blade.php",
-		"/D/xampp/htdocs/nnmpz/database/seeds/KategoriTableSeeder.php",
 		"/D/xampp/htdocs/nnmpz/dataseeder.txt",
 		"/D/xampp/htdocs/nnmpz/database/seeds/JalanTableSeeder.php",
-		"/D/xampp/htdocs/nnmpz/database/seeds/MenuTableSeeder.php",
 		"/D/xampp/htdocs/nnmpz/database/seeds/SatuanTableSeeder.php",
-		"/D/xampp/htdocs/nnmpz/database/seeds/SizesTableSeeder.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Http/routes.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/ListMenu.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Menu/form.blade.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/MenuController.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/SatuanController.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/SizeController.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Size/index.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Size/form.blade.php",
-		"/D/xampp/htdocs/nnmpz/resources/views/layouts/app.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Satuan.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Satuan/form.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Satuan/index.blade.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/form.blade.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Transaksi.php",
 		"/D/xampp/htdocs/nnmpz/app/Support/helpers.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/DetailAddOn.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/form-update.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_19_074303_create_transaksis_table.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/TransaksiController.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_20_122554_create_list_menus_table.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2018_01_14_234712_create_satuans_table.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/DetailTransaksi.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Alamat.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/AddOnMenu.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/PelangganController.php",
@@ -706,7 +692,6 @@
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Size.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/AddOn/form.blade.php",
 		"/D/xampp/htdocs/nnmpz/routes/web.php",
-		"/D/xampp/htdocs/nnmpz/app/Http/Controllers/KategoriController.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/AddOnController.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_19_074032_create_alamats_table.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/TarifWilayahController.php",
@@ -719,17 +704,14 @@
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Kategori.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2018_01_12_153143_create_add_on_menus_table.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_23_003754_create_tarif_wilayahs_table.php",
-		"/D/xampp/htdocs/nnmpz/resources/views/Kategori/index.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/TarifWilayah.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_20_131443_create_kategoris_table.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_19_073537_create_pelanggans_table.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/index.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/JalanController.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Jalan/popUpJalan.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Jalan.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Jalan/form.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Pelanggan.php",
-		"/D/xampp/htdocs/nnmpz/app/User.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2018_01_11_055424_create_jalans_table.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/TarifWilayah/form.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Pelanggan/form.blade.php",
@@ -786,12 +768,7 @@
 		"/D/xampp/htdocs/a/nnmpz/Modules/All/Database/Migrations/2017_12_19_074032_create_alamats_table.php",
 		"/D/xampp/htdocs/a/nnmpz/Modules/All/Database/Migrations/2017_12_19_073537_create_pelanggans_table.php",
 		"/D/xampp/htdocs/a/nnmpz/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php",
-		"/D/xampp/htdocs/a/nnmpz/resources/views/home.blade.php",
-		"/D/xampp/htdocs/stable5-IM2/app/Support/Helpers.php",
-		"/D/xampp/htdocs/stable5-IM2/app/Models/ConfigIds.php",
-		"/D/xampp/htdocs/stable5-IM2/Modules/RawatInap/Resources/views/PengkajianKeperawatanRI/detail-ctscan.blade.php",
-		"/D/xampp/htdocs/stable5-IM2/Modules/Keuangan/Http/Controllers/PembayaranPerTransaksiController.php",
-		"/D/xampp/htdocs/stable5-IM2/Modules/Keuangan/Http/routes.php"
+		"/D/xampp/htdocs/a/nnmpz/resources/views/home.blade.php"
 	],
 	"find":
 	{
@@ -810,6 +787,34 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Modifier",
+			"i",
+			"alamat",
+			"();\n",
+			"id_addon",
+			"harga",
+			"id_transaksi",
+			"id",
+			"satuan",
+			"consol",
+			"pilihAddon",
+			"tambahAddOn",
+			"detach",
+			"{{ $i }}",
+			"sowaddon",
+			"label",
+			"showModifire",
+			"modifier",
+			"showModifire",
+			"showaddon",
+			"required=\"required\"",
+			"required",
+			"myForm",
+			"required",
+			"alamat",
+			"log",
+			"from",
+			"null",
 			"seeder",
 			"XXX",
 			"null",
@@ -909,35 +914,7 @@
 			"code",
 			"address",
 			"$this->_frame",
-			"get_frame_height",
-			"em",
-			"id_jalan",
-			"tarifwilayah",
-			"date('Y-m-d')",
-			"id_detail_transaksi",
-			"r",
-			"hide_count_addon",
-			"tarifwilayah",
-			"total_harga",
-			"tarifwilayah",
-			"#tarifwilayah",
-			"tarifwilayah",
-			"textAlamat",
-			"alamat",
-			"id_pelanggan",
-			"increments",
-			"id",
-			"user_update",
-			"nama",
-			"harga_addon",
-			"hide_count_addon",
-			"+row+",
-			"harga_add",
-			"harga_addon_",
-			"harga_add",
-			"0",
-			"id",
-			"detach"
+			"get_frame_height"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -945,6 +922,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
 			"{{$i}}",
 			"return $this->view"
 		],
@@ -957,1642 +935,148 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "database/seeds/TarifWilayahTableSeeder.php",
+					"file": "Modules/All/Http/Controllers/TransaksiController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 968,
+						"buffer_size": 18561,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								46,
-								69
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "database/seeds/MenuTableSeeder.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 20967,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12267,
-								12267
-							],
-							[
-								12451,
-								12451
-							],
-							[
-								12642,
-								12642
-							],
-							[
-								12834,
-								12834
-							],
-							[
-								13019,
-								13019
+								17713,
+								17713
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 6,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1443.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "database/seeds/AddOnTableSeeder.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 205,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 66833,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										169,
-										175
-									],
-									[
-										307,
-										313
-									],
-									[
-										379,
-										385
-									],
-									[
-										725,
-										731
-									],
-									[
-										1240,
-										1246
-									],
-									[
-										1272,
-										1278
-									],
-									[
-										1575,
-										1581
-									],
-									[
-										1614,
-										1620
-									],
-									[
-										1629,
-										1635
-									],
-									[
-										1770,
-										1776
-									],
-									[
-										1807,
-										1813
-									],
-									[
-										1822,
-										1828
-									],
-									[
-										1945,
-										1951
-									],
-									[
-										1997,
-										2003
-									],
-									[
-										2147,
-										2153
-									],
-									[
-										2186,
-										2192
-									],
-									[
-										2201,
-										2207
-									],
-									[
-										2347,
-										2353
-									],
-									[
-										2389,
-										2395
-									],
-									[
-										2404,
-										2410
-									],
-									[
-										2584,
-										2590
-									],
-									[
-										2664,
-										2670
-									],
-									[
-										2679,
-										2685
-									],
-									[
-										2816,
-										2822
-									],
-									[
-										2892,
-										2898
-									],
-									[
-										2981,
-										2987
-									],
-									[
-										3182,
-										3188
-									],
-									[
-										3220,
-										3226
-									],
-									[
-										3235,
-										3241
-									],
-									[
-										3379,
-										3385
-									],
-									[
-										3419,
-										3425
-									],
-									[
-										3434,
-										3440
-									],
-									[
-										3577,
-										3583
-									],
-									[
-										3658,
-										3664
-									],
-									[
-										3673,
-										3679
-									],
-									[
-										3823,
-										3829
-									],
-									[
-										3869,
-										3875
-									],
-									[
-										3884,
-										3890
-									],
-									[
-										4061,
-										4067
-									],
-									[
-										4113,
-										4119
-									],
-									[
-										4168,
-										4174
-									],
-									[
-										4219,
-										4225
-									],
-									[
-										4272,
-										4278
-									],
-									[
-										4331,
-										4337
-									],
-									[
-										4535,
-										4541
-									],
-									[
-										4583,
-										4589
-									],
-									[
-										4670,
-										4676
-									],
-									[
-										4685,
-										4691
-									],
-									[
-										4805,
-										4811
-									],
-									[
-										5121,
-										5127
-									],
-									[
-										5231,
-										5237
-									],
-									[
-										5704,
-										5710
-									],
-									[
-										5926,
-										5932
-									],
-									[
-										6435,
-										6441
-									],
-									[
-										6545,
-										6551
-									],
-									[
-										7018,
-										7024
-									],
-									[
-										7240,
-										7246
-									],
-									[
-										7749,
-										7755
-									],
-									[
-										7859,
-										7865
-									],
-									[
-										8332,
-										8338
-									],
-									[
-										8554,
-										8560
-									],
-									[
-										9063,
-										9069
-									],
-									[
-										9173,
-										9179
-									],
-									[
-										9646,
-										9652
-									],
-									[
-										9868,
-										9874
-									],
-									[
-										10377,
-										10383
-									],
-									[
-										10487,
-										10493
-									],
-									[
-										10960,
-										10966
-									],
-									[
-										11182,
-										11188
-									],
-									[
-										11692,
-										11698
-									],
-									[
-										11797,
-										11803
-									],
-									[
-										12270,
-										12276
-									],
-									[
-										12492,
-										12498
-									],
-									[
-										13002,
-										13008
-									],
-									[
-										13107,
-										13113
-									],
-									[
-										13580,
-										13586
-									],
-									[
-										13802,
-										13808
-									],
-									[
-										14315,
-										14321
-									],
-									[
-										14423,
-										14429
-									],
-									[
-										14896,
-										14902
-									],
-									[
-										15118,
-										15124
-									],
-									[
-										15627,
-										15633
-									],
-									[
-										15731,
-										15737
-									],
-									[
-										16204,
-										16210
-									],
-									[
-										16426,
-										16432
-									],
-									[
-										16937,
-										16943
-									],
-									[
-										17043,
-										17049
-									],
-									[
-										17516,
-										17522
-									],
-									[
-										17738,
-										17744
-									],
-									[
-										18255,
-										18261
-									],
-									[
-										18367,
-										18373
-									],
-									[
-										18840,
-										18846
-									],
-									[
-										19062,
-										19068
-									],
-									[
-										19572,
-										19578
-									],
-									[
-										19677,
-										19683
-									],
-									[
-										20150,
-										20156
-									],
-									[
-										20372,
-										20378
-									],
-									[
-										20882,
-										20888
-									],
-									[
-										20987,
-										20993
-									],
-									[
-										21460,
-										21466
-									],
-									[
-										21682,
-										21688
-									],
-									[
-										22195,
-										22201
-									],
-									[
-										22303,
-										22309
-									],
-									[
-										22776,
-										22782
-									],
-									[
-										22998,
-										23004
-									],
-									[
-										23507,
-										23513
-									],
-									[
-										23611,
-										23617
-									],
-									[
-										24084,
-										24090
-									],
-									[
-										24306,
-										24312
-									],
-									[
-										24817,
-										24823
-									],
-									[
-										24923,
-										24929
-									],
-									[
-										25396,
-										25402
-									],
-									[
-										25618,
-										25624
-									],
-									[
-										26135,
-										26141
-									],
-									[
-										26247,
-										26253
-									],
-									[
-										26720,
-										26726
-									],
-									[
-										26942,
-										26948
-									],
-									[
-										27322,
-										27328
-									],
-									[
-										27371,
-										27377
-									],
-									[
-										27766,
-										27772
-									],
-									[
-										27813,
-										27819
-									],
-									[
-										28468,
-										28474
-									],
-									[
-										28561,
-										28567
-									],
-									[
-										29201,
-										29207
-									],
-									[
-										29269,
-										29275
-									],
-									[
-										29928,
-										29934
-									],
-									[
-										29977,
-										29983
-									],
-									[
-										30015,
-										30021
-									],
-									[
-										30067,
-										30073
-									],
-									[
-										30101,
-										30107
-									],
-									[
-										30149,
-										30155
-									],
-									[
-										30618,
-										30624
-									],
-									[
-										30690,
-										30696
-									],
-									[
-										31240,
-										31246
-									],
-									[
-										31301,
-										31307
-									],
-									[
-										31478,
-										31484
-									],
-									[
-										31541,
-										31547
-									],
-									[
-										31603,
-										31609
-									],
-									[
-										31667,
-										31673
-									],
-									[
-										31729,
-										31735
-									],
-									[
-										31793,
-										31799
-									],
-									[
-										31854,
-										31860
-									],
-									[
-										31917,
-										31923
-									],
-									[
-										32461,
-										32467
-									],
-									[
-										32509,
-										32515
-									],
-									[
-										33051,
-										33057
-									],
-									[
-										33071,
-										33077
-									],
-									[
-										33116,
-										33122
-									],
-									[
-										33135,
-										33141
-									],
-									[
-										33627,
-										33633
-									],
-									[
-										33677,
-										33683
-									],
-									[
-										34266,
-										34272
-									],
-									[
-										34315,
-										34321
-									],
-									[
-										34851,
-										34857
-									],
-									[
-										34907,
-										34913
-									],
-									[
-										35234,
-										35240
-									],
-									[
-										35293,
-										35299
-									],
-									[
-										35738,
-										35744
-									],
-									[
-										35795,
-										35801
-									],
-									[
-										36490,
-										36496
-									],
-									[
-										36588,
-										36594
-									],
-									[
-										37268,
-										37274
-									],
-									[
-										37341,
-										37347
-									],
-									[
-										38040,
-										38046
-									],
-									[
-										38099,
-										38105
-									],
-									[
-										38141,
-										38147
-									],
-									[
-										38203,
-										38209
-									],
-									[
-										38241,
-										38247
-									],
-									[
-										38299,
-										38305
-									],
-									[
-										38799,
-										38805
-									],
-									[
-										38876,
-										38882
-									],
-									[
-										39466,
-										39472
-									],
-									[
-										39532,
-										39538
-									],
-									[
-										39722,
-										39728
-									],
-									[
-										39790,
-										39796
-									],
-									[
-										39856,
-										39862
-									],
-									[
-										39925,
-										39931
-									],
-									[
-										39991,
-										39997
-									],
-									[
-										40060,
-										40066
-									],
-									[
-										40125,
-										40131
-									],
-									[
-										40193,
-										40199
-									],
-									[
-										40777,
-										40783
-									],
-									[
-										40835,
-										40841
-									],
-									[
-										41417,
-										41423
-									],
-									[
-										41437,
-										41443
-									],
-									[
-										41492,
-										41498
-									],
-									[
-										41511,
-										41517
-									],
-									[
-										42053,
-										42059
-									],
-									[
-										42113,
-										42119
-									],
-									[
-										42742,
-										42748
-									],
-									[
-										42801,
-										42807
-									],
-									[
-										43377,
-										43383
-									],
-									[
-										43443,
-										43449
-									],
-									[
-										44377,
-										44383
-									],
-									[
-										45189,
-										45195
-									],
-									[
-										45245,
-										45251
-									],
-									[
-										45883,
-										45889
-									],
-									[
-										46058,
-										46064
-									],
-									[
-										46135,
-										46141
-									],
-									[
-										46280,
-										46286
-									],
-									[
-										46444,
-										46450
-									],
-									[
-										46465,
-										46471
-									],
-									[
-										46692,
-										46698
-									],
-									[
-										46764,
-										46770
-									],
-									[
-										46998,
-										47004
-									],
-									[
-										47173,
-										47179
-									],
-									[
-										47250,
-										47256
-									],
-									[
-										47395,
-										47401
-									],
-									[
-										47559,
-										47565
-									],
-									[
-										47580,
-										47586
-									],
-									[
-										47807,
-										47813
-									],
-									[
-										47879,
-										47885
-									],
-									[
-										48201,
-										48207
-									],
-									[
-										48298,
-										48304
-									],
-									[
-										48391,
-										48397
-									],
-									[
-										48446,
-										48452
-									],
-									[
-										48683,
-										48689
-									],
-									[
-										48701,
-										48707
-									],
-									[
-										49000,
-										49006
-									],
-									[
-										49149,
-										49155
-									],
-									[
-										49278,
-										49284
-									],
-									[
-										49393,
-										49399
-									],
-									[
-										49522,
-										49528
-									],
-									[
-										49714,
-										49720
-									],
-									[
-										49762,
-										49768
-									],
-									[
-										49950,
-										49956
-									],
-									[
-										50057,
-										50063
-									],
-									[
-										50165,
-										50171
-									],
-									[
-										50517,
-										50523
-									],
-									[
-										50797,
-										50803
-									],
-									[
-										50821,
-										50827
-									],
-									[
-										51022,
-										51028
-									],
-									[
-										51101,
-										51107
-									],
-									[
-										51163,
-										51169
-									],
-									[
-										51458,
-										51464
-									],
-									[
-										51644,
-										51650
-									],
-									[
-										51838,
-										51844
-									],
-									[
-										52141,
-										52147
-									],
-									[
-										52222,
-										52228
-									],
-									[
-										52413,
-										52419
-									],
-									[
-										52448,
-										52454
-									],
-									[
-										52463,
-										52469
-									],
-									[
-										52673,
-										52679
-									],
-									[
-										52710,
-										52716
-									],
-									[
-										52725,
-										52731
-									],
-									[
-										52842,
-										52848
-									],
-									[
-										52891,
-										52897
-									],
-									[
-										52943,
-										52949
-									],
-									[
-										52994,
-										53000
-									],
-									[
-										53193,
-										53199
-									],
-									[
-										53231,
-										53237
-									],
-									[
-										53246,
-										53252
-									],
-									[
-										53457,
-										53463
-									],
-									[
-										53495,
-										53501
-									],
-									[
-										53510,
-										53516
-									],
-									[
-										53720,
-										53726
-									],
-									[
-										53757,
-										53763
-									],
-									[
-										53772,
-										53778
-									],
-									[
-										53969,
-										53975
-									],
-									[
-										54115,
-										54121
-									],
-									[
-										54387,
-										54393
-									],
-									[
-										54736,
-										54742
-									],
-									[
-										54768,
-										54774
-									],
-									[
-										55134,
-										55140
-									],
-									[
-										55302,
-										55308
-									],
-									[
-										55561,
-										55567
-									],
-									[
-										55689,
-										55695
-									],
-									[
-										55796,
-										55802
-									],
-									[
-										55888,
-										55894
-									],
-									[
-										55935,
-										55941
-									],
-									[
-										56102,
-										56108
-									],
-									[
-										56268,
-										56274
-									],
-									[
-										56442,
-										56448
-									],
-									[
-										56483,
-										56489
-									],
-									[
-										56509,
-										56515
-									],
-									[
-										56546,
-										56552
-									],
-									[
-										56636,
-										56642
-									],
-									[
-										56673,
-										56679
-									],
-									[
-										56882,
-										56888
-									],
-									[
-										57049,
-										57055
-									],
-									[
-										57307,
-										57313
-									],
-									[
-										57348,
-										57354
-									],
-									[
-										57534,
-										57540
-									],
-									[
-										57589,
-										57595
-									],
-									[
-										57846,
-										57852
-									],
-									[
-										57887,
-										57893
-									],
-									[
-										57936,
-										57942
-									],
-									[
-										57976,
-										57982
-									],
-									[
-										58053,
-										58059
-									],
-									[
-										58155,
-										58161
-									],
-									[
-										58238,
-										58244
-									],
-									[
-										58254,
-										58260
-									],
-									[
-										58483,
-										58489
-									],
-									[
-										58531,
-										58537
-									],
-									[
-										58622,
-										58628
-									],
-									[
-										58742,
-										58748
-									],
-									[
-										59041,
-										59047
-									],
-									[
-										59073,
-										59079
-									],
-									[
-										59502,
-										59508
-									],
-									[
-										59552,
-										59558
-									],
-									[
-										59643,
-										59649
-									],
-									[
-										59658,
-										59664
-									],
-									[
-										59778,
-										59784
-									],
-									[
-										60048,
-										60054
-									],
-									[
-										60068,
-										60074
-									],
-									[
-										60364,
-										60370
-									],
-									[
-										60390,
-										60396
-									],
-									[
-										60600,
-										60606
-									],
-									[
-										60621,
-										60627
-									],
-									[
-										60975,
-										60981
-									],
-									[
-										61113,
-										61119
-									],
-									[
-										61397,
-										61403
-									],
-									[
-										61427,
-										61433
-									],
-									[
-										61525,
-										61531
-									],
-									[
-										61663,
-										61669
-									],
-									[
-										61935,
-										61941
-									],
-									[
-										61954,
-										61960
-									],
-									[
-										62030,
-										62036
-									],
-									[
-										62168,
-										62174
-									],
-									[
-										62452,
-										62458
-									],
-									[
-										62534,
-										62540
-									],
-									[
-										62811,
-										62817
-									],
-									[
-										62906,
-										62912
-									],
-									[
-										62949,
-										62955
-									],
-									[
-										62964,
-										62970
-									],
-									[
-										63084,
-										63090
-									],
-									[
-										63275,
-										63281
-									],
-									[
-										63416,
-										63422
-									],
-									[
-										63544,
-										63550
-									],
-									[
-										63764,
-										63770
-									],
-									[
-										63870,
-										63876
-									],
-									[
-										64078,
-										64084
-									],
-									[
-										64122,
-										64128
-									],
-									[
-										64251,
-										64257
-									],
-									[
-										64429,
-										64435
-									],
-									[
-										64528,
-										64534
-									],
-									[
-										64758,
-										64764
-									],
-									[
-										64917,
-										64923
-									],
-									[
-										65063,
-										65069
-									],
-									[
-										65164,
-										65170
-									],
-									[
-										65242,
-										65248
-									],
-									[
-										65501,
-										65507
-									],
-									[
-										65531,
-										65537
-									],
-									[
-										65780,
-										65786
-									],
-									[
-										65818,
-										65824
-									],
-									[
-										65941,
-										65947
-									],
-									[
-										66026,
-										66032
-									],
-									[
-										66103,
-										66109
-									],
-									[
-										66317,
-										66323
-									],
-									[
-										66397,
-										66403
-									],
-									[
-										66412,
-										66418
-									],
-									[
-										66549,
-										66555
-									],
-									[
-										66625,
-										66631
-									],
-									[
-										66714,
-										66720
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5031.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/Http/Controllers/KategoriController.php",
+					"buffer": 1,
+					"file": "Modules/All/Entities/DetailAddOn.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5132,
+						"buffer_size": 1903,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4876,
-								4880
+								1801,
+								1807
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1872.0,
+						"translation.y": 39.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "inputdata.bat",
+					"buffer": 2,
+					"file": "Modules/All/Entities/Transaksi.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 461,
+						"buffer_size": 2935,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								461,
-								461
+								2834,
+								2834
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Batch File/Batch File.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 273.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Modules/All/Entities/DetailTransaksi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5,
+								5
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "resources/views/Kategori/index.blade.php",
+					"buffer": 4,
+					"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 6553,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4749,
+								4749
+							],
+							[
+								4767,
+								4767
 							]
 						],
 						"settings":
@@ -2602,88 +1086,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1057.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "database/seeds/SizesTableSeeder.php",
+					"buffer": 5,
+					"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 546,
+						"buffer_size": 46069,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								288,
-								296
+								22835,
+								22873
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 35.0,
+						"translation.y": 4134.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1243,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8,
-								8
-							],
-							[
-								35,
-								35
-							],
-							[
-								90,
-								90
-							],
-							[
-								131,
-								131
-							],
-							[
-								201,
-								201
-							],
-							[
-								250,
-								250
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -2728,7 +1164,7 @@
 	"project": "nnmpz.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -2738,8 +1174,92 @@
 		"selected_items":
 		[
 			[
+				"detail",
+				"Modules\\All\\Entities\\DetailAddOn.php"
+			],
+			[
+				"transks",
+				"Modules\\All\\Entities\\Transaksi.php"
+			],
+			[
+				"transaksiform",
+				"Modules\\All\\Resources\\views\\Transaksi\\form.blade.php"
+			],
+			[
+				"transaindex",
+				"Modules\\All\\Resources\\views\\Transaksi\\index.blade.php"
+			],
+			[
+				"index-",
+				"Modules\\All\\Resources\\views\\Transaksi\\index-laporan.blade.php"
+			],
+			[
+				"transainde",
+				"Modules\\All\\Resources\\views\\Transaksi\\index.blade.php"
+			],
+			[
+				"transaksi",
+				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
+			],
+			[
+				"user",
+				"app\\User.php"
+			],
+			[
+				"transa",
+				"Modules\\All\\Entities\\Transaksi.php"
+			],
+			[
+				"transak",
+				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
+			],
+			[
+				"tranaksiinde",
+				"Modules\\All\\Resources\\views\\Transaksi\\index.blade.php"
+			],
+			[
+				"transaks",
+				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
+			],
+			[
+				"appb",
+				"resources\\views\\layouts\\app.blade.php"
+			],
+			[
+				"transaksi-lap",
+				"Modules\\All\\Resources\\views\\Transaksi\\index-laporan.blade.php"
+			],
+			[
+				"route",
+				"Modules\\All\\Http\\routes.php"
+			],
+			[
+				"transaksic",
+				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
+			],
+			[
+				"transaksilapora",
+				"Modules\\All\\Resources\\views\\Transaksi\\index-laporan.blade.php"
+			],
+			[
+				"transaksiinde",
+				"Modules\\All\\Resources\\views\\Transaksi\\index.blade.php"
+			],
+			[
+				"index-l",
+				"Modules\\All\\Resources\\views\\Transaksi\\index-laporan.blade.php"
+			],
+			[
 				"kateg",
 				"app\\Http\\Controllers\\KategoriController.php"
+			],
+			[
+				"kategoris",
+				"database\\seeds\\KategoriTableSeeder.php"
+			],
+			[
+				"menuc",
+				"Modules\\All\\Http\\Controllers\\MenuController.php"
 			],
 			[
 				"jalaninde",
@@ -2764,10 +1284,6 @@
 			[
 				"menu",
 				"Modules\\All\\Http\\Controllers\\MenuController.php"
-			],
-			[
-				"appb",
-				"resources\\views\\layouts\\app.blade.php"
 			],
 			[
 				"sizeinde",
@@ -2802,24 +1318,12 @@
 				"Modules\\All\\Http\\Controllers\\SizeController.php"
 			],
 			[
-				"transa",
-				"Modules\\All\\Entities\\Transaksi.php"
-			],
-			[
 				"detailt",
-				"Modules\\All\\Entities\\DetailTransaksi.php"
-			],
-			[
-				"detail",
 				"Modules\\All\\Entities\\DetailTransaksi.php"
 			],
 			[
 				"alamat",
 				"Modules\\All\\Entities\\Alamat.php"
-			],
-			[
-				"transaksi",
-				"Modules\\All\\Entities\\Transaksi.php"
 			],
 			[
 				"helper",
@@ -2874,10 +1378,6 @@
 				"resources\\views\\layouts\\app.blade.php"
 			],
 			[
-				"transaksiform",
-				"Modules\\All\\Resources\\views\\Transaksi\\form.blade.php"
-			],
-			[
 				"kate",
 				"app\\Http\\Controllers\\KategoriController.php"
 			],
@@ -2922,10 +1422,6 @@
 				"Modules\\All\\Resources\\views\\Menu\\form.blade.php"
 			],
 			[
-				"menuc",
-				"Modules\\All\\Http\\Controllers\\MenuController.php"
-			],
-			[
 				"fungs",
 				"public\\js\\fungsitambahan.js"
 			],
@@ -2948,10 +1444,6 @@
 			[
 				"transaksifo",
 				"Modules\\All\\Resources\\views\\Transaksi\\form.blade.php"
-			],
-			[
-				"transak",
-				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
 			],
 			[
 				"addonc",
@@ -2994,16 +1486,8 @@
 				"Modules\\All\\Entities\\TarifWilayah.php"
 			],
 			[
-				"transaksic",
-				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
-			],
-			[
 				"kategoriform",
 				"resources\\views\\Kategori\\form.blade.php"
-			],
-			[
-				"route",
-				"Modules\\All\\Http\\routes.php"
 			],
 			[
 				"addonindex",
@@ -3032,10 +1516,6 @@
 			[
 				"allro",
 				"Modules\\All\\Http\\routes.php"
-			],
-			[
-				"user",
-				"app\\User.php"
 			],
 			[
 				"jalanindex",
@@ -3204,50 +1684,6 @@
 			[
 				"reportroute",
 				"Modules\\Report\\Http\\routes.php"
-			],
-			[
-				"menuseeder",
-				"database\\seeds\\MenuSeeder.php"
-			],
-			[
-				"report-bukti-penyetoran-uang-penjualan.blade",
-				"Modules\\Report\\Resources\\views\\PenyetoranPenjualan\\report-bukti-penyetoran-uang-penjualan.blade.php"
-			],
-			[
-				"deletereg",
-				"Modules\\Report\\Http\\Controllers\\DeleteRegistrasiPertransController.php"
-			],
-			[
-				"verifikasijum",
-				"Modules\\Report\\Http\\Controllers\\VerifikasiJumlahUangSetoranController.php"
-			],
-			[
-				"setoran",
-				"Modules\\Report\\Http\\Controllers\\SetoranUangController.php"
-			],
-			[
-				"transaksicon",
-				"Modules\\Farmasi\\Http\\Controllers\\Tr\\TransaksiController.php"
-			],
-			[
-				"pegawai",
-				"database\\migrations\\2017_09_24_153517_create_pegawai_table.php"
-			],
-			[
-				"poliklinikroute",
-				"Modules\\Poliklinik\\Http\\routes.php"
-			],
-			[
-				"penunjangmedisroute",
-				"Modules\\PenunjangMedis\\Http\\routes.php"
-			],
-			[
-				"larat",
-				"config\\laratrust_seeder.php"
-			],
-			[
-				"popup-barang-pemesanan",
-				"Modules\\Logistik\\Resources\\views\\PackingBarang\\popup-barang-pemesanan.blade.php"
 			]
 		],
 		"width": 0.0
@@ -3277,7 +1713,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 405.0,
 	"status_bar_visible": true,
 	"template_settings":

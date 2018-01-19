@@ -5,6 +5,7 @@ namespace Modules\All\Http\Controllers;
 use Modules\All\Entities\Pelanggan;
 use Modules\All\Entities\Transaksi;
 use Modules\All\Entities\DetailTransaksi;
+use Modules\All\Entities\Modifier;
 use Modules\All\Entities\DetailAddOn;
 use Modules\All\Entities\Alamat;
 use Modules\All\Entities\TarifWilayah;
@@ -73,6 +74,7 @@ class TransaksiController extends Controller
         DB::beginTransaction();
         try {
             $r = $request->all();
+            // dd($r);
             $nama = (isset($r['nama'])?$r['nama']:'');
             $nama_penerima = (isset($r['nama_penerima'])?$r['nama_penerima']:'');
             $email = (isset($r['email'])?$r['email']:'');
@@ -156,6 +158,18 @@ class TransaksiController extends Controller
                             'created_at'=>$created_at,
                         ];
                         $insertDetailAddOn = DetailAddOn::create($dataDetailAddon);
+                    }
+                }
+                if (isset($baris['modifier'])) {
+                    $modifier = $baris['modifier'];
+                    for ($z=0; $z < count($baris['modifier']) ; $z++) { 
+                        $dataDetailAddon = [
+                            'id_detail_transaksi'=>$id_dt,
+                            'modifier'=>$modifier[$z],
+                            'user_input'=>$userinput,
+                            'created_at'=>$created_at,
+                        ];
+                        $insertModifier = Modifier::create($dataDetailAddon);
                     }
                 }
                 $sub_total = (($harga+$total_harga_addon)*$jml);
@@ -296,6 +310,19 @@ class TransaksiController extends Controller
                         $insertDetailAddOn = DetailAddOn::create($dataDetailAddon);
                     }
                 }
+                Modifier::where('id_detail_transaksi',$id_dt)->delete();
+                if (isset($baris['modifier'])) {
+                    $modifier = $baris['modifier'];
+                    for ($z=0; $z < count($baris['modifier']) ; $z++) { 
+                        $dataDetailAddon = [
+                            'id_detail_transaksi'=>$id_dt,
+                            'modifier'=>$modifier[$z],
+                            'user_input'=>$user_update,
+                            'created_at'=>$created_at,
+                        ];
+                        $insertModifier = Modifier::create($dataDetailAddon);
+                    }
+                }
                 $sub_total = (($harga+$total_harga_addon)*$jml);
                 $grandtotal = $grandtotal+$sub_total;
             }
@@ -381,7 +408,33 @@ class TransaksiController extends Controller
         ->addColumn('pegawai',function($data){
           return $data->userinput->name;
         })
-        ->rawColumns(['pesanan','action'])
+        ->addColumn('modifier',function($data){
+            $lm = DetailTransaksi::where('id_transaksi',$data->id); 
+            $content = '';
+            $lm = $lm->get();
+            for ($i=0; $i < count($lm); $i++) { 
+                $md = Modifier::where('id_detail_transaksi',$lm[$i]['id'])->get();
+                for ($ii=0; $ii < count($md); $ii++) { 
+                    $val = $md[$ii]->modifier;
+                    $content .= '<label class="label-default">'.($ii+1).'. '.$val.'</label><br>'; 
+                }
+            }
+            return $content;
+        })
+        ->addColumn('addon',function($data){
+           $lm = DetailTransaksi::where('id_transaksi',$data->id); 
+            $content = '';
+            $lm = $lm->get();
+            for ($i=0; $i < count($lm); $i++) { 
+                $md = DetailAddOn::where('id_detail_transaksi',$lm[$i]['id'])->get();
+                for ($ii=0; $ii < count($md); $ii++) { 
+                    $val = $md[$ii]->Addons;
+                    $content .= '<label class="label-default">'.($ii+1).'. '.$val->nama.'</label><br>'; 
+                }
+            }
+            return $content;
+        })
+        ->rawColumns(['pesanan','action','modifier','addon'])
         ->make(true);
     }
 }

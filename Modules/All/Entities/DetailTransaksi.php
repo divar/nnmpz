@@ -44,4 +44,8 @@ class DetailTransaksi extends Model
     {
         return $this->hasMany('Modules\All\Entities\DetailAddOn','id_detail_transaksi');
     }
+    public function modifier()
+    {
+        return $this->hasMany('Modules\All\Entities\Modifier','id_detail_transaksi');
+    }
 }

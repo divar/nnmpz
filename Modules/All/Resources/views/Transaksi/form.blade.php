@@ -208,10 +208,10 @@
                         <thead>
                           <tr>
                               <td width="5%" align="middle"><h5>#</h5></td>
-                              <td width="35%" align="center"><h5>Nama Menu</h5></td>
+                              <td width="45%" align="center"><h5>Nama Menu</h5></td>
                               <td width="25%" align="center"><h5>Harga</h5></td>
                               <td width="10%" align="center"><h5>Jumlah</h5></td>
-                              <td width="25%" align="center"><h5>total</h5></td>
+                              <td width="15%" align="center"><h5>total</h5></td>
                           </tr>
                       </thead>
                       <tbody id="detail-data-table">
@@ -228,6 +228,7 @@
                                     <div class="col-md-3">&nbsp;
                                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
                                         <button disabled="disabled" id="sowaddon0" type="button" no="0" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>
+                                        <button id="addModifier0" type="button" no="0" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>{{-- di duplikat --}}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -237,6 +238,16 @@
                                         <div class="clearfix">&nbsp;</div>
                                         <div class="border border-light rounded d-flex flex-row flex-wrap align-content-center " id="addon_baris_ke-0">
                                             <input type="hidden" value="0" class="hide_count_addon" id="hide_count_addon0" type="button" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <hr class="mb-1">
+                                        <label class="control-label pull-left">Modifier</label>
+                                        <div class="clearfix">&nbsp;</div>
+                                        <div class="border border-light rounded col-nd-12" id="modifier_baris_ke-0">
+                                            <input type="hidden" value="0" class="hide_count_modifier" id="hide_count_modifier0" type="button" /> 
                                         </div>
                                     </div>
                                 </div>
@@ -285,6 +296,7 @@
                                         <div class="col-md-3">&nbsp;
                                             <button type="button" class="btn btn-sm btn-info" onclick="showMenu({{$i}})" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
                                             <button id="sowaddon{{$i}}" type="button" no="{{$i}}" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>
+                                            <button id="addModifier{{ $i }}" type="button" no="{{ $i }}" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -296,12 +308,12 @@
                                                 <input type="hidden" value="{{ $DetailTransaksi[$i] }}" class="hide_count_addon" id="hide_count_addon{{$i}}" type="button" />
                                                 <?php $totaladdon=0; $ii=0;?>
                                                 @foreach ($DetailTransaksi[$i]->addons as $val)
-                                                    <div class="mr-3 p-2" id="add_on_ke-{{ $i }}">
-                                                        <label class="label-info" id="teks_addon_'{{ $i }}'"> {{ $val->Addons->nama }} ~ Rp {{ nominalKoma($val->Addons->harga) }} </label>
+                                                    <div class="mr-3 p-2" id="add_on_ke-{{ $ii }}">
+                                                        <label class="label-info" id="teks_addon_{{ $i }}"> {{ $val->Addons->nama }} ~ Rp {{ nominalKoma($val->Addons->harga) }} </label>
                                                         <input type="hidden" class="hargaaddon{{ $i }}" value="{{ $val->harga }}" name="baris_{{ $i }}[itemharga_addon][]">
-                                                        <input type="hidden" value="{{ $val->id_add_on }}'" name="baris_{{ $i }}[id_addon][]">
+                                                        <input type="hidden" value="{{ $val->id_add_on }}" name="baris_{{ $i }}[id_addon][]">
                                                         &nbsp;
-                                                        <button type="button" row="{{ $i }}" no="{{ $i }}" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeAddonMenu" aria-label="Close">
+                                                        <button type="button" row="{{ $i }}" no="{{ $ii }}" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeAddonMenu" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
@@ -310,6 +322,26 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                    <div class="col-md-12">
+                                        <hr class="mb-1">
+                                        <label class="control-label pull-left">Modifier</label>
+                                        <div class="clearfix">&nbsp;</div>
+                                        <div class="border border-light rounded col-nd-12" id="modifier_baris_ke-0">
+                                            <input type="hidden" value="0" class="hide_count_modifier" id="hide_count_modifier0" type="button" />
+                                            <?php $totalModifier=0; $iii=0;?>
+                                                @foreach ($DetailTransaksi[$i]->modifier as $val)
+                                                <div class="mr-3 p-2 row" id="modifier_ke-{{ $iii }}">
+                                                    <div class="col-sm-11"><input type="text" class="form-control input-lg" name="baris_{{ $iii }}[modifier][]" value="{{ $val->modifier }}"></div> 
+                                                    <button type="button" row="{{ $i }}" no="{{ $iii }}" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeModifierMenu" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <?php $totalModifier = $val->harga+$totalModifier; $iii++?>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
                                 </td>
                                 <td align="right">
                                     <div class="row">
@@ -658,6 +690,26 @@
         });
         hitungPerbaris(row);
     }
+    function tambahModifier(row){
+        count = parseInt($('#hide_count_modifier'+row).val());
+        $('\n\
+            <div class="mr-3 p-2 row" id="modifier_ke-'+count+'">\n\
+                <div class="col-sm-11"><input type="text" class="form-control input-lg" name="baris_'+count+'[modifier][]" value=""></div>\n\
+                <button type="button" row="'+row+'" no="'+count+'" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeModifierMenu" aria-label="Close">\n\
+                <span aria-hidden="true">&times;</span>\n\
+                </button>\n\
+            </div>\n\
+            ').appendTo('#modifier_baris_ke-'+row);
+
+        $('#hide_count_modifier'+row).val(count+1);
+        $('.closeModifierMenu').on('click',function(){
+            no=$(this).attr('no');
+            row=$(this).attr('row');
+
+            $('#modifier_baris_ke-'+row).find('#modifier_ke-'+no).detach();
+            // $('#hide_count_addon'+row).val(count-1);
+        });
+    }
     function showJalan(){
         $('body').attr('class','sidenav-toggled');
         var url = "{{url('all/jalan/popUpMenu')}}";
@@ -714,6 +766,10 @@
             harga=$(this).attr('harga-addon');
             tambahAddOn(no,nama,harga,id);
             $('.close').click();
+        });
+        $('#menu-table').on('click','.addModifier',function(){
+            no=$(this).attr('no');
+            tambahModifier(no);
         });
         loadAlamat();
         $('#tempatuntukalamat').on('click','.pilihalamat',function(){

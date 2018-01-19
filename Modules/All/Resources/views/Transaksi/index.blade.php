@@ -39,11 +39,13 @@
                                     <th>Nama</th>
                                     <th>No Hp</th>
                                     <th>Penerima</th>
-                                    <th>Pesanan</th>                                    
-                                    <th>Total</th>                                    
-                                    <th>Tanggal Pesan</th>                                    
-                                    <th>Alamat</th>                                    
-                                    <th>pegawai</th>                                    
+                                    <th>Pesanan</th>
+                                    <th>Total</th>
+                                    <th>Tanggal Pesan</th>
+                                    <th>Alamat</th>
+                                    <th>pegawai</th>
+                                    <th>Addon</th>
+                                    <th>Modifier</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -100,6 +102,8 @@ function refresh(){
             { data: 'tgl_pesan', name: 'tgl_pesan', searchable:false,orderable:true},
             { data: 'alamat', name: 'alamat', searchable:false,orderable:true},
             { data: 'pegawai', name: 'pegawai', searchable:false,orderable:true},
+            { data: 'addon', name: 'addon', searchable:false,orderable:true},
+            { data: 'modifier', name: 'modifier', searchable:false,orderable:true},
         ],
         language: {
             lengthMenu : '{{ "Menampilkan _MENU_ data" }}',
@@ -128,7 +132,7 @@ function refresh(){
             },
             { extend: 'excel', className: 'btn btn-sm btn-info',text: '<i class="fa fa-file-excel-o"> export excel</i>',
                 exportOptions:{
-                   columns:[0,1,2,3,4,5,7]
+                   columns:[0,1,2,3,4,5,7,8,9]
                 }
             }
 
