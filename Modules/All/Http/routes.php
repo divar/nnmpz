@@ -1,9 +1,12 @@
 <?php
 
+Route::group(['middleware' => ['web'], 'prefix' => 'nota', 'namespace' => 'Modules\All\Http\Controllers'], function(){
+    Route::get('cetaknota/{id}', 'TransaksiController@cetakNota')->name('cetakNota');
+
+});
 Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 'Modules\All\Http\Controllers'], function()
 {
     Route::get('/', 'AllController@index');
-    Route::get('cetaknota/{id}', 'TransaksiController@cetakNota')->name('cetakNota');
     
     Route::get('pelanggan/tambah', 'PelangganController@tambahPelanggan')->name('tambahPelanggan');
     Route::post('pelanggan/posttambah', 'PelangganController@store')->name('postTambahPelanggan');

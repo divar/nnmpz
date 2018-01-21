@@ -93,7 +93,7 @@
                                 <input id="nama" type="text" name="nama" class="form-control" placeholder="Nama Menu" required="required" value="{{ isset($Menu)?$Menu['nama_menu']:'' }}">
                             </div>  
                         </div>
-                        <div id="tempatSatuan" class="form-group row">
+                        {{-- <div id="tempatSatuan" class="form-group row">
                             <label for="Satuan" class="col-md-3 col-form-label">Satuan</label>
                             <div class="col-md-9">
                                 <select id="satuan" name="id_satuan" class="form-control custom-select" >
@@ -102,7 +102,7 @@
                                     @endforeach
                                 </select>
                             </div>  
-                        </div>
+                        </div> --}}
                         <div id="tempatHarga" class="form-group row">
                             <label for="Harga" class="col-md-3 col-form-label">Harga</label>
                             <div class="col-md-9">

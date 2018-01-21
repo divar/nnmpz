@@ -11,7 +11,7 @@ class Kategori extends Model
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['nama','flag_addon','user_input','user_update'];
+    protected $fillable = ['nama','id_satuan','flag_addon','user_input','user_update'];
     
     public static function findRequested()
     {
@@ -20,6 +20,7 @@ class Kategori extends Model
         // search results based on user input
         \Request::input('id') and $query->where('id',\Request::input('id'));
         \Request::input('nama') and $query->where('nama',\Request::input('nama'));
+        \Request::input('id_satuan') and $query->where('id_satuan',\Request::input('id_satuan'));
         \Request::input('flag_addon') and $query->where('flag_addon',\Request::input('flag_addon'));
         \Request::input('user_input') and $query->where('user_input',\Request::input('user_input'));
         \Request::input('user_update') and $query->where('user_update',\Request::input('user_update'));
@@ -29,5 +30,9 @@ class Kategori extends Model
 
         // paginate results
         return $query->paginate(15);
+    }
+    public function satuan()
+    {
+        return $this->belongsTo('Modules\All\Entities\Satuan','id_satuan');
     }
 }

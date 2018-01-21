@@ -17,6 +17,7 @@ class CreateKategorisTable extends Migration
             $table->increments('id');
             $table->text('nama')->nullable();
             $table->string('flag_addon',1)->nullable();
+            $table->string('id_satuan',1)->nullable();
             $table->integer('user_input')->nullable();
             $table->integer('user_update')->nullable();
             $table->string('trash',1)->nullable();

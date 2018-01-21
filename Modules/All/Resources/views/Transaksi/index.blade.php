@@ -13,7 +13,7 @@
                 <div class="portlet-body" style="display: block;">
                     <div class="row">
                         <div class="col-md-2">
-                            <a href="{{ url('all/transaksi/tambah') }}" class="btn btn-info btn-sm">
+                            <a href="{{ url('nota/transaksi/tambah') }}" class="btn btn-info btn-sm">
                                 <span class="fa fa-fw fa-plus"></span> Tambah Pesanan
                             </a>
                         </div>

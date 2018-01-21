@@ -433,6 +433,7 @@
                                     <div class="col-md-3">&nbsp;\n\
                                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu('+count+')" title="Cari Menu"><i class="fa fa-search-plus"></i></button>\n\
                                         <button disabled="disabled" id="sowaddon'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>\n\
+                                        <button id="addModifier'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>\n\
                                     </div>\n\
                                 </div>\n\
                                 <div class="row">\n\
@@ -442,6 +443,16 @@
                                         <div class="clearfix">&nbsp;</div>\n\
                                         <div class="border border-light rounded d-flex flex-row flex-wrap align-content-center " id="addon_baris_ke-'+count+'">\n\
                                             <input type="hidden" value="0" class="hide_count_addon" id="hide_count_addon'+count+'" type="button"/>\n\
+                                        </div>\n\
+                                    </div>\n\
+                                </div>\n\
+                                <div class="row">\n\
+                                    <div class="col-md-12">\n\
+                                        <hr class="mb-1">\n\
+                                        <label class="control-label pull-left">Modifier</label>\n\
+                                        <div class="clearfix">&nbsp;</div>\n\
+                                        <div class="border border-light rounded col-nd-12" id="modifier_baris_ke-'+count+'">\n\
+                                            <input type="hidden" value="0" class="hide_count_modifier" id="hide_count_modifier0" type="button" />\n\
                                         </div>\n\
                                     </div>\n\
                                 </div>\n\
@@ -694,7 +705,7 @@
         count = parseInt($('#hide_count_modifier'+row).val());
         $('\n\
             <div class="mr-3 p-2 row" id="modifier_ke-'+count+'">\n\
-                <div class="col-sm-11"><input type="text" class="form-control input-lg" name="baris_'+count+'[modifier][]" value=""></div>\n\
+                <div class="col-sm-11"><input type="text" class="form-control input-lg" name="baris_'+row+'[modifier][]" value=""></div>\n\
                 <button type="button" row="'+row+'" no="'+count+'" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeModifierMenu" aria-label="Close">\n\
                 <span aria-hidden="true">&times;</span>\n\
                 </button>\n\

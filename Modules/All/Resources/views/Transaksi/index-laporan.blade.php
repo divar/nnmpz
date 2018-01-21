@@ -34,15 +34,15 @@
                         <table class="table table-striped table-bordered table-sm table-hover" id="menu-table">
                             <thead>
                                 <tr>
-                                    <th width="7%">#</th>
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>No Hp</th>
-                                    <th>Tanggal Lahir</th>
+                                    <th>Penerima</th>
                                     <th>Pesanan</th>
                                     <th>Total</th>
                                     <th>Tanggal Pesan</th>
                                     <th>Alamat</th>
+                                    <th>pegawai</th>
                                     <th>Addon</th>
                                     <th>Modifier</th>
                                 </tr>
@@ -92,17 +92,17 @@ function refresh(){
                                 }
         },
         columns: [
-            { data: 'action', name: 'action', searchable:false,orderable:true},
             { data: 'nomor', name: 'nomor', searchable:false,orderable:true},
             { data: 'nama', name: 'nama', searchable:false,orderable:true},
             { data: 'no_hp', name: 'no_hp', searchable:true,orderable:true},
-            { data: 'tgl_lahir', name: 'tgl_lahir', searchable:false,orderable:true},
+            { data: 'penerima', name: 'penerima', searchable:false,orderable:true},
             { data: 'pesanan', name: 'pesanan', searchable:false,orderable:true},
             { data: 'total', name: 'total', searchable:false,orderable:true},
             { data: 'tgl_pesan', name: 'tgl_pesan', searchable:false,orderable:true},
             { data: 'alamat', name: 'alamat', searchable:false,orderable:true},
+            { data: 'pegawai', name: 'pegawai', searchable:false,orderable:true},
             { data: 'addon', name: 'addon', searchable:false,orderable:true},
-            { data: 'Modifier', name: 'Modifier', searchable:false,orderable:true},
+            { data: 'modifier', name: 'modifier', searchable:false,orderable:true},
         ],
         language: {
             lengthMenu : '{{ "Menampilkan _MENU_ data" }}',
@@ -131,7 +131,7 @@ function refresh(){
             },
             { extend: 'excel', className: 'btn btn-sm btn-info',text: '<i class="fa fa-file-excel-o"> export excel</i>',
                 exportOptions:{
-                   columns:[0,1,2,3,4,5,7]
+                   columns:[0,1,2,3,4,5,6,7,8,9,10]
                 }
             }
 
@@ -139,7 +139,7 @@ function refresh(){
         // bFilter : true,
         bLengthChange : true, 
         "columnDefs": [ 
-            { className: "center", "targets": [ 0,6 ] }
+            { className: "center", "targets": [ 0,10 ] }
         ],
         "dom": "<'row'<'col-md-6 col-sm-6'><'col-md-6 col-sm-6'fB>r><'table-scrollable't><'row'<'col-md-6 col-sm-6'i><'col-md-6 col-sm-6'p>>",
     });

@@ -195,7 +195,7 @@ class TransaksiController extends Controller
         }
         DB::commit();
         Auth::logout();
-        return redirect('/');
+        return redirect("nota/cetaknota/$insertTransaksi->id");
         if($return == 'Input Lagi'){
             // return redirect('all/transaksi/tambah')->with('return',$return)->with('id',$insertTransaksi->id);
         }else{
@@ -379,16 +379,14 @@ class TransaksiController extends Controller
         ->addColumn('alamat',function($data){
           return $data->Alamat->alamat;
         })
-        ->addColumn('tgl_lahir',function($data){
-          return $data->no_hp;
-        })
         ->addColumn('pesanan',function($data){
           $lm = DetailTransaksi::with('menu')->where('id_transaksi',$data->id); 
           $content = '';
           $lm = $lm->get();
           for ($i=0; $i < count($lm); $i++) { 
             $val = $lm[$i]->menu['nama_menu'];
-              $content .= '<label class="label-default">'.($i+1).'. '.$val.'</label><br>'; 
+            $val2 = $lm[$i]->menu->kategori->satuan->satuan;
+              $content .= '<label class="label-default">'.($i+1).'. '.$val.'~'.$val2.'</label><br>'; 
           }
           return $content;
         })

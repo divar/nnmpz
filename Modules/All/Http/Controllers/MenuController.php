@@ -77,7 +77,7 @@ class MenuController extends Controller
             if(isset($r['pilihsize']) && $r['pilihsize']=="tidak"){
               $dataMenu = [
                 'id_kategori'=>(isset($r['kategori'])?$r['kategori']:''),
-                'id_satuan'=>(isset($r['id_satuan'])?$r['id_satuan']:''),
+                // 'id_satuan'=>(isset($r['id_satuan'])?$r['id_satuan']:''),
                 'nama_menu'=>(isset($r['nama'])?$r['nama']:''),
                 'harga'=>(isset($r['harga'])?$r['harga']:''),
                 'keterangan'=>(isset($r['keterangan'])?$r['keterangan']:''),
@@ -140,7 +140,7 @@ class MenuController extends Controller
           $dataUpdate = [
               'nama_menu'=> (isset($r['nama'])?$r['nama']:''),
               'harga'=> (isset($r['harga'])?$r['harga']:''),
-              'id_satuan'=>(isset($r['id_satuan'])?$r['id_satuan']:''),
+              // 'id_satuan'=>(isset($r['id_satuan'])?$r['id_satuan']:''),
               'keterangan'=>(isset($r['keterangan'])?$r['keterangan']:''),
               'id_kategori  '=>(isset($r['kategori'])?$r['kategori']:''),
               'id_size'=>(isset($r['id_size'])?$r['id_size']:null),

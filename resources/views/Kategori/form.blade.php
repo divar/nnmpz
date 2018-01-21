@@ -104,7 +104,17 @@
                                 <label class="container">Daftar Addon
                                     <input type="radio" id="addonY" {{ isset($Kategori)?( $Kategori->flag_addon =='Y'? 'checked="checked"':'' ) :'checked="checked"' }} class="addon" value="Y" name="addon">
                                     <span class="checkmark"></span>
-                                </label>
+                                </label> 
+                            </div>  
+                        </div>
+                        <div id="tempatSatuan" class="form-group row">
+                            <label for="Satuan" class="col-md-3 col-form-label">Satuan</label>
+                            <div class="col-md-9">
+                                <select id="satuan" name="id_satuan" class="form-control custom-select" >
+                                    @foreach($Satuan as $val)
+                                        <option value="{{ $val['id'] }}" {{ isset($Menu['id_satuan']) && $Menu['id_satuan']==$val['id']?'selected="selected"':'' }}>{{ $val['satuan'] }}</option>
+                                    @endforeach
+                                </select>
                             </div>  
                         </div>
                     </div>

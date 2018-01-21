@@ -10,6 +10,7 @@ use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
 use Modules\All\Entities\Kategori;
 use Illuminate\Support\Facades\Auth;
+use Modules\All\Entities\Satuan;
 
 class KategoriController extends Controller
 {
@@ -50,6 +51,7 @@ class KategoriController extends Controller
     public function create()
     {
         $send['kategori'] = Kategori::where('flag_addon','Y');
+        $send['Satuan']=Satuan::all();
         return $this->view('form',$send);
     }
 
@@ -65,6 +67,7 @@ class KategoriController extends Controller
   		try {
         $dataCreate['nama']=isset($r['nama'])?$r['nama']:'';
         $dataCreate['flag_addon']=isset($r['addon']) && $r['addon']=='Y'?'Y':'N';
+        $dataCreate['id_satuan']=(isset($r['id_satuan'])?$r['id_satuan']:'');
   			$dataCreate['user_input']= Auth::user()->id;
   			$createKategori = Kategori::create($dataCreate);	
   		} catch (Exception $e) {
@@ -106,6 +109,7 @@ class KategoriController extends Controller
 		try {
 			$dataUpdate = [
 				'nama'=> isset($r['nama'])?$r['nama']:'',
+        'id_satuan'=>(isset($r['id_satuan'])?$r['id_satuan']:''),
 				'user_update'=> Auth::user()->id,
 				'flag_addon'=> isset($r['addon'])?$r['addon']:'',
 			];
