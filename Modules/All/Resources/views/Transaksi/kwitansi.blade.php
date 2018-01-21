@@ -7,7 +7,7 @@
         width: 310px;
         margin: auto;
         margin-top: 0;
-        font-size: 12px;
+        font-size: 11px;
         line-height: 24px;
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
@@ -140,21 +140,48 @@
                                 Subtotal
                             </td>
                         </tr>
+                        {!! $i=0 !!}
                         @foreach ($DetailTransaksi as $val)
                         <tr class="item">
                             <td>
                                 <em>{{ $val['menu']->nama_menu }}</em>
+                                <kbd>#Addon</kbd>
+                                <?php $totalModifier=0; $iii=0;?>
+                                    <ul style="padding-left: 15px;margin-top:0px; font-size: 11px;">
+                                    @foreach ($DetailTransaksi[$i]->addons as $value)
+                                        <li><code>{{ $value->Addons->nama }}</code></li>
+                                    <?php $totalModifier = $value->harga+$totalModifier; $iii++?>
+                                    </ul>
+                                @endforeach
+                                <kbd>#Modifier</kbd>
+                                <?php $totalModifier=0; $iii=0;?>
+                                    <ul style="padding-left: 15px;margin-top:0px; font-size: 11px;">
+                                    @foreach ($DetailTransaksi[$i]->modifier as $value)
+                                        <li><code>{{ $value->modifier }}</code></li>
+                                    <?php $totalModifier = $value->harga+$totalModifier; $iii++?>
+                                @endforeach
+                                    </ul>
                             </td>
                             <td>
                                 {{ $val['jml'] }}
                             </td>
                             <td align="right">
                                 {{ nominalKoma($val['harga'],true) }}
+                                <br><kbd>&nbsp;</kbd>
+                                <?php $totalModifier=0; $iii=0;?>
+                                <ul style="padding-left: 15px;margin-top:0px; font-size: 11px;">
+                                    @foreach ($DetailTransaksi[$i]->addons as $value)
+                                    {{-- <li><code>{{ $value->harga }}</code></li> --}}
+                                    <?php $totalModifier = $value->harga+$totalModifier; $iii++?>
+                                    @endforeach
+                                    <li>{{ nominalKoma($totalModifier,true) }}</li>
+                                </ul>
                             </td>
                             <td align="right">
-                                {{ nominalKoma($val['sub_total'],true) }}
+                                {{ nominalKoma($val['sub_total']+$totalModifier,true) }}
                             </td>
                         </tr>
+                        {!! $i++ !!}
                         @endforeach
                         <tr class="item last">
                             <td colspan="3" align="right">
