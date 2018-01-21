@@ -114,7 +114,8 @@
                 <td colspan="2" align="center">
                     <kbd>
                         Invoice :  {{ $Transaksi[0]->no_kwitansi }}<br>
-                        Created : {{ date(  'd F Y') }}
+                        Created : {{ date(  'd F Y') }}<br>
+                        Penerima : {{ $Transaksi[0]->penerima }}
                     </kbd>
                 </td>
             </tr>
@@ -192,12 +193,21 @@
                                 {{ nominalKoma($Transaksi[0]->ppn,true) }}
                             </td>
                         </tr>
+                        <tr class="item last">
+                            <td colspan="3" align="right">
+                                Tarif Antar
+                            </td>
+
+                            <td>
+                                {{ nominalKoma($Transaksi[0]->tarif_wilayah,true) }}
+                            </td>
+                        </tr>
 
                         <tr class="total">
                             <td colspan="3"></td>
 
                             <td>
-                               {{ nominalKoma($Transaksi[0]->ppn + $Transaksi[0]->total_harga, true) }}
+                               {{ nominalKoma($Transaksi[0]->total_harga, true) }}
                            </td>
                        </tr>
                    </table>
