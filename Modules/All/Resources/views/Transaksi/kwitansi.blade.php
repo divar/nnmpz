@@ -4,14 +4,14 @@
     <title></title>
     <style>
     .invoice-box {
-        width: 310px;
+        width: 360px;
         margin: auto;
         margin-top: 0;
         font-size: 11px;
         line-height: 24px;
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
-        transform: scale(0.514);
+        /*transform: scale(0.514);*/
         position: absolute;
         transform-origin: 0 0;
     }
@@ -115,7 +115,8 @@
                     <kbd>
                         Invoice :  {{ $Transaksi[0]->no_kwitansi }}<br>
                         Created : {{ date(  'd F Y') }}<br>
-                        Penerima : {{ $Transaksi[0]->penerima }}
+                        Penerima : {{ $Transaksi[0]->penerima }}<br>
+                        Alamat : {{ $Transaksi[0]->alamat->alamat }}
                     </kbd>
                 </td>
             </tr>

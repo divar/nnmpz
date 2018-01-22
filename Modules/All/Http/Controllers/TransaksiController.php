@@ -205,12 +205,13 @@ class TransaksiController extends Controller
 
     public function cetakNota(Request $request, $id=0)
     {
-        $sendNota['Transaksi'] = Transaksi::with('Pelanggan')->where('id',$id)->get();
+        $sendNota['Transaksi'] = Transaksi::with('Pelanggan')->with('Alamat')->where('id',$id)->get();
         $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->where('id_transaksi',$id)->get();
         $height = PDF::loadView('all::Transaksi.kwitansi', $sendNota)->getDomPDF()->getCanvas()->get_height();
+        $width = PDF::loadView('all::Transaksi.kwitansi', $sendNota)->getDomPDF()->getCanvas()->get_width();
         $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
         $pdf= PDF::loadView('all::Transaksi.kwitansi', $sendNota);
-        $pdf = $pdf->setPaper(array(20,20,204,($height*0.514)),'portrait')->setWarnings(false)->save($namafile);
+        $pdf = $pdf->setPaper(array(20,20,$width,($height)),'portrait')->setWarnings(false)->save($namafile);
         return $pdf->stream($namafile);
         // return redirect('all/transaksi');
     }
