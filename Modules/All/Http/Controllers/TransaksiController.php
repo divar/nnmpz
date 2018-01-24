@@ -206,12 +206,28 @@ class TransaksiController extends Controller
     public function cetakNota(Request $request, $id=0)
     {
         $sendNota['Transaksi'] = Transaksi::with('Pelanggan')->with('Alamat')->where('id',$id)->get();
-        $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->where('id_transaksi',$id)->get();
-        $height = PDF::loadView('all::Transaksi.kwitansi', $sendNota)->getDomPDF()->getCanvas()->get_height();
+        $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->with('addons')->with('modifier')->where('id_transaksi',$id)->get();
+        // $DT = DetailTransaksi::with('addons')->with('modifier')->where('id_transaksi',$id)->get();
+        // $modifier = DetailTransaksi::with('modifier')->where('id_transaksi',$id)->get();
+        // dd($addon);
+        $jml_modifier= 0;
+        $jml_addon= 0;
+        $jml=0;
+        for ($i=0; $i < count($sendNota['DetailTransaksi']); $i++) { 
+            $jml_modifier = $jml_modifier+count($sendNota['DetailTransaksi'][$i]->modifier)*15;
+            $jml_addon = $jml_addon+count($sendNota['DetailTransaksi'][$i]->addons)*15;
+            $jml = $jml+$jml_modifier+$jml_addon+41+10+1;
+        }
+        // $jml_baris = count($sendNota['DetailTransaksi'])*56;
+        // $jml_modifier= $jml_modifier*15;
+        // $jml_addon= $jml_addon*15;
+
+        $height = 310+$jml+2;
+        // dd($height);
         $width = PDF::loadView('all::Transaksi.kwitansi', $sendNota)->getDomPDF()->getCanvas()->get_width();
         $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
         $pdf= PDF::loadView('all::Transaksi.kwitansi', $sendNota);
-        $pdf = $pdf->setPaper(array(20,20,$width,($height)),'portrait')->setWarnings(false)->save($namafile);
+        $pdf = $pdf->setPaper(array(20,20,$width,$height),'portrait')->setWarnings(false)->save($namafile);
         return $pdf->stream($namafile);
         // return redirect('all/transaksi');
     }

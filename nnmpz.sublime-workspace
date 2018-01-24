@@ -523,17 +523,18 @@
 			"file": "Modules/All/Http/Controllers/TransaksiController.php",
 			"settings":
 			{
-				"buffer_size": 18561,
+				"buffer_size": 18697,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Modules/All/Entities/DetailAddOn.php",
+			"file": "Modules/All/Resources/views/Transaksi/kwitansi.blade.php",
 			"settings":
 			{
-				"buffer_size": 1903,
-				"line_ending": "Unix"
+				"buffer_size": 7605,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -566,7 +567,7 @@
 			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
 			"settings":
 			{
-				"buffer_size": 46069,
+				"buffer_size": 47043,
 				"line_ending": "Windows"
 			}
 		}
@@ -641,6 +642,7 @@
 	],
 	"file_history":
 	[
+		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/DetailAddOn.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/index-laporan.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/index.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Modifier.php",
@@ -677,7 +679,6 @@
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Satuan/form.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Satuan/index.blade.php",
 		"/D/xampp/htdocs/nnmpz/app/Support/helpers.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/DetailAddOn.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/form-update.blade.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_19_074303_create_transaksis_table.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_20_122554_create_list_menus_table.php",
@@ -944,15 +945,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18561,
+						"buffer_size": 18697,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17713,
-								17713
+								9030,
+								9030
 							]
 						],
 						"settings":
@@ -962,7 +963,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5031.0,
+						"translation.y": 2652.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -970,29 +971,33 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Modules/All/Entities/DetailAddOn.php",
+					"file": "Modules/All/Resources/views/Transaksi/kwitansi.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1903,
+						"buffer_size": 7605,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1801,
-								1807
+								196,
+								196
+							],
+							[
+								847,
+								847
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 39.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1011,8 +1016,8 @@
 						"selection":
 						[
 							[
-								2834,
-								2834
+								2350,
+								2350
 							]
 						],
 						"settings":
@@ -1022,10 +1027,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 273.0,
+						"translation.y": 416.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1055,7 +1060,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1098,15 +1103,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 46069,
+						"buffer_size": 47043,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								22835,
-								22873
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1174,6 +1179,14 @@
 		"selected_items":
 		[
 			[
+				"transak",
+				"Modules\\All\\Entities\\Transaksi.php"
+			],
+			[
+				"kwitan",
+				"Modules\\All\\Resources\\views\\Transaksi\\kwitansi.blade.php"
+			],
+			[
 				"detail",
 				"Modules\\All\\Entities\\DetailAddOn.php"
 			],
@@ -1208,10 +1221,6 @@
 			[
 				"transa",
 				"Modules\\All\\Entities\\Transaksi.php"
-			],
-			[
-				"transak",
-				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
 			],
 			[
 				"tranaksiinde",
@@ -1364,10 +1373,6 @@
 			[
 				"cellma",
 				"vendor\\dompdf\\dompdf\\src\\Cellmap.php"
-			],
-			[
-				"kwitan",
-				"Modules\\All\\Resources\\views\\Transaksi\\kwitansi.blade.php"
 			],
 			[
 				"menuco",
