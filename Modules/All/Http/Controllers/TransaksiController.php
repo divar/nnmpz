@@ -216,7 +216,7 @@ class TransaksiController extends Controller
         for ($i=0; $i < count($sendNota['DetailTransaksi']); $i++) { 
             $jml_modifier = $jml_modifier+count($sendNota['DetailTransaksi'][$i]->modifier)*15;
             $jml_addon = $jml_addon+count($sendNota['DetailTransaksi'][$i]->addons)*15;
-            $jml = $jml+$jml_modifier+$jml_addon+41+10+1;
+            $jml = $jml+$jml_modifier+$jml_addon+45+10+2;
         }
         // $jml_baris = count($sendNota['DetailTransaksi'])*56;
         // $jml_modifier= $jml_modifier*15;
