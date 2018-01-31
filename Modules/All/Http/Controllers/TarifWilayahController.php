@@ -3,6 +3,7 @@
 namespace Modules\All\Http\Controllers;
 
 use Modules\All\Entities\TarifWilayah;
+use Modules\All\Entities\Jenis;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -56,14 +57,22 @@ class TarifWilayahController extends Controller
     {
         DB::beginTransaction();
         try {
-            $r = $request->all();
-            $dataTarif = [
-                'nama'=> (isset($r['nama'])?$r['nama']:''),
-                'harga'=> (isset($r['harga'])?$r['harga']:''),
-                'keterangan'=> (isset($r['keterangan'])?$r['keterangan']:''),
-                'user_input'=>Auth::user()->id,
+          $r = $request->all();
+          $dataTarif = [
+              'nama'=> (isset($r['nama'])?$r['nama']:''),
+              'harga'=> (isset($r['harga'])?$r['harga']:''),
+              'keterangan'=> (isset($r['keterangan'])?$r['keterangan']:''),
+              'user_input'=>Auth::user()->id,
+          ];
+          $createTarif = TarifWilayah::create($dataTarif);
+          for ($i=0; $i < count($r['jenis']); $i++) { 
+            $dataJenis = [
+              'id_tarif_wilayah'=> $createTarif->id,
+              'jenis'=> (isset($r['jenis'][$i])?$r['jenis'][$i]:''),
+              'user_input'=>Auth::user()->id,
             ];
-            $createTarif = TarifWilayah::create($dataTarif);
+            $jenis = Jenis::create($dataJenis);
+          }
         } catch (Exception $e) {
             DB::rollBack();
         }
@@ -87,6 +96,7 @@ class TarifWilayahController extends Controller
     public function edit($id)
     {
         $sendTarif['Tarifwilayah'] = TarifWilayah::find($id);
+        $sendTarif['jenis'] = Jenis::where('id_tarif_wilayah',$id)->get();
         return $this->view('form',$sendTarif);
     }
 
@@ -99,15 +109,24 @@ class TarifWilayahController extends Controller
     {
         DB::beginTransaction();
         try {
-            $r = $request->all();
-            $dataUpdate = [
-                'nama'=>$r['nama'],
-                'harga'=>$r['harga'],
-                'keterangan'=>$r['keterangan'],
-                'user_update'=>Auth::user()->id,
+          $r = $request->all();
+          $dataUpdate = [
+              'nama'=>$r['nama'],
+              'harga'=>$r['harga'],
+              'keterangan'=>$r['keterangan'],
+              'user_update'=>Auth::user()->id,
+          ];
+          $Tw = Tarifwilayah::find($r['id_tarif_wilayah']);
+          $Tw->update($dataUpdate);
+          Jenis::where('id_tarif_wilayah',$r['id_tarif_wilayah'])->delete();
+          for ($i=0; $i < count($r['jenis']); $i++) {
+            $dataJenis = [
+              'id_tarif_wilayah'=> $r['id_tarif_wilayah'],
+              'jenis'=> (isset($r['jenis'][$i])?$r['jenis'][$i]:''),
+              'user_input'=>Auth::user()->id,
             ];
-            $Tw = Tarifwilayah::find($r['id_tarif_wilayah']);
-            $Tw->update($dataUpdate);
+            $jenis = Jenis::create($dataJenis);
+          }
         } catch (Exception $e) {    
             DB::rollBack();
         }

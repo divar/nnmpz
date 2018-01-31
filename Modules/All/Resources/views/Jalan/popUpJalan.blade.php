@@ -1,5 +1,5 @@
 @extends(Request::get('ajax') ? 'layouts.modal':'layouts.content')
-@section('title', $title='Daftar Menu')
+@section('title', $title='Pilih Jalan')
 @section('modalClass','min-width:90%;')
 @section('sub-content')
 <div class="content-wrapper">
@@ -15,8 +15,8 @@
                         <table class="table table-striped table-bordered table-sm table-hover" id="menu-table">
                             <thead>
                                 <tr>
-                                    <th>Action</th>
-                                    <th>Nama</th>
+                                    <th width="40%">#</th>
+                                    <th>wilayah</th>
                                     <th>Kategori</th>
                                     <th>Harga</th>                                  
                                 </tr>

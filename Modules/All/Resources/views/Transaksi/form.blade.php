@@ -723,7 +723,7 @@
     }
     function showJalan(){
         $('body').attr('class','sidenav-toggled');
-        var url = "{{url('all/jalan/popUpMenu')}}";
+        var url = "{{route('popupjalan')}}";
         $('.modal-dialog').addClass('modal-lg');
         $('#myModelDialog').html('');
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\All\Entities\Jalan;
 use Modules\All\Entities\TarifWilayah;
+use Modules\All\Entities\Jenis;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -147,7 +148,7 @@ class JalanController extends Controller
         $GLOBALS['nomor']=\Request::input('start',0)+1;
         $from=\Request::get('from',null);
         
-        $dataList = Jalan::whereNull('trash');
+        $dataList = Jalan::whereNull('trash')->orderBy('id','ASC');
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
@@ -165,7 +166,10 @@ class JalanController extends Controller
             $content .= '<button type="button" id-jalan="'.$data->id.'" class="btn btn-danger btn-sm DeleteData"><i class="fa fa-trash-o"> Hapus</i></button>';
           }
           if ($from == 'popup') {
-             $content = '<button type="button" onclick="getJalanById('.$data->id.')" class="btn btn-primary btn-sm"> pilih </button>';
+            $jenis = Jenis::where('id_tarif_wilayah',$data->tarifWilayah->id)->get();
+            for ($i=0; $i < count($jenis); $i++) {
+              $content .= '<button type="button" onclick="getJalanById('.$jenis[$i]->id.')" class="btn btn-primary btn-sm m-1"> '.$jenis[$i]->jenis.' </button>';
+            }
           }
           return $content;
         })

@@ -19,6 +19,7 @@ class CreateTransaksisTable extends Migration
             $table->integer('id_alamat')->nullable();
             $table->integer('id_tarif_wilayah')->nullable();
             $table->integer('id_jalan')->nullable();
+            $table->integer('id_jenis')->nullable();
             $table->integer('total_harga')->nullable();
             $table->integer('tarif_wilayah')->nullable();
             $table->integer('ppn')->nullable();
