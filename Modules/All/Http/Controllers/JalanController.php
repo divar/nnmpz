@@ -168,7 +168,7 @@ class JalanController extends Controller
           if ($from == 'popup') {
             $jenis = Jenis::where('id_tarif_wilayah',$data->tarifWilayah->id)->get();
             for ($i=0; $i < count($jenis); $i++) {
-              $content .= '<button type="button" onclick="getJalanById('.$jenis[$i]->id.')" class="btn btn-primary btn-sm m-1"> '.$jenis[$i]->jenis.' </button>';
+              $content .= '<button type="button" onclick="getJalanById('.$data->id.','.$jenis[$i]->id.','."'".$jenis[$i]->jenis."'".')" class="btn btn-primary btn-sm m-1"> '.$jenis[$i]->jenis.' </button>';
             }
           }
           return $content;

@@ -111,18 +111,19 @@
                     </td>
             </tr>
             <tr>
-                <td colspan="2" align="center">
+                <td colspan="2" align="left">
                     <kbd>
-                        Invoice :  {{ $Transaksi[0]->no_kwitansi }}<br>
-                        Created : {{ date(  'd F Y') }}<br>
-                        Penerima : {{ $Transaksi[0]->penerima }}<br>
-                        Alamat : {{ $Transaksi[0]->alamat->alamat }}
+                        <b>Invoice :  {{ $Transaksi[0]->no_kwitansi }}</b><br>
+                        <b>Created</b> : {{ date(  'd F Y') }}<br>
+                        <b>Penerima</b> : {{ $Transaksi[0]->penerima }}<br>
+                        <b>Alamat</b> : {{ $Transaksi[0]->alamat->alamat }}
                     </kbd>
                 </td>
             </tr>
             <tr>
                 <td align="center" colspan="2">
-                    <STRONG>Pesanan A.N : {{ $Transaksi[0]->pelanggan->nama }}</STRONG>
+                    <STRONG>Pesanan A.N : {{ $Transaksi[0]->pelanggan->nama }}</STRONG><br>
+                    <STRONG>{{ $Transaksi[0]->Jenis->jenis }}</STRONG>
                 </td>   
             </tr>
             <tr>

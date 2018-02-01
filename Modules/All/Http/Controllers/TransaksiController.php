@@ -80,6 +80,7 @@ class TransaksiController extends Controller
             $email = (isset($r['email'])?$r['email']:'');
             $no_hp = (isset($r['no_hp'])?$r['no_hp']:'');
             $alamat = (isset($r['alamat'])?$r['alamat']:'');
+            $id_jenis = intval(isset($r['id_jenis'])?$r['id_jenis']:'');
             $id_jalan = intval(isset($r['id_jalan'])?$r['id_jalan']:'');
             $id_alamat = (isset($r['id_alamat'])?$r['id_alamat']:'');
             $id_pelanggan = (isset($r['id_pelanggan'])?$r['id_pelanggan']:'');
@@ -117,6 +118,7 @@ class TransaksiController extends Controller
                 'id_pelanggan'=>$id_pelanggan,
                 'id_alamat'=>$id_alamat,
                 'id_jalan'=>$id_jalan,
+                'id_jenis'=>$id_jenis,
                 'penerima'=>$nama_penerima,
                 'id_tarif_wilayah'=>$tarifwilayah,
                 'no_kwitansi'=> $getNextNoKwitansi,

@@ -127,6 +127,7 @@
                                         <div class="col-md-7">
                                             <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly" value="{{ isset($Transaksi)?$Transaksi->Jalan->nama
                                                 :'' }}">
+                                            <input type="hidden" class="form-control" id="id_jenis" name="id_jenis" value="{{ isset($Transaksi)?$Transaksi->id_jenis:'' }}">
                                             <input type="hidden" class="form-control" id="id_jalan" name="id_jalan" value="{{ isset($Transaksi)?$Transaksi->id_tarif_wilayah:'' }}">
                                             <input type="hidden" class="form-control" id="harga_tarif_wilayah" name="harga_tarif_wilayah" value="{{ isset($Transaksi)?$Transaksi->tarif_wilayah:0 }}">
                                         </div>
@@ -562,7 +563,7 @@
             }
         });
     }
-    function getJalanById(id_jalan){
+    function getJalanById(id_jalan,id_jenis,jenis){
         $.ajax({
             type: "GET",
             url: "{{ url("all/jalan/getById") }}",
@@ -572,8 +573,9 @@
             dataType: 'json',
             success: function(response){
                 // console.log(response);
-                $('#jalan').val(response.dataList.nama);
+                $('#jalan').val(response.dataList.nama+" ~ "+jenis);
                 $('#id_jalan').val(response.dataList.id);
+                $('#id_jenis').val(id_jenis);
                 $('#harga_tarif_wilayah').val(response.dataList.tarif_wilayah.harga);
                 $('#id_tarifwilayah').val(response.dataList.tarif_wilayah.id);
                 $('#texttarifwilayah').html(response.dataList.tarif_wilayah.harga);
