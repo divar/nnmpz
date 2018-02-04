@@ -62,11 +62,7 @@
 
 @push('js')
 <script type="text/javascript">
-$(document).ready(function(){
-    @if(session('id'))
-        open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); 
-    @endif
-});
+
 today = {{ date('d-m-Y') }};
  $("#fromdate").datepicker({format: 'dd-mm-yyyy',uiLibrary: 'bootstrap4',iconsLibrary: 'fontawesome',maxDate: today});
  $("#todate").datepicker({format: 'dd-mm-yyyy',uiLibrary: 'bootstrap4',iconsLibrary: 'fontawesome',maxDate: today});
@@ -81,7 +77,7 @@ function refresh(){
         pageLength:20,
         // ajax: '{{ url('all/pelanggan/load-data') }}',
         ajax: {
-            url:"{{ url('all/transaksi/load-data') }}",
+            url:"{{ url('all/transaksi/load-data-laporan') }}",
                                 data: function (d) {
                                     return $.extend( {}, d, {
                                     'from':$('#fromdate').val(),
@@ -145,6 +141,7 @@ function refresh(){
     });
     $('.dt-buttons').appendTo('div.dataTables_filter');
     $('#menu-table_filter').attr('style','float:none;');
+    table.columns([@for ($i = 0; $i < $satuan ; $i++) {{ $i+10 }}{{ ',' }} @endfor]).visible( false, false );
 });
 
 </script>

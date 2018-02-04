@@ -10,6 +10,7 @@ use Modules\All\Entities\DetailAddOn;
 use Modules\All\Entities\Alamat;
 use Modules\All\Entities\TarifWilayah;
 use Modules\All\Entities\Size;
+use Modules\All\Entities\Satuan;
 use Modules\All\Entities\ListMenu;
 use Indonesia;
 use PDF;
@@ -20,6 +21,7 @@ use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Collection;
 
 class TransaksiController extends Controller
 {
@@ -42,7 +44,8 @@ class TransaksiController extends Controller
     }
     public function index2()
     {
-        return $this->view('index-laporan');
+        $send['satuan'] =  Satuan::select('id')->first()->count();
+        return $this->view('index-laporan',$send);
     }
     public function tambahTransaksi()
     {
@@ -379,7 +382,7 @@ class TransaksiController extends Controller
         $to=\Request::get('to',null);
         $to=Carbon::createFromFormat('d-m-Y', $to);
         $to=$to->format('Y-m-d');
-        $dataList = Transaksi::select('*')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59");
+        $dataList = Transaksi::select('*')->with('DetailTransaksi')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59");
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
@@ -405,7 +408,7 @@ class TransaksiController extends Controller
           for ($i=0; $i < count($lm); $i++) { 
             $val = $lm[$i]->menu['nama_menu'];
             $val2 = $lm[$i]->menu->kategori->satuan->satuan;
-              $content .= '<label class="label-default">'.($i+1).'. '.$val.'~'.$val2.'</label><br>'; 
+              $content .= '<label class="label-default">'.($i+1).'. '.$val.'</label><br>'; 
           }
           return $content;
         })
@@ -454,4 +457,69 @@ class TransaksiController extends Controller
         ->rawColumns(['pesanan','action','modifier','addon'])
         ->make(true);
     }
+
+    public function loadDataLaporan()
+    {
+        $GLOBALS['nomor']=\Request::input('start',0)+1;
+        $from=\Request::get('from',null);
+        $from=Carbon::createFromFormat('d-m-Y', $from)->format('Y-m-d');
+        $to=\Request::get('to',null);
+        $to=Carbon::createFromFormat('d-m-Y', $to)->format('Y-m-d');
+
+        $satuan = Satuan::select('id','satuan')->get()->toArray();
+        $dataTransaksi = Transaksi::select('*')->with('DetailTransaksi')->get();
+        $dataList = new Collection;
+        // dd(count($dataTransaksi->toArray()));
+        for ($i=0; $i < count($dataTransaksi->toArray()); $i++) {
+            $detail_transaksi = $dataTransaksi[$i]->DetailTransaksi;
+            $pesanan='';
+            $modifier='';
+            for ($x=0; $x < count($detail_transaksi); $x++){
+                $pesanan .= ($x+1).'. '.$detail_transaksi[$i]->menu->nama_menu.'<br>';
+                $addon = '';
+                $lm = $detail_transaksi;
+                for ($xi=0; $xi < count($lm); $xi++) { 
+                    $md = DetailAddOn::where('id_detail_transaksi',$lm[$xi]['id'])->get();
+                    for ($ii=0; $ii < count($md); $ii++) { 
+                        $val = $md[$ii]->Addons;
+                        $addon .= 'Rp. <label class="label-default">'.($ii+1).'. '.$val->nama.'</label><br>'; 
+                    }
+                    $md2 = Modifier::where('id_detail_transaksi',$lm[$xi]['id'])->get();
+                    for ($ii=0; $ii < count($md2); $ii++) { 
+                        $val = $md2[$ii]->modifier;
+                        $modifier .= '<label class="label-default">'.($ii+1).'. '.$val.'</label><br>'; 
+                    }
+                }
+            }
+            $columnPerTransaksi = [
+                'nama'=> $dataTransaksi[$i]->Pelanggan->nama,
+                'no_hp'=> $dataTransaksi[$i]->Pelanggan->no_hp ,
+                'penerima'=> $dataTransaksi[$i]->penerima ,
+                'pesanan'=> $pesanan ,
+                'total'=> '<div class="pull-right">'.nominalKoma($dataTransaksi[$i]->total_harga,false)."</div>",
+                'tgl_pesan'=> Carbon::createFromFormat('Y-m-d H:i:s',$dataTransaksi[$i]->created_at)->format('d M Y'),
+                'alamat'=> $dataTransaksi[$i]->Alamat->alamat,
+                'pegawai'=> $dataTransaksi[$i]->userinput->name,
+                'addon'=> $addon ,
+                'modifier'=> $modifier
+            ];
+            for ($a=0; $a < count($satuan); $a++) {
+                $jmlsatuan = 0;
+                for ($x=0; $x < count($detail_transaksi); $x++){
+                    if($satuan[$a]['id'] == $detail_transaksi[$x]->menu->id_satuan){
+                        $jmlsatuan=$jmlsatuan+1;
+                    }
+                }
+                $columnPerTransaksi[$satuan[$a]['id']] = $jmlsatuan;
+            }
+            $dataList->push($columnPerTransaksi);
+        }
+        return Datatables::of($dataList)
+        ->addColumn('nomor',function(){
+          return $GLOBALS['nomor']++;
+        })
+        ->rawColumns(['pesanan','action','modifier','addon','total'])
+        ->make(true);
+    }
+
 }

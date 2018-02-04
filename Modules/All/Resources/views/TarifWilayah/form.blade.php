@@ -60,7 +60,7 @@
                                 @for ($i = 0; $i < count($jenis); $i++)
                                 <tr id="data_ke-{{ $i }}" role="row">
                                     <td>
-                                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button class="btn delete btn-danger" type="button" no="{{ $i }}"><i class="fa fa-trash"></i></button>
                                     </td>
                                     <td>
                                         <input type="hidden" class="form-control" name="id_jenis[]" id="id_jenis_{{ $i }}" required="required" value="{{ isset($jenis)?$jenis[$i]->id:'' }}">
@@ -88,13 +88,25 @@
         $('#tambahJenis').on('click', function(){
             count = $('#HC').val();
             add_jenis_to_table(count);
-            $('#HC').val(count+1);
+            $('#HC').val(parseInt(count)+1);
+        });
+        $('#jenis-table').on('click',".delete",function(){
+            no = $(this).attr('no');
+            console.log(no);
+            delete_data_table(no);
         });
     });
+    function delete_data_table(no){
+        if(confirm("Anda yakin akan menghapus data ini?")){
+            // var count = $('#hide_count_menu').val();
+            $('#data_ke-'+no).detach();
+            return false;
+        }
+    }
     function add_jenis_to_table(count){
         $('<tr id="data_ke-'+count+'" role="row">\n\
             <td>\n\
-                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>\n\
+                <button class="btn delete btn-danger" no="'+count+'" type="button"><i class="fa fa-trash"></i></button>\n\
             </td>\n\
             <td>\n\
                 <input type="text" class="form-control" name="jenis[]" id="jenis_'+count+'" required="required">\n\
