@@ -45,6 +45,7 @@ class TransaksiController extends Controller
     public function index2()
     {
         $send['satuan'] =  Satuan::select('id')->first()->count();
+        $send['satuan2'] =  Satuan::select('satuan')->get()->toArray();
         return $this->view('index-laporan',$send);
     }
     public function tambahTransaksi()
@@ -510,7 +511,7 @@ class TransaksiController extends Controller
                         $jmlsatuan=$jmlsatuan+1;
                     }
                 }
-                $columnPerTransaksi[$satuan[$a]['id']] = $jmlsatuan;
+                $columnPerTransaksi[$satuan[$a]['satuan']] = $jmlsatuan;
             }
             $dataList->push($columnPerTransaksi);
         }

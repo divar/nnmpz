@@ -45,6 +45,9 @@
                                     <th>pegawai</th>
                                     <th>Addon</th>
                                     <th>Modifier</th>
+                                    @for ($i = 0; $i < count($satuan2); $i++)
+                                    {!! "<th>".$satuan2[$i]['satuan']."</th>" !!}
+                                    @endfor
                                 </tr>
                             </thead>
                             <tbody>
@@ -99,7 +102,9 @@ function refresh(){
             { data: 'pegawai', name: 'pegawai', searchable:false,orderable:true},
             { data: 'addon', name: 'addon', searchable:false,orderable:true},
             { data: 'modifier', name: 'modifier', searchable:false,orderable:true},
-        ],
+        @for ($i = 0; $i < count($satuan2); $i++)
+    {!! "{ data: '".$satuan2[$i]['satuan']."', name: '".$satuan2[$i]['satuan']."', searchable:false,orderable:true}" !!}{{ $i != $satuan-1?',':'' }}
+        @endfor],
         language: {
             lengthMenu : '{{ "Menampilkan _MENU_ data" }}',
             zeroRecords : '{{ "Data tidak ditemukan" }}' ,
@@ -127,7 +132,7 @@ function refresh(){
             },
             { extend: 'excel', className: 'btn btn-sm btn-info',text: '<i class="fa fa-file-excel-o"> export excel</i>',
                 exportOptions:{
-                   columns:[0,1,2,3,4,5,6,7,8,9,10,@for ($i = 0; $i < $satuan ; $i++) {{ $i+10 }}{{ ',' }} @endfor]
+                   columns:[0,1,2,3,4,5,6,7,8,9,10,@for ($i = 0; $i < $satuan ; $i++) {{ $i+11 }}{{ $i != $satuan-1?',':'' }} @endfor]
                 }
             }
 
@@ -135,13 +140,13 @@ function refresh(){
         // bFilter : true,
         bLengthChange : true, 
         "columnDefs": [ 
-            { className: "center", "targets": [ 0,10 ] }
+            { className: "center", "targets": [ 0,{{ $satuan+10 }} ] }
         ],
         "dom": "<'row'<'col-md-6 col-sm-6'><'col-md-6 col-sm-6'fB>r><'table-scrollable't><'row'<'col-md-6 col-sm-6'i><'col-md-6 col-sm-6'p>>",
     });
     $('.dt-buttons').appendTo('div.dataTables_filter');
     $('#menu-table_filter').attr('style','float:none;');
-    table.columns([@for ($i = 0; $i < $satuan ; $i++) {{ $i+10 }}{{ ',' }} @endfor]).visible( false, false );
+    table.columns([@for ($i = 0; $i < $satuan ; $i++) {{ $i+11 }}{{ $i != $satuan-1?',':'' }} @endfor]).visible( false, false );
 });
 
 </script>
