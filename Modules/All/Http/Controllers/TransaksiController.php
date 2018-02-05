@@ -228,7 +228,7 @@ class TransaksiController extends Controller
         // $jml_modifier= $jml_modifier*15;
         // $jml_addon= $jml_addon*15;
 
-        $height = 310+$jml+2;
+        $height = 330+$jml+2;
         // dd($height);
         $width = PDF::loadView('all::Transaksi.kwitansi', $sendNota)->getDomPDF()->getCanvas()->get_width();
         $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
