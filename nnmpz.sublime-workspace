@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"sat",
+				"satuan"
+			],
+			[
+				"pull",
+				"pull-right \tBootstrap 3 Class"
+			],
+			[
+				"add",
+				"addon"
+			],
+			[
+				"nomina",
+				"nominalKoma"
+			],
+			[
 				"for",
 				"for\tfor …"
 			],
@@ -122,10 +138,6 @@
 			[
 				"jm",
 				"jml"
-			],
-			[
-				"add",
-				"addons"
 			],
 			[
 				"numbert",
@@ -502,18 +514,6 @@
 			[
 				"res",
 				"request"
-			],
-			[
-				"onc",
-				"onclick\tAttr"
-			],
-			[
-				"path",
-				"path_for"
-			],
-			[
-				"onPr",
-				"onkeypress\tAttr"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "Modules/All/Http/Controllers/TransaksiController.php",
 			"settings":
 			{
-				"buffer_size": 21111,
+				"buffer_size": 22894,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -548,7 +548,7 @@
 			"file": "Modules/All/Resources/views/Transaksi/index-laporan.blade.php",
 			"settings":
 			{
-				"buffer_size": 6419,
+				"buffer_size": 6976,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -821,6 +821,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"0",
+			"10",
+			"visible",
+			"$i",
+			"DetailTransaksi",
 			"=>",
 			"',",
 			"aklshdoand",
@@ -943,12 +948,7 @@
 			"total_perbaris",
 			"kelurahan",
 			"alamat",
-			"$Pelanggan",
-			"$pelanggan",
-			"pelanggan",
-			"id_tarif",
-			"id_jalan",
-			"harga_tarif_wilayah"
+			"$Pelanggan"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -969,7 +969,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -978,15 +978,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21111,
+						"buffer_size": 22894,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20660,
-								20660
+								22662,
+								22662
 							]
 						],
 						"settings":
@@ -996,10 +996,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6740.0,
+						"translation.y": 2787.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1026,10 +1026,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 378.0,
+						"translation.y": 282.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1056,7 +1056,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 546.0,
+						"translation.y": 100.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1068,15 +1068,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6419,
+						"buffer_size": 6976,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3885,
-								3885
+								6309,
+								6309
 							]
 						],
 						"settings":
@@ -1086,10 +1086,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 550.0,
+						"translation.y": 2190.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{

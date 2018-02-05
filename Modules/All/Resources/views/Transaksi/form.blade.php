@@ -814,7 +814,7 @@
             alert("ada field yang kosong di tab sebelumnya");
             return false;
         }else {
-            if(confirm('apakah data ini sudah benar ? \n\ nama : '+document.getElementById('nama').value+'\n\ Penerima : '+document.getElementById("nama_penerima").value+'\n\ No HP : '+document.getElementById("no_hp").value+'\n\ Alamat : '+$('#alamat').val())){
+            if(confirm('apakah data ini sudah benar ? \n\ nama : '+document.getElementById('nama').value+'\n\ Penerima : '+document.getElementById("nama_penerima").value+'\n\ No HP : '+document.getElementById("no_hp").value+'\n\ Area : '+document.getElementById("jalan").value+'\n\ Alamat : '+$('#alamat').val())){
                 $(this).submit();
             }else {
                 return false;
