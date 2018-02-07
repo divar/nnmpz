@@ -468,7 +468,7 @@ class TransaksiController extends Controller
         $to=Carbon::createFromFormat('d-m-Y', $to)->format('Y-m-d');
 
         $satuan = Satuan::select('id','satuan')->get()->toArray();
-        $dataTransaksi = Transaksi::select('*')->with('DetailTransaksi')->get();
+        $dataTransaksi = Transaksi::select('*')->with('DetailTransaksi')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59")->get();
         $dataList = new Collection;
         // dd(count($dataTransaksi->toArray()));
         for ($i=0; $i < count($dataTransaksi->toArray()); $i++) {
