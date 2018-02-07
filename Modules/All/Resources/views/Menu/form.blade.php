@@ -93,16 +93,16 @@
                                 <input id="nama" type="text" name="nama" class="form-control" placeholder="Nama Menu" required="required" value="{{ isset($Menu)?$Menu['nama_menu']:'' }}">
                             </div>  
                         </div>
-                        {{-- <div id="tempatSatuan" class="form-group row">
+                        <div id="tempatSatuan" class="form-group row">
                             <label for="Satuan" class="col-md-3 col-form-label">Satuan</label>
                             <div class="col-md-9">
-                                <select id="satuan" name="id_satuan" class="form-control custom-select" >
+                                <select id="satuan" name="id_satuantunggal" class="form-control custom-select" >
                                     @foreach($Satuan as $val)
                                         <option value="{{ $val['id'] }}" {{ isset($Menu['id_satuan']) && $Menu['id_satuan']==$val['id']?'selected="selected"':'' }}>{{ $val['satuan'] }}</option>
                                     @endforeach
                                 </select>
-                            </div>  
-                        </div> --}}
+                            </div>
+                        </div>
                         <div id="tempatHarga" class="form-group row">
                             <label for="Harga" class="col-md-3 col-form-label">Harga</label>
                             <div class="col-md-9">
@@ -153,7 +153,7 @@
                         @endif
                         <div class="col-md-3"><input id="submit" class="btn btn-info" type="submit" value="Simpan" name="submit"></div>
                     </div>
-                    <div class="col-md-5 d-none" id="tempatTambahSize">
+                    <div class="col-md-7 d-none" id="tempatTambahSize">
                         <button id="add_size" type="button" class="btn btn-xs btn-success tambah_layanan" tujuan="detail-size-table" from="menu">
                             <span title="tambah" class="glyphicon glyphicon-plus">Tambah size</span>
                         </button>
@@ -164,6 +164,7 @@
                                       <td width="5%" align="middle"><h5>#</h5></td>
                                       <td width="35%" align="center"><h5>Ukuran</h5></td>
                                       <td width="25%" align="center"><h5>Harga</h5></td> 
+                                      <td width="35%" align="center"><h5>satuan</h5></td> 
                                   </tr>
                                 </thead>
                                 <tbody id="detail-data-table"> 
@@ -200,14 +201,16 @@
         $('.pilihsize').on('click',function(){
             pilihsize = $(this).val(); 
             if(pilihsize == 'ya'){
-                $('#tempatTambahSize').attr('class','col-md-5');
+                $('#tempatTambahSize').attr('class','col-md-6');
                 $('#add_size').click();
                 $('#tempatHarga').attr('class','form-group row d-none');
+                $('#tempatSatuan').attr('class','form-group row d-none');
                 $('#harga').prop('required',null);
             }else{
                 $('#tempatHarga').attr('class','form-group row');
+                $('#tempatSatuan').attr('class','form-group row');
                 $('#harga').prop('required',true);
-                $('#tempatTambahSize').attr('class','col-md-5 d-none');
+                $('#tempatTambahSize').attr('class','col-md-6 d-none');
                 $('.data_size').detach();
                 $('#hide_count_size').val(0);
             }
@@ -251,10 +254,21 @@
             $('<tr class="data_size" id="data_ke-'+count+'" role="row">\n\
                 <td id="layanan_nama_place_'+count+'">\n\
                 </td>\n\
-                <td id="size" class="row">\n\
-                @foreach($size as $val) <div class="col-md-4"> <label class="radio-pilih-container ">{{ $val['nama'] }}<input type="radio" tujuan="'+count+'" class="hagia rdx_'+count+'" name="xsize[{{ $val['nama'] }}]" value="{{ $val['id'] }}"><span class="checkmark"></span></label> </div> @endforeach\n\
+                <td id="size">\n\
+                <div class="row">@foreach($size as $val) <div class="col-md-4"> <label class="radio-pilih-container ">{{ $val['nama'] }}<input type="radio" tujuan="'+count+'" class="hagia rdx_'+count+'" name="xsize[{{ $val['nama'] }}]" value="{{ $val['id'] }}"><span class="checkmark"></span></label> </div> @endforeach</div>\n\
                 </td>\n\
                 <td align="right"><input type="number" id="hargaSize_'+count+'" class="form-control" name="hargaSize[]"></td>\n\
+                <td>\n\
+                    <div id="tempatSatuan" class="form-group row">\n\
+                        <div class="col-md-12">\n\
+                            <select id="satuan_'+count+'" name="id_satuan[]" class="form-control custom-select" >\n\
+                                @foreach($Satuan as $val)\n\
+                                    <option value="{{ $val['id'] }}" {{ isset($Menu['id_satuan']) && $Menu['id_satuan']==$val['id']?'selected="selected"':'' }}>{{ $val['satuan'] }}</option>\n\
+                                @endforeach\n\
+                            </select>\n\
+                        </div>\n\
+                    </div>\n\
+                </td>\n\
             </tr>').appendTo('#detail-data-table');
         }else{
             $('<tr class="data_size" id="data_ke-'+count+'" role="row">\n\
@@ -262,10 +276,21 @@
                     <button id="'+count+'" class="delete_data_detail btn btn-xs btn-danger hapus" type="button" onclick="delete_data_table(\''+count+'\',\'new\')">\n\
                     <span title="Batal" class="fa fa-trash"></span></button>\n\
                 </td>\n\
-                <td id="size" class="row">\n\
-                @foreach($size as $val) <div class="col-md-4"> <label class="radio-pilih-container ">{{ $val['nama'] }}<input type="radio" class="hagia rdx_'+count+'" tujuan="'+count+'" name="xsize[{{ $val['nama'] }}]" value="{{ $val['id'] }}"><span class="checkmark"></span></label> </div> @endforeach\n\
+                <td id="size">\n\
+                <div class="row">@foreach($size as $val) <div class="col-md-4"><label class="radio-pilih-container ">{{ $val['nama'] }}<input type="radio" class="hagia rdx_'+count+'" tujuan="'+count+'" name="xsize[{{ $val['nama'] }}]" value="{{ $val['id'] }}"><span class="checkmark"></span></label> </div> @endforeach</div>\n\
                 </td>\n\
                 <td align="right"><input type="number" id="hargaSize_'+count+'" class="form-control" name="hargaSize[]" required="required"></td>\n\
+                <td>\n\
+                    <div id="tempatSatuan" class="form-group row">\n\
+                        <div class="col-md-12">\n\
+                            <select id="satuan" name="id_satuan[]" class="form-control custom-select" >\n\
+                                @foreach($Satuan as $val)\n\
+                                    <option value="{{ $val['id'] }}" {{ isset($Menu['id_satuan']) && $Menu['id_satuan']==$val['id']?'selected="selected"':'' }}>{{ $val['satuan'] }}</option>\n\
+                                @endforeach\n\
+                            </select>\n\
+                        </div>\n\
+                    </div>\n\
+                </td>\n\
             </tr>').appendTo('#detail-data-table');
         }
     }

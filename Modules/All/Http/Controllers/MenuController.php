@@ -74,6 +74,7 @@ class MenuController extends Controller
         DB::beginTransaction();
         try {
             $r = $request->all();
+            // dd($r);
             if(isset($r['pilihsize']) && $r['pilihsize']=="tidak"){
               $dataMenu = [
                 'id_kategori'=>(isset($r['kategori'])?$r['kategori']:''),
@@ -81,6 +82,7 @@ class MenuController extends Controller
                 'nama_menu'=>(isset($r['nama'])?$r['nama']:''),
                 'harga'=>(isset($r['harga'])?$r['harga']:''),
                 'keterangan'=>(isset($r['keterangan'])?$r['keterangan']:''),
+                'id_satuan'=>(isset($r['id_satuantunggal'])?$r['id_satuantunggal']:''),
               ];
               $insertMenu = ListMenu::create($dataMenu);
             }else{
@@ -89,6 +91,7 @@ class MenuController extends Controller
                 // dd($key);
                 $dataMenu = [
                 'id_kategori'=>(isset($r['kategori'])?$r['kategori']:''),
+                'id_satuan'=>(isset($r['id_satuan'][$i])?$r['id_satuan'][$i]:''),
                 'nama_menu'=>(isset($r['nama'])?$r['nama']." ".$key:''),
                 'harga'=>(isset($r['hargaSize'][$i])?$r['hargaSize'][$i]:''),
                 'keterangan'=>(isset($r['keterangan'])?$r['keterangan']:''),
@@ -140,7 +143,7 @@ class MenuController extends Controller
           $dataUpdate = [
               'nama_menu'=> (isset($r['nama'])?$r['nama']:''),
               'harga'=> (isset($r['harga'])?$r['harga']:''),
-              // 'id_satuan'=>(isset($r['id_satuan'])?$r['id_satuan']:''),
+              'id_satuan'=>(isset($r['id_satuantunggal'])?$r['id_satuantunggal']:''),
               'keterangan'=>(isset($r['keterangan'])?$r['keterangan']:''),
               'id_kategori  '=>(isset($r['kategori'])?$r['kategori']:''),
               'id_size'=>(isset($r['id_size'])?$r['id_size']:null),
