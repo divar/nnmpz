@@ -476,28 +476,32 @@ class TransaksiController extends Controller
             $pesanan='';
             $modifier='';
             for ($x=0; $x < count($detail_transaksi); $x++){
-                $pesanan .= ($x+1).'. '.$detail_transaksi[$i]->menu->nama_menu.'<br>';
+                $pesanan .= ($x+1).'. '.$detail_transaksi[$x]->menu->nama_menu.'<br>';
                 $addon = '';
                 $lm = $detail_transaksi;
-                for ($xi=0; $xi < count($lm); $xi++) { 
-                    $md = DetailAddOn::where('id_detail_transaksi',$lm[$xi]['id'])->get();
-                    for ($ii=0; $ii < count($md); $ii++) { 
-                        $val = $md[$ii]->Addons;
-                        $addon .= 'Rp. <label class="label-default">'.($ii+1).'. '.$val->nama.'</label><br>'; 
+                // for ($xi=0; $xi < count($lm); $xi++) { 
+                    $md = DetailAddOn::where('id_detail_transaksi',$lm[$x]['id'])->get();
+                    if(count($md)>0){
+                        for ($ii=0; $ii < count($md); $ii++) {
+                            $val = $md[$ii]->Addons;
+                            $addon .= 'Rp. <label class="label-default">'.$x.'('.($ii+1).'). '.$val->nama.'</label><br>'; 
+                        }
                     }
-                    $md2 = Modifier::where('id_detail_transaksi',$lm[$xi]['id'])->get();
-                    for ($ii=0; $ii < count($md2); $ii++) { 
-                        $val = $md2[$ii]->modifier;
-                        $modifier .= '<label class="label-default">'.($ii+1).'. '.$val.'</label><br>'; 
+                    $md2 = Modifier::where('id_detail_transaksi',$lm[$x]['id'])->get();
+                    if(count($md2)>0){
+                        for ($ii=0; $ii < count($md2); $ii++) { 
+                            $val2 = $md2[$ii]->modifier;
+                            $modifier .= '<label class="label-default">'.$x.'('.($ii+1).'). '.$val2.'</label><br>'; 
+                        }
                     }
-                }
+                // }
             }
             $columnPerTransaksi = [
                 'nama'=> $dataTransaksi[$i]->Pelanggan->nama,
                 'no_hp'=> $dataTransaksi[$i]->Pelanggan->no_hp ,
                 'penerima'=> $dataTransaksi[$i]->penerima ,
                 'pesanan'=> $pesanan ,
-                'total'=> '<div class="pull-right">'.nominalKoma($dataTransaksi[$i]->total_harga,false)."</div>",
+                'total'=> '<div class="pull-right">'.$dataTransaksi[$i]->total_harga."</div>",
                 'tgl_pesan'=> Carbon::createFromFormat('Y-m-d H:i:s',$dataTransaksi[$i]->created_at)->format('d M Y'),
                 'alamat'=> $dataTransaksi[$i]->Alamat->alamat,
                 'pegawai'=> $dataTransaksi[$i]->userinput->name,
