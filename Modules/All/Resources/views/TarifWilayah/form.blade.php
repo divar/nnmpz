@@ -68,8 +68,18 @@
                                     </td>
                                 </tr>
                                 @endfor
+                                @else
+                                <tr id="data_ke-0" role="row">
+                                    <td>
+                                        {{-- <button class="btn delete btn-danger" type="button" no="0"><i class="fa fa-trash"></i></button> --}}
+                                    </td>
+                                    <td>
+                                        <input type="hidden" class="form-control" name="id_jenis[]" id="id_jenis_0" required="required" value="" required="required">
+                                        <input type="text" class="form-control" name="jenis[]" id="jenis_0" required="required" value="" required="required">
+                                    </td>
+                                </tr>
                                 @endif
-                                <input type="hidden" value="{{ isset($jenis)?$i:0 }}" id="HC">
+                                <input type="hidden" value="1" id="HC">
                             </tbody>
                         </table>
                     </div>
