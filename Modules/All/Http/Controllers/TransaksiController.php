@@ -228,7 +228,7 @@ class TransaksiController extends Controller
         // $jml_modifier= $jml_modifier*15;
         // $jml_addon= $jml_addon*15;
 
-        $height = 330+$jml+2;
+        $height = 600+$jml+2;
         // dd($height);
         $width = PDF::loadView('all::Transaksi.kwitansi', $sendNota)->getDomPDF()->getCanvas()->get_width();
         $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
@@ -296,6 +296,7 @@ class TransaksiController extends Controller
             $insertTransaksi = Transaksi::find($id_transaksi);
             $insertTransaksi->update($dataTransaksi);
             $grandtotal = 0;
+            DetailTransaksi::where('id_transaksi',$id_transaksi)->delete();
             for($i=0;$i<count($r['count_menu']);$i++){
                 $nama_baris = $r['count_menu'][$i];
                 $baris = $r[$nama_baris];
@@ -311,10 +312,11 @@ class TransaksiController extends Controller
                     'jml'=> $jml,
                     'sub_total'=> $harga*$jml,
                     'keterangan'=> $keterangan,
+                    'user_input'=>$user_update,
                     'user_update'=>$user_update,
                     'created_at'=>$created_at,
                 ];
-                $insertDetailTransaksi = DetailTransaksi::where('id',$id_detail_transaksi)->update($dataDetailTransaksi);
+                $insertDetailTransaksi = DetailTransaksi::create($dataDetailTransaksi);
                 $id_dt = $id_detail_transaksi;
                 $total_harga_addon = 0;
                 DetailAddOn::where('id_detail_transaksi',$id_dt)->delete();
@@ -362,7 +364,10 @@ class TransaksiController extends Controller
             $return = 'gagal';
         }
         DB::commit();
-        return redirect("all/transaksi");
+
+        Auth::logout();
+        return redirect("nota/cetaknota/$insertTransaksi->id");
+        // return redirect("all/transaksi");
     }
 
     /**

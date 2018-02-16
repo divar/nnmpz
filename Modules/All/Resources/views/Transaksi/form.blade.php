@@ -287,6 +287,9 @@
                                 <td id="layanan_nama_place_{{$i}}">
                                     <input type="hidden" name="count_menu[]" value="baris_{{$i}}">
                                     <input type="hidden" name="baris_{{$i}}[id_detail_transaksi]" value="{{ $DetailTransaksi[$i]->id }}">
+
+                                    <button id="'+count+'" class="delete_data_detail btn btn-xs btn-danger hapus" type="button" onclick="delete_data_table({{ $i }},'new')">
+                                <span title="Batal" class="fa fa-trash"></span></button>
                                 </td>
                                 <td>
                                     <div class="row">
@@ -400,7 +403,7 @@
                             <td align="right"><label id="textgrandtotal">{{ isset($Transaksi->total_harga)?nominalKoma($Transaksi->total_harga):'' }}</label><input value="{{ isset($Transaksi->total_harga)?$Transaksi->total_harga:'' }}" type="hidden" id="grandtotal" name="grandtotal"></td>
                         </tr>
                     </tfoot>
-                    <input type="hidden" value="1" class="hide_count_menu" id="hide_count_menu" type="button" name="hide_count_menu"/>
+                    <input type="hidden" value="{{ isset($i)?$i:1 }}" class="hide_count_menu" id="hide_count_menu" type="button" name="hide_count_menu"/>
                 </table>
             </div>
             <div class="pull-right">
