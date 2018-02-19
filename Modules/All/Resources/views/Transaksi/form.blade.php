@@ -224,7 +224,7 @@
                             <td>
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <input id="menu_0" type="text" name="baris_0[menu]" class="form-control required" />
+                                        <input id="menu_0" type="text" name="baris_0[menu]" class="form-control required" required="required"/>
                                         <input type="hidden" id="idmenu_0" name="baris_0[id_menu]"/></div>
                                     <div class="col-md-3">&nbsp;
                                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
@@ -273,7 +273,7 @@
                             </td>
                             <td>
                                 <div class="row">
-                                    <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number"  name="baris_0[jml]" class="form-control qtyx required"/></div>
+                                    <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number"  name="baris_0[jml]" class="form-control qtyx required" required="required"/></div>
                                 </div>
                             </td>
                             <td align="right">
@@ -285,7 +285,7 @@
                         @for ($i = 0; $i < count($DetailTransaksi); $i++)
                             <tr class="data_menu" id="data_ke-{{$i}}" no="{{$i}}" role="row">
                                 <td id="layanan_nama_place_{{$i}}">
-                                    <input type="hidden" name="count_menu[]" value="baris_{{$i}}">
+                                    <input type="hidden" name="count_menu[]" value="baris_{{$i}}" required="required">
                                     <input type="hidden" name="baris_{{$i}}[id_detail_transaksi]" value="{{ $DetailTransaksi[$i]->id }}">
 
                                     <button id="'+count+'" class="delete_data_detail btn btn-xs btn-danger hapus" type="button" onclick="delete_data_table({{ $i }},'new')">
@@ -331,12 +331,12 @@
                                         <hr class="mb-1">
                                         <label class="control-label pull-left">Modifier</label>
                                         <div class="clearfix">&nbsp;</div>
-                                        <div class="border border-light rounded col-nd-12" id="modifier_baris_ke-0">
+                                        <div class="border border-light rounded col-nd-12" id="modifier_baris_ke-{{ $i }}">
                                             <input type="hidden" value="0" class="hide_count_modifier" id="hide_count_modifier0" type="button" />
                                             <?php $totalModifier=0; $iii=0;?>
                                                 @foreach ($DetailTransaksi[$i]->modifier as $val)
                                                 <div class="mr-3 p-2 row" id="modifier_ke-{{ $iii }}">
-                                                    <div class="col-sm-11"><input type="text" class="form-control input-lg modifier{{ $i }}" name="baris_{{ $iii }}[modifier][]" value="{{ $val->modifier }}"></div> 
+                                                    <div class="col-sm-11"><input type="text" class="form-control input-lg modifier{{ $i }}" required="required" name="baris_{{ $iii }}[modifier][]" value="{{ $val->modifier }}"></div> 
                                                     <button type="button" row="{{ $i }}" no="{{ $iii }}" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeModifierMenu" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -789,7 +789,7 @@
         count = parseInt($('#hide_count_modifier'+row).val());
         $('\n\
             <div class="mr-3 p-2 row" id="modifier_ke-'+count+'">\n\
-                <div class="col-sm-11"><input type="text" class="form-control input-lg modifier'+row+'" name="baris_'+row+'[modifier][]" value=""></div>\n\
+                <div class="col-sm-11"><input type="text" class="form-control input-lg modifier'+row+'" name="baris_'+row+'[modifier][]" value="" required="required"></div>\n\
                 <button type="button" row="'+row+'" no="'+count+'" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeModifierMenu" aria-label="Close">\n\
                 <span aria-hidden="true">&times;</span>\n\
                 </button>\n\
@@ -889,6 +889,16 @@
     });
     function submit() {
         $('.close').click();
+        var x1 = document.forms["form-transaksi"]["nama"].value;
+        var x2 = document.forms["form-transaksi"]["nama_penerima"].value;
+        var x3 = document.forms["form-transaksi"]["no_hp"].value;
+        var x4 = document.forms["form-transaksi"]["alamat"].value;
+        
+
+        if (x1 == "" || x2 == "" || x3 == "" || x4 == "") {
+            alert("ada field yang kosong di tab sebelumnya");
+            return false;
+        }
         $('#simpan').click();
     }
 </script> 
