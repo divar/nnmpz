@@ -409,7 +409,7 @@
             <div class="pull-right">
                 <button type="button" data-toggle="modal" class="btn btn-info" id="submit" data-target="#myModal" onclick="konfirmasi();">Simpan</button>
                 <input type="submit" id="simpan" name="submit" value="Simpan Pesanan" class="btn btn-info submit d-none">
-                @if(!isset($Pelanggan))<input type="submit" id="inputlagi" name="submit" value="Input Lagi" class="btn btn-info submit">@endif
+                {{-- @if(!isset($Pelanggan))<input type="submit" id="inputlagi" name="submit" value="Input Lagi" class="btn btn-info submit">@endif --}}
             </div>
         </div>
     </div>
