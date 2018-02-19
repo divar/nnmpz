@@ -489,6 +489,7 @@
                                     'Alamat :'+Alamat+' <br> '+
                                     data_menu+"<br>"+
                                     'PPN : <span class="pull-right">'+$('#textppn').text()+'</span> <br> '+
+                                    'Tarif Wilayah  : <span class="pull-right">'+$('#harga_tarif_wilayah').text()+'</span> <br> '+
                                     'Total : <span class="pull-right">'+$('#textgrandtotal').text()+'</span> <br> '+
                                     '</div>\n\
                                 </div>\n\
