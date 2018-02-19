@@ -317,7 +317,7 @@ class TransaksiController extends Controller
                     'created_at'=>$created_at,
                 ];
                 $insertDetailTransaksi = DetailTransaksi::create($dataDetailTransaksi);
-                $id_dt = $id_detail_transaksi;
+                $id_dt = $insertDetailTransaksi->id;
                 $total_harga_addon = 0;
                 DetailAddOn::where('id_detail_transaksi',$id_dt)->delete();
                 if (isset($baris['id_addon'])){
@@ -352,7 +352,6 @@ class TransaksiController extends Controller
                 $grandtotal = $grandtotal+$sub_total;
             }
             //update data yang belum terinput
-                        dd($insertModifier);
             $insertTransaksi->total_harga = $grandtotal*1.1;
             $insertTransaksi->ppn = $grandtotal*0.1;
             $insertTransaksi->save();
@@ -365,6 +364,7 @@ class TransaksiController extends Controller
             $return = 'gagal';
         }
         DB::commit();
+                        // dd($insertModifier);
 
         Auth::logout();
         return redirect("nota/cetaknota/$insertTransaksi->id");
