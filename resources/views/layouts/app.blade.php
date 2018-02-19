@@ -188,37 +188,36 @@
       });
       function ajaxModal(url,el){
         $('#myModelDialog').css({'width':''});
-  // $('.modal-dialog').addClass('modal-lg');
 
-  if($(el).hasClass('modal-max')){
-   $('#myModelDialog').addClass('modal-max');
-   $('#myModelDialog').css({'width':'900px'});
-   console.log('tess');
- }
- if($(el).hasClass('modal-1200')){
-  $('#myModelDialog').css({'width':'1200px'});
-  $('.modal-dialog').css({'width':'1200px'});
-  console.log('tess');
-}
+          if($(el).hasClass('modal-max')){
+           $('#myModelDialog').addClass('modal-max');
+           $('#myModelDialog').css({'width':'900px'});
+           console.log('tess');
+         }
+         if($(el).hasClass('modal-1200')){
+          $('#myModelDialog').css({'width':'1200px'});
+          $('.modal-dialog').css({'width':'1200px'});
+          console.log('tess');
+        }
 
-$('#myModelDialog').html();
-$.ajax({
-  url: url,
-  data:'ajax=1',
-  cache: false,
-  dataType: 'html',
-  success: function(msg){
-    $('#myModelDialog').html(msg);
-    $('#myModelDialog').modal({backdrop: 'static'}); 
-  },
-  error: function(){
-    $('#myModelDialog').html("request gagal dibuka");
-    $('#myModelDialog').modal('show');
-    console.log('gagal');
-  }
-});
-return true;
-}
+        $('#myModelDialog').html();
+        $.ajax({
+          url: url,
+          data:'ajax=1',
+          cache: false,
+          dataType: 'html',
+          success: function(msg){
+            $('#myModelDialog').html(msg);
+            $('#myModelDialog').modal({backdrop: 'static'});
+          },
+          error: function(){
+            $('#myModelDialog').html("request gagal dibuka");
+            $('#myModelDialog').modal('show');
+            console.log('gagal');
+          }
+        });
+        return true;
+      }
 function confirmDeleteDialog(dialogText,el){
   bootbox.confirm(dialogText, function(result) {
     if(result){

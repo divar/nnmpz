@@ -67,9 +67,9 @@
 </style>
 <div class="content-wrapper">
     @if(!isset($DetailTransaksi))
-    <form onsubmit="return validateForm()" action="{{ route('postTambahTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+    <form action="{{ route('postTambahTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
     @else
-    <form onsubmit="return validateForm()" action="{{ route('postEditTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+    <form action="{{ route('postEditTransaksi') }}" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
     @endif
         <div class="container-fluid">
             <div class="col-md-12">
@@ -217,7 +217,7 @@
                       </thead>
                       <tbody id="detail-data-table">
                         @if(!isset($DetailTransaksi))
-                        <tr class="data_menu" id="data_ke-0" role="row">
+                        <tr class="data_menu" id="data_ke-0" no="0" role="row">
                             <td id="layanan_nama_place_0">
                             </td>
                                 <input type="hidden" name="count_menu[]" value="baris_0">
@@ -283,7 +283,7 @@
                         @else
                         <input type="hidden" name="id_transaksi" value="{{ $Transaksi->id }}">
                         @for ($i = 0; $i < count($DetailTransaksi); $i++)
-                            <tr class="data_menu" id="data_ke-{{$i}}" role="row">
+                            <tr class="data_menu" id="data_ke-{{$i}}" no="{{$i}}" role="row">
                                 <td id="layanan_nama_place_{{$i}}">
                                     <input type="hidden" name="count_menu[]" value="baris_{{$i}}">
                                     <input type="hidden" name="baris_{{$i}}[id_detail_transaksi]" value="{{ $DetailTransaksi[$i]->id }}">
@@ -313,7 +313,7 @@
                                                 <?php $totaladdon=0; $ii=0;?>
                                                 @foreach ($DetailTransaksi[$i]->addons as $val)
                                                     <div class="mr-3 p-2" id="add_on_ke-{{ $ii }}">
-                                                        <label class="label-info" id="teks_addon_{{ $i }}"> {{ $val->Addons->nama }} ~ Rp {{ nominalKoma($val->Addons->harga) }} </label>
+                                                        <label class="label-info addon{{ $i }}" id="teks_addon_{{ $ii }}"> {{ $val->Addons->nama }} ~ Rp {{ nominalKoma($val->Addons->harga) }} </label>
                                                         <input type="hidden" class="hargaaddon{{ $i }}" value="{{ $val->harga }}" name="baris_{{ $i }}[itemharga_addon][]">
                                                         <input type="hidden" value="{{ $val->id_add_on }}" name="baris_{{ $i }}[id_addon][]">
                                                         &nbsp;
@@ -336,7 +336,7 @@
                                             <?php $totalModifier=0; $iii=0;?>
                                                 @foreach ($DetailTransaksi[$i]->modifier as $val)
                                                 <div class="mr-3 p-2 row" id="modifier_ke-{{ $iii }}">
-                                                    <div class="col-sm-11"><input type="text" class="form-control input-lg" name="baris_{{ $iii }}[modifier][]" value="{{ $val->modifier }}"></div> 
+                                                    <div class="col-sm-11"><input type="text" class="form-control input-lg modifier{{ $i }}" name="baris_{{ $iii }}[modifier][]" value="{{ $val->modifier }}"></div> 
                                                     <button type="button" row="{{ $i }}" no="{{ $iii }}" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeModifierMenu" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -407,7 +407,8 @@
                 </table>
             </div>
             <div class="pull-right">
-                <input type="submit" id="simpan" name="submit" value="Simpan Pesanan" class="btn btn-info submit">
+                <button type="button" data-toggle="modal" class="btn btn-info" id="submit" data-target="#myModal" onclick="konfirmasi();">Simpan</button>
+                <input type="submit" id="simpan" name="submit" value="Simpan Pesanan" class="btn btn-info submit d-none">
                 @if(!isset($Pelanggan))<input type="submit" id="inputlagi" name="submit" value="Input Lagi" class="btn btn-info submit">@endif
             </div>
         </div>
@@ -417,6 +418,7 @@
 </div>
 </div>
 <div class="mb-xl-5">&nbsp;</div>
+
 </form>
 </div>
 
@@ -424,9 +426,83 @@
 
 @push('js')
 <script type="text/javascript">
+
+    
+        
+    function konfirmasi(){
+        var x1 = document.forms["form-transaksi"]["nama"].value;
+        var x2 = document.forms["form-transaksi"]["nama_penerima"].value;
+        var x3 = document.forms["form-transaksi"]["no_hp"].value;
+        var x4 = document.forms["form-transaksi"]["alamat"].value;
+        
+
+        if (x1 == "" || x2 == "" || x3 == "" || x4 == "") {
+            alert("ada field yang kosong di tab sebelumnya");
+            return false;
+        }
+        nama = document.getElementById('nama').value;
+        Penerima = document.getElementById("nama_penerima").value;
+        NoHP = document.getElementById("no_hp").value;
+        Area = document.getElementById("jalan").value;
+        Alamat = $('#alamat').val();
+
+        data_menu = "Menu Pesanan <br>";
+        ii=1;
+        $.each($('.data_menu'),function(i, price){
+            var row=$(this).attr('no');
+            menu = ii+". "+$(this).find('#menu_'+row).val()+"<br>";
+            addon='<strong>Addon</strong><br>';
+            modifier='<strong>Modifier</strong><br>';
+            o = oo =1
+            $.each($('.addon'+row),function(i, price){
+                addon= addon+o+". "+$(this).text()+"<br>";
+                o++;
+            });
+            $.each($('.modifier'+row),function(i, price){
+                modifier=modifier+oo+". "+$(this).val()+"<br>";
+                oo++;
+            });
+            data_menu = data_menu+menu+addon+modifier+"<hr>";
+            ii++;
+        });
+
+        isi = '<div class="modal-dialog" style="">\n\
+        <div class="modal-content">\n\
+            <div class="modal-header">\n\
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="false"><i class="fa fa-close"></i></button>\n\
+            </div> \n\
+        <div class="content-wrapper">\n\
+                    <div class="container-fluid">\n\
+                        <div class="col-md-12 col-md-offset-2">\n\
+                            <div class="panel panel-default">\n\
+                                <div class="panel-heading">\n\
+                                </div>\n\
+                                <div class="clearfix">&nbsp;</div>\n\
+                                <div class="portlet-body" style="display: block;">\n\
+                                    <div class="clearfix">&nbsp;</div>\n\
+                                    <div class="col-md-12">\n\
+                                    '+
+                                    'Nama : '+nama+' <br> '+
+                                    'Penerima :'+Penerima+' <br> '+
+                                    'No Hp :'+NoHP+' <br> '+
+                                    'Area :'+Area+' <br> '+
+                                    'Alamat :'+Alamat+' <br> '+
+                                    data_menu+"<br>"+
+                                    '</div>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>\n\
+                </div>\n\
+                <button class="btn btn-primary" onclick="submit();">submit</button>\n\
+            </div>\n\
+    </div>';
+        $('#myModelDialog').html(isi);
+        $('#myModelDialog').modal('show');
+    }
     function add_data_barang_to_table(count){
         $('#hide_count_menu').val(parseInt(count)+1);
-        $('<tr class="data_menu" id="data_ke-'+count+'" role="row">\n\
+        $('<tr class="data_menu" id="data_ke-'+count+'" no="'+count+'" role="row">\n\
                             <td id="layanan_nama_place_'+count+'">\n\
                                 <button id="'+count+'" class="delete_data_detail btn btn-xs btn-danger hapus" type="button" onclick="delete_data_table(\''+count+'\',\'new\')">\n\
                                 <span title="Batal" class="fa fa-trash"></span></button><input type="hidden" name="count_menu[]" value="baris_'+count+'">\n\
@@ -687,7 +763,7 @@
     function tambahAddOn(row,label,harga,id_addon){
         count = parseInt($('#hide_count_addon'+row).val());
         $('<div class="mr-3 p-2" id="add_on_ke-'+count+'">\n\
-            <label class="label-info" id="teks_addon_'+count+'">'+label+' ~ Rp '+addCommas(harga,false)+'</label>\n\
+            <label class="label-info addon'+row+'" id="teks_addon_'+count+'">'+label+' ~ Rp '+addCommas(harga,false)+'</label>\n\
             <input type="hidden" class="hargaaddon'+row+'" value="'+harga+'" name="baris_'+row+'[itemharga_addon][]">\n\
             <input type="hidden" value="'+id_addon+'" name="baris_'+row+'[id_addon][]">\n\
             &nbsp;\n\
@@ -710,7 +786,7 @@
         count = parseInt($('#hide_count_modifier'+row).val());
         $('\n\
             <div class="mr-3 p-2 row" id="modifier_ke-'+count+'">\n\
-                <div class="col-sm-11"><input type="text" class="form-control input-lg" name="baris_'+row+'[modifier][]" value=""></div>\n\
+                <div class="col-sm-11"><input type="text" class="form-control input-lg modifier'+row+'" name="baris_'+row+'[modifier][]" value=""></div>\n\
                 <button type="button" row="'+row+'" no="'+count+'" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeModifierMenu" aria-label="Close">\n\
                 <span aria-hidden="true">&times;</span>\n\
                 </button>\n\
@@ -794,9 +870,9 @@
             nama=$('#alamat').html(alamat);
             harga=$('#id_alamat').val(id);
         });
-        $('#form-transaksi').on('submit',function(){
-            validateForm();
-        });
+        // $('#form-transaksi').on('submit',function(){
+        //     validateForm();
+        // });
         @if(isset($DetailTransaksi))
         $('.closeAddonMenu').on('click',function(){
             no=$(this).attr('no');
@@ -808,21 +884,9 @@
         });
         @endif
     });
-    function validateForm() {
-        var x1 = document.forms["form-transaksi"]["nama"].value;
-        var x2 = document.forms["form-transaksi"]["nama_penerima"].value;
-        var x3 = document.forms["form-transaksi"]["no_hp"].value;
-        var x4 = document.forms["form-transaksi"]["alamat"].value;
-        if (x1 == "" || x2 == "" || x3 == "" || x4 == "") {
-            alert("ada field yang kosong di tab sebelumnya");
-            return false;
-        }else {
-            if(confirm('apakah data ini sudah benar ? \n\ nama : '+document.getElementById('nama').value+'\n\ Penerima : '+document.getElementById("nama_penerima").value+'\n\ No HP : '+document.getElementById("no_hp").value+'\n\ Area : '+document.getElementById("jalan").value+'\n\ Alamat : '+$('#alamat').val())){
-                $(this).submit();
-            }else {
-                return false;
-            }
-        }
+    function submit() {
+        $('.close').click();
+        $('#simpan').click();
     }
 </script> 
 @endpush

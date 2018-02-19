@@ -345,13 +345,14 @@ class TransaksiController extends Controller
                             'user_input'=>$user_update,
                             'created_at'=>$created_at,
                         ];
-                        $insertModifier = Modifier::create($dataDetailAddon);
+                        $insertModifier[] = Modifier::create($dataDetailAddon);
                     }
                 }
                 $sub_total = (($harga+$total_harga_addon)*$jml);
                 $grandtotal = $grandtotal+$sub_total;
             }
             //update data yang belum terinput
+                        dd($insertModifier);
             $insertTransaksi->total_harga = $grandtotal*1.1;
             $insertTransaksi->ppn = $grandtotal*0.1;
             $insertTransaksi->save();
