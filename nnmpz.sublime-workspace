@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"text",
+				"textppn"
+			],
+			[
 				"modi",
 				"Modifier"
 			],
@@ -510,10 +514,6 @@
 			[
 				"els",
 				"else"
-			],
-			[
-				"sta",
-				"status"
 			]
 		]
 	},
@@ -618,7 +618,7 @@
 			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
 			"settings":
 			{
-				"buffer_size": 50593,
+				"buffer_size": 51494,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -860,6 +860,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"input",
 			"modifier",
 			"each",
 			"myModelDialog",
@@ -986,8 +987,7 @@
 			"id_kategori",
 			"satuan",
 			"id_kategori",
-			"wilayah",
-			"id_tarif_wilayah"
+			"wilayah"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1008,7 +1008,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 11,
 			"sheets":
 			[
 				{
@@ -1095,10 +1095,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4608.0,
+						"translation.y": 4620.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1218,7 +1218,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1347,15 +1347,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 50593,
+						"buffer_size": 51494,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								29255,
-								29255
+								22795,
+								22795
 							]
 						],
 						"settings":
@@ -1365,10 +1365,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6233.0,
+						"translation.y": 4885.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1384,8 +1384,8 @@
 						"selection":
 						[
 							[
-								0,
-								526
+								519,
+								519
 							]
 						],
 						"settings":
@@ -1397,7 +1397,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1413,8 +1413,8 @@
 						"selection":
 						[
 							[
-								171,
-								1372
+								66,
+								66
 							]
 						],
 						"settings":
