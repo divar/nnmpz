@@ -6,7 +6,7 @@
         <div class="col-md-12 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <H3>Data Daftar Transaksi Pesanan</H3>
+                    <H3>Data Layanan Pesan Antar</H3>
                 </div>
                 <div class="clearfix">&nbsp;</div>
 

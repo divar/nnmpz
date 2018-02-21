@@ -6,7 +6,7 @@
         <div class="col-md-12 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <H3>LAPORAN TRANSAKSI</H3>
+                    <H3>Laporan Transaksi {{ config('app.name') }}</H3>
                 </div>
                 <div class="clearfix">&nbsp;</div>
 

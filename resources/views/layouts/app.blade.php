@@ -34,7 +34,7 @@
   <div id="app">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-      <a class="navbar-brand" href="{{ url('/') }}">Nanamia Pizza</a>
+      <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -54,10 +54,10 @@
             </a>
             <ul class="sidenav-second-level collapse" id="datamaster">
               <li>
-                <a href="{{ route('loaddataTarifWilayah') }}">Tarif Wilayah</a>
+                <a href="{{ route('loaddataTarifWilayah') }}">Tarif Area</a>
               </li>
               <li>
-                <a href="{{ route('jalan') }}">Jalan</a>
+                <a href="{{ route('jalan') }}">Area</a>
               </li>
               <li>
                 <a href="{{ route('kategori') }}">Kategori</a>

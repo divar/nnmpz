@@ -20,7 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
 </head>
-<body class="bg-dark">
+<body class="bg-dark" style="background-image: url('pict/bg.jpg')">
     <div id="app">
         @yield('content')
     </div>

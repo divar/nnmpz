@@ -75,7 +75,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <H3>{{ isset($DetailTransaksi)?'Edit':'Tambah ' }} Transaksi</H3>
+                        <H3 id="judulform">{{ isset($DetailTransaksi)?'Edit':'Tambah ' }} Data Diri</H3>
                     </div>
                     
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -85,10 +85,10 @@
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <ul class="nav nav-tabs mr-auto">
                             <li id="tab_dt_pelanggan">
-                                <a href="#tab_data_pelanggan" data-toggle="tab" class="nav-link loadtable" from="data_pelanggan" id="tab_data_pelanggan2">Data Pelanggan</a>
+                                <a href="#tab_data_pelanggan" onclick="$('#judulform').text('Data Diri');" data-toggle="tab" class="nav-link loadtable" from="data_pelanggan" id="tab_data_pelanggan2">Data Pelanggan</a>
                             </li>
                             <li id="tab_menu" class="tab-pane table-active">
-                                <a href="#tab_input_menu" data-toggle="tab" class="nav-link loadtable {{ isset($DetailTransaksi)?'':'disabled' }}" from="input_menu" id="tab_menu2">Tab Menu</a>
+                                <a href="#tab_input_menu" data-toggle="tab" onclick="judulform();" class="nav-link loadtable {{ isset($DetailTransaksi)?'':'disabled' }}" from="input_menu" id="tab_menu2">Tab Menu</a>
                             </li>
                         </ul>
                     </nav>
@@ -111,7 +111,7 @@
                                         </div>  
                                     </div>
                                     <div class="form-group row">
-                                        <label for="no_hp" class="col-md-3 col-form-label">No Hp</label>
+                                        <label for="no_hp" class="col-md-3 col-form-label">No Telepon</label>
                                         <div class="col-md-9">
                                             <input id="no_hp" type="text" name="no_hp" class="form-control required" placeholder="0821xxxxxx"  {{ isset($Pelanggan)?'readonly="readonly"':'' }} value="{{ isset($Pelanggan)?$Pelanggan->no_hp:'' }}">
                                         </div>  
@@ -123,7 +123,7 @@
                                         </div>  
                                     </div>
                                     <div class="form-group row">
-                                        <label for="alamat" class="col-md-3 col-form-label">Jalan</label>
+                                        <label for="alamat" class="col-md-3 col-form-label">Area</label>
                                         <div class="col-md-7">
                                             <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly" value="{{ isset($Transaksi)?$Transaksi->Jalan->nama
                                                 :'' }}">
@@ -219,6 +219,8 @@
                         @if(!isset($DetailTransaksi))
                         <tr class="data_menu" id="data_ke-0" no="0" role="row">
                             <td id="layanan_nama_place_0">
+                                <button id="'+count+'" class="delete_data_detail btn btn-xs btn-danger hapus" type="button" onclick="delete_data_table(0,'new')">
+                                <span title="Batal" class="fa fa-trash"></span></button>
                             </td>
                                 <input type="hidden" name="count_menu[]" value="baris_0">
                             <td>
@@ -427,16 +429,25 @@
 @push('js')
 <script type="text/javascript">
 
-    
+    function judulform(){
+        setTimeout(function(){ 
+            if($('#tab_input_menu').attr('class')!='tab-pane'){
+                $('#judulform').text('Daftar Pesanan');
+            }; 
+    }, 100);
+        
+    }
         
     function konfirmasi(){
         var x1 = document.forms["form-transaksi"]["nama"].value;
         var x2 = document.forms["form-transaksi"]["nama_penerima"].value;
         var x3 = document.forms["form-transaksi"]["no_hp"].value;
         var x4 = document.forms["form-transaksi"]["alamat"].value;
-        
-
-        if (x1 == "" || x2 == "" || x3 == "" || x4 == "") {
+         var x5 = 0;
+        $.each($('.addModifier'),function(i, price){
+            x5++;
+        }); 
+        if (x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5==0) {
             alert("ada field yang kosong di tab sebelumnya");
             return false;
         }
@@ -450,9 +461,9 @@
         ii=1;
         $.each($('.data_menu'),function(i, price){
             var row=$(this).attr('no');
-            menu = ii+". "+$(this).find('#menu_'+row).val()+"<br>";
-            addon='<strong>Addon</strong><br>';
-            modifier='<strong>Modifier</strong><br>';
+            menu = '<strong>'+ii+". "+$(this).find('#menu_'+row).val()+"</strong><br>";
+            addon='<i>Addon</i><br>';
+            modifier='<i>Modifier</i><br>';
             o = oo =1
             $.each($('.addon'+row),function(i, price){
                 addon= addon+o+". "+$(this).text()+"<br>";
@@ -471,8 +482,14 @@
             <div class="modal-header">\n\
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="false"><i class="fa fa-close"></i></button>\n\
             </div> \n\
-        <div class="content-wrapper">\n\
+        <div class="">\n\
                     <div class="container-fluid">\n\
+                        <div class="col-md-12 col-md-offset-2">\n\
+                        <center><strong>{{ config('app.name') }}</strong></center>\n\
+                        <center><strong>Jl. Mozes Gatotkaca B 9 – 17, Gejayan, Yogyakarta</strong></center>\n\
+                        <center><strong>0274 – 556494 / 549090</strong></center>\n\
+                        <center><strong>OP : {{ Auth::user()->name}}</strong></center>\n\
+                        </div>\n\
                         <div class="col-md-12 col-md-offset-2">\n\
                             <div class="panel panel-default">\n\
                                 <div class="panel-heading">\n\
@@ -482,6 +499,7 @@
                                     <div class="clearfix">&nbsp;</div>\n\
                                     <div class="col-md-12">\n\
                                     '+
+                                    'Hari & Tanggal : {{ date('d M Y') }} <br>'+
                                     'Nama : '+nama+' <br> '+
                                     'Penerima :'+Penerima+' <br> '+
                                     'No Hp :'+NoHP+' <br> '+
@@ -893,9 +911,11 @@
         var x2 = document.forms["form-transaksi"]["nama_penerima"].value;
         var x3 = document.forms["form-transaksi"]["no_hp"].value;
         var x4 = document.forms["form-transaksi"]["alamat"].value;
-        
-
-        if (x1 == "" || x2 == "" || x3 == "" || x4 == "") {
+        var x5 = 0;
+        $.each($('#addModifier'),function(i, price){
+            x5++;
+        });
+        if (x1 == "" || x2 == "" || x3 == "" || x4 == ""|| x5>0) {
             alert("ada field yang kosong di tab sebelumnya");
             return false;
         }

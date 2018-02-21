@@ -77,7 +77,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                 @if(!isset($Menu))
-                    <H3>Tambah Menu</H3>
+                    <H3>Tambah Daftar Menu</H3>
                 @else
                     <input type="hidden" name="id_menu" value="{{ $Menu['id'] }}">
                 @endif 

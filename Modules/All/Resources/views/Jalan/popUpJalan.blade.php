@@ -1,5 +1,5 @@
 @extends(Request::get('ajax') ? 'layouts.modal':'layouts.content')
-@section('title', $title='Pilih Jalan')
+@section('title', $title='Pilih Area')
 @section('modalClass','min-width:90%;')
 @section('sub-content')
 <div class="content-wrapper">
@@ -41,6 +41,7 @@ table = $('#menu-table').DataTable({
         processing: true,
         // serverSide: true,
         pageLength:20,
+        order: [ 1, "asc" ],
         ajax: {
             url:"{{ url('all/jalan/load-data') }}",
                                 data: function (d) {
