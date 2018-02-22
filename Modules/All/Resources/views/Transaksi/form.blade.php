@@ -338,7 +338,7 @@
                                             <?php $totalModifier=0; $iii=0;?>
                                                 @foreach ($DetailTransaksi[$i]->modifier as $val)
                                                 <div class="mr-3 p-2 row" id="modifier_ke-{{ $iii }}">
-                                                    <div class="col-sm-11"><input type="text" class="form-control input-lg modifier{{ $i }}" required="required" name="baris_{{ $iii }}[modifier][]" value="{{ $val->modifier }}"></div> 
+                                                    <div class="col-sm-11"><input type="text" class="form-control mod input-lg modifier{{ $i }}" required="required" name="baris_{{ $iii }}[modifier][]" value="{{ $val->modifier }}"></div> 
                                                     <button type="button" row="{{ $i }}" no="{{ $iii }}" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeModifierMenu" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -447,11 +447,14 @@
         var x6 = 0;
         $.each($('.addModifier'),function(i, price){
             x5++;
-            if($(this).val()==''){
+        });
+        $.each($(".mod"),function(i, price){
+            if($(this).val()==''||$(this).val()==null){
                 x6++
+            console.log(x6);
             }
-        }); 
-        if (x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5==0 || x6!=0) {
+        });
+        if ((x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5==0 ) || x6!=0) {
             alert("ada field yang kosong di tab sebelumnya");
             return false;
         }
@@ -811,7 +814,7 @@
         count = parseInt($('#hide_count_modifier'+row).val());
         $('\n\
             <div class="mr-3 p-2 row" id="modifier_ke-'+count+'">\n\
-                <div class="col-sm-11"><input type="text" class="form-control input-lg modifier'+row+'" name="baris_'+row+'[modifier][]" value="" required="required"></div>\n\
+                <div class="col-sm-11"><input type="text" class="form-control input-lg mod modifier'+row+'" name="baris_'+row+'[modifier][]" value="" required="required"></div>\n\
                 <button type="button" row="'+row+'" no="'+count+'" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeModifierMenu" aria-label="Close">\n\
                 <span aria-hidden="true">&times;</span>\n\
                 </button>\n\
