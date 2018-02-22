@@ -443,11 +443,15 @@
         var x2 = document.forms["form-transaksi"]["nama_penerima"].value;
         var x3 = document.forms["form-transaksi"]["no_hp"].value;
         var x4 = document.forms["form-transaksi"]["alamat"].value;
-         var x5 = 0;
+        var x5 = 0;
+        var x6 = 0;
         $.each($('.addModifier'),function(i, price){
             x5++;
+            if($(this).val()==''){
+                x6++
+            }
         }); 
-        if (x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5==0) {
+        if (x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5==0 || x6!=0) {
             alert("ada field yang kosong di tab sebelumnya");
             return false;
         }
@@ -457,7 +461,7 @@
         Area = document.getElementById("jalan").value;
         Alamat = $('#alamat').val();
 
-        data_menu = "Menu Pesanan <br>";
+        data_menu = "";
         ii=1;
         $.each($('.data_menu'),function(i, price){
             var row=$(this).attr('no');
@@ -473,7 +477,7 @@
                 modifier=modifier+oo+". "+$(this).val()+"<br>";
                 oo++;
             });
-            data_menu = data_menu+menu+addon+modifier+"<hr>";
+            data_menu = data_menu+'<div class="row"><div class="col-md-6 m-0">'+menu+addon+modifier+'</div><div class="col-md-6 m-0 text-right">'+$('#total_'+row).text()+'</div></div><hr>';
             ii++;
         });
 
@@ -504,8 +508,8 @@
                                     'Penerima :'+Penerima+' <br> '+
                                     'No Hp :'+NoHP+' <br> '+
                                     'Area :'+Area+' <br> '+
-                                    'Alamat :'+Alamat+' <br> '+
-                                    data_menu+"<br>"+
+                                    'Alamat :'+Alamat+' <br>Menu Pesanan <br> <div class="row"><div class="col-md-12">'+
+                                    data_menu+"</div></div><br>"+
                                     'PPN : <span class="pull-right">'+$('#textppn').text()+'</span> <br> '+
                                     'Tarif Wilayah  : <span class="pull-right">'+$('#harga_tarif_wilayah').val()+'</span> <br> '+
                                     'Total : <span class="pull-right">'+$('#textgrandtotal').text()+'</span> <br> '+
