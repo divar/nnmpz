@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"cons",
+				"console.log"
+			],
+			[
+				"m",
+				"m-0 \tBootstrap 4 Class"
+			],
+			[
+				"col-md",
+				"col-md-12 \tBootstrap 3 Class"
+			],
+			[
+				"tota",
+				"total_"
+			],
+			[
 				"ba",
 				"background-image"
 			],
@@ -102,10 +118,6 @@
 			[
 				"input-",
 				"input-lg \tBootstrap 3 Class"
-			],
-			[
-				"col-md",
-				"col-md-7 \tBootstrap 3 Class"
 			],
 			[
 				"form-c",
@@ -428,10 +440,6 @@
 				"tarifwilayah"
 			],
 			[
-				"cons",
-				"console_log"
-			],
-			[
 				"form-con",
 				"form-control \tBootstrap 4 Class"
 			],
@@ -506,14 +514,6 @@
 			[
 				"yang",
 				"yangterupdate"
-			],
-			[
-				"empt",
-				"notEmpty"
-			],
-			[
-				"kateogr",
-				"nama_kategori"
 			]
 		]
 	},
@@ -550,7 +550,7 @@
 			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
 			"settings":
 			{
-				"buffer_size": 52791,
+				"buffer_size": 53186,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -797,7 +797,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -1059,15 +1059,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 52791,
+						"buffer_size": 53186,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31599,
-								31603
+								30842,
+								30842
 							]
 						],
 						"settings":
@@ -1077,7 +1077,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5566.0,
+						"translation.y": 6922.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

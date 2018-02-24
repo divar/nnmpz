@@ -26,9 +26,9 @@
         vertical-align: top;
     }
 
-    .invoice-box table tr td:nth-child(2) {
-        text-align: right;
-        /*width: 30px;*/
+    .invoice-box table tr td:nth-child(1) {
+        /*text-align: right;*/
+        /*width: 4%;*/
     }
 
     .invoice-box table tr.top table td {
@@ -102,73 +102,53 @@
         <table cellpadding="0" cellspacing="0">
             <tr class="information"> 
                     <td colspan="2" align="center">
-                            <strong>NanamiaPizza.com</strong><br>
+                        <center><strong>{{ config('app.name') }}</strong></center><br>
                         <code>
-                            Jl. MOSES GATOTKACA B9-17
-                            Yogyakarta
-                            <abbr>Phone :</abbr> (0274) 556-494
+                            <center><strong>Jl. Mozes Gatotkaca B 9 – 17, Gejayan, Yogyakarta</strong></center>
+                            <center><strong>0274 – 556494 / 549090</strong></center>
+                            <center><strong>OP : {{ Auth::user()->name}}</strong></center>
                         </code>
                     </td>
             </tr>
             <tr>
-                <td colspan="2" align="left">
+                <td colspan="2">
                     <kbd>
-                        <b>Invoice :  {{ $Transaksi[0]->no_kwitansi }}</b><br>
-                        <b>Created</b> : {{ date(  'd F Y') }}<br>
+                        <b>Invoice</b> &nbsp;:  {{ $Transaksi[0]->no_kwitansi }}<br>
+                        <b>Created</b>  &nbsp;: {{ date(  'd F Y') }}<br>
+                        <b>Pemesan</b> &nbsp;: {{ $Transaksi[0]->pelanggan->nama }}<br>
                         <b>Penerima</b> : {{ $Transaksi[0]->penerima }}<br>
-                        <b>Alamat</b> : {{ $Transaksi[0]->alamat->alamat }}
+                        <b>Alamat</b> &nbsp;&nbsp;: {{ $Transaksi[0]->alamat->alamat }}<br>
+                        <b>Area</b> &nbsp;&nbsp;&nbsp;&nbsp;: {{ $Transaksi[0]->TarifWilayah->nama }}
                     </kbd>
                 </td>
             </tr>
             <tr>
                 <td align="center" colspan="2">
-                    <STRONG>Pesanan A.N : {{ $Transaksi[0]->pelanggan->nama }}</STRONG><br>
-                    <STRONG>{{ $Transaksi[0]->Jenis->jenis }}</STRONG>
                 </td>   
             </tr>
             <tr>
                 <td colspan="2">
-                    <table>
-                        <tr class="heading">
-                            <td width="35%">
-                                Nama Menu
-                            </td>
+                    <table width="100%">
+                        {{-- <tr class="heading">
                             <td width="5%">
                                 Qty
                             </td>
+                            <td width="35%">
+                                Nama Menu
+                            </td>
                             <td width="30%">
                                 Harga
-                            </td>
+                            </td> 
                             <td width="30%">
                                 Subtotal
                             </td>
-                        </tr>
+                        </tr> --}}
                         {!! $i=0 !!}
                         @foreach ($DetailTransaksi as $val)
                         <tr class="item">
-                            <td>
-                                <em>{{ $val['menu']->nama_menu }}</em>
-                                <kbd style="padding-left: 15px;">#Addon</kbd>
-                                <?php $totalModifier=0; $iii=0;?>
-                                    <ul style="padding-left: 15px;margin-top:0px;margin-bottom:0px; font-size: 11px;">
-                                    @foreach ($DetailTransaksi[$i]->addons as $value)
-                                        <li><code>{{ $value->Addons->nama }}</code></li>
-                                    <?php $totalModifier = $value->harga+$totalModifier; $iii++?>
-                                    @endforeach
-                                    </ul>
-                                <kbd style="padding-left: 15px;">#Modifier</kbd>
-                                <?php $totalModifier=0; $iii=0;?>
-                                    <ul style="padding-left: 15px;margin-top:0px;margin-bottom:0px; font-size: 11px;">
-                                    @foreach ($DetailTransaksi[$i]->modifier as $value)
-                                        <li><code>{{ $value->modifier }}</code></li>
-                                    <?php $totalModifier = $value->harga+$totalModifier; $iii++?>
-                                    @endforeach
-                                    </ul>
-                            </td>
-                            <td>
+                            <td width="5%">
                                 {{ $val['jml'] }}
-                            </td>
-                            <td align="right">
+                                <div style="display: none;" align="right">
                                 {{ nominalKoma($val['harga'],true) }}
                                 <br><kbd>&nbsp;</kbd>
                                 <?php $totalModifier=0; $iii=0;?>
@@ -179,36 +159,58 @@
                                     @endforeach
                                     <li>{{ nominalKoma($totalModifier,true) }}</li>
                                 </ul>
+                            </div>
                             </td>
-                            <td align="right">
+                            <td width="70%">
+                                <em>{{ $val['menu']->nama_menu }}</em><br>
+                                <kbd style="padding-left: 15px;">#Addon</kbd>
+                                <?php $totalModifier=0; $iii=0;?>
+                                    <ul style="padding-left: 15px;margin-top:0px;margin-bottom:0px; font-size: 11px;">
+                                    @foreach ($DetailTransaksi[$i]->addons as $value)
+                                        <li style="margin-left: 15px;"><code>{{ $value->Addons->nama }}</code></li>
+                                    <?php $totalModifier = $value->harga+$totalModifier; $iii++?>
+                                    @endforeach
+                                    </ul>
+                                <kbd style="padding-left: 15px;">#Modifier</kbd>
+                                <?php $totalModifier=0; $iii=0;?>
+                                    <ul style="padding-left: 15px;margin-top:0px;margin-bottom:0px; font-size: 11px;">
+                                    @foreach ($DetailTransaksi[$i]->modifier as $value)
+                                        <li style="margin-left: 15px;"><code>{{ $value->modifier }}</code></li>
+                                    <?php $totalModifier = $value->harga+$totalModifier; $iii++?>
+                                    @endforeach
+                                    </ul>
+                            </td>
+                            
+                            
+                            <td align="right" width="26%">
                                 {{ nominalKoma($val['sub_total']+$totalModifier,true) }}
                             </td>
                         </tr>
                         {!! $i++ !!}
                         @endforeach
                         <tr class="item last">
-                            <td colspan="3" align="right">
+                            <td colspan="2" align="right">
                                 Tax
                             </td>
 
-                            <td>
+                            <td align="right">
                                 {{ nominalKoma($Transaksi[0]->ppn,true) }}
                             </td>
                         </tr>
                         <tr class="item last">
-                            <td colspan="3" align="right">
+                            <td colspan="2" align="right">
                                 Tarif Antar
                             </td>
 
-                            <td>
+                            <td align="right">
                                 {{ nominalKoma($Transaksi[0]->tarif_wilayah,true) }}
                             </td>
                         </tr>
 
                         <tr class="total">
-                            <td colspan="3"></td>
+                            <td colspan="2"></td>
 
-                            <td>
+                            <td align="right">
                                {{ nominalKoma($Transaksi[0]->total_harga, true) }}
                            </td>
                        </tr>
