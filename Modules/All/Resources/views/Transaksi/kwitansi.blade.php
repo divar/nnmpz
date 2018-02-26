@@ -106,7 +106,7 @@
                         <code>
                             <center><strong>Jl. Mozes Gatotkaca B 9 – 17, Gejayan, Yogyakarta</strong></center>
                             <center><strong>0274 – 556494 / 549090</strong></center>
-                            <center><strong>OP : {{ Auth::user()->name}}</strong></center>
+                            <center><strong>OP : {{ empty(Auth::user()[0]->name)?'':Auth::user()[0]->name}}</strong></center>
                         </code>
                     </td>
             </tr>
