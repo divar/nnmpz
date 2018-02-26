@@ -228,12 +228,12 @@ class TransaksiController extends Controller
         // $jml_modifier= $jml_modifier*15;
         // $jml_addon= $jml_addon*15;
 
-        $height = 600+$jml+2;
+        $height = 200+$jml+2;
         // dd($height);
         $width = PDF::loadView('all::Transaksi.kwitansi', $sendNota)->getDomPDF()->getCanvas()->get_width();
         $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
         $pdf= PDF::loadView('all::Transaksi.kwitansi', $sendNota);
-        $pdf = $pdf->setPaper(array(20,20,$width,$height),'portrait')->setWarnings(false)->save($namafile);
+        $pdf = $pdf->setPaper(array(20,20,150,$height),'portrait')->setWarnings(false)->save($namafile);
         return $pdf->stream($namafile);
         // return redirect('all/transaksi');
     }
