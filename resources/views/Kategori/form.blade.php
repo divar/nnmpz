@@ -112,7 +112,7 @@
                             <div class="col-md-9">
                                 <select id="satuan" name="id_satuan" class="form-control custom-select" >
                                     @foreach($Satuan as $val)
-                                        <option value="{{ $val['id'] }}" {{ isset($Menu['id_satuan']) && $Menu['id_satuan']==$val['id']?'selected="selected"':'' }}>{{ $val['satuan'] }}</option>
+                                        <option value="{{ $val['id'] }}" {{ isset($Kategori['id_satuan']) && $Kategori['id_satuan']==$val['id']?'selected="selected"':'' }}>{{ $val['satuan'] }}</option>
                                     @endforeach
                                 </select>
                             </div>  

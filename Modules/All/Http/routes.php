@@ -19,6 +19,7 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::get('menu/edit/{id}', 'MenuController@edit')->name('editmenu');
     Route::post('menu/postedit', 'MenuController@update')->name('updatemenu');
     Route::get('menu/getsize', 'MenuController@getSize')->name('menugetsize');
+    Route::get('menu/getkategori', 'MenuController@getKategori')->name('menugetkategori');
     Route::get('menu/getById', 'MenuController@getById')->name('menuGetById');
     Route::get('Menu/popUpMenu', 'MenuController@popUpMenu')->name('popupmenu');
     Route::get('menu/tambah', 'MenuController@tambahMenu')->name('tambahMenu');
@@ -80,4 +81,13 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::post('Satuan/posttambah', 'SatuanController@store')->name('postTambahSatuan');
     Route::get('Satuan/load-data', 'SatuanController@loadData')->name('loadsatuan');
     Route::get('Satuan', 'SatuanController@index')->name('satuan');
+
+    Route::get('JenisMakanan/delete/{id}', 'JenisMakananController@destroy')->name('hapusJenisMakanan');
+    Route::get('JenisMakanan/edit/{id}', 'JenisMakananController@edit')->name('editJenisMakanan');
+    Route::post('JenisMakanan/postedit', 'JenisMakananController@update')->name('updateJenisMakanan');
+    Route::get('JenisMakanan/tambah', 'JenisMakananController@create')->name('tambahJenisMakanan');
+    Route::post('JenisMakanan/posttambah', 'JenisMakananController@store')->name('postTambahJenisMakanan');
+    Route::get('JenisMakanan/load-data', 'JenisMakananController@loadData')->name('lodadataJenisMakanan');
+    Route::get('JenisMakanan', 'JenisMakananController@index')->name('indexJenisMakanan');
+
 });

@@ -4,14 +4,12 @@ namespace Modules\All\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Modules\All\Entities\Size;
 use Illuminate\Routing\Controller;
-use Indonesia;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
-class SizeController extends Controller
+use Modules\All\Entities\JenisMakanan;
+class JenisMakananController extends Controller
 {
     public function __construct()
     {
@@ -23,7 +21,7 @@ class SizeController extends Controller
 
     protected function view($view, $data = [])
     {
-      return view('all::Size.'.$view, $data);
+      return view('all::JenisMakanan.'.$view, $data);
     }
     /**
      * Display a listing of the resource.
@@ -57,12 +55,12 @@ class SizeController extends Controller
                 'nama'=> (isset($r['nama'])?$r['nama']:''),
                 'user_input'=>Auth::user()->id,
             ];
-            $createTarif = Size::create($dataCreate);
+            $createTarif = JenisMakanan::create($dataCreate);
         } catch (Exception $e) {
             DB::rollBack();
         }
         DB::commit();
-        return redirect('all/Size');
+        return redirect('all/JenisMakanan');
     }
 
     /**
@@ -80,7 +78,7 @@ class SizeController extends Controller
      */
     public function edit($id)
     {
-        $send['Size']=Size::find($id);
+        $send['JenisMakanan']=JenisMakanan::find($id);
         return $this->view('form',$send);
     }
 
@@ -98,13 +96,13 @@ class SizeController extends Controller
                 'nama'=> (isset($r['nama'])?$r['nama']:''),
                 'user_update'=> Auth::user()->id,
             ];
-            $S = Size::find($r['id_size']);
+            $S = JenisMakanan::find($r['id_jenis_makanan']);
             $S->update($dataUpdate);
         } catch (Exception $e) {    
             DB::rollBack();
         }
         DB::commit();
-        return redirect('all/Size');
+        return redirect('all/JenisMakanan');
     }
 
     /**
@@ -115,7 +113,7 @@ class SizeController extends Controller
     {
         DB::beginTransaction();
         try {
-            $Jl = Size::find($id);
+            $Jl = JenisMakanan::find($id);
             $Jl->trash='Y';
             $Jl->save();
         }catch(Exception $e){
@@ -128,7 +126,7 @@ class SizeController extends Controller
     public function loadData()
     {
         $GLOBALS['nomor']=\Request::input('start',0)+1;
-        $dataList = Size::select('*')->whereNull('trash');
+        $dataList = JenisMakanan::select('*')->whereNull('trash');
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
@@ -137,8 +135,8 @@ class SizeController extends Controller
           return $data->nama;
         })
         ->addColumn('action',function($data){
-          $content = '<a type="button" href="'.url("all/Size/edit/$data->id").'" target="ajax-modal" class="btn btn-primary btn-sm">Edit</a>&nbsp;&nbsp;';
-          $content .= '<button type="button" id-size="'.$data->id.'" class="btn btn-danger btn-sm DeleteData"><i class="fa fa-trash-o"> Hapus</i></button>';
+          $content = '<a type="button" href="'.url("all/JenisMakanan/edit/$data->id").'" target="ajax-modal" class="btn btn-primary btn-sm">Edit</a>&nbsp;&nbsp;';
+          $content .= '<button type="button" id-jenis_makanan="'.$data->id.'" class="btn btn-danger btn-sm DeleteData"><i class="fa fa-trash-o"> Hapus</i></button>';
           return $content;
         })
         ->make(true);

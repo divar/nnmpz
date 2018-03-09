@@ -4,6 +4,7 @@ namespace Modules\All\Http\Controllers;
 
 use Modules\All\Entities\Satuan;
 use Modules\All\Entities\ListMenu;
+use Modules\All\Entities\JenisMakanan;
 use Modules\All\Entities\Kategori;
 use Modules\All\Entities\Size;
 use Illuminate\Http\Request;
@@ -45,6 +46,7 @@ class MenuController extends Controller
     public function popUpMenu()
     {    
         $sendPopUpMenu['no']=\Request::get('no',null);
+        $sendPopUpMenu['selectJenisMenu'] = JenisMakanan::all()->toArray(); 
         $sendPopUpMenu['selectKategori'] = Kategori::where('flag_addon','<>','Y')->get()->toArray(); 
         return $this->view('popUpMenu',$sendPopUpMenu);
     }
@@ -54,6 +56,13 @@ class MenuController extends Controller
         $sendSize['size'] = ListMenu::select('sizes.id','sizes.nama')->join('sizes','sizes.id','list_menus.id_size')->where('list_menus.id_kategori',$id_kategori)->groupBy('sizes.id')->groupBy('sizes.nama')->get()->toArray(); 
         // $sendSize['size'] = \DB::select('SELECT S.* FROM list_menus lm JOIN sizes s on lm.id_size = s.id group by s.id'); 
         return  $sendSize;
+    }
+    public function getKategori()
+    {    
+        $id_jenismenu=\Request::get('id_jenismenu',null);
+        $send_jenismenus['jenis_menu'] = Kategori::select('id','nama')->where('id_jenis_makanan',$id_jenismenu)->get()->toArray(); 
+        // $sendSize['size'] = \DB::select('SELECT S.* FROM list_menus lm JOIN sizes s on lm.id_size = s.id group by s.id'); 
+        return  $send_jenismenus;
     }
     /**
      * Show the form for creating a new resource.

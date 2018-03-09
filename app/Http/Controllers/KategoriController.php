@@ -92,8 +92,9 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-    	$send['Kategori']=Kategori::find($id);
-        return $this->view('form',$send);
+      $send['Kategori']=Kategori::find($id);
+      $send['Satuan']=Satuan::all();
+      return $this->view('form',$send);
     }
 
     /**

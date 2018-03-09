@@ -13,12 +13,20 @@
                 <div class="portlet-body" style="display: block;">
                     <div class="">
                         <div class="form-group form-inline">
-                            <label class="" for="kategoriMenu">jenis menu</label>
-                            <div class="col-md-2" id="tempatKategoriMenu">
-                                <select class="form-control" name="kategori_menu" id="kategoriMenu"> 
-                                    @foreach ($selectKategori as $val)
+                            <label class="" for="jenisMenu">Jenis Menu</label>
+                            <div class="col-md-2" id="tempatjenisMenu">
+                                <select class="form-control" name="jenis_menu" id="jenisMenu"> 
+                                    @foreach ($selectJenisMenu as $val)
                                         <option value="{{ $val['id'] }}">{{ $val['nama'] }}</option>
                                     @endforeach
+                                </select>
+                            </div>
+                            <label class="" for="kategoriMenu">Daftar Menu</label>
+                            <div class="col-md-2" id="tempatKategoriMenu">
+                                <select class="form-control" name="kategori_menu" id="kategoriMenu"> 
+                                    {{-- @foreach ($selectKategori as $val)
+                                        <option value="{{ $val['id'] }}">{{ $val['nama'] }}</option>
+                                    @endforeach --}}
                                 </select>
                             </div>
                             <label class="" id="labeltempatSize" for="tempatSize">Size</label>
@@ -56,6 +64,7 @@
 @push('js')
 <script type="text/javascript">
 $(document).ready(function(){
+    getKategori()
     getSize();
     $('#kategoriMenu').on('change',function(){ 
         getSize();
@@ -142,6 +151,32 @@ function getSize(){
                 $("#size").find('option').remove().end();
                 $("#size").append('<option value="">all</option>'); 
             }
+            table.ajax.reload();
+        }
+    });
+}
+function getKategori(){ 
+    $.ajax({
+        type: "GET",
+        url: "{{ route('menugetkategori') }}",
+        data: {
+            "id_jenismenu":$('#jenisMenu option:selected').val(),
+        },  
+        dataType: 'json',
+        success: function(response){
+            if(response.jenis_menu.length>0){
+                $("#kategoriMenu").find('option').remove().end(); 
+                for(var i = 0; i < response.jenis_menu.length; i++){ 
+                    $("#kategoriMenu").append('<option value="' + response.jenis_menu[i]['id'] + '">' + response.jenis_menu[i]['nama'] + '</option>');
+                }
+            }
+            // else {
+            //     $('#labeltempatSize').attr('class','d-none');
+            //     $('#tempatSize').attr('class','d-none');
+            //     $('#size').attr('name','');
+            //     $("#size").find('option').remove().end();
+            //     $("#size").append('<option value="">all</option>'); 
+            // }
             table.ajax.reload();
         }
     });

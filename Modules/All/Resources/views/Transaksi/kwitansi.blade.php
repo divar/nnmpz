@@ -5,13 +5,13 @@
     <style>
     .invoice-box {
         width: 130px;
-        margin-right: 0px;
+        margin-right: -4px;
         margin-left: -4px;
         padding-right: -10px;
         padding-left: -10px;
         margin-top: 0;
         font-size: 6px;
-        /*line-height: 15px;*/
+        /*line-height: 6px;*/
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
         /*transform: scale(0.514);*/
@@ -123,7 +123,7 @@
                 <td colspan="2">
                     <kbd>
                         <b>Invoice</b> &nbsp;:  {{ $Transaksi[0]->no_kwitansi }}<br>
-                        <b>Created</b>  &nbsp;: {{ date(  'd F Y') }}<br>
+                        <b>Created</b>  &nbsp;: {{ date('H.i') }}<br>
                         <b>Pemesan</b> &nbsp;: {{ $Transaksi[0]->pelanggan->nama }}<br>
                         <b>Penerima</b> : {{ $Transaksi[0]->penerima }}<br>
                         <b>Alamat</b> &nbsp;&nbsp;: {{ $Transaksi[0]->alamat->alamat }}<br>
@@ -197,6 +197,13 @@
                         </tr>
                         {!! $i++ !!}
                         @endforeach
+                        <tr class="item last">
+                            <td align="center">
+                            </td>
+                            <td colspan="2" align="center">
+                                Total Pesanan  {{ $i }}
+                            </td>
+                        </tr>
                         <tr class="item last">
                             <td colspan="2" align="right">
                                 Tax

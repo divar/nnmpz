@@ -200,8 +200,9 @@ class TransaksiController extends Controller
             // , 'id'=>$insertTransaksi->id
         }
         DB::commit();
-        Auth::logout();
+        // Auth::logout();
         return redirect("nota/cetaknota/$insertTransaksi->id");
+        // return redirect('/all')->with('id',$insertTransaksi->id);
         if($return == 'Input Lagi'){
             // return redirect('all/transaksi/tambah')->with('return',$return)->with('id',$insertTransaksi->id);
         }else{
@@ -215,7 +216,6 @@ class TransaksiController extends Controller
         $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->with('addons')->with('modifier')->where('id_transaksi',$id)->get();
         // $DT = DetailTransaksi::with('addons')->with('modifier')->where('id_transaksi',$id)->get();
         // $modifier = DetailTransaksi::with('modifier')->where('id_transaksi',$id)->get();
-        // dd($addon);
         $jml_modifier= 0;
         $jml_addon= 0;
         $jml=0;
@@ -228,8 +228,7 @@ class TransaksiController extends Controller
         // $jml_modifier= $jml_modifier*15;
         // $jml_addon= $jml_addon*15;
 
-        $height = 200+$jml+2;
-        // dd($height);
+        $height = 230+$jml+2;
         $width = PDF::loadView('all::Transaksi.kwitansi', $sendNota)->getDomPDF()->getCanvas()->get_width();
         $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
         $pdf= PDF::loadView('all::Transaksi.kwitansi', $sendNota);
@@ -364,11 +363,11 @@ class TransaksiController extends Controller
             $return = 'gagal';
         }
         DB::commit();
-                        // dd($insertModifier);
-
-        Auth::logout();
-        return redirect("nota/cetaknota/$insertTransaksi->id");
-        // return redirect("all/transaksi");
+        // Auth::logout();
+        // dd($insertTransaksi->id);
+        // return redirect('/logouts')->with('id',$insertTransaksi->id);
+        // return redirect("nota/cetaknota/$insertTransaksi->id");
+        return redirect("all/transaksi")->with('return',$return)->with('id',$insertTransaksi->id);
     }
 
     /**

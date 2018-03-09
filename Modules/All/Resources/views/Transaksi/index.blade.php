@@ -53,7 +53,6 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -65,7 +64,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
     @if(session('id'))
-        open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); 
+        open('{{ url('nota/cetaknota') }}/{{ session('id') }}','_blank'); 
+        open('{{ url('/logouts') }}','_self'); 
     @endif
 });
 today = {{ date('d-m-Y') }};

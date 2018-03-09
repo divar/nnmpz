@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKategorisTable extends Migration
+class CreateJenisMakananTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreateKategorisTable extends Migration
      */
     public function up()
     {
-        Schema::create('kategoris', function (Blueprint $table) {
+        Schema::create('jenis_makanan', function (Blueprint $table) {
             $table->increments('id');
             $table->text('nama')->nullable();
-            $table->string('flag_addon',1)->nullable();
-            $table->integer('id_satuan')->nullable();
-            $table->integer('id_jenis_makanan')->nullable();
+            $table->string('trash',1)->nullable();
             $table->integer('user_input')->nullable();
             $table->integer('user_update')->nullable();
-            $table->string('trash',1)->nullable();
-
             $table->timestamps();
         });
     }
@@ -34,6 +30,6 @@ class CreateKategorisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategoris');
+        Schema::dropIfExists('jenis_makanan');
     }
 }
