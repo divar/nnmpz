@@ -93,6 +93,34 @@
                                 <input id="nama" type="text" name="nama" class="form-control" placeholder="Nama Menu" required="required" value="{{ isset($Menu)?$Menu['nama_menu']:'' }}">
                             </div>  
                         </div>
+                        @if(isset($Menu))
+                        <div class="form-group row">
+                            <label for="Ukuran" class="col-md-3 col-form-label">Ukuran</label>
+                            <div class="col-md-9">
+                                <select id="ukuran" name="id_size" class="form-control custom-select" >
+                                    <option value="">Menu yang tidak mempunyai Ukuran</option>
+                                    @foreach($size as $val)
+                                        <option value="{{ $val['id'] }}" {{ isset($Menu['id_size']) && $Menu['id_size']==$val['id']?'selected="selected"':'' }}>{{ $val['nama'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>  
+                        </div>
+                        @endif
+                        @if(!isset($Menu))
+                        <div class="form-group row">
+                            <label for="size" class="col-md-3 col-form-label">Ukuran</label>
+                            <div class="col-md-9"> 
+                                <label class="radio-pilih-container">Tidak
+                                    <input type="radio" id="pilihsizetidak" class="pilihsize" checked="checked" name="pilihsize" value="tidak">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-pilih-container">Ya
+                                    <input type="radio" id="pilihsizeya" class="pilihsize" value="ya" name="pilihsize">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>  
+                        </div>
+                        @endif
                         <div id="tempatSatuan" class="form-group row">
                             <label for="Satuan" class="col-md-3 col-form-label">Satuan</label>
                             <div class="col-md-9">
@@ -123,34 +151,6 @@
                                 </select>
                             </div>  
                         </div>
-                        @if(isset($Menu))
-                        <div class="form-group row">
-                            <label for="Ukuran" class="col-md-3 col-form-label">Ukuran</label>
-                            <div class="col-md-9">
-                                <select id="ukuran" name="id_size" class="form-control custom-select" >
-                                    <option value="">Menu yang tidak mempunyai Ukuran</option>
-                                    @foreach($size as $val)
-                                        <option value="{{ $val['id'] }}" {{ isset($Menu['id_size']) && $Menu['id_size']==$val['id']?'selected="selected"':'' }}>{{ $val['nama'] }}</option>
-                                    @endforeach
-                                </select>
-                            </div>  
-                        </div>
-                        @endif
-                        @if(!isset($Menu))
-                        <div class="form-group row">
-                            <label for="size" class="col-md-3 col-form-label">Ukuran</label>
-                            <div class="col-md-9"> 
-                                <label class="radio-pilih-container">Tidak
-                                    <input type="radio" id="pilihsizetidak" class="pilihsize" checked="checked" name="pilihsize" value="tidak">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-pilih-container">Ya
-                                    <input type="radio" id="pilihsizeya" class="pilihsize" value="ya" name="pilihsize">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>  
-                        </div>
-                        @endif
                         <div class="col-md-3"><input id="submit" class="btn btn-info" type="submit" value="Simpan" name="submit"></div>
                     </div>
                     <div class="col-md-7 d-none" id="tempatTambahSize">

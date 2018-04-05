@@ -117,6 +117,16 @@
                                 </select>
                             </div>  
                         </div>
+                        <div id="tempatjenismakanan" class="form-group row">
+                            <label for="jenis_makanan" class="col-md-3 col-form-label">jenis Makanan</label>
+                            <div class="col-md-9">
+                                <select id="jenis_makanan" name="id_jenis_makanan" class="form-control custom-select" >
+                                    @foreach($jenis_makanan as $val)
+                                        <option value="{{ $val['id'] }}" {{ isset($Kategori['id_jenis_makanan']) && $Kategori['id_jenis_makanan']==$val['id']?'selected="selected"':'' }}>{{ $val['nama'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>  
+                        </div>
                     </div>
                     <div class="col-md-3"><input id="submit" class="btn btn-info" type="submit" value="Simpan" name="submit"></div>
                 </div>

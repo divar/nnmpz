@@ -71,6 +71,9 @@
               <li>
                 <a href="{{ route('loaddataSize') }}">Size</a>
               </li>
+              <li>
+                <a href="{{ route('indexJenisMakanan') }}">Jenis Menu</a>
+              </li>
             </ul>
           </li>
           {{-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Pelanggan">

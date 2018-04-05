@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Modules\All\Entities\Kategori;
 use Illuminate\Support\Facades\Auth;
 use Modules\All\Entities\Satuan;
+use Modules\All\Entities\JenisMakanan;
 
 class KategoriController extends Controller
 {
@@ -52,6 +53,7 @@ class KategoriController extends Controller
     {
         $send['kategori'] = Kategori::where('flag_addon','Y');
         $send['Satuan']=Satuan::all();
+        $send['jenis_makanan']=JenisMakanan::all();
         return $this->view('form',$send);
     }
 
@@ -68,6 +70,7 @@ class KategoriController extends Controller
         $dataCreate['nama']=isset($r['nama'])?$r['nama']:'';
         $dataCreate['flag_addon']=isset($r['addon']) && $r['addon']=='Y'?'Y':'N';
         $dataCreate['id_satuan']=(isset($r['id_satuan'])?$r['id_satuan']:'');
+        $dataCreate['id_jenis_makanan']=(isset($r['id_jenis_makanan'])?$r['id_jenis_makanan']:'');
   			$dataCreate['user_input']= Auth::user()->id;
   			$createKategori = Kategori::create($dataCreate);	
   		} catch (Exception $e) {
@@ -94,6 +97,7 @@ class KategoriController extends Controller
     {
       $send['Kategori']=Kategori::find($id);
       $send['Satuan']=Satuan::all();
+      $send['jenis_makanan']=JenisMakanan::all();
       return $this->view('form',$send);
     }
 
@@ -112,6 +116,7 @@ class KategoriController extends Controller
 				'nama'=> isset($r['nama'])?$r['nama']:'',
         'id_satuan'=>(isset($r['id_satuan'])?$r['id_satuan']:''),
 				'user_update'=> Auth::user()->id,
+        'id_jenis_makanan'=>(isset($r['id_jenis_makanan'])?$r['id_jenis_makanan']:''),
 				'flag_addon'=> isset($r['addon'])?$r['addon']:'',
 			];
 			$createKategori = Kategori::where('id',$r['id_kategori']);
