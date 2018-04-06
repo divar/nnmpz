@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="table-responsive">
-                        <button class="btn btn-primary" type="button" id="tambahJenis">Tambah Jenis</button>
+                        <button class="btn btn-primary" type="button" id="tambahJenis">Tambah Jalan</button>
                         <table class="table table-striped table-hover" id="jenis-table">
                             <thead>
                                 <tr>
