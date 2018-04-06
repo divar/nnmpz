@@ -66,6 +66,9 @@
 $(document).ready(function(){
     getKategori()
     getSize();
+    $('#jenisMenu').on('change',function(){ 
+        getKategori();
+    });
     $('#kategoriMenu').on('change',function(){ 
         getSize();
     });
@@ -169,6 +172,11 @@ function getKategori(){
                 for(var i = 0; i < response.jenis_menu.length; i++){ 
                     $("#kategoriMenu").append('<option value="' + response.jenis_menu[i]['id'] + '">' + response.jenis_menu[i]['nama'] + '</option>');
                 }
+            }
+            if(response.jenis_menu.length < 1){
+                $("#kategoriMenu").find('option').remove().end(); 
+                $("#kategoriMenu").append('<option value="-3">tidak ada data</option>');
+                
             }
             // else {
             //     $('#labeltempatSize').attr('class','d-none');
