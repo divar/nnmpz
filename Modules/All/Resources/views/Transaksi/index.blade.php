@@ -65,7 +65,8 @@
 $(document).ready(function(){
     @if(session('id'))
         open('{{ url('nota/cetaknota') }}/{{ session('id') }}','_blank'); 
-        open('{{ url('/logouts') }}','_self'); 
+        document.getElementById('logout-form').submit();
+        {{-- open('{{ url('/logout') }}','_self');  --}}
     @endif
 });
 today = {{ date('d-m-Y') }};
