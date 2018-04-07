@@ -46,7 +46,7 @@ class MenuController extends Controller
     public function popUpMenu()
     {    
         $sendPopUpMenu['no']=\Request::get('no',null);
-        $sendPopUpMenu['selectJenisMenu'] = JenisMakanan::all()->toArray(); 
+        $sendPopUpMenu['selectJenisMenu'] = JenisMakanan::whereNull('trash')->get()->toArray(); 
         $sendPopUpMenu['selectKategori'] = Kategori::where('flag_addon','<>','Y')->get()->toArray(); 
         return $this->view('popUpMenu',$sendPopUpMenu);
     }

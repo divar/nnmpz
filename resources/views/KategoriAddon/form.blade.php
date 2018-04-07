@@ -1,6 +1,6 @@
 @extends(Request::get('ajax') ? 'layouts.modal':'layouts.content')
-@section('title', $title=(isset($Kategori)?'Edit':'Tambah').' Kategori')
-@section('modalClass','min-width:90%;')
+@section('title', $title=(isset($Kategori)?'Edit':'Tambah').' Addon Menu')
+@section('modalClass','min-width:70%;')
 @section('sub-content')
 <style>
 /* The container */
@@ -68,9 +68,9 @@
 </style>
 <div class="modal-body">
 @if(isset($Kategori))
-<form action="{{ route('updatekategori') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+<form action="{{ route('updatekategori_addon') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
 @else
-<form action="{{ route('postTambahKategori') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+<form action="{{ route('postTambahkategori_addon') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
 @endif    
     <div class="container-fluid">
         <div class="col-md-12">
@@ -91,7 +91,7 @@
                         <div class="form-group row">
                             <label for="nama" class="col-md-3 col-form-label">Nama Kategori</label>
                             <div class="col-md-9">
-                                <input id="nama" type="text" name="nama" class="form-control" placeholder="Nama Kategori" required="required" value="{{isset($Kategori['id'])?$Kategori['nama']:''}}">
+                                <input id="nama" type="text" name="nama" class="form-control" placeholder="Nama Addon Menu" required="required" value="{{isset($Kategori['id'])?$Kategori['nama']:''}}">
                             </div>  
                         </div>
                         <div class="form-group row d-none">
@@ -107,7 +107,7 @@
                                 </label> 
                             </div>  
                         </div>
-                        <div id="tempatSatuan" class="form-group row">
+                        <div id="tempatSatuan" class="form-group row d-none">
                             <label for="Satuan" class="col-md-3 col-form-label">Satuan</label>
                             <div class="col-md-9">
                                 <select id="satuan" name="id_satuan" class="form-control custom-select" >
@@ -117,7 +117,7 @@
                                 </select>
                             </div>  
                         </div>
-                        <div id="tempatjenismakanan" class="form-group row">
+                        <div id="tempatjenismakanan" class="form-group row d-none">
                             <label for="jenis_makanan" class="col-md-3 col-form-label">jenis Makanan</label>
                             <div class="col-md-9">
                                 <select id="jenis_makanan" name="id_jenis_makanan" class="form-control custom-select" >
