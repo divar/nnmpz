@@ -6,7 +6,7 @@
         <div class="col-md-12 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <H3>Daftar Menu</H3>
+                    <H3>Daftar Addon Menu</H3>
                 </div>
                 <div class="clearfix">&nbsp;</div>
 
@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-md-2">
                             <a href="{{ route('tambahkategori_addon') }}" target="ajax-modal" class="btn btn-info btn-sm">
-                                <span class="fa fa-fw fa-plus"></span> Tambah Kategori
+                                <span class="fa fa-fw fa-plus"></span> Tambah Addon Menu
                             </a>
                         </div>
                     </div>
