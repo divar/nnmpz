@@ -28,4 +28,12 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'administrasi'], funct
     Route::get('kategori/edit/{id}', 'KategoriController@edit')->name('editkategori');
     Route::post('kategori/postedit', 'KategoriController@update')->name('updatekategori');
     Route::get('kategori/load-data', 'KategoriController@loadData')->name('loadDataKategori');
+
+    Route::get('kategori_addon', 'KategoriAddonController@index')->name('kategori_addon');
+    Route::get('kategori_addon/delete/{id}', 'KategoriAddonController@destroy')->name('hapuskategori_addon');
+    Route::get('kategori_addon/tambah', 'KategoriAddonController@create')->name('tambahkategori_addon');
+    Route::post('kategori_addon/posttambah', 'KategoriAddonController@store')->name('postTambahkategori_addon');
+    Route::get('kategori_addon/edit/{id}', 'KategoriAddonController@edit')->name('editkategori_addon');
+    Route::post('kategori_addon/postedit', 'KategoriAddonController@update')->name('updatekategori_addon');
+    Route::get('kategori_addon/load-data', 'KategoriAddonController@loadData')->name('loadDatakategori_addon');
 });

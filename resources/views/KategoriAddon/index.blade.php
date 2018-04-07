@@ -13,8 +13,8 @@
                 <div class="portlet-body" style="display: block;">
                     <div class="row">
                         <div class="col-md-2">
-                            <a href="{{ route('tambahKategori') }}" target="ajax-modal" class="btn btn-info btn-sm">
-                                <span class="fa fa-fw fa-plus"></span> Tambah Kategori Menu
+                            <a href="{{ route('tambahkategori_addon') }}" target="ajax-modal" class="btn btn-info btn-sm">
+                                <span class="fa fa-fw fa-plus"></span> Tambah Kategori
                             </a>
                         </div>
                     </div>
@@ -60,7 +60,7 @@ $(document).ready(function(){
             url:"{{ url('administrasi/kategori/load-data') }}",
                                 data: function (d) {
                                     return $.extend( {}, d, {
-                                    'flag_add_on':'N',
+                                    'flag_add_on':'Y',
                                 } );
 
                                 }

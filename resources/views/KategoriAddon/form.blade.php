@@ -96,15 +96,15 @@
                         </div>
                         <div class="form-group row d-none">
                             <label for="size" class="col-md-3 col-form-label">Untuk</label>
-                            <div class="col-md-9 d-flex"> 
-                                <label class="container">Daftar Menu
-                                    <input type="radio" id="addonN" class="addon" checked="checked" name="addon" value="N">
-                                    <span class="checkmark"></span>
-                                </label>
-                                {{-- <label class="container">Daftar Addon
-                                    <input type="radio" id="addonY" {{ isset($Kategori)?( $Kategori->flag_addon =='Y'? 'checked="checked"':'' ) :'checked="checked"' }} class="addon" value="Y" name="addon">
+                            <div class="col-md-9 d-flex d-none"> 
+                                {{-- <label class="container">Daftar Menu
+                                    <input type="radio" id="addonN" class="addon" {{ isset($Kategori)?( $Kategori->flag_addon!='Y'? 'checked="checked"':'' ) :'checked="checked"' }} name="addon" value="N">
                                     <span class="checkmark"></span>
                                 </label> --}}
+                                <label class="container">Daftar Addon
+                                    <input type="radio" id="addonY" checked="checked" class="addon" value="Y" name="addon">
+                                    <span class="checkmark"></span>
+                                </label> 
                             </div>  
                         </div>
                         <div id="tempatSatuan" class="form-group row">

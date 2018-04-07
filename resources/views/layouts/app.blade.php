@@ -60,7 +60,10 @@
                 <a href="{{ route('jalan') }}">Area</a>
               </li>
               <li>
-                <a href="{{ route('kategori') }}">Kategori</a>
+                <a href="{{ route('kategori') }}">Kategori Menu</a>
+              </li>
+              <li>
+                <a href="{{ route('kategori_addon') }}">Kategori Addon</a>
               </li>
               <li>
                 <a href="{{ route('addon') }}">Add On Menu</a>

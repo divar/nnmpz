@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Modules\All\Entities\Satuan;
 use Modules\All\Entities\JenisMakanan;
 
-class KategoriController extends Controller
+class KategoriAddonController extends Controller
 {
     public function getKategoriMenu(){
       $send['kategori']=Kategori::where('flag_addon','<>','Y')->whereNull('trash')->get()->toArray();
@@ -31,7 +31,7 @@ class KategoriController extends Controller
 
     protected function view($view, $data = [])
     {
-      return view('Kategori.'.$view, $data);
+      return view('KategoriAddon.'.$view, $data);
     }
     /**
      * Display a listing of the resource.
@@ -74,7 +74,7 @@ class KategoriController extends Controller
   			DB::rollBack();
   		}
   		DB::commit();
-  		return redirect('administrasi/kategori');
+  		return redirect('administrasi/kategori_addon');
     }
 
     /**
@@ -122,7 +122,7 @@ class KategoriController extends Controller
 			DB::rollBack();
 		}
 		DB::commit();
-		return redirect('administrasi/kategori');
+		return redirect('administrasi/kategori_addon');
     }
 
     /**
@@ -149,8 +149,8 @@ class KategoriController extends Controller
         $GLOBALS['nomor']=\Request::input('start',0)+1;
         $from=\Request::get('from',null);
         $kategori=\Request::get('jenis',null);
+        $flag_addon=\Request::get('flag_addon',null);
         $no=\Request::get('no',null);
-        $flag_addon=\Request::get('flag_add_on',null);
 
         $dataList = Kategori::select('*')->whereNull('trash');
         if(!empty($kategori) && $kategori != null && $kategori != ''){
