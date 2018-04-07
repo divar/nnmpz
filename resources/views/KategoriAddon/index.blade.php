@@ -57,7 +57,7 @@ $(document).ready(function(){
         // serverSide: true,
         pageLength:20,
         ajax: {
-            url:"{{ url('administrasi/kategori/load-data') }}",
+            url:"{{ url('administrasi/kategori_addon/load-data') }}",
                                 data: function (d) {
                                     return $.extend( {}, d, {
                                     'flag_add_on':'Y',

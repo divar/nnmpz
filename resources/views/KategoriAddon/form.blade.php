@@ -68,9 +68,9 @@
 </style>
 <div class="modal-body">
 @if(isset($Kategori))
-<form action="{{ route('updatekategori') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+<form action="{{ route('updatekategori_addon') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
 @else
-<form action="{{ route('postTambahKategori') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+<form action="{{ route('postTambahkategori_addon') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
 @endif    
     <div class="container-fluid">
         <div class="col-md-12">

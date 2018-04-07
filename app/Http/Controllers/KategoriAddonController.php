@@ -111,10 +111,10 @@ class KategoriAddonController extends Controller
 		try {
 			$dataUpdate = [
 				'nama'=> isset($r['nama'])?$r['nama']:'',
-        'id_satuan'=>(isset($r['id_satuan'])?$r['id_satuan']:''),
+        'id_satuan'=>null,
 				'user_update'=> Auth::user()->id,
-        'id_jenis_makanan'=>(isset($r['id_jenis_makanan'])?$r['id_jenis_makanan']:''),
-				'flag_addon'=> isset($r['addon'])?$r['addon']:'',
+        'id_jenis_makanan'=>null,
+				'flag_addon'=> 'Y',
 			];
 			$createKategori = Kategori::where('id',$r['id_kategori']);
 			$createKategori->update($dataUpdate);	
@@ -149,7 +149,7 @@ class KategoriAddonController extends Controller
         $GLOBALS['nomor']=\Request::input('start',0)+1;
         $from=\Request::get('from',null);
         $kategori=\Request::get('jenis',null);
-        $flag_addon=\Request::get('flag_addon',null);
+        $flag_addon=\Request::get('flag_add_on',null);
         $no=\Request::get('no',null);
 
         $dataList = Kategori::select('*')->whereNull('trash');
@@ -179,7 +179,7 @@ class KategoriAddonController extends Controller
           return $data->keterangan;
         })
         ->addColumn('action',function($data) use($from,$no) {
-            $content = '<a href="'.url("administrasi/kategori/edit/$data->id").'" target="ajax-modal" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"> Edit</i></a> &nbsp;';
+            $content = '<a href="'.url("administrasi/kategori_addon/edit/$data->id").'" target="ajax-modal" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"> Edit</i></a> &nbsp;';
             $content .= '<button type="button" id-kategori="'.$data->id.'" class="btn btn-danger btn-sm DeleteData"><i class="fa fa-trash-o"> Hapus</i></button>';
             return $content;
         })
