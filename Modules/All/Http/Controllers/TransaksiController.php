@@ -200,9 +200,10 @@ class TransaksiController extends Controller
             // , 'id'=>$insertTransaksi->id
         }
         DB::commit();
+        session(['id'=>$insertTransaksi->id]);
         // Auth::logout();
-        return redirect("nota/cetaknota/$insertTransaksi->id");
-        // return redirect('/all')->with('id',$insertTransaksi->id);
+        // return redirect("nota/cetaknota/$insertTransaksi->id");
+        return redirect('/all/transaksi')->with('id',$insertTransaksi->id);
         if($return == 'Input Lagi'){
             // return redirect('all/transaksi/tambah')->with('return',$return)->with('id',$insertTransaksi->id);
         }else{
@@ -363,6 +364,8 @@ class TransaksiController extends Controller
             $return = 'gagal';
         }
         DB::commit();
+        session(['id'=>$insertTransaksi->id]);
+        
         // Auth::logout();
         // dd($insertTransaksi->id);
         // return redirect('/logouts')->with('id',$insertTransaksi->id);
