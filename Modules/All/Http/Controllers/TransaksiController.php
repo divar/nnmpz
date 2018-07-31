@@ -12,6 +12,7 @@ use Modules\All\Entities\TarifWilayah;
 use Modules\All\Entities\Size;
 use Modules\All\Entities\Satuan;
 use Modules\All\Entities\ListMenu;
+use Modules\All\Entities\Kurir;
 use Indonesia;
 use PDF;
 use Illuminate\Http\Request;
@@ -52,6 +53,7 @@ class TransaksiController extends Controller
     {
         $send['kabupaten']=Indonesia::findProvince(34, $with = ['cities'])->toArray();
         $send['TarifWilayah']=TarifWilayah::all();
+        $send['Kurir'] = Kurir::all();
         return $this->view('form',$send);
     }
     
@@ -84,6 +86,9 @@ class TransaksiController extends Controller
             $email = (isset($r['email'])?$r['email']:'');
             $no_hp = (isset($r['no_hp'])?$r['no_hp']:'');
             $alamat = (isset($r['alamat'])?$r['alamat']:'');
+            $kurir = isset($r['kurir'])?$r['kurir']:null;
+            $pajak_kurir = isset($r['nilai_kurir'])?$r['nilai_kurir']:null;
+            $flag_kurir = isset($r['kurir'])?'1':'0';
             $id_jenis = intval(isset($r['id_jenis'])?$r['id_jenis']:'');
             $id_jalan = intval(isset($r['id_jalan'])?$r['id_jalan']:'');
             $id_alamat = (isset($r['id_alamat'])?$r['id_alamat']:'');
@@ -126,6 +131,9 @@ class TransaksiController extends Controller
                 'penerima'=>$nama_penerima,
                 'id_tarif_wilayah'=>$tarifwilayah,
                 'no_kwitansi'=> $getNextNoKwitansi,
+                'id_kurir'=> $kurir,
+                'flag_kurir'=> $flag_kurir,
+                'pajak_kurir'=> $pajak_kurir,
                 'user_input'=> $userinput,
                 'created_at'=>$created_at,
             ];
@@ -258,6 +266,7 @@ class TransaksiController extends Controller
         $send['Transaksi']=Transaksi::find($id);
         $send['Pelanggan']=Pelanggan::find($send['Transaksi']->id_pelanggan);
         $send['Alamat']=Alamat::find($send['Transaksi']->id_alamat);
+        $send['Kurir']=Kurir::all();
         $send['DetailTransaksi']=DetailTransaksi::with('menu')->where('id_transaksi',$send['Transaksi']->id)->get(); 
         return $this->view('form',$send);
     }
@@ -273,23 +282,30 @@ class TransaksiController extends Controller
         try {
             $r = $request->all();
             // dd($r);
-            $nama = (isset($r['nama'])?$r['nama']:'');
-            $nama_penerima = (isset($r['nama_penerima'])?$r['nama_penerima']:'');
-            $email = (isset($r['email'])?$r['email']:'');
-            $no_hp = (isset($r['no_hp'])?$r['no_hp']:'');
-            $alamat = (isset($r['alamat'])?$r['alamat']:'');
-            $id_transaksi = (isset($r['id_transaksi'])?$r['id_transaksi']:'');
-            $id_jalan = intval(isset($r['id_jalan'])?$r['id_jalan']:'');
-            $id_alamat = (isset($r['id_alamat'])?$r['id_alamat']:'');
-            $id_pelanggan = (isset($r['id_pelanggan'])?$r['id_pelanggan']:'');
-            $tarifwilayah = (isset($r['id_tarifwilayah'])?$r['id_tarifwilayah']:'');
-            $harga_tarif_wilayah = (isset($r['harga_tarif_wilayah'])?$r['harga_tarif_wilayah']:'');
-            $user_update = Auth::user()->id;
-            $created_at = date('Y-m-d');
+            $nama                   = (isset($r['nama'])?$r['nama']:'');
+            $nama_penerima          = (isset($r['nama_penerima'])?$r['nama_penerima']:'');
+            $email                  = (isset($r['email'])?$r['email']:'');
+            $no_hp                  = (isset($r['no_hp'])?$r['no_hp']:'');
+            $alamat                 = (isset($r['alamat'])?$r['alamat']:'');
+            $id_transaksi           = (isset($r['id_transaksi'])?$r['id_transaksi']:'');
+            $id_jalan               = intval(isset($r['id_jalan'])?$r['id_jalan']:'');
+            $id_alamat              = (isset($r['id_alamat'])?$r['id_alamat']:'');
+            $id_pelanggan           = (isset($r['id_pelanggan'])?$r['id_pelanggan']:'');
+            $tarifwilayah           = (isset($r['id_tarifwilayah'])?$r['id_tarifwilayah']:'');
+            $harga_tarif_wilayah    = (isset($r['harga_tarif_wilayah'])?$r['harga_tarif_wilayah']:'');
+            $kurir                  = isset($r['kurir'])?$r['kurir']:null;
+            $pajak_kurir            = isset($r['nilai_kurir'])?$r['nilai_kurir']:null;
+            $flag_kurir             = isset($r['kurir'])?'1':'0';
+            $user_update            = Auth::user()->id;
+            $created_at             = date('Y-m-d');
+
             $dataTransaksi = [
                 'id_alamat'=>$id_alamat,
                 'penerima'=> $nama_penerima,
                 'id_tarif_wilayah'=>$tarifwilayah,
+                'id_kurir'=>$kurir,
+                'pajak_kurir'=>$pajak_kurir,
+                'flag_kurir'=>$flag_kurir,
                 'user_update'=>$user_update,
                 'updated_at'=>date('Y-m-d'),
             ];

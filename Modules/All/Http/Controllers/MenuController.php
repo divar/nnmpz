@@ -58,7 +58,7 @@ class MenuController extends Controller
         return  $sendSize;
     }
     public function getKategori()
-    {    
+    {
         $id_jenismenu=\Request::get('id_jenismenu',null);
         $send_jenismenus['jenis_menu'] = Kategori::select('id','nama')->where('id_jenis_makanan',$id_jenismenu)->where('flag_addon','<>','Y')->get()->toArray(); 
         // $sendSize['size'] = \DB::select('SELECT S.* FROM list_menus lm JOIN sizes s on lm.id_size = s.id group by s.id'); 
