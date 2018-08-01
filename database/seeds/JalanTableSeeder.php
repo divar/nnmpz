@@ -23,5 +23,17 @@ class JalanTableSeeder extends Seeder
         ];
 
         \DB::table('jalans')->insert($data);
+
+        DB::table('jenis')->delete();
+
+        $data = [
+            ['id'=>1,'id_tarif_wilayah'=>1,'jenis'=>'Hotel','created_at'=>date('Y-m-d H:i:s')],
+            ['id'=>2,'id_tarif_wilayah'=>2,'jenis'=>'Kos Kosan Gayam','created_at'=>date('Y-m-d H:i:s')],
+            ['id'=>3,'id_tarif_wilayah'=>3,'jenis'=>'Resort','created_at'=>date('Y-m-d H:i:s')],
+            ['id'=>4,'id_tarif_wilayah'=>4,'jenis'=>'Kantor','created_at'=>date('Y-m-d H:i:s')],
+            ['id'=>5,'id_tarif_wilayah'=>5,'jenis'=>'Gedung Serba Guna','created_at'=>date('Y-m-d H:i:s')],
+        ];
+
+        \DB::table('jenis')->insert($data);
     }
 }
