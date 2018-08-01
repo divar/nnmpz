@@ -102,9 +102,9 @@
                                         <label for="kurir" class="col-md-3 col-form-label">Kurir</label>
                                         <div class="col-md-9">
                                             @foreach ($Kurir as $v)
-                                                <input type="radio" prevValue="" class="kurir" name="kurir" {{ $v->id==$Transaksi->id_kurir?'checked="checked"':'' }} value="{{ $v->id }}" nilai="{{ $v->persen }}">{{ $v->nama }} &nbsp;
+                                                <input type="radio" prevValue="" class="kurir" name="kurir" {{ isset($Transaksi->id_kurir) && $v->id==$Transaksi->id_kurir?'checked="checked"':'' }} value="{{ $v->id }}" nilai="{{ $v->persen }}">{{ $v->nama }} &nbsp;
                                                 @php
-                                                    if($v->id == $Transaksi->id_kurir){
+                                                    if(isset($Transaksi) && $v->id == $Transaksi->id_kurir){
                                                         $persen_kurir_edit = $v->persen;
                                                     };
                                                 @endphp
