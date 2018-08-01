@@ -88,7 +88,7 @@
                                 <a href="#tab_data_pelanggan" onclick="$('#judulform').text('Data Diri');" data-toggle="tab" class="nav-link loadtable" from="data_pelanggan" id="tab_data_pelanggan2">Data Pelanggan</a>
                             </li>
                             <li id="tab_menu" class="tab-pane table-active">
-                                <a href="#tab_input_menu" data-toggle="tab" onclick="judulform();" class="nav-link loadtable {{ isset($DetailTransaksi)?'':'disabled' }}" from="input_menu" id="tab_menu2">Tab Menu</a>
+                                <a href="#tab_input_menu" data-toggle="tab" onclick="judulform();" class="nav-link loadtable {{-- {{ isset($DetailTransaksi)?'':'disabled' }} --}}" from="input_menu" id="tab_menu2">Tab Menu</a>
                             </li>
                         </ul>
                     </nav>
@@ -98,6 +98,19 @@
                             <div class="row">
                                 <div class="clearfix">&nbsp;</div>
                                 <div class="col-md-5">
+                                    <div class="form-group row">
+                                        <label for="kurir" class="col-md-3 col-form-label">Kurir</label>
+                                        <div class="col-md-9">
+                                            @foreach ($Kurir as $v)
+                                                <input type="radio" prevValue="" class="kurir" name="kurir" {{ $v->id==$Transaksi->id_kurir?'checked="checked"':'' }} value="{{ $v->id }}" nilai="{{ $v->persen }}">{{ $v->nama }} &nbsp;
+                                                @php
+                                                    if($v->id == $Transaksi->id_kurir){
+                                                        $persen_kurir_edit = $v->persen;
+                                                    };
+                                                @endphp
+                                            @endforeach
+                                        </div>  
+                                    </div>
                                     <div class="form-group row">
                                         <label for="nama" class="col-md-3 col-form-label">Pemesan</label>
                                         <div class="col-md-9">
@@ -373,7 +386,7 @@
                                     </div>
                                 </td>
                                 <td align="right">
-                                    <label id="total_{{$i}}" class="total_perbaris">{{ nominalKoma($DetailTransaksi[$i]->harga + $totaladdon) }}</label>
+                                    <label id="total_{{$i}}" class="total_perbaris">{{ nominalKoma($DetailTransaksi[$i]->harga + $totaladdon, false) }}</label>
                                 </td>
                             </tr>
                         @endfor
@@ -398,11 +411,22 @@
                         </tr>
                         <tr>
                             <td colspan="4" align="right">Tax / PPN</td>
-                            <td align="right"><label id="textppn">{{ isset($Transaksi->ppn)?nominalKoma($Transaksi->ppn):'' }}</label><input value="{{ isset($Transaksi->ppn)?$Transaksi->ppn:'' }}" type="hidden" id="textppn" name="ppn"></td>
+                            <td align="right">Rp
+                                <label id="textppn">{{ isset($Transaksi->ppn)?nominalKoma($Transaksi->ppn,false):'' }}</label>
+                                <input value="{{ isset($Transaksi->ppn)?$Transaksi->ppn:'' }}" type="hidden" id="textppn" name="ppn">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="right">Tax Kurir<label id="persenTampil">{{ isset($persen_kurir_edit)?'-> '.$persen_kurir_edit.' %':'-> 0 %' }}</label></td>
+                            <td align="right">
+                                Rp <label id="textkurir">{{ isset($Transaksi->pajak_kurir)?nominalKoma($Transaksi->pajak_kurir,false):'' }}</label>
+                                <input value="{{ isset($persen_kurir_edit)?$persen_kurir_edit:'' }}" type="hidden" id="persen_kurir" name="persen_kurir">
+                                <input value="{{ isset($Transaksi->pajak_kurir)?$Transaksi->pajak_kurir:'' }}" type="hidden" id="nilai_kurir" name="nilai_kurir">
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="4" align="right">Grand Total</td>
-                            <td align="right"><label id="textgrandtotal">{{ isset($Transaksi->total_harga)?nominalKoma($Transaksi->total_harga):'' }}</label><input value="{{ isset($Transaksi->total_harga)?$Transaksi->total_harga:'' }}" type="hidden" id="grandtotal" name="grandtotal"></td>
+                            <td align="right">Rp <label id="textgrandtotal">{{ isset($Transaksi->total_harga)?nominalKoma($Transaksi->total_harga,false):'' }}</label><input value="{{ isset($Transaksi->total_harga)?$Transaksi->total_harga:'' }}" type="hidden" id="grandtotal" name="grandtotal"></td>
                         </tr>
                     </tfoot>
                     <input type="hidden" value="{{ isset($i)?$i:1 }}" class="hide_count_menu" id="hide_count_menu" type="button" name="hide_count_menu"/>
@@ -489,41 +513,42 @@
             <div class="modal-header">\n\
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="false"><i class="fa fa-close"></i></button>\n\
             </div> \n\
-        <div class="">\n\
-                    <div class="container-fluid">\n\
-                        <div class="col-md-12 col-md-offset-2">\n\
-                        <center><strong>{{ config('app.name') }}</strong></center>\n\
-                        <center><strong>Jl. Mozes Gatotkaca B 9 – 17, Gejayan, Yogyakarta</strong></center>\n\
-                        <center><strong>0274 – 556494 / 549090</strong></center>\n\
-                        <center><strong>OP : {{ Auth::user()->name}}</strong></center>\n\
-                        </div>\n\
-                        <div class="col-md-12 col-md-offset-2">\n\
-                            <div class="panel panel-default">\n\
-                                <div class="panel-heading">\n\
-                                </div>\n\
+            <div class="">\n\
+                <div class="container-fluid">\n\
+                    <div class="col-md-12 col-md-offset-2">\n\
+                    <center><strong>{{ config('app.name') }}</strong></center>\n\
+                    <center><strong>Jl. Mozes Gatotkaca B 9 – 17, Gejayan, Yogyakarta</strong></center>\n\
+                    <center><strong>0274 – 556494 / 549090</strong></center>\n\
+                    <center><strong>OP : {{ Auth::user()->name}}</strong></center>\n\
+                    </div>\n\
+                    <div class="col-md-12 col-md-offset-2">\n\
+                        <div class="panel panel-default">\n\
+                            <div class="panel-heading">\n\
+                            </div>\n\
+                            <div class="clearfix">&nbsp;</div>\n\
+                            <div class="portlet-body" style="display: block;">\n\
                                 <div class="clearfix">&nbsp;</div>\n\
-                                <div class="portlet-body" style="display: block;">\n\
-                                    <div class="clearfix">&nbsp;</div>\n\
-                                    <div class="col-md-12">\n\
-                                    '+
-                                    'Hari & Tanggal : {{ date('d M Y') }} <br>'+
-                                    'Nama : '+nama+' <br> '+
-                                    'Penerima :'+Penerima+' <br> '+
-                                    'No Hp :'+NoHP+' <br> '+
-                                    'Area :'+Area+' <br> '+
-                                    'Alamat :'+Alamat+' <br>Menu Pesanan <br> <div class="row"><div class="col-md-12">'+
-                                    data_menu+"</div></div><br>"+
-                                    'PPN : <span class="pull-right">'+$('#textppn').text()+'</span> <br> '+
-                                    'Tarif Wilayah  : <span class="pull-right">'+$('#harga_tarif_wilayah').val()+'</span> <br> '+
-                                    'Total : <span class="pull-right">'+$('#textgrandtotal').text()+'</span> <br> '+
-                                    '</div>\n\
-                                </div>\n\
+                                <div class="col-md-12">\n\
+                                '+
+                                'Hari & Tanggal : {{ date('d M Y') }} <br>'+
+                                'Nama : '+nama+' <br> '+
+                                'Penerima :'+Penerima+' <br> '+
+                                'No Hp :'+NoHP+' <br> '+
+                                'Area :'+Area+' <br> '+
+                                'Alamat :'+Alamat+' <br>Menu Pesanan <br> <div class="row"><div class="col-md-12">'+
+                                data_menu+"</div></div><br>"+
+                                'PPN            : <span class="pull-right">'+$('#textppn').text()+'</span> <br> '+
+                                'Tarif Wilayah  : <span class="pull-right">'+addCommas($('#harga_tarif_wilayah').val())+'</span> <br> '+
+                                'pajak Kurir->'+$('#persen_kurir').val()+' %: <span class="pull-right">'+addCommas($('#nilai_kurir').val())+'</span> <br> '+
+                                'Total          : <span class="pull-right">'+$('#textgrandtotal').text()+'</span> <br> '+
+                                '</div>\n\
                             </div>\n\
                         </div>\n\
                     </div>\n\
                 </div>\n\
-                <button class="btn btn-primary" onclick="submit();">submit</button>\n\
             </div>\n\
+            <button class="btn btn-primary" onclick="submit();">submit</button>\n\
+        </div>\n\
     </div>';
         $('#myModelDialog').html(isi);
         $('#myModelDialog').modal('show');
@@ -531,67 +556,67 @@
     function add_data_barang_to_table(count){
         $('#hide_count_menu').val(parseInt(count)+1);
         $('<tr class="data_menu" id="data_ke-'+count+'" no="'+count+'" role="row">\n\
-                            <td id="layanan_nama_place_'+count+'">\n\
-                                <button id="'+count+'" class="delete_data_detail btn btn-xs btn-danger hapus" type="button" onclick="delete_data_table(\''+count+'\',\'new\')">\n\
-                                <span title="Batal" class="fa fa-trash"></span></button><input type="hidden" name="count_menu[]" value="baris_'+count+'">\n\
-                            </td>\n\
-                            <td>\n\
-                                <div class="row">\n\
-                                    <div class="col-md-9"><input id="menu_'+count+'" type="text" name="baris_'+count+'[menu]" class="form-control required" /><input type="hidden" id="idmenu_'+count+'" name="baris_'+count+'[id_menu]"/></div>\n\
-                                    <div class="col-md-3">&nbsp;\n\
-                                        <button type="button" class="btn btn-sm btn-info" onclick="showMenu('+count+')" title="Cari Menu"><i class="fa fa-search-plus"></i></button>\n\
-                                        <button disabled="disabled" id="sowaddon'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>\n\
-                                        <button id="addModifier'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>\n\
-                                    </div>\n\
-                                </div>\n\
-                                <div class="row">\n\
-                                    <div class="col-md-12">\n\
-                                        <hr class="mb-1">\n\
-                                        <label class="control-label pull-left">Add On</label>\n\
-                                        <div class="clearfix">&nbsp;</div>\n\
-                                        <div class="border border-light rounded d-flex flex-row flex-wrap align-content-center " id="addon_baris_ke-'+count+'">\n\
-                                            <input type="hidden" value="0" class="hide_count_addon" id="hide_count_addon'+count+'" type="button"/>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                </div>\n\
-                                <div class="row">\n\
-                                    <div class="col-md-12">\n\
-                                        <hr class="mb-1">\n\
-                                        <label class="control-label pull-left">Modifier</label>\n\
-                                        <div class="clearfix">&nbsp;</div>\n\
-                                        <div class="border border-light rounded col-nd-12" id="modifier_baris_ke-'+count+'">\n\
-                                            <input type="hidden" value="0" class="hide_count_modifier" id="hide_count_modifier0" type="button" />\n\
-                                        </div>\n\
-                                    </div>\n\
-                                </div>\n\
-                            </td>\n\
-                            <td align="right">\n\
-                                <div class="row">\n\
-                                    <div class="col-5">\n\
-                                        Menu =>\n\
-                                    </div>\n\
-                                    <div class="col-5">\n\
-                                        <label id="hargateks_'+count+'"></label><input type="hidden" id="harga_'+count+'" name="baris_'+count+'[harga]">\n\
-                                    </div>\n\
-                                </div>\n\
-                                <div class="row">\n\
-                                    <div class="col-5">\n\
-                                        Addon =>\n\
-                                    </div>\n\
-                                    <div class="col-5">\n\
-                                        <label id="hargateks_addon_'+count+'"></label><input type="hidden" id="harga_addon_'+count+'" name="baris_'+count+'[harga_addon]"/>\n\
-                                    </div>\n\
-                                </div>\n\
-                            </td>\n\
-                            <td>\n\
-                                <div class="row">\n\
-                                    <div class="col-sm-9"><input id="qty_menu_'+count+'" untuk="'+count+'" type="number"  name="baris_'+count+'[jml]" class="form-control qtyx required"/></div>\n\
-                                </div>\n\
-                            </td>\n\
-                            <td align="right">\n\
-                                <label id="total_'+count+'" class="total_perbaris"></label>\n\
-                            </td>\n\
-                        </tr>').appendTo('#detail-data-table');
+            <td id="layanan_nama_place_'+count+'">\n\
+                <button id="'+count+'" class="delete_data_detail btn btn-xs btn-danger hapus" type="button" onclick="delete_data_table(\''+count+'\',\'new\')">\n\
+                <span title="Batal" class="fa fa-trash"></span></button><input type="hidden" name="count_menu[]" value="baris_'+count+'">\n\
+            </td>\n\
+            <td>\n\
+                <div class="row">\n\
+                    <div class="col-md-9"><input id="menu_'+count+'" type="text" name="baris_'+count+'[menu]" class="form-control required" /><input type="hidden" id="idmenu_'+count+'" name="baris_'+count+'[id_menu]"/></div>\n\
+                    <div class="col-md-3">&nbsp;\n\
+                        <button type="button" class="btn btn-sm btn-info" onclick="showMenu('+count+')" title="Cari Menu"><i class="fa fa-search-plus"></i></button>\n\
+                        <button disabled="disabled" id="sowaddon'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>\n\
+                        <button id="addModifier'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>\n\
+                    </div>\n\
+                </div>\n\
+                <div class="row">\n\
+                    <div class="col-md-12">\n\
+                        <hr class="mb-1">\n\
+                        <label class="control-label pull-left">Add On</label>\n\
+                        <div class="clearfix">&nbsp;</div>\n\
+                        <div class="border border-light rounded d-flex flex-row flex-wrap align-content-center " id="addon_baris_ke-'+count+'">\n\
+                            <input type="hidden" value="0" class="hide_count_addon" id="hide_count_addon'+count+'" type="button"/>\n\
+                        </div>\n\
+                    </div>\n\
+                </div>\n\
+                <div class="row">\n\
+                    <div class="col-md-12">\n\
+                        <hr class="mb-1">\n\
+                        <label class="control-label pull-left">Modifier</label>\n\
+                        <div class="clearfix">&nbsp;</div>\n\
+                        <div class="border border-light rounded col-nd-12" id="modifier_baris_ke-'+count+'">\n\
+                            <input type="hidden" value="0" class="hide_count_modifier" id="hide_count_modifier0" type="button" />\n\
+                        </div>\n\
+                    </div>\n\
+                </div>\n\
+            </td>\n\
+            <td align="right">\n\
+                <div class="row">\n\
+                    <div class="col-5">\n\
+                        Menu =>\n\
+                    </div>\n\
+                    <div class="col-5">\n\
+                        <label id="hargateks_'+count+'"></label><input type="hidden" id="harga_'+count+'" name="baris_'+count+'[harga]">\n\
+                    </div>\n\
+                </div>\n\
+                <div class="row">\n\
+                    <div class="col-5">\n\
+                        Addon =>\n\
+                    </div>\n\
+                    <div class="col-5">\n\
+                        <label id="hargateks_addon_'+count+'"></label><input type="hidden" id="harga_addon_'+count+'" name="baris_'+count+'[harga_addon]"/>\n\
+                    </div>\n\
+                </div>\n\
+            </td>\n\
+            <td>\n\
+                <div class="row">\n\
+                    <div class="col-sm-9"><input id="qty_menu_'+count+'" untuk="'+count+'" type="number"  name="baris_'+count+'[jml]" class="form-control qtyx required"/></div>\n\
+                </div>\n\
+            </td>\n\
+            <td align="right">\n\
+                <label id="total_'+count+'" class="total_perbaris"></label>\n\
+            </td>\n\
+        </tr>').appendTo('#detail-data-table');
     } 
     function delete_data_table(no,stat){
         if(confirm("Anda yakin akan menghapus data ini?")){
@@ -641,12 +666,15 @@
         // tarifwilayah = $('#tarifwilayah option:selected').attr('harga');
         tarifwilayah = $('#harga_tarif_wilayah').val();
         gtotal = parseInt(total)+currencyToNumber(tarifwilayah);
+        kurir = gtotal * $('#persen_kurir').val()/100;
         ppn = gtotal*0.1;
-        gtotal = Math.round(gtotal*1.1);
+        gtotal = Math.round(gtotal*1.1)+kurir;
         // $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
         $('#textgrandtotal').html(addCommas(gtotal));
         $('#textppn').html(addCommas(ppn));
         $('#grandtotal').val(gtotal);
+        $('#textkurir').text(addCommas(kurir));
+        $('#nilai_kurir').val(kurir);
     }
     function getMenuById(idmenu,no){
         $.ajax({
@@ -685,9 +713,10 @@
                 $('#id_jenis').val(id_jenis);
                 $('#harga_tarif_wilayah').val(response.dataList.tarif_wilayah.harga);
                 $('#id_tarifwilayah').val(response.dataList.tarif_wilayah.id);
-                $('#texttarifwilayah').html(response.dataList.tarif_wilayah.harga);
+                $('#texttarifwilayah').html(addCommas(response.dataList.tarif_wilayah.harga));
                 $('#tab_menu2').attr('class','nav-link loadtable');
                 $('#nexttab').attr('class','btn btn-primary');
+                grandTotal();
             }
         });
         $('.close').click();
@@ -891,7 +920,9 @@
             no=$(this).attr('no');
             tambahModifier(no);
         });
+        @if(isset($Pelanggan))
         loadAlamat();
+        @endif
         $('#tempatuntukalamat').on('click','.pilihalamat',function(){
             id=$(this).attr('id');
             alamat=$(this).val();
@@ -911,6 +942,28 @@
             // $('#hide_count_addon'+row).val(count-1);
         });
         @endif
+
+        $('.kurir').on('click',function(){
+            var prevValue = $(this).attr('prevValue');
+            var name = $(this).attr('name');
+            if (prevValue == 'checked') {
+              $(this).prop('checked',false);
+              $(this).attr('prevValue', false);
+              $('#textkurir').text(0);
+              $('#persen_kurir').val(0);
+              $('#nilai_kurir').val(0);
+              $('#persenTampil').text('-> 0 %');
+            } else {
+              $("input[name="+name+"]:radio").attr('prevValue', false);
+              $(this).attr('prevValue', 'checked');
+              persen = $(this).attr('nilai');
+              console.log(persen);
+              // $('#textkurir').text(persen);
+              $('#persen_kurir').val(persen);
+              $('#persenTampil').text('->'+persen+' %');
+            }
+            grandTotal();
+        });
     });
     function submit() {
         $('.close').click();

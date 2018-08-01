@@ -23,6 +23,9 @@ class CreateTransaksisTable extends Migration
             $table->integer('total_harga')->nullable();
             $table->integer('tarif_wilayah')->nullable();
             $table->integer('ppn')->nullable();
+            $table->integer('pajak_kurir')->nullable();
+            $table->boolean('flag_kurir')->nullable();
+            $table->integer('id_kurir')->nullable();
             $table->string('no_kwitansi',100)->nullable();
             $table->string('penerima',100)->nullable();
             $table->integer('user_input')->nullable();

@@ -90,4 +90,12 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::get('JenisMakanan/load-data', 'JenisMakananController@loadData')->name('lodadataJenisMakanan');
     Route::get('JenisMakanan', 'JenisMakananController@index')->name('indexJenisMakanan');
 
+    Route::get('kurir/delete/{id}', 'KurirController@destroy')->name('hapusKurir');
+    Route::get('kurir/edit/{id}', 'KurirController@edit')->name('editKurir');
+    Route::post('kurir/postedit', 'KurirController@update')->name('updateKurir');
+    Route::get('kurir/tambah', 'KurirController@create')->name('tambahKurir');
+    Route::post('kurir/posttambah', 'KurirController@store')->name('postTambahKurir');
+    Route::get('kurir/load-data', 'KurirController@loadData')->name('lodadataKurir');
+    Route::get('kurir', 'KurirController@index')->name('indexKurir');
+
 });

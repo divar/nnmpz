@@ -11,7 +11,24 @@ class Transaksi extends Model
 	public $timestamps=true;
     protected $primaryKey = "id";
     public $incrementing = true;
-    protected $fillable = ['id_pelanggan','id_alamat','id_jalan','id_jenis','penerima','total_harga','id_tarif_wilayah','ppn','no_kwitansi','user_input','user_update'];
+    protected $fillable = [
+        'id_pelanggan',
+        'id_alamat',
+        'id_tarif_wilayah',
+        'id_jalan',
+        'id_jenis',
+        'total_harga',
+        'tarif_wilayah',
+        'ppn',
+        'pajak_kurir',
+        'flag_kurir',
+        'id_kurir',
+        'no_kwitansi',
+        'penerima',
+        'user_input',
+        'user_update',
+        'trash'
+    ];
     
     public static function findRequested()
     {
@@ -29,6 +46,9 @@ class Transaksi extends Model
         \Request::input('tarif_wilayah') and $query->where('tarif_wilayah',\Request::input('tarif_wilayah'));
         \Request::input('ppn') and $query->where('ppn',\Request::input('ppn'));
         \Request::input('no_kwitansi') and $query->where('no_kwitansi',\Request::input('no_kwitansi'));
+        \Request::input('pajak_kurir') and $query->where('pajak_kurir',\Request::input('pajak_kurir'));
+        \Request::input('flag_kurir') and $query->where('flag_kurir',\Request::input('flag_kurir'));
+        \Request::input('id_kurir') and $query->where('id_kurir',\Request::input('id_kurir'));
         \Request::input('user_input') and $query->where('user_input',\Request::input('user_input'));
         \Request::input('user_update') and $query->where('user_update',\Request::input('user_update'));
         \Request::input('created_at') and $query->where('created_at',\Request::input('created_at'));
@@ -43,6 +63,10 @@ class Transaksi extends Model
     public function Pelanggan()
     {
         return $this->belongsTo('Modules\All\Entities\Pelanggan','id_pelanggan');
+    }
+    public function Kurir()
+    {
+        return $this->belongsTo('Modules\All\Entities\Kurir','id_kurir');
     }
     public function Alamat()
     {
