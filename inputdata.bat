@@ -10,6 +10,7 @@ php artisan db:seed --class=KategoriTableSeeder
 php artisan db:seed --class=MenuTableSeeder
 php artisan db:seed --class=SatuanTableSeeder
 php artisan db:seed --class=TarifWilayahTableSeeder
+php artisan db:seed --class=KurirTableSeeder
 php artisan laravolt:indonesia:seed
 php artisan cache:clear
 php artisan config:cache

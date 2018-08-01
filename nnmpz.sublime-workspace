@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"nila",
+				"nilai_kurir"
+			],
+			[
+				"tex",
+				"textkurir"
+			],
+			[
+				"text",
+				"textkurir"
+			],
+			[
+				"perse",
+				"persen_kurir"
+			],
+			[
 				"chek",
 				"checked"
 			],
@@ -58,10 +74,6 @@
 			[
 				"ba",
 				"background-image"
-			],
-			[
-				"text",
-				"textppn"
 			],
 			[
 				"modi",
@@ -476,10 +488,6 @@
 				"form-control \tBootstrap 4 Class"
 			],
 			[
-				"tex",
-				"text"
-			],
-			[
 				"iss",
 				"isset"
 			],
@@ -506,14 +514,6 @@
 			[
 				"nav",
 				"navbar-nav \tBootstrap 4 Class"
-			],
-			[
-				"nav-bar",
-				"navbar-brand \tBootstrap 4 Class"
-			],
-			[
-				"vie",
-				"viewPembayaranPertransaksi"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "Modules/All/Http/Controllers/TransaksiController.php",
 			"settings":
 			{
-				"buffer_size": 23700,
+				"buffer_size": 24565,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -540,16 +540,8 @@
 			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
 			"settings":
 			{
-				"buffer_size": 53970,
+				"buffer_size": 55309,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Http/Middleware/AuthenticatesUsersCustoms.php",
-			"settings":
-			{
-				"buffer_size": 4566,
 				"line_ending": "Windows"
 			}
 		}
@@ -771,6 +763,35 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"nilai_kurir",
+			"harga_tarif_wilayah",
+			"total_",
+			"Rp",
+			"hargaaddon",
+			"consol",
+			"grandtota",
+			"flag_kurir",
+			"=",
+			"kurir",
+			"grandtota",
+			"nilai_k",
+			"nilai_j",
+			"nilai",
+			"persenTampil",
+			"grandtotal",
+			"grand",
+			"persen_kurir",
+			"grand",
+			"persen_kurir",
+			"harga_tarif_wilayah",
+			"grandTotal",
+			"total",
+			"texttarifwilayah",
+			"tarifwilayah",
+			"total",
+			"subtota",
+			"texttarifwilayah",
+			"tab_menu",
 			"previousValue",
 			"loada",
 			"tambah",
@@ -869,36 +890,7 @@
 			"tambahAddOn",
 			"detach",
 			"{{ $i }}",
-			"sowaddon",
-			"label",
-			"showModifire",
-			"modifier",
-			"showModifire",
-			"showaddon",
-			"required=\"required\"",
-			"required",
-			"myForm",
-			"required",
-			"alamat",
-			"log",
-			"from",
-			"null",
-			"seeder",
-			"XXX",
-			"null",
-			"'Y'",
-			"Size",
-			"id_kategori",
-			"'id'=>1,",
-			"xxx",
-			"Menu",
-			"xxx",
-			"Menu",
-			"xxx",
-			"Menu",
-			"xxx",
-			"Satuan",
-			"Menu"
+			"sowaddon"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -919,7 +911,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -928,15 +920,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 23700,
+						"buffer_size": 24565,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1880,
-								1880
+								12965,
+								12965
 							]
 						],
 						"settings":
@@ -946,10 +938,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 616.0,
+						"translation.y": 480.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -976,10 +968,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 342.0,
+						"translation.y": 182.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -988,15 +980,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 53970,
+						"buffer_size": 55309,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								35800,
-								35800
+								36234,
+								36234
 							]
 						],
 						"settings":
@@ -1006,40 +998,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3139.0,
+						"translation.y": 10840.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/Http/Middleware/AuthenticatesUsersCustoms.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4566,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2918,
-								2918
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1479.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
