@@ -65,12 +65,10 @@ class KurirController extends Controller
      * Show the form for editing the specified resource.
      * @return Response
      */
-    public function edit()
+    public function edit(Request $request, $id)
     {
-        $sendEditMenu['Menu'] = ListMenu::find($id);
-        $sendEditMenu['size']=Size::all();
-        $sendEditMenu['Satuan']=Satuan::all();
-        return $this->view('form',$sendEditMenu);
+        $send['Kurir'] = Kurir::find($id);
+        return $this->view('form',$send);
     }
 
     /**
@@ -84,33 +82,29 @@ class KurirController extends Controller
         try {
             $r = $request->all();
             $dataUpdate = [
-                'nama_menu'=> (isset($r['nama'])?$r['nama']:''),
-                'harga'=> (isset($r['harga'])?$r['harga']:''),
-                'id_satuan'=>(isset($r['id_satuantunggal'])?$r['id_satuantunggal']:''),
-                'keterangan'=>(isset($r['keterangan'])?$r['keterangan']:''),
-                'id_kategori  '=>(isset($r['kategori'])?$r['kategori']:''),
-                'id_size'=>(isset($r['id_size'])?$r['id_size']:null),
+                'nama'=> (isset($r['nama'])?$r['nama']:''),
+                'persen'=> (isset($r['persen'])?$r['persen']:''),
             ];
-            $LM = ListMenu::find($r['id_menu']);
-            $LM->update($dataUpdate);
+            $Kurir = Kurir::find($r['id_kurir']);
+            $Kurir->update($dataUpdate);
         } catch (Exception $e) {    
             DB::rollBack();
         }
         DB::commit();
-        return redirect('all/menu');
+        return redirect('all/kurir');
     }
 
     /**
      * Remove the specified resource from storage.
      * @return Response
      */
-    public function destroy()
+    public function destroy(Request $request,$id)
     {
         DB::beginTransaction();
         try {
-          $LM = ListMenu::find($id);
-          $LM->trash='Y';
-          $LM->save(); 
+          $Kurir = Kurir::find($id);
+          $Kurir->trash='Y';
+          $Kurir->save(); 
         }catch(Exception $e){
           DB::rollBack();
           return 'bad';
@@ -138,7 +132,9 @@ class KurirController extends Controller
           return $GLOBALS['nomor']++;
         })
         ->addColumn('action',function($data) use($from,$no) {
-          return '<button id="pilih" class="btn btn-info" onclick="getMenuById('.$data->id.','.$no.')">Pilih</button>';
+          $content = '<a id="edit" target="ajax-modal" class="btn btn-info" href="'.url("all/kurir/edit/$data->id").'">Edit</a>';
+          $content .= '&nbsp; <button id="hapus" class="btn btn-danger hapus" id-kurir="'.$data->id.'">hapus</button>';
+          return $content;
         })
         ->make(true);
     }

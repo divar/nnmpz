@@ -88,7 +88,7 @@
                                 <a href="#tab_data_pelanggan" onclick="$('#judulform').text('Data Diri');" data-toggle="tab" class="nav-link loadtable" from="data_pelanggan" id="tab_data_pelanggan2">Data Pelanggan</a>
                             </li>
                             <li id="tab_menu" class="tab-pane table-active">
-                                <a href="#tab_input_menu" data-toggle="tab" onclick="judulform();" class="nav-link loadtable {{-- {{ isset($DetailTransaksi)?'':'disabled' }} --}}" from="input_menu" id="tab_menu2">Tab Menu</a>
+                                <a href="#tab_input_menu" data-toggle="tab" onclick="judulform();" class="nav-link loadtable {{ isset($DetailTransaksi)?'':'disabled' }}" from="input_menu" id="tab_menu2">Tab Menu</a>
                             </li>
                         </ul>
                     </nav>
@@ -138,7 +138,7 @@
                                     <div class="form-group row">
                                         <label for="alamat" class="col-md-3 col-form-label">Area</label>
                                         <div class="col-md-7">
-                                            <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly" value="{{ isset($Transaksi)?$Transaksi->Jalan->nama
+                                            <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly" value="{{ isset($Transaksi->Jalan)?$Transaksi->Jalan->nama
                                                 :'' }}">
                                             <input type="hidden" class="form-control" id="id_jenis" name="id_jenis" value="{{ isset($Transaksi)?$Transaksi->id_jenis:'' }}">
                                             <input type="hidden" class="form-control" id="id_jalan" name="id_jalan" value="{{ isset($Transaksi)?$Transaksi->id_tarif_wilayah:'' }}">
@@ -953,6 +953,10 @@
               $('#persen_kurir').val(0);
               $('#nilai_kurir').val(0);
               $('#persenTampil').text('-> 0 %');
+              $('#tab_menu2').attr('class','nav-link loadtable disabled');
+              $('#nexttab').attr('class','btn btn-primary disabled');
+              $('#cariJalan').prop('disabled',false);
+              $('#tab_data_pelanggan2').click();
             } else {
               $("input[name="+name+"]:radio").attr('prevValue', false);
               $(this).attr('prevValue', 'checked');
@@ -961,6 +965,16 @@
               // $('#textkurir').text(persen);
               $('#persen_kurir').val(persen);
               $('#persenTampil').text('->'+persen+' %');
+              $('#tab_menu2').attr('class','nav-link loadtable');
+              $('#nexttab').attr('class','btn btn-primary');
+              $('#cariJalan').prop('disabled',true);
+
+              $('#jalan').val('');
+              $('#id_jalan').val('');
+              $('#id_jenis').val('');
+              $('#harga_tarif_wilayah').val(0);
+              $('#id_tarifwilayah').val('');
+              $('#texttarifwilayah').html('');
             }
             grandTotal();
         });

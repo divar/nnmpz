@@ -53,7 +53,7 @@ class TransaksiController extends Controller
     {
         $send['kabupaten']=Indonesia::findProvince(34, $with = ['cities'])->toArray();
         $send['TarifWilayah']=TarifWilayah::all();
-        $send['Kurir'] = Kurir::all();
+        $send['Kurir'] = Kurir::where('trash','<>','Y')->orWhereNull('trash')->get();
         return $this->view('form',$send);
     }
     
@@ -93,7 +93,7 @@ class TransaksiController extends Controller
             $id_jalan = intval(isset($r['id_jalan'])?$r['id_jalan']:'');
             $id_alamat = (isset($r['id_alamat'])?$r['id_alamat']:'');
             $id_pelanggan = (isset($r['id_pelanggan'])?$r['id_pelanggan']:'');
-            $tarifwilayah = (isset($r['id_tarifwilayah'])?$r['id_tarifwilayah']:'');
+            $tarifwilayah = (isset($r['id_tarifwilayah']) && !empty($r['id_tarifwilayah'])?$r['id_tarifwilayah']:null);
             $harga_tarif_wilayah = (isset($r['harga_tarif_wilayah'])?$r['harga_tarif_wilayah']:'');
             $userinput = Auth::user()->id;
             $created_at = date('Y-m-d');
@@ -193,7 +193,7 @@ class TransaksiController extends Controller
             //update data yang belum terinput
             $insertPelanggan->id_alamat = $id_alamat;
             $insertPelanggan->save();
-            $insertTransaksi->total_harga = ($grandtotal+$harga_tarif_wilayah)*1.1;
+            $insertTransaksi->total_harga = (($grandtotal+$harga_tarif_wilayah)*1.1)+$pajak_kurir;
             $insertTransaksi->ppn = ($grandtotal+$harga_tarif_wilayah)*0.1;
             $insertTransaksi->tarif_wilayah = $harga_tarif_wilayah;
             $insertTransaksi->id_jalan = $id_jalan;
@@ -266,7 +266,7 @@ class TransaksiController extends Controller
         $send['Transaksi']=Transaksi::find($id);
         $send['Pelanggan']=Pelanggan::find($send['Transaksi']->id_pelanggan);
         $send['Alamat']=Alamat::find($send['Transaksi']->id_alamat);
-        $send['Kurir']=Kurir::all();
+        $send['Kurir']=Kurir::where('trash','<>','Y')->orWhereNull('trash')->get();
         $send['DetailTransaksi']=DetailTransaksi::with('menu')->where('id_transaksi',$send['Transaksi']->id)->get(); 
         return $this->view('form',$send);
     }
@@ -291,7 +291,7 @@ class TransaksiController extends Controller
             $id_jalan               = intval(isset($r['id_jalan'])?$r['id_jalan']:'');
             $id_alamat              = (isset($r['id_alamat'])?$r['id_alamat']:'');
             $id_pelanggan           = (isset($r['id_pelanggan'])?$r['id_pelanggan']:'');
-            $tarifwilayah           = (isset($r['id_tarifwilayah'])?$r['id_tarifwilayah']:'');
+            $tarifwilayah           = (isset($r['id_tarifwilayah']) && !empty($r['id_tarifwilayah'])?$r['id_tarifwilayah']:null);
             $harga_tarif_wilayah    = (isset($r['harga_tarif_wilayah'])?$r['harga_tarif_wilayah']:'');
             $kurir                  = isset($r['kurir'])?$r['kurir']:null;
             $pajak_kurir            = isset($r['nilai_kurir'])?$r['nilai_kurir']:null;
@@ -368,7 +368,7 @@ class TransaksiController extends Controller
                 $grandtotal = $grandtotal+$sub_total;
             }
             //update data yang belum terinput
-            $insertTransaksi->total_harga = $grandtotal*1.1;
+            $insertTransaksi->total_harga = ($grandtotal*1.1)+$pajak_kurir;
             $insertTransaksi->ppn = $grandtotal*0.1;
             $insertTransaksi->save();
             $return = 'sukses';
@@ -444,7 +444,7 @@ class TransaksiController extends Controller
           return $data->penerima;
         })
         ->addColumn('total',function($data){
-            $nominal = nominalKoma($data->total_harga+$data->ppn,true);
+            $nominal = nominalKoma($data->total_harga,true);
           return $nominal;
         })
         ->addColumn('no_hp',function($data){

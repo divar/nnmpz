@@ -45,9 +45,9 @@
 @push('js')
 <script type="text/javascript">
 $(document).ready(function(){
-    $('#Kurir-table').on('click','.DeleteData',function(){
-        id_jenis_makanan = $(this).attr('id-jenis_makanan');
-        deleteData(id_jenis_makanan);
+    $('#Kurir-table').on('click','.hapus',function(){
+        id = $(this).attr('id-kurir');
+        deleteData(id);
     });
 });
  $(function() {
@@ -120,16 +120,15 @@ $(document).ready(function(){
     $('.dt-buttons').appendTo('div.dataTables_filter');
     $('#Kurir-table_filter').attr('style','float:none;');
 });
-function deleteData(id_jenis_makanan){
+function deleteData(id){
     $.ajax({
         type: "GET",
-        url: "{{ url('all/Kurir/delete') }}/"+id_jenis_makanan,
+        url: "{{ url('all/kurir/delete') }}/"+id,
         data: {
                         
         },  
         dataType: 'json',
         success: function(response){
-            
         }
     });
     xtable.ajax.reload();

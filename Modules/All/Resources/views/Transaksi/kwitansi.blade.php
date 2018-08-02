@@ -127,7 +127,9 @@
                         <b>Pemesan</b> &nbsp;: {{ $Transaksi[0]->pelanggan->nama }}<br>
                         <b>Penerima</b> : {{ $Transaksi[0]->penerima }}<br>
                         <b>Alamat</b> &nbsp;&nbsp;: {{ $Transaksi[0]->alamat->alamat }}<br>
+                        @if(!empty($Transaksi[0]->TarifWilayah))
                         <b>Area</b> &nbsp;&nbsp;&nbsp;&nbsp;: {{ $Transaksi[0]->TarifWilayah->nama }} ~ {{ $Transaksi[0]->Jalan->nama }} ~ {{ $Transaksi[0]->Jenis->jenis }} 
+                        @endif
                     </kbd>
                 </td>
             </tr>
