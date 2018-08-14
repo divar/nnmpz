@@ -102,7 +102,9 @@
                                         <label for="kurir" class="col-md-3 col-form-label">Kurir</label>
                                         <div class="col-md-9">
                                             @foreach ($Kurir as $v)
-                                                <input type="radio" prevValue="" class="kurir" name="kurir" {{ isset($Transaksi->id_kurir) && $v->id==$Transaksi->id_kurir?'checked="checked"':'' }} value="{{ $v->id }}" nilai="{{ $v->persen }}">{{ $v->nama }} &nbsp;
+                                                <div class="col-xs-4">
+                                                    <label class="radio-pilih-container"><input type="radio" prevValue="" class="kurir" name="kurir" {{ isset($Transaksi->id_kurir) && $v->id==$Transaksi->id_kurir?'checked="checked"':'' }} value="{{ $v->id }}" nilai="{{ $v->persen }}">{{ $v->nama }} <span class="checkmark">&nbsp;</span></label>
+                                                </div>
                                                 @php
                                                     if(isset($Transaksi) && $v->id == $Transaksi->id_kurir){
                                                         $persen_kurir_edit = $v->persen;
@@ -145,7 +147,7 @@
                                             <input type="hidden" class="form-control" id="harga_tarif_wilayah" name="harga_tarif_wilayah" value="{{ isset($Transaksi)?$Transaksi->tarif_wilayah:0 }}">
                                         </div>
                                         <div class="col-md-2">
-                                            <button id="cariJalan" type="button" onclick="showJalan()" class="btn btn-primary">Cari</button>
+                                            <button id="cariJalan" type="button" onclick="showJalan()" {{ isset($Transaksi->id_kurir) ?'disabled="disabled"':'' }} class="btn btn-primary">Cari</button>
                                         </div>  
                                     </div>
                                     <div class="form-group row">
@@ -347,11 +349,11 @@
                                         <label class="control-label pull-left">Modifier</label>
                                         <div class="clearfix">&nbsp;</div>
                                         <div class="border border-light rounded col-nd-12" id="modifier_baris_ke-{{ $i }}">
-                                            <input type="hidden" value="0" class="hide_count_modifier" id="hide_count_modifier0" type="button" />
+                                            <input type="hidden" value="0" class="hide_count_modifier" id="hide_count_modifier{{ $i }}" type="button" />
                                             <?php $totalModifier=0; $iii=0;?>
                                                 @foreach ($DetailTransaksi[$i]->modifier as $val)
                                                 <div class="mr-3 p-2 row" id="modifier_ke-{{ $iii }}">
-                                                    <div class="col-sm-11"><input type="text" class="form-control mod input-lg modifier{{ $i }}" required="required" name="baris_{{ $iii }}[modifier][]" value="{{ $val->modifier }}"></div> 
+                                                    <div class="col-sm-11"><input type="text" class="form-control mod input-lg modifier{{ $i }}" required="required" name="baris_{{ $i }}[modifier][]" value="{{ $val->modifier }}"></div> 
                                                     <button type="button" row="{{ $i }}" no="{{ $iii }}" style="padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;" class="closeModifierMenu" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -386,7 +388,7 @@
                                     </div>
                                 </td>
                                 <td align="right">
-                                    <label id="total_{{$i}}" class="total_perbaris">{{ nominalKoma($DetailTransaksi[$i]->harga + $totaladdon, false) }}</label>
+                                    <label id="total_{{$i}}" class="total_perbaris">{{ nominalKoma(($DetailTransaksi[$i]->harga + $totaladdon) * $DetailTransaksi[$i]->jml, false) }}</label>
                                 </td>
                             </tr>
                         @endfor
@@ -854,7 +856,7 @@
         $('.closeModifierMenu').on('click',function(){
             no=$(this).attr('no');
             row=$(this).attr('row');
-
+            console.log(no);
             $('#modifier_baris_ke-'+row).find('#modifier_ke-'+no).detach();
             // $('#hide_count_addon'+row).val(count-1);
         });
@@ -942,6 +944,14 @@
             // $('#hide_count_addon'+row).val(count-1);
         });
         @endif
+        
+        $('.closeModifierMenu').on('click',function(){
+            no=$(this).attr('no');
+            row=$(this).attr('row');
+            console.log('asdasd');
+            $('#modifier_baris_ke-'+row).find('#modifier_ke-'+no).detach();
+            // $('#hide_count_addon'+row).val(count-1);
+        });
 
         $('.kurir').on('click',function(){
             var prevValue = $(this).attr('prevValue');

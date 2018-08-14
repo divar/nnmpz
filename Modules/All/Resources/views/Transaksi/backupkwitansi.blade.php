@@ -10,7 +10,7 @@
         padding-right: -10px;
         padding-left: -10px;
         margin-top: 0;
-        font-size: 12px;
+        font-size: 6px;
         /*line-height: 6px;*/
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
@@ -106,7 +106,7 @@
     }
 </style>
 </head>
-<body  ">   
+<body style="margin-top: -35px;">   
     <div class="invoice-box" id="section-to-print">
         <table cellpadding="0" cellspacing="0" >
             <tr class="information"> 
@@ -199,15 +199,6 @@
                         </tr>
                         {!! $i++ !!}
                         @endforeach
-                        <tr class="item last">
-                            <td colspan="2" align="right">
-                                Sub Total
-                            </td>
-
-                            <td align="right">
-                                {{ nominalKoma($Transaksi[0]->total_harga-$Transaksi[0]->ppn-$Transaksi[0]->pajak_kurir,true) }}
-                            </td>
-                        </tr>
                         <tr class="item last">
                             <td align="center">
                             </td>

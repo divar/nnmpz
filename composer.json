@@ -8,11 +8,13 @@
         "php": ">=7.0.0",
         "barryvdh/laravel-dompdf": "^0.8.1",
         "fideloper/proxy": "~3.3",
+        "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravolt/indonesia": "^0.7.0",
         "lavary/laravel-menu": "^1.7",
         "maatwebsite/excel": "~2.1.0",
+        "mike42/escpos-php": "^2.0",
         "nesbot/carbon": "^1.22",
         "nwidart/laravel-modules": "^2.6",
         "santigarcor/laratrust": "5.0.*",
@@ -28,7 +30,8 @@
     "autoload": {
         "classmap": [
             "database/seeds",
-            "database/factories"
+            "database/factories",
+            "vendor/mike42/escpos-php/"
         ],
         "psr-4": {
             "App\\": "app/",

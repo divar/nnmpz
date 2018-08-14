@@ -23,7 +23,10 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Collection;
-
+use Mike42\Escpos\Printer; 
+use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 class TransaksiController extends Controller
 {
     public function __construct()
@@ -47,6 +50,7 @@ class TransaksiController extends Controller
     {
         $send['satuan'] =  Satuan::select('id')->first()->count();
         $send['satuan2'] =  Satuan::select('satuan')->get()->toArray();
+        $send['Kurir'] = Kurir::where('trash','<>','Y')->orWhereNull('trash')->get();
         return $this->view('index-laporan',$send);
     }
     public function tambahTransaksi()
@@ -67,6 +71,7 @@ class TransaksiController extends Controller
         $send['kabupaten']=Indonesia::findProvince(34, $with = ['cities'])->toArray();
         $send['TarifWilayah']=TarifWilayah::all();
         $send['Pelanggan'] = Pelanggan::find($id);
+        $send['Kurir'] = Kurir::where('trash','<>','Y')->orWhereNull('trash')->get();
         return $this->view('form',$send);
     }
 
@@ -144,14 +149,19 @@ class TransaksiController extends Controller
                 $baris = $r[$nama_baris];
                 $id_menu = (isset($baris['id_menu'])?$baris['id_menu']:'');
                 $harga = ListMenu::select('harga')->where('id',$id_menu)->whereNull('trash')->get()[0]->harga;;
-                $jml = (isset($baris['jml'])?$baris['jml']:0); 
-                $keterangan = (isset($baris['keterangan'])?$baris['keterangan']:''); 
+                $jml = (isset($baris['jml'])?$baris['jml']:0);
+                $keterangan = (isset($baris['keterangan'])?$baris['keterangan']:'');
+                if (isset($baris['id_addon'])){
+                    $total_harga_addon = array_sum($baris['itemharga_addon']);
+                }else{
+                    $total_harga_addon = 0;
+                }
                 $dataDetailTransaksi = [
                     'id_transaksi'=> $insertTransaksi->id,
                     'id_menu'=> $id_menu,
                     'harga'=> $harga,
                     'jml'=> $jml,
-                    'sub_total'=> $harga*$jml,
+                    'sub_total'=> ($harga+ $total_harga_addon)*$jml,
                     'keterangan'=> $keterangan,
                     'user_input'=> $userinput,
                     'created_at'=>$created_at,
@@ -210,8 +220,8 @@ class TransaksiController extends Controller
         DB::commit();
         session(['id'=>$insertTransaksi->id]);
         // Auth::logout();
-        // return redirect("nota/cetaknota/$insertTransaksi->id");
-        return redirect('/all/transaksi')->with('id',$insertTransaksi->id);
+        return redirect("nota/cetaknota/$insertTransaksi->id");
+        // return redirect('/all/transaksi')->with('id',$insertTransaksi->id);
         if($return == 'Input Lagi'){
             // return redirect('all/transaksi/tambah')->with('return',$return)->with('id',$insertTransaksi->id);
         }else{
@@ -219,10 +229,158 @@ class TransaksiController extends Controller
         }
     }
 
+    public function items($jml,$name,$price,$RpSign=true) {
+        $rightCols = 10;
+        $midCols = 17;
+        $leftCols = 3;
+        /*if($RpSign) {
+            $midCols = $midCols / 2 - $rightCols / 2;
+        }*/
+
+        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
+        $name = str_replace($vowels, "", $name);
+        if(strlen($name)>17){
+            $name = substr($name, 0, 17);
+        }
+
+        $left = str_pad($jml, $leftCols) ;
+        $mid = str_pad($name, $midCols) ;
+        
+        
+        $sign = ($RpSign ? 'Rp ' : '');
+        $right = str_pad($sign.$price, $rightCols, ' ', STR_PAD_LEFT);
+        return "\n$left$mid$right";
+    }
+    public function addonDanModifier($nama = '') {
+        $rightCols = 5;
+        $midCols = 22;
+        $leftCols = 5;
+        
+        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
+        $nama = str_replace($vowels, "", $nama);
+        if(strlen($nama)>17){
+            $nama = substr($nama, 0, 17);
+        }
+
+        $left = str_pad('', $leftCols) ;
+        $mid = str_pad($nama, $midCols) ;
+        
+        $right = str_pad(' ', $rightCols, ' ', STR_PAD_LEFT);
+
+        return "\n$left$mid$right";
+    }
+    public function footerKwitansi($nama = '', $value='') {
+        $rightCols = 16;
+        $leftCols = 8;
+        
+        $left = str_pad($nama, $leftCols, ' ', STR_PAD_LEFT);
+        $right = str_pad($value, $rightCols, ' ', STR_PAD_LEFT);
+
+        return "\n$left $right";
+    }
+    public function printReceipt($id=0){
+        $Transaksi = Transaksi::with('Pelanggan')->with('Alamat')->where('id',$id)->get();
+        $DetailTransaksi = DetailTransaksi::with('Menu')->with('addons')->with('modifier')->where('id_transaksi',$id)->get();
+        $operator = empty($Transaksi[0]->userinput->name)?'':$Transaksi[0]->userinput->name;
+        // Enter the share name for your USB printer here
+        //$connector = "POS-58";
+        //$connector = new WindowsPrintConnector("POS-58");
+        $connector = new WindowsPrintConnector("COM3");
+        /* Print a "Hello world" receipt" */
+        $printer = new Printer($connector);
+        /* Name of shop */
+        $printer->selectPrintMode(Printer::MODE_FONT_A);
+        $printer->setFont(Printer::FONT_C);
+        $printer->setJustification(Printer::JUSTIFY_CENTER);
+        $printer->setEmphasis(true);
+        $printer->text("Nanamia\n");
+        //Informasi Alamat
+        $printer->text("\nJl. Mozes Gatotkaca B 9 - 17,\nGejayan, Yogyakarta\n0274 - 556494 / 549090");
+        $printer->text("\nOP : $operator");
+        //Informasi transaksi
+        $printer->feed();
+
+        $printer->selectPrintMode(Printer::MODE_FONT_A);
+        $printer->setJustification(Printer::JUSTIFY_LEFT);
+        $printer->setEmphasis(true);
+        $printer->text("\nInvoice  : ".$Transaksi[0]->no_kwitansi);
+        $printer->text("\nCreated  : ".date('H.i'));
+        $printer->text("\nPemesan  : ".$Transaksi[0]->pelanggan->nama);
+        $printer->text("\nPenerima : ".$Transaksi[0]->penerima);
+        $printer->text("\nAlamat   : ".$Transaksi[0]->alamat->alamat."\n");
+
+        $printer->feed();
+        $i=0;
+        
+        $printer->selectPrintMode(Printer::MODE_FONT_A);
+        $printer->setJustification(Printer::JUSTIFY_RIGHT);
+        $printer->setEmphasis(true);
+
+        foreach ($DetailTransaksi as $val) {
+            $totalAddons=0; $iii=0;
+            foreach ($DetailTransaksi[$i]->addons as $value){
+                $totalAddons = $value->harga+$totalAddons; $iii++;
+            }
+            $totalModifier=0; $iii=0;
+            foreach ($DetailTransaksi[$i]->modifier as $value){
+                $totalModifier = $value->harga+$totalModifier; $iii++;
+            }
+
+            $printer->text($this->items($val['jml'],$val['menu']->nama_menu,nominalKoma($val['sub_total'],false)));
+
+            $totalAddons=0; $iii=0;
+            foreach ($DetailTransaksi[$i]->addons as $value){
+                if($iii==0){
+                    $printer->text("\n".str_pad('#Addon', 32));
+                }
+                $printer->text($this->addonDanModifier($value->Addons->nama));
+                $totalAddons = $value->harga+$totalAddons; $iii++;
+            }
+            $totalModifier=0; $iii=0;
+            foreach ($DetailTransaksi[$i]->modifier as $value){
+                if($iii==0){
+                    $printer->text("\n".str_pad('#Modifier', 32));
+                }
+                $printer->text($this->addonDanModifier($value->modifier));
+                $totalModifier = $value->harga+$totalModifier; $iii++;
+            }
+
+            $i++;
+        }
+        $printer->feed(); 
+        $printer->setJustification(Printer::JUSTIFY_RIGHT);
+        $printer->setEmphasis(true);
+
+        $printer->text($this->footerKwitansi('Subtotal',nominalKoma($Transaksi[0]->total_harga-$Transaksi[0]->ppn-$Transaksi[0]->pajak_kurir, true)));
+        $printer->text($this->footerKwitansi('Total Pesanan',$i));
+        $printer->text($this->footerKwitansi('tax goverment',nominalKoma($Transaksi[0]->ppn,true)));
+        $printer->text($this->footerKwitansi('Tarif Wilayah',nominalKoma($Transaksi[0]->tarif_wilayah,true)));
+        $printer->text($this->footerKwitansi('tax away charge',nominalKoma($Transaksi[0]->pajak_kurir,true)));
+        $printer->text($this->footerKwitansi('Total',nominalKoma($Transaksi[0]->total_harga, true)));
+        
+        $printer->feed(); 
+
+        /* Cut the receipt and open the cash drawer */
+        $printer->cut();
+        $printer->pulse();
+        /* Close printer */
+        $printer->close();
+    }
+
     public function cetakNota(Request $request, $id=0)
     {
+        try {
+            for ($i=0; $i < 1; $i++) { 
+                $this->printReceipt($id);
+            }
+        } catch (Exception $e) {
+            // $message = "Couldn't print to this printer: " . $e->getMessage() . "\n";
+            // return false;
+        }
+
         $sendNota['Transaksi'] = Transaksi::with('Pelanggan')->with('Alamat')->where('id',$id)->get();
         $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->with('addons')->with('modifier')->where('id_transaksi',$id)->get();
+        
         // $DT = DetailTransaksi::with('addons')->with('modifier')->where('id_transaksi',$id)->get();
         // $modifier = DetailTransaksi::with('modifier')->where('id_transaksi',$id)->get();
         $jml_modifier= 0;
@@ -313,6 +471,7 @@ class TransaksiController extends Controller
             $insertTransaksi->update($dataTransaksi);
             $grandtotal = 0;
             DetailTransaksi::where('id_transaksi',$id_transaksi)->delete();
+            // dd($r['baris_4']['jml']);
             for($i=0;$i<count($r['count_menu']);$i++){
                 $nama_baris = $r['count_menu'][$i];
                 $baris = $r[$nama_baris];
@@ -321,12 +480,17 @@ class TransaksiController extends Controller
                 $harga = ListMenu::select('harga')->where('id',$id_menu)->whereNull('trash')->get()[0]->harga;;
                 $jml = (isset($baris['jml'])?$baris['jml']:0); 
                 $keterangan = (isset($baris['keterangan'])?$baris['keterangan']:''); 
+                if (isset($baris['id_addon'])){
+                    $total_harga_addon = array_sum($baris['itemharga_addon']);
+                }else{
+                    $total_harga_addon = 0;
+                }
                 $dataDetailTransaksi = [
                     'id_transaksi'=> $id_transaksi,
                     'id_menu'=> $id_menu,
                     'harga'=> $harga,
                     'jml'=> $jml,
-                    'sub_total'=> $harga*$jml,
+                    'sub_total'=> ($harga+$total_harga_addon)*$jml,
                     'keterangan'=> $keterangan,
                     'user_input'=>$user_update,
                     'user_update'=>$user_update,
@@ -380,13 +544,13 @@ class TransaksiController extends Controller
             $return = 'gagal';
         }
         DB::commit();
-        session(['id'=>$insertTransaksi->id]);
+        // session(['id'=>$insertTransaksi->id]);
         
         // Auth::logout();
         // dd($insertTransaksi->id);
         // return redirect('/logouts')->with('id',$insertTransaksi->id);
-        // return redirect("nota/cetaknota/$insertTransaksi->id");
-        return redirect("all/transaksi")->with('return',$return)->with('id',$insertTransaksi->id);
+        return redirect("nota/cetaknota/$insertTransaksi->id");
+        // return redirect("all/transaksi")->with('return',$return)->with('id',$insertTransaksi->id);
     }
 
     /**
