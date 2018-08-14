@@ -220,8 +220,8 @@ class TransaksiController extends Controller
         DB::commit();
         session(['id'=>$insertTransaksi->id]);
         // Auth::logout();
-        return redirect("nota/cetaknota/$insertTransaksi->id");
-        // return redirect('/all/transaksi')->with('id',$insertTransaksi->id);
+        // return redirect("nota/cetaknota/$insertTransaksi->id");
+        return redirect('/all/transaksi')->with('id',$insertTransaksi->id);
         if($return == 'Input Lagi'){
             // return redirect('all/transaksi/tambah')->with('return',$return)->with('id',$insertTransaksi->id);
         }else{
@@ -370,7 +370,7 @@ class TransaksiController extends Controller
     public function cetakNota(Request $request, $id=0)
     {
         try {
-            for ($i=0; $i < 1; $i++) { 
+            for ($i=0; $i < 3; $i++) { 
                 $this->printReceipt($id);
             }
         } catch (Exception $e) {
@@ -549,8 +549,8 @@ class TransaksiController extends Controller
         // Auth::logout();
         // dd($insertTransaksi->id);
         // return redirect('/logouts')->with('id',$insertTransaksi->id);
-        return redirect("nota/cetaknota/$insertTransaksi->id");
-        // return redirect("all/transaksi")->with('return',$return)->with('id',$insertTransaksi->id);
+        // return redirect("nota/cetaknota/$insertTransaksi->id");
+        return redirect("all/transaksi")->with('return',$return)->with('id',$insertTransaksi->id);
     }
 
     /**
