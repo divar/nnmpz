@@ -333,7 +333,7 @@ class TransaksiController extends Controller
                 if($iii==0){
                     $printer->text("\n".str_pad('#Addon', 32));
                 }
-                $printer->text($this->addonDanModifier($value->Addons->nama));
+                $printer->text($this->addonDanModifier($value->Addons->nama.'- Rp'.$value->Addons->harga));
                 $totalAddons = $value->harga+$totalAddons; $iii++;
             }
             $totalModifier=0; $iii=0;
@@ -369,20 +369,31 @@ class TransaksiController extends Controller
 
     public function cetakNota(Request $request, $id=0)
     {
+        $sendNota['Transaksi'] = Transaksi::with('Pelanggan')->with('Alamat')->where('id',$id)->get();
+        $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->with('addons')->with('modifier')->where('id_transaksi',$id)->get();
         try {
-            for ($i=0; $i < 3; $i++) { 
-                $this->printReceipt($id);
+            if($sendNota['Transaksi'][0]['flag_kurir']==1){
+                for ($i=0; $i < 2; $i++) { 
+                    $this->printReceipt($id);
+                }
+                return $this->pdfPrint($sendNota);
+            }else{
+                /*for ($i=0; $i < 1; $i++) { 
+                }*/
+                return $this->printReceipt($id);
+                return $this->pdfPrint($sendNota);
             }
         } catch (Exception $e) {
             // $message = "Couldn't print to this printer: " . $e->getMessage() . "\n";
             // return false;
         }
 
-        $sendNota['Transaksi'] = Transaksi::with('Pelanggan')->with('Alamat')->where('id',$id)->get();
-        $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->with('addons')->with('modifier')->where('id_transaksi',$id)->get();
-        
         // $DT = DetailTransaksi::with('addons')->with('modifier')->where('id_transaksi',$id)->get();
         // $modifier = DetailTransaksi::with('modifier')->where('id_transaksi',$id)->get();
+        
+        // return redirect('all/transaksi');
+    }
+    public function pdfPrint($sendNota){
         $jml_modifier= 0;
         $jml_addon= 0;
         $jml=0;
@@ -400,10 +411,8 @@ class TransaksiController extends Controller
         $namafile = "D:\NOTA\Transaksi".$sendNota['Transaksi'][0]->no_kwitansi.".pdf";
         $pdf= PDF::loadView('all::Transaksi.kwitansi', $sendNota);
         $pdf = $pdf->setPaper(array(20,20,150,$height),'portrait')->setWarnings(false)->save($namafile);
-        return $pdf->stream($namafile);
-        // return redirect('all/transaksi');
+        return $pdf->download($namafile);
     }
-
     /**
      * Show the specified resource.
      * @return Response
@@ -456,12 +465,15 @@ class TransaksiController extends Controller
             $flag_kurir             = isset($r['kurir'])?'1':'0';
             $user_update            = Auth::user()->id;
             $created_at             = date('Y-m-d');
-
+            $id_jenis               = intval(isset($r['id_jenis'])?$r['id_jenis']:'');
+            $id_jalan               = intval(isset($r['id_jalan'])?$r['id_jalan']:'');
             $dataTransaksi = [
                 'id_alamat'=>$id_alamat,
                 'penerima'=> $nama_penerima,
                 'id_tarif_wilayah'=>$tarifwilayah,
                 'id_kurir'=>$kurir,
+                'id_jalan'=>$id_jalan,
+                'id_jenis'=>$id_jenis,
                 'pajak_kurir'=>$pajak_kurir,
                 'flag_kurir'=>$flag_kurir,
                 'user_update'=>$user_update,
