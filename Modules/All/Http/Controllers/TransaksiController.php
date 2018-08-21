@@ -295,7 +295,9 @@ class TransaksiController extends Controller
         $printer->setEmphasis(true);
         $printer->text("Nanamia\n");
         //Informasi Alamat
-        $printer->text("\nJl. Mozes Gatotkaca B 9 - 17,\nGejayan, Yogyakarta\n0274 - 556494 / 549090");
+        $printer->text("\n".env('APP_ALAMAT_BARIS1', "Jl. Mozes Gatotkaca B 9 - 17,"));
+        $printer->text("\n".env('APP_ALAMAT_BARIS2', "Gejayan, Yogyakarta"));
+        $printer->text("\n".env('APP_ALAMAT_BARIS3', "0274 - 556494 / 549090"));
         $printer->text("\nOP : $operator");
         //Informasi transaksi
         $printer->feed();

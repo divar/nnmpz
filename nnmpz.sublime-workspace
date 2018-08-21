@@ -547,7 +547,7 @@
 			"file": "Modules/All/Http/Controllers/TransaksiController.php",
 			"settings":
 			{
-				"buffer_size": 32119,
+				"buffer_size": 32122,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -788,7 +788,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -1050,15 +1050,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 32119,
+						"buffer_size": 32122,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16173,
-								16173
+								16191,
+								16191
 							]
 						],
 						"settings":
