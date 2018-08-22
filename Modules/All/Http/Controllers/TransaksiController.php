@@ -378,12 +378,13 @@ class TransaksiController extends Controller
                 for ($i=0; $i < 2; $i++) { 
                     $this->printReceipt($id);
                 }
-                return $this->pdfPrint($sendNota);
+                return $this->printReceipt($id);
+                // return $this->pdfPrint($sendNota);
             }else{
                 /*for ($i=0; $i < 1; $i++) { 
                 }*/
                 return $this->printReceipt($id);
-                return $this->pdfPrint($sendNota);
+                // return $this->pdfPrint($sendNota);
             }
         } catch (Exception $e) {
             // $message = "Couldn't print to this printer: " . $e->getMessage() . "\n";
