@@ -519,8 +519,8 @@
                 <div class="container-fluid">\n\
                     <div class="col-md-12 col-md-offset-2">\n\
                     <center><strong>{{ config('app.name') }}</strong></center>\n\
-                    <center><strong>Jl. Mozes Gatotkaca B 9 – 17, Gejayan, Yogyakarta</strong></center>\n\
-                    <center><strong>0274 – 556494 / 549090</strong></center>\n\
+                    <center><strong>{{ env('APP_ALAMAT_BARIS1') }}, {{ env('APP_ALAMAT_BARIS2') }}</strong></center>\n\
+                    <center><strong>{{ env('APP_ALAMAT_BARIS3') }}</strong></center>\n\
                     <center><strong>OP : {{ Auth::user()->name}}</strong></center>\n\
                     </div>\n\
                     <div class="col-md-12 col-md-offset-2">\n\
