@@ -246,7 +246,7 @@
                                     <div class="col-md-3">&nbsp;
                                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
                                         <button disabled="disabled" id="sowaddon0" type="button" no="0" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-plus"></i></button>
-                                        <button id="addModifier0" type="button" no="0" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-bars"></i></button>{{-- di duplikat --}}
+                                        <button id="addModifier0" type="button" no="0" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-minus"></i></button>{{-- di duplikat --}}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -316,8 +316,8 @@
                                         </div>
                                         <div class="col-md-3">&nbsp;
                                             <button type="button" class="btn btn-sm btn-info" onclick="showMenu({{$i}})" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
-                                            <button id="sowaddon{{$i}}" type="button" no="{{$i}}" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>
-                                            <button id="addModifier{{ $i }}" type="button" no="{{ $i }}" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>
+                                            <button id="sowaddon{{$i}}" type="button" no="{{$i}}" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-plus"></i></button>
+                                            <button id="addModifier{{ $i }}" type="button" no="{{ $i }}" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-minus"></i></button>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -567,8 +567,8 @@
                     <div class="col-md-9"><input id="menu_'+count+'" type="text" name="baris_'+count+'[menu]" class="form-control required" /><input type="hidden" id="idmenu_'+count+'" name="baris_'+count+'[id_menu]"/></div>\n\
                     <div class="col-md-3">&nbsp;\n\
                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu('+count+')" title="Cari Menu"><i class="fa fa-search-plus"></i></button>\n\
-                        <button disabled="disabled" id="sowaddon'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>\n\
-                        <button id="addModifier'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>\n\
+                        <button disabled="disabled" id="sowaddon'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-plus"></i></button>\n\
+                        <button id="addModifier'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-minus"></i></button>\n\
                     </div>\n\
                 </div>\n\
                 <div class="row">\n\
