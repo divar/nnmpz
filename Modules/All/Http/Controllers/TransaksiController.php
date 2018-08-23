@@ -632,6 +632,9 @@ class TransaksiController extends Controller
         ->addColumn('pegawai',function($data){
           return $data->userinput->name;
         })
+        ->addColumn('kurir',function($data){
+          return empty($data->Kurir->nama)?'Nanamia':$data->Kurir->nama;
+        })
         ->addColumn('modifier',function($data){
             $lm = DetailTransaksi::where('id_transaksi',$data->id); 
             $content = '';
@@ -725,6 +728,9 @@ class TransaksiController extends Controller
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
+        })
+        ->addColumn('kurir',function($data){
+          return empty($data->Kurir->nama)?'Nanamia':$data->Kurir->nama;
         })
         ->rawColumns(['pesanan','action','modifier','addon','total'])
         ->make(true);

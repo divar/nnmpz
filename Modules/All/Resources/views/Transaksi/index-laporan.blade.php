@@ -43,6 +43,7 @@
                                     <th>Tanggal Pesan</th>
                                     <th>Alamat</th>
                                     <th>pegawai</th>
+                                    <th>kurir</th>
                                     <th>Addon</th>
                                     <th>Modifier</th>
                                     @for ($i = 0; $i < count($satuan2); $i++)
@@ -100,6 +101,7 @@ function refresh(){
             { data: 'tgl_pesan', name: 'tgl_pesan', searchable:false,orderable:true},
             { data: 'alamat', name: 'alamat', searchable:false,orderable:true},
             { data: 'pegawai', name: 'pegawai', searchable:false,orderable:true},
+            { data: 'kurir', name: 'kurir', searchable:false,orderable:true},
             { data: 'addon', name: 'addon', searchable:false,orderable:true},
             { data: 'modifier', name: 'modifier', searchable:false,orderable:true},
         @for ($i = 0; $i < count($satuan2); $i++)
