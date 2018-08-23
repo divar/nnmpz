@@ -548,7 +548,7 @@ class TransaksiController extends Controller
             }
             //update data yang belum terinput
             $insertTransaksi->total_harga = (($grandtotal+$harga_tarif_wilayah)*1.1)+$pajak_kurir;
-            $insertTransaksi->ppn = $grandtotal*0.1;
+            $insertTransaksi->ppn = ($grandtotal+$harga_tarif_wilayah)*0.1;
             $insertTransaksi->save();
             $return = 'sukses';
             if(!empty($r['return'])){
