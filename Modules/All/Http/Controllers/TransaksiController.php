@@ -237,11 +237,11 @@ class TransaksiController extends Controller
             $midCols = $midCols / 2 - $rightCols / 2;
         }*/
 
-        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
-        $name = str_replace($vowels, "", $name);
-        if(strlen($name)>17){
-            $name = substr($name, 0, 17);
-        }
+        // $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
+        // $name = str_replace($vowels, "", $name);
+        // if(strlen($name)>17){
+        //     $name = substr($name, 0, 17);
+        // }
 
         $left = str_pad($jml, $leftCols) ;
         $mid = str_pad($name, $midCols) ;
