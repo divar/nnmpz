@@ -118,7 +118,7 @@
                                             <label id="textharga_0">{{ $DetailTransaksi[0]->harga }}<input type="hidden" id="harga_0" name="harga[]" value="{{ nominalKoma($DetailTransaksi[0]->harga, false) }}" /></label>
                                         </td>
                                         <td class="row">
-                                            <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number" value="{{ $DetailTransaksi[0]->jml }}" required="required" name="jml[]" class="form-control qtyx"/></div>
+                                            <div class="col-sm-9"><input id="qty_menu_0" untuk="0" type="number" style="font-size: 36px;" value="{{ $DetailTransaksi[0]->jml }}" required="required" name="jml[]" class="form-control qtyx"/></div>
                                         </td>
                                         <td align="right">
                                             <label id="total_0">{{ nominalKoma($DetailTransaksi[0]->sub_total, false) }}</label>

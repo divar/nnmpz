@@ -253,14 +253,14 @@ class TransaksiController extends Controller
     }
     public function addonDanModifier($nama = '') {
         $rightCols = 5;
-        $midCols = 22;
+        $midCols = 32;
         $leftCols = 5;
         
-        $vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
+        /*$vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
         $nama = str_replace($vowels, "", $nama);
         if(strlen($nama)>17){
             $nama = substr($nama, 0, 17);
-        }
+        }*/
 
         $left = str_pad('', $leftCols) ;
         $mid = str_pad($nama, $midCols) ;
@@ -291,6 +291,7 @@ class TransaksiController extends Controller
         /* Name of shop */
         $printer->selectPrintMode(Printer::MODE_FONT_A);
         $printer->setFont(Printer::FONT_C);
+        // $printer->setTextSize(1,1);
         $printer->setJustification(Printer::JUSTIFY_CENTER);
         $printer->setEmphasis(true);
         $printer->text("Nanamia\n");
@@ -304,6 +305,7 @@ class TransaksiController extends Controller
 
         $printer->selectPrintMode(Printer::MODE_FONT_A);
         $printer->setJustification(Printer::JUSTIFY_LEFT);
+        $printer->setTextSize(1,1);
         $printer->setEmphasis(true);
         $printer->text("\nInvoice  : ".$Transaksi[0]->no_kwitansi);
         $printer->text("\nCreated  : ".date('H.i'));
@@ -314,8 +316,9 @@ class TransaksiController extends Controller
         $printer->feed();
         $i=0;
         
-        $printer->selectPrintMode(Printer::MODE_FONT_A);
+        $printer->selectPrintMode(Printer::MODE_FONT_B);
         $printer->setJustification(Printer::JUSTIFY_RIGHT);
+        $printer->setTextSize(1,1);
         $printer->setEmphasis(true);
 
         foreach ($DetailTransaksi as $val) {
