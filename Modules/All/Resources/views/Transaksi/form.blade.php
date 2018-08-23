@@ -245,8 +245,8 @@
                                         <input type="hidden" id="idmenu_0" name="baris_0[id_menu]"/></div>
                                     <div class="col-md-3">&nbsp;
                                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
-                                        <button disabled="disabled" id="sowaddon0" type="button" no="0" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>
-                                        <button id="addModifier0" type="button" no="0" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>{{-- di duplikat --}}
+                                        <button disabled="disabled" id="sowaddon0" type="button" no="0" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-plus"></i></button>
+                                        <button id="addModifier0" type="button" no="0" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-bars"></i></button>{{-- di duplikat --}}
                                     </div>
                                 </div>
                                 <div class="row">
