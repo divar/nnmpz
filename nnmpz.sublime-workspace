@@ -528,18 +528,20 @@
 			}
 		},
 		{
-			"file": "resources/views/auth/login.blade.php",
+			"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 2619,
+				"buffer_size": 6791,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Auth/LoginController.php",
+			"file": "Modules/All/Resources/views/Transaksi/index-laporan.blade.php",
 			"settings":
 			{
-				"buffer_size": 1019,
+				"buffer_size": 7130,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -547,70 +549,42 @@
 			"file": "Modules/All/Http/Controllers/TransaksiController.php",
 			"settings":
 			{
-				"buffer_size": 32320,
+				"buffer_size": 32754,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": ".env.example",
+			"file": "vendor/mike42/escpos-php/src/Mike42/Escpos/Printer.php",
 			"settings":
 			{
-				"buffer_size": 676,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 44046,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Modules/All/Resources/views/Satuan/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 4763,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Modules/All/Resources/views/Transaksi/kwitansi.blade.php",
-			"settings":
-			{
-				"buffer_size": 9777,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 6662,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "@extends(Request::get('ajax') ? 'layouts.modal':'layouts.content')\n\n@section('sub-content')\n<style>\n    /* The container */\n    .radio-pilih-container {\n        display: block;\n        position: relative;\n        padding-left: 35px;\n        margin-bottom: 12px;\n        cursor: pointer;\n        font-size: 15px;\n        -webkit-user-select: none;\n        -moz-user-select: none;\n        -ms-user-select: none;\n        user-select: none;\n    }\n\n    /* Hide the browser's default radio button */\n    .radio-pilih-container input {\n        position: absolute;\n        opacity: 0;\n    }\n\n    /* Create a custom radio button */\n    .checkmark {\n        position: absolute;\n        top: 30%;\n        left: 0;\n        height: 25px;\n        width: 25px;\n        background-color: #eee;\n        border-radius: 50%;\n    }\n\n    /* On mouse-over, add a grey background color */\n    .radio-pilih-container:hover input ~ .checkmark {\n        background-color: #ccc;\n    }\n\n    /* When the radio button is checked, add a blue background */\n    .radio-pilih-container input:checked ~ .checkmark {\n        background-color: #2196F3;\n    }\n\n    /* Create the indicator (the dot/circle - hidden when not checked) */\n    .checkmark:after {\n        content: \"\";\n        position: absolute;\n        display: none;\n    }\n\n    /* Show the indicator (dot/circle) when checked */\n    .radio-pilih-container input:checked ~ .checkmark:after {\n        display: block;\n    }\n\n    /* Style the indicator (dot/circle) */\n    .radio-pilih-container .checkmark:after {\n        top: 9px;\n        left: 9px;\n        width: 8px;\n        height: 8px;\n        border-radius: 50%;\n        background: white;\n    }\n</style>\n<div class=\"content-wrapper\">\n    @if(!isset($DetailTransaksi))\n    <form action=\"{{ route('postTambahTransaksi') }}\" id=\"form-transaksi\" method=\"POST\" name=\"tambahMenu-form\" enctype=\"multipart/form-data\">\n    @else\n    <form action=\"{{ route('postEditTransaksi') }}\" id=\"form-transaksi\" method=\"POST\" name=\"tambahMenu-form\" enctype=\"multipart/form-data\">\n    @endif\n        <div class=\"container-fluid\">\n            <div class=\"col-md-12\">\n                <div class=\"panel panel-default\">\n                    <div class=\"panel-heading\">\n                        <H3 id=\"judulform\">{{ isset($DetailTransaksi)?'Edit':'Tambah ' }} Data Diri</H3>\n                    </div>\n                    \n                    <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\">\n                    <input type=\"hidden\" name=\"id_pelanggan\" value=\"{{ isset($Pelanggan)?$Pelanggan->id:'' }}\">\n                    \n                    <div class=\"clearfix\">&nbsp;</div>\n                    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n                        <ul class=\"nav nav-tabs mr-auto\">\n                            <li id=\"tab_dt_pelanggan\">\n                                <a href=\"#tab_data_pelanggan\" onclick=\"$('#judulform').text('Data Diri');\" data-toggle=\"tab\" class=\"nav-link loadtable\" from=\"data_pelanggan\" id=\"tab_data_pelanggan2\">Data Pelanggan</a>\n                            </li>\n                            <li id=\"tab_menu\" class=\"tab-pane table-active\">\n                                <a href=\"#tab_input_menu\" data-toggle=\"tab\" onclick=\"judulform();\" class=\"nav-link loadtable {{ isset($DetailTransaksi)?'':'disabled' }}\" from=\"input_menu\" id=\"tab_menu2\">Tab Menu</a>\n                            </li>\n                        </ul>\n                    </nav>\n                    <div class=\"tab-content\">\n                        <div class=\"clearfix\">&nbsp;</div>\n                        <div class=\"tab-pane\" id=\"tab_data_pelanggan\">\n                            <div class=\"row\">\n                                <div class=\"clearfix\">&nbsp;</div>\n                                <div class=\"col-md-5\">\n                                    <div class=\"form-group row\">\n                                        <label for=\"kurir\" class=\"col-md-3 col-form-label\">Kurir</label>\n                                        <div class=\"col-md-9\">\n                                            @foreach ($Kurir as $v)\n                                                <div class=\"col-xs-4\">\n                                                    <label class=\"radio-pilih-container\"><input type=\"radio\" prevValue=\"\" class=\"kurir\" name=\"kurir\" {{ isset($Transaksi->id_kurir) && $v->id==$Transaksi->id_kurir?'checked=\"checked\"':'' }} value=\"{{ $v->id }}\" nilai=\"{{ $v->persen }}\">{{ $v->nama }} <span class=\"checkmark\">&nbsp;</span></label>\n                                                </div>\n                                                @php\n                                                    if(isset($Transaksi) && $v->id == $Transaksi->id_kurir){\n                                                        $persen_kurir_edit = $v->persen;\n                                                    };\n                                                @endphp\n                                            @endforeach\n                                        </div>  \n                                    </div>\n                                    <div class=\"form-group row\">\n                                        <label for=\"nama\" class=\"col-md-3 col-form-label\">Pemesan</label>\n                                        <div class=\"col-md-9\">\n                                            <input id=\"nama\" type=\"text\" name=\"nama\" class=\"form-control required\" placeholder=\"Nama\" value=\"{{ isset($Pelanggan)?$Pelanggan->nama:'' }}\" {{ isset($Pelanggan)?'readonly=\"readonly\"':'' }}>\n                                        </div>  \n                                    </div>\n                                    <div class=\"form-group row\">\n                                        <label for=\"nama_penerima\" class=\"col-md-3 col-form-label\">Penerima</label>\n                                        <div class=\"col-md-9\">\n                                            <input id=\"nama_penerima\" type=\"text\" name=\"nama_penerima\" class=\"form-control required\" placeholder=\"Nama Penerima\"  value=\"{{ isset($Transaksi)?$Transaksi->penerima:'' }}\" >\n                                        </div>  \n                                    </div>\n                                    <div class=\"form-group row\">\n                                        <label for=\"no_hp\" class=\"col-md-3 col-form-label\">No Telepon</label>\n                                        <div class=\"col-md-9\">\n                                            <input id=\"no_hp\" type=\"text\" name=\"no_hp\" class=\"form-control required\" placeholder=\"0821xxxxxx\"  {{ isset($Pelanggan)?'readonly=\"readonly\"':'' }} value=\"{{ isset($Pelanggan)?$Pelanggan->no_hp:'' }}\">\n                                        </div>  \n                                    </div>\n                                    <div class=\"form-group d-none row\">\n                                        <label for=\"email\" class=\"col-md-3 col-form-label\">E-mail</label>\n                                        <div class=\"col-md-9\">\n                                            <input id=\"email\" type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"nanamia@nanamiapizza.com\">\n                                        </div>  \n                                    </div>\n                                    <div class=\"form-group row\">\n                                        <label for=\"alamat\" class=\"col-md-3 col-form-label\">Area</label>\n                                        <div class=\"col-md-7\">\n                                            <input type=\"text\" class=\"form-control\" id=\"jalan\" name=\"jalan\" readonly=\"readonly\" value=\"{{ isset($Transaksi->Jalan)?$Transaksi->Jalan->nama\n                                                :'' }}\">\n                                            <input type=\"hidden\" class=\"form-control\" id=\"id_jenis\" name=\"id_jenis\" value=\"{{ isset($Transaksi)?$Transaksi->id_jenis:'' }}\">\n                                            <input type=\"hidden\" class=\"form-control\" id=\"id_jalan\" name=\"id_jalan\" value=\"{{ isset($Transaksi)?$Transaksi->id_tarif_wilayah:'' }}\">\n                                            <input type=\"hidden\" class=\"form-control\" id=\"harga_tarif_wilayah\" name=\"harga_tarif_wilayah\" value=\"{{ isset($Transaksi)?$Transaksi->tarif_wilayah:0 }}\">\n                                        </div>\n                                        <div class=\"col-md-2\">\n                                            <button id=\"cariJalan\" type=\"button\" onclick=\"showJalan()\" {{ isset($Transaksi->id_kurir) ?'disabled=\"disabled\"':'' }} class=\"btn btn-primary\">Cari</button>\n                                        </div>  \n                                    </div>\n                                    <div class=\"form-group row\">\n                                        <label for=\"alamat\" class=\"col-md-3 col-form-label\">Alamat</label>\n                                        <div class=\"col-md-9\">\n                                            <textarea id=\"alamat\" {{ isset($Pelanggan)?'readonly=\"readonly\"':'' }} class=\"form-control\" name=\"alamat\"></textarea>\n                                            <input type=\"hidden\" id=\"id_alamat\" name=\"id_alamat\">\n                                        </div>  \n                                    </div>\n                                    <div class=\"form-group d-none row\">\n                                        <label for=\"kabupaten\" class=\"col-md-3 col-form-label\">Kabupaten</label>\n                                        <div class=\"col-md-9\">\n                                            <select id=\"kabupaten\" name=\"kabupaten\" class=\"form-control daerahOption custom-select\">\n                                              <option selected>Kabupaten</option>\n                                              @foreach ($kabupaten['cities'] as $data)\n                                              <option value=\"{{ $data['id'] }}\">{{ $data['name'] }}</option>\n                                              @endforeach\n                                          </select>\n                                        </div>  \n                                    </div>\n                                      <div class=\"form-group d-none row\">\n                                        <label for=\"kecamatan\" class=\"col-md-3 col-form-label\">Kecamatan</label>\n                                        <div class=\"col-md-9\">\n                                            <select id=\"kecamatan\" name=\"kecamatan\" class=\"form-control daerahOption custom-select\" disabled=\"disabled\">\n                                              <option selected>Kecamatan</option>\n                                          </select>\n                                        </div>  \n                                    </div>\n                                    <div class=\"form-group d-none row\">\n                                        <label for=\"kelurahan\" class=\"col-md-3 col-form-label\">Kelurahan</label>\n                                        <div class=\"col-md-9\">\n                                            <select id=\"kelurahan\" name=\"kelurahan\" class=\"form-control daerahOption custom-select\" disabled=\"disabled\">\n                                              <option selected>Kelurahan</option>\n                                              <option value=\"1\">One</option>\n                                          </select>\n                                        </div>  \n                                    </div>\n                                    <div class=\"form-group row pull-right\">\n                                        <button id=\"nexttab\" class=\"btn btn-primary {{ isset($DetailTransaksi)?'':'disabled' }}\" onclick=\"javascript:tab_menu2.click();\" type=\"button\">next</button>\n                                    </div>\n                                    <input type=\"hidden\" name=\"provinsi\" value=\"yogyakarta\">\n                                    <input type=\"hidden\" name=\"id_provinsi\" value=\"34\">\n                                </div>\n                                <div class=\"col-md-2\">\n                                    &nbsp;\n                                </div>\n                                @if(isset($Pelanggan))\n                                <div class=\"col-md-4\">\n                                    <div class=\"row\">\n                                        <div class=\"form-group row\">\n                                          <label for=\"\" class=\"col-6 col-form-label\">Alamat Anda</label>\n                                          <div class=\"col-6\">\n                                            {{-- <button type=\"button\" class=\"btn btn-sm btn-primary\">tambah alamat</button> --}}\n                                            <a href=\"{{ url('all/pelanggan/alamat/tambah') }}/{{ $Pelanggan->id }}\"  class=\"btn btn-sm btn-primary\" target=\"ajax-modal\">Tambah Alamat</a>\n                                          </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div id=\"tempatuntukalamat\" class=\"col-md-12 pre-scrollable\">\n                                            <div class=\"form-group\">\n                                                <label class=\"d-flex radio-pilih-container align-items-center\"><input type=\"radio\" class=\"col-2\"><span class=\"checkmark\"></span><label id=\"textAlamat\"></label></label>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                                @endif\n                            </div>\n                        </div>\n            <div class=\"tab-pane\" id=\"tab_input_menu\">\n                <div class=\"clearfix\">&nbsp;</div>\n                <button id=\"add_menu\" type=\"button\" class=\"btn btn-xs btn-success tambah_layanan\" tujuan=\"detail-fisioterapi-table\" from=\"fisioterapi\"> <span title=\"tambah\" class=\"glyphicon glyphicon-plus\">Tambah Menu</span></button>\n                <div class=\"table-responsive\">\n                    <table class=\"table table-striped table-bordered table-hover\" id=\"menu-table\">\n                        <thead>\n                          <tr>\n                              <td width=\"5%\" align=\"middle\"><h5>#</h5></td>\n                              <td width=\"45%\" align=\"center\"><h5>Nama Menu</h5></td>\n                              <td width=\"25%\" align=\"center\"><h5>Harga</h5></td>\n                              <td width=\"10%\" align=\"center\"><h5>Jumlah</h5></td>\n                              <td width=\"15%\" align=\"center\"><h5>total</h5></td>\n                          </tr>\n                      </thead>\n                      <tbody id=\"detail-data-table\">\n                        @if(!isset($DetailTransaksi))\n                        <tr class=\"data_menu\" id=\"data_ke-0\" no=\"0\" role=\"row\">\n                            <td id=\"layanan_nama_place_0\">\n                                <button id=\"'+count+'\" class=\"delete_data_detail btn btn-xs btn-danger hapus\" type=\"button\" onclick=\"delete_data_table(0,'new')\">\n                                <span title=\"Batal\" class=\"fa fa-trash\"></span></button>\n                            </td>\n                                <input type=\"hidden\" name=\"count_menu[]\" value=\"baris_0\">\n                            <td>\n                                <div class=\"row\">\n                                    <div class=\"col-md-9\">\n                                        <input id=\"menu_0\" type=\"text\" name=\"baris_0[menu]\" class=\"form-control required\" required=\"required\"/>\n                                        <input type=\"hidden\" id=\"idmenu_0\" name=\"baris_0[id_menu]\"/></div>\n                                    <div class=\"col-md-3\">&nbsp;\n                                        <button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"showMenu(0)\" title=\"Cari Menu\"><i class=\"fa fa-search-plus\"></i></button>\n                                        <button disabled=\"disabled\" id=\"sowaddon0\" type=\"button\" no=\"0\" class=\"btn btn-sm btn-info showAddOn\" title=\"Cari addon\"><i class=\"fa fa-bars\"></i></button>\n                                        <button id=\"addModifier0\" type=\"button\" no=\"0\" class=\"btn btn-sm btn-warning addModifier\" title=\"Cari Modifier\"><i class=\"fa fa-plus\"></i></button>{{-- di duplikat --}}\n                                    </div>\n                                </div>\n                                <div class=\"row\">\n                                    <div class=\"col-md-12\">\n                                        <hr class=\"mb-1\">\n                                        <label class=\"control-label pull-left\">Add On</label>\n                                        <div class=\"clearfix\">&nbsp;</div>\n                                        <div class=\"border border-light rounded d-flex flex-row flex-wrap align-content-center \" id=\"addon_baris_ke-0\">\n                                            <input type=\"hidden\" value=\"0\" class=\"hide_count_addon\" id=\"hide_count_addon0\" type=\"button\" />\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"row\">\n                                    <div class=\"col-md-12\">\n                                        <hr class=\"mb-1\">\n                                        <label class=\"control-label pull-left\">Modifier</label>\n                                        <div class=\"clearfix\">&nbsp;</div>\n                                        <div class=\"border border-light rounded col-nd-12\" id=\"modifier_baris_ke-0\">\n                                            <input type=\"hidden\" value=\"0\" class=\"hide_count_modifier\" id=\"hide_count_modifier0\" type=\"button\" /> \n                                        </div>\n                                    </div>\n                                </div>\n                            </td>\n                            <td align=\"right\">\n                                <div class=\"row\">\n                                    <div class=\"col-5\">\n                                        Menu =>\n                                    </div>\n                                    <div class=\"col-5\">\n                                        <label id=\"hargateks_0\"></label><input type=\"hidden\" id=\"harga_0\" name=\"baris_0[harga]\">\n                                    </div>\n                                </div>\n                                <div class=\"row\">\n                                    <div class=\"col-5\">\n                                        Addon =>\n                                    </div>\n                                    <div class=\"col-5\">\n                                        <label id=\"hargateks_addon_0\"></label><input type=\"hidden\" id=\"harga_addon_0\" name=\"baris_0[harga_addon]\"/>\n                                    </div>\n                                </div>\n                            </td>\n                            <td>\n                                <div class=\"row\">\n                                    <div class=\"col-sm-9\"><input id=\"qty_menu_0\" untuk=\"0\" type=\"number\"  name=\"baris_0[jml]\" class=\"form-control qtyx required\" required=\"required\"/></div>\n                                </div>\n                            </td>\n                            <td align=\"right\">\n                                <label id=\"total_0\" class=\"total_perbaris\"></label>\n                            </td>\n                        </tr>\n                        @else\n                        <input type=\"hidden\" name=\"id_transaksi\" value=\"{{ $Transaksi->id }}\">\n                        @for ($i = 0; $i < count($DetailTransaksi); $i++)\n                            <tr class=\"data_menu\" id=\"data_ke-{{$i}}\" no=\"{{$i}}\" role=\"row\">\n                                <td id=\"layanan_nama_place_{{$i}}\">\n                                    <input type=\"hidden\" name=\"count_menu[]\" value=\"baris_{{$i}}\" required=\"required\">\n                                    <input type=\"hidden\" name=\"baris_{{$i}}[id_detail_transaksi]\" value=\"{{ $DetailTransaksi[$i]->id }}\">\n\n                                    <button id=\"'+count+'\" class=\"delete_data_detail btn btn-xs btn-danger hapus\" type=\"button\" onclick=\"delete_data_table({{ $i }},'new')\">\n                                <span title=\"Batal\" class=\"fa fa-trash\"></span></button>\n                                </td>\n                                <td>\n                                    <div class=\"row\">\n                                        <div class=\"col-md-9\">\n                                            <input id=\"menu_{{$i}}\" type=\"text\" name=\"baris_{{$i}}[menu]\"  value=\"{{ $DetailTransaksi[$i]->menu->nama_menu }}\" class=\"form-control required\"  disabled=\"disabled\" />\n                                            <input type=\"hidden\" id=\"idmenu_{{$i}}\" name=\"baris_{{$i}}[id_menu]\" value=\"{{ $DetailTransaksi[$i]->id_menu }}\" />\n                                        </div>\n                                        <div class=\"col-md-3\">&nbsp;\n                                            <button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"showMenu({{$i}})\" title=\"Cari Menu\"><i class=\"fa fa-search-plus\"></i></button>\n                                            <button id=\"sowaddon{{$i}}\" type=\"button\" no=\"{{$i}}\" class=\"btn btn-sm btn-info showAddOn\" title=\"Cari addon\"><i class=\"fa fa-bars\"></i></button>\n                                            <button id=\"addModifier{{ $i }}\" type=\"button\" no=\"{{ $i }}\" class=\"btn btn-sm btn-warning addModifier\" title=\"Cari Modifier\"><i class=\"fa fa-plus\"></i></button>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"col-md-12\">\n                                            <hr class=\"mb-1\">\n                                            <label class=\"control-label pull-left\">Add On</label>\n                                            <div class=\"clearfix\">&nbsp;</div>\n                                            <div class=\"border border-light rounded d-flex flex-row flex-wrap align-content-center \" id=\"addon_baris_ke-{{$i}}\">\n                                                <input type=\"hidden\" value=\"{{ $DetailTransaksi[$i] }}\" class=\"hide_count_addon\" id=\"hide_count_addon{{$i}}\" type=\"button\" />\n                                                <?php $totaladdon=0; $ii=0;?>\n                                                @foreach ($DetailTransaksi[$i]->addons as $val)\n                                                    <div class=\"mr-3 p-2\" id=\"add_on_ke-{{ $ii }}\">\n                                                        <label class=\"label-info addon{{ $i }}\" id=\"teks_addon_{{ $ii }}\"> {{ $val->Addons->nama }} ~ Rp {{ nominalKoma($val->Addons->harga) }} </label>\n                                                        <input type=\"hidden\" class=\"hargaaddon{{ $i }}\" value=\"{{ $val->harga }}\" name=\"baris_{{ $i }}[itemharga_addon][]\">\n                                                        <input type=\"hidden\" value=\"{{ $val->id_add_on }}\" name=\"baris_{{ $i }}[id_addon][]\">\n                                                        &nbsp;\n                                                        <button type=\"button\" row=\"{{ $i }}\" no=\"{{ $ii }}\" style=\"padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;\" class=\"closeAddonMenu\" aria-label=\"Close\">\n                                                        <span aria-hidden=\"true\">&times;</span>\n                                                        </button>\n                                                    </div>\n                                                    <?php $totaladdon = $val->harga+$totaladdon; $ii++?>\n                                                @endforeach\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                    <div class=\"col-md-12\">\n                                        <hr class=\"mb-1\">\n                                        <label class=\"control-label pull-left\">Modifier</label>\n                                        <div class=\"clearfix\">&nbsp;</div>\n                                        <div class=\"border border-light rounded col-nd-12\" id=\"modifier_baris_ke-{{ $i }}\">\n                                            <input type=\"hidden\" value=\"0\" class=\"hide_count_modifier\" id=\"hide_count_modifier{{ $i }}\" type=\"button\" />\n                                            <?php $totalModifier=0; $iii=0;?>\n                                                @foreach ($DetailTransaksi[$i]->modifier as $val)\n                                                <div class=\"mr-3 p-2 row\" id=\"modifier_ke-{{ $iii }}\">\n                                                    <div class=\"col-sm-11\"><input type=\"text\" class=\"form-control mod input-lg modifier{{ $i }}\" required=\"required\" name=\"baris_{{ $i }}[modifier][]\" value=\"{{ $val->modifier }}\"></div> \n                                                    <button type=\"button\" row=\"{{ $i }}\" no=\"{{ $iii }}\" style=\"padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;\" class=\"closeModifierMenu\" aria-label=\"Close\">\n                                                    <span aria-hidden=\"true\">&times;</span>\n                                                    </button>\n                                                </div>\n                                                <?php $totalModifier = $val->harga+$totalModifier; $iii++?>\n                                            @endforeach\n                                        </div>\n                                    </div>\n                                </div>\n                                </td>\n                                <td align=\"right\">\n                                    <div class=\"row\">\n                                        <div class=\"col-5\">\n                                            Menu =>\n                                        </div>\n                                        <div class=\"col-5\">\n                                            <label id=\"hargateks_{{$i}}\">{{ nominalKoma($DetailTransaksi[$i]->harga) }}</label><input type=\"hidden\" id=\"harga_{{$i}}\" value=\"{{$DetailTransaksi[$i]->harga}}\" name=\"baris_{{$i}}[harga]\">\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"col-5\">\n                                            Addon =>\n                                        </div>\n                                        <div class=\"col-5\">\n                                            <label id=\"hargateks_addon_{{$i}}\">{{ nominalKoma($totaladdon ) }}</label><input type=\"hidden\" id=\"harga_addon_{{$i}}\" value=\"{{ $totaladdon }}\" name=\"baris_{{$i}}[harga_addon]\"/>\n                                        </div>\n                                    </div>\n                                </td>\n                                <td>\n                                    <div class=\"row\">\n                                        <div class=\"col-sm-9\"><input id=\"qty_menu_{{$i}}\" untuk=\"{{$i}}\" type=\"number\" value=\"{{ $DetailTransaksi[$i]->jml }}\"  name=\"baris_{{$i}}[jml]\" class=\"form-control qtyx required\"/></div>\n                                    </div>\n                                </td>\n                                <td align=\"right\">\n                                    <label id=\"total_{{$i}}\" class=\"total_perbaris\">{{ nominalKoma(($DetailTransaksi[$i]->harga + $totaladdon) * $DetailTransaksi[$i]->jml, false) }}</label>\n                                </td>\n                            </tr>\n                        @endfor\n                        @endif\n                    </tbody>\n                    <tfoot id=\"foot-data-table\">\n                        <tr>\n                            <td colspan=\"4\" align=\"right\">\n                                <div class=\"form-inline pull-right\">\n                                    <label class=\"\" for=\"tarifwilayah\">Wilayah</label>\n                                    <div class=\"col-md-2\" id=\"tempattarifwilayah\">\n                                        {{-- <select class=\"form-control\" name=\"tarifwilayah\" id=\"tarifwilayah\"> \n                                            @foreach ($TarifWilayah as $val)\n                                                <option value=\"{{ $val['id'] }}\" harga=\"{{ $val['harga'] }}\">{{ $val['nama'] }}</option>\n                                            @endforeach\n                                        </select> --}}\n                                        <input type=\"hidden\" id=\"id_tarifwilayah\" value=\"{{ isset($Transaksi->id_tarif_wilayah)?$Transaksi->id_tarif_wilayah:'' }}\" name=\"id_tarifwilayah\">\n                                    </div>\n                                </div>\n                            </td>\n                            <td align=\"right\"><label id=\"texttarifwilayah\">{{ isset($Transaksi->tarif_wilayah)?nominalKoma($Transaksi->tarif_wilayah):'' }}</label></td>\n                        </tr>\n                        <tr>\n                            <td colspan=\"4\" align=\"right\">Tax / PPN</td>\n                            <td align=\"right\">Rp\n                                <label id=\"textppn\">{{ isset($Transaksi->ppn)?nominalKoma($Transaksi->ppn,false):'' }}</label>\n                                <input value=\"{{ isset($Transaksi->ppn)?$Transaksi->ppn:'' }}\" type=\"hidden\" id=\"textppn\" name=\"ppn\">\n                            </td>\n                        </tr>\n                        <tr>\n                            <td colspan=\"4\" align=\"right\">Tax Kurir<label id=\"persenTampil\">{{ isset($persen_kurir_edit)?'-> '.$persen_kurir_edit.' %':'-> 0 %' }}</label></td>\n                            <td align=\"right\">\n                                Rp <label id=\"textkurir\">{{ isset($Transaksi->pajak_kurir)?nominalKoma($Transaksi->pajak_kurir,false):'' }}</label>\n                                <input value=\"{{ isset($persen_kurir_edit)?$persen_kurir_edit:'' }}\" type=\"hidden\" id=\"persen_kurir\" name=\"persen_kurir\">\n                                <input value=\"{{ isset($Transaksi->pajak_kurir)?$Transaksi->pajak_kurir:'' }}\" type=\"hidden\" id=\"nilai_kurir\" name=\"nilai_kurir\">\n                            </td>\n                        </tr>\n                        <tr>\n                            <td colspan=\"4\" align=\"right\">Grand Total</td>\n                            <td align=\"right\">Rp <label id=\"textgrandtotal\">{{ isset($Transaksi->total_harga)?nominalKoma($Transaksi->total_harga,false):'' }}</label><input value=\"{{ isset($Transaksi->total_harga)?$Transaksi->total_harga:'' }}\" type=\"hidden\" id=\"grandtotal\" name=\"grandtotal\"></td>\n                        </tr>\n                    </tfoot>\n                    <input type=\"hidden\" value=\"{{ isset($i)?$i:1 }}\" class=\"hide_count_menu\" id=\"hide_count_menu\" type=\"button\" name=\"hide_count_menu\"/>\n                </table>\n            </div>\n            <div class=\"pull-right\">\n                <button type=\"button\" data-toggle=\"modal\" class=\"btn btn-info\" id=\"submit\" data-target=\"#myModal\" onclick=\"konfirmasi();\">Simpan</button>\n                <input type=\"submit\" id=\"simpan\" name=\"submit\" value=\"Simpan Pesanan\" class=\"btn btn-info submit d-none\">\n                {{-- @if(!isset($Pelanggan))<input type=\"submit\" id=\"inputlagi\" name=\"submit\" value=\"Input Lagi\" class=\"btn btn-info submit\">@endif --}}\n            </div>\n        </div>\n    </div>\n</div>\n</div>\n</div>\n</div>\n<div class=\"mb-xl-5\">&nbsp;</div>\n\n</form>\n</div>\n\n@endsection\n\n@push('js')\n<script type=\"text/javascript\">\n\n    function judulform(){\n        setTimeout(function(){ \n            if($('#tab_input_menu').attr('class')!='tab-pane'){\n                $('#judulform').text('Daftar Pesanan');\n            }; \n    }, 100);\n        \n    }\n        \n    function konfirmasi(){\n        var x1 = document.forms[\"form-transaksi\"][\"nama\"].value;\n        var x2 = document.forms[\"form-transaksi\"][\"nama_penerima\"].value;\n        var x3 = document.forms[\"form-transaksi\"][\"no_hp\"].value;\n        var x4 = document.forms[\"form-transaksi\"][\"alamat\"].value;\n        var x5 = 0;\n        var x6 = 0;\n        $.each($('.addModifier'),function(i, price){\n            x5++;\n        });\n        $.each($(\".mod\"),function(i, price){\n            if($(this).val()==''||$(this).val()==null){\n                x6++\n            console.log(x6);\n            }\n        });\n        if ((x1 == \"\" || x2 == \"\" || x3 == \"\" || x4 == \"\" || x5==0 ) || x6!=0) {\n            alert(\"ada field yang kosong di tab sebelumnya\");\n            return false;\n        }\n        nama = document.getElementById('nama').value;\n        Penerima = document.getElementById(\"nama_penerima\").value;\n        NoHP = document.getElementById(\"no_hp\").value;\n        Area = document.getElementById(\"jalan\").value;\n        Alamat = $('#alamat').val();\n\n        data_menu = \"\";\n        ii=1;\n        $.each($('.data_menu'),function(i, price){\n            var row=$(this).attr('no');\n            menu = '<strong>'+ii+\". \"+$(this).find('#menu_'+row).val()+\"</strong><br>\";\n            addon='<i>Addon</i><br>';\n            modifier='<i>Modifier</i><br>';\n            o = oo =1\n            $.each($('.addon'+row),function(i, price){\n                addon= addon+o+\". \"+$(this).text()+\"<br>\";\n                o++;\n            });\n            $.each($('.modifier'+row),function(i, price){\n                modifier=modifier+oo+\". \"+$(this).val()+\"<br>\";\n                oo++;\n            });\n            data_menu = data_menu+'<div class=\"row\"><div class=\"col-md-6 m-0\">'+menu+addon+modifier+'</div><div class=\"col-md-6 m-0 text-right\">'+$('#total_'+row).text()+'</div></div><hr>';\n            ii++;\n        });\n\n        isi = '<div class=\"modal-dialog\" style=\"\">\\n\\\n        <div class=\"modal-content\">\\n\\\n            <div class=\"modal-header\">\\n\\\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"false\"><i class=\"fa fa-close\"></i></button>\\n\\\n            </div> \\n\\\n            <div class=\"\">\\n\\\n                <div class=\"container-fluid\">\\n\\\n                    <div class=\"col-md-12 col-md-offset-2\">\\n\\\n                    <center><strong>{{ config('app.name') }}</strong></center>\\n\\\n                    <center><strong>{{ env('APP_ALAMAT_BARIS1') }} {{ env('APP_ALAMAT_BARIS2') }}</strong></center>\\n\\\n                    <center><strong>{{ env('APP_ALAMAT_BARIS3') }}</strong></center>\\n\\\n                    <center><strong>OP : {{ Auth::user()->name}}</strong></center>\\n\\\n                    </div>\\n\\\n                    <div class=\"col-md-12 col-md-offset-2\">\\n\\\n                        <div class=\"panel panel-default\">\\n\\\n                            <div class=\"panel-heading\">\\n\\\n                            </div>\\n\\\n                            <div class=\"clearfix\">&nbsp;</div>\\n\\\n                            <div class=\"portlet-body\" style=\"display: block;\">\\n\\\n                                <div class=\"clearfix\">&nbsp;</div>\\n\\\n                                <div class=\"col-md-12\">\\n\\\n                                '+\n                                'Hari & Tanggal : {{ date('d M Y') }} <br>'+\n                                'Nama : '+nama+' <br> '+\n                                'Penerima :'+Penerima+' <br> '+\n                                'No Hp :'+NoHP+' <br> '+\n                                'Area :'+Area+' <br> '+\n                                'Alamat :'+Alamat+' <br>Menu Pesanan <br> <div class=\"row\"><div class=\"col-md-12\">'+\n                                data_menu+\"</div></div><br>\"+\n                                'PPN            : <span class=\"pull-right\">'+$('#textppn').text()+'</span> <br> '+\n                                'Tarif Wilayah  : <span class=\"pull-right\">'+addCommas($('#harga_tarif_wilayah').val())+'</span> <br> '+\n                                'pajak Kurir->'+$('#persen_kurir').val()+' %: <span class=\"pull-right\">'+addCommas($('#nilai_kurir').val())+'</span> <br> '+\n                                'Total          : <span class=\"pull-right\">'+$('#textgrandtotal').text()+'</span> <br> '+\n                                '</div>\\n\\\n                            </div>\\n\\\n                        </div>\\n\\\n                    </div>\\n\\\n                </div>\\n\\\n            </div>\\n\\\n            <button class=\"btn btn-primary\" onclick=\"submit();\">submit</button>\\n\\\n        </div>\\n\\\n    </div>';\n        $('#myModelDialog').html(isi);\n        $('#myModelDialog').modal('show');\n    }\n    function add_data_barang_to_table(count){\n        $('#hide_count_menu').val(parseInt(count)+1);\n        $('<tr class=\"data_menu\" id=\"data_ke-'+count+'\" no=\"'+count+'\" role=\"row\">\\n\\\n            <td id=\"layanan_nama_place_'+count+'\">\\n\\\n                <button id=\"'+count+'\" class=\"delete_data_detail btn btn-xs btn-danger hapus\" type=\"button\" onclick=\"delete_data_table(\\''+count+'\\',\\'new\\')\">\\n\\\n                <span title=\"Batal\" class=\"fa fa-trash\"></span></button><input type=\"hidden\" name=\"count_menu[]\" value=\"baris_'+count+'\">\\n\\\n            </td>\\n\\\n            <td>\\n\\\n                <div class=\"row\">\\n\\\n                    <div class=\"col-md-9\"><input id=\"menu_'+count+'\" type=\"text\" name=\"baris_'+count+'[menu]\" class=\"form-control required\" /><input type=\"hidden\" id=\"idmenu_'+count+'\" name=\"baris_'+count+'[id_menu]\"/></div>\\n\\\n                    <div class=\"col-md-3\">&nbsp;\\n\\\n                        <button type=\"button\" class=\"btn btn-sm btn-info\" onclick=\"showMenu('+count+')\" title=\"Cari Menu\"><i class=\"fa fa-search-plus\"></i></button>\\n\\\n                        <button disabled=\"disabled\" id=\"sowaddon'+count+'\" type=\"button\" no=\"'+count+'\" class=\"btn btn-sm btn-info showAddOn\" title=\"Cari addon\"><i class=\"fa fa-bars\"></i></button>\\n\\\n                        <button id=\"addModifier'+count+'\" type=\"button\" no=\"'+count+'\" class=\"btn btn-sm btn-warning addModifier\" title=\"Cari Modifier\"><i class=\"fa fa-plus\"></i></button>\\n\\\n                    </div>\\n\\\n                </div>\\n\\\n                <div class=\"row\">\\n\\\n                    <div class=\"col-md-12\">\\n\\\n                        <hr class=\"mb-1\">\\n\\\n                        <label class=\"control-label pull-left\">Add On</label>\\n\\\n                        <div class=\"clearfix\">&nbsp;</div>\\n\\\n                        <div class=\"border border-light rounded d-flex flex-row flex-wrap align-content-center \" id=\"addon_baris_ke-'+count+'\">\\n\\\n                            <input type=\"hidden\" value=\"0\" class=\"hide_count_addon\" id=\"hide_count_addon'+count+'\" type=\"button\"/>\\n\\\n                        </div>\\n\\\n                    </div>\\n\\\n                </div>\\n\\\n                <div class=\"row\">\\n\\\n                    <div class=\"col-md-12\">\\n\\\n                        <hr class=\"mb-1\">\\n\\\n                        <label class=\"control-label pull-left\">Modifier</label>\\n\\\n                        <div class=\"clearfix\">&nbsp;</div>\\n\\\n                        <div class=\"border border-light rounded col-nd-12\" id=\"modifier_baris_ke-'+count+'\">\\n\\\n                            <input type=\"hidden\" value=\"0\" class=\"hide_count_modifier\" id=\"hide_count_modifier0\" type=\"button\" />\\n\\\n                        </div>\\n\\\n                    </div>\\n\\\n                </div>\\n\\\n            </td>\\n\\\n            <td align=\"right\">\\n\\\n                <div class=\"row\">\\n\\\n                    <div class=\"col-5\">\\n\\\n                        Menu =>\\n\\\n                    </div>\\n\\\n                    <div class=\"col-5\">\\n\\\n                        <label id=\"hargateks_'+count+'\"></label><input type=\"hidden\" id=\"harga_'+count+'\" name=\"baris_'+count+'[harga]\">\\n\\\n                    </div>\\n\\\n                </div>\\n\\\n                <div class=\"row\">\\n\\\n                    <div class=\"col-5\">\\n\\\n                        Addon =>\\n\\\n                    </div>\\n\\\n                    <div class=\"col-5\">\\n\\\n                        <label id=\"hargateks_addon_'+count+'\"></label><input type=\"hidden\" id=\"harga_addon_'+count+'\" name=\"baris_'+count+'[harga_addon]\"/>\\n\\\n                    </div>\\n\\\n                </div>\\n\\\n            </td>\\n\\\n            <td>\\n\\\n                <div class=\"row\">\\n\\\n                    <div class=\"col-sm-9\"><input id=\"qty_menu_'+count+'\" untuk=\"'+count+'\" type=\"number\"  name=\"baris_'+count+'[jml]\" class=\"form-control qtyx required\"/></div>\\n\\\n                </div>\\n\\\n            </td>\\n\\\n            <td align=\"right\">\\n\\\n                <label id=\"total_'+count+'\" class=\"total_perbaris\"></label>\\n\\\n            </td>\\n\\\n        </tr>').appendTo('#detail-data-table');\n    } \n    function delete_data_table(no,stat){\n        if(confirm(\"Anda yakin akan menghapus data ini?\")){\n            var count = $('#hide_count_menu').val();\n            // count = count-1;\n            // $('#hide_count_menu').val(count);\n            $('#data_ke-'+no).detach();\n            grandTotal()\n            return false;\n        }\n    }\n    function hitungPerbaris(no){\n        qty = currencyToNumber($('#qty_menu_'+no).val());\n        harga = currencyToNumber($('#harga_'+no).val());\n        console.log(harga);\n        jml_addon=parseInt($('#hide_count_addon'+no).val());\n        total_addon_perbaris=$('.hargaaddon'+no);\n        totaladdon=0;\n        $.each(total_addon_perbaris,function(i, price){\n            var pc=$(this).val();\n            console.log(pc);\n            if (pc!= 'NA'){\n                totaladdon = totaladdon + parseInt(currencyToNumber(pc));\n            }\n        });\n        total = qty*(harga+totaladdon);\n        $('#total_'+no).html(addCommas(total));\n        $('#hargateks_addon_'+no).html(addCommas(totaladdon));\n        $('#harga_addon_'+no).val(addCommas(totaladdon));\n        grandTotal();\n    }\n    function grandTotal(){\n        var count = $('#hide_count_menu').val();\n        total=0;\n        total_perbaris=$('.total_perbaris');\n        $.each(total_perbaris,function(i, price){\n            var pc=$(this).html();\n            console.log(pc);\n            if (pc!= 'NA'){\n                total = total + parseInt(currencyToNumber(pc));\n            }\n        });\n        // console.log(count);\n        // for(var i = 0; i < count; i++){\n        //     total = total + currencyToNumber($('#total_'+i).html());\n        // }\n        // tarifwilayah = $('#tarifwilayah option:selected').attr('harga');\n        tarifwilayah = $('#harga_tarif_wilayah').val();\n        gtotal = parseInt(total)+currencyToNumber(tarifwilayah);\n        kurir = gtotal * $('#persen_kurir').val()/100;\n        ppn = gtotal*0.1;\n        gtotal = Math.round(gtotal*1.1)+kurir;\n        // $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));\n        $('#textgrandtotal').html(addCommas(gtotal));\n        $('#textppn').html(addCommas(ppn));\n        $('#grandtotal').val(gtotal);\n        $('#textkurir').text(addCommas(kurir));\n        $('#nilai_kurir').val(kurir);\n    }\n    function getMenuById(idmenu,no){\n        $.ajax({\n            type: \"GET\",\n            url: \"{{ url(\"all/menu/getById\") }}\",\n            data: {\n                \"id_menu\":idmenu,\n            },  \n            dataType: 'json',\n            success: function(response){\n                $('#menu_'+no).val(response.dataList.nama_menu);\n                $('#menu_'+no).prop('disabled',true);\n                $('#idmenu_'+no).val(response.dataList.id);\n                $('#hargateks_'+no).html(addCommas(response.dataList.harga));\n                $('#harga_'+no).val(response.dataList.harga);\n                $('#qty_menu_'+no).val(1);\n                $('#total_'+no).html(addCommas(response.dataList.harga));\n                $('.close').click();\n                $('#sowaddon'+no).attr('disabled',false);\n                hitungPerbaris(no);\n            }\n        });\n    }\n    function getJalanById(id_jalan,id_jenis,jenis){\n        $.ajax({\n            type: \"GET\",\n            url: \"{{ url(\"all/jalan/getById\") }}\",\n            data: {\n                \"id_jalan\":id_jalan,\n            },  \n            dataType: 'json',\n            success: function(response){\n                // console.log(response);\n                $('#jalan').val(response.dataList.nama+\" ~ \"+jenis);\n                $('#id_jalan').val(response.dataList.id);\n                $('#id_jenis').val(id_jenis);\n                $('#harga_tarif_wilayah').val(response.dataList.tarif_wilayah.harga);\n                $('#id_tarifwilayah').val(response.dataList.tarif_wilayah.id);\n                $('#texttarifwilayah').html(addCommas(response.dataList.tarif_wilayah.harga));\n                $('#tab_menu2').attr('class','nav-link loadtable');\n                $('#nexttab').attr('class','btn btn-primary');\n                grandTotal();\n            }\n        });\n        $('.close').click();\n    }\n    @if(isset($Pelanggan))\n    function loadAlamat(){\n        $.ajax({\n            type: \"GET\",\n            url: \"{{ route('loadAlamat') }}\",\n            data: {\n                \"id_pelanggan\":{{ $Pelanggan->id }},\n            },  \n            dataType: 'json',\n            success: function(response){\n                length=response.alamat.length;\n                alamat=response.alamat;\n                defaultalamat = {{ isset($Pelanggan)?$Pelanggan->id_alamat:0 }};\n                $('#tempatuntukalamat').html('');\n                for(var i = 0; i < length; i++){\n                    if(defaultalamat==alamat[i].id){\n                        checkmark = \"checked\";\n                        $('#alamat').html(alamat[i].alamat);\n                        $('#id_alamat').val(alamat[i].id);\n                    }else {\n                        checkmark = \"\";\n                    }\n                    $('\\n\\\n                        <div class=\"form-group\">\\n\\\n                            <label class=\"d-flex radio-pilih-container align-items-center\">\\n\\\n                                <input type=\"radio\" value=\"'+alamat[i].alamat+'\" id=\"'+alamat[i].id+'\" class=\"col-2 pilihalamat\" name=\"allalamat\" '+checkmark+'>\\n\\\n                                <span class=\"checkmark\"></span>\\n\\\n                                <label id=\"textAlamat\">'+alamat[i].alamat+'</label>\\n\\\n                            </label>\\n\\\n                        </div>\\n\\\n                        ').appendTo('#tempatuntukalamat');\n                }\n            }\n        }); \n    }\n    @endif\n    function showMenu(no){\n        $('body').attr('class','sidenav-toggled');\n        var url = \"{{url('all/Menu/popUpMenu')}}\";\n        $('.modal-dialog').addClass('modal-lg');\n        $('#myModelDialog').html('');\n\n        $.ajax({\n            url: url,\n            data:{\n              'ajax':1,\n              'no':no,\n          },\n          cache: false,\n          dataType: 'html',\n          success: function(msg){\n            $('#myModelDialog').on('shown.bs.modal', function () {\n                // $('#layanan').focus();\n            });\n\n            $('#myModelDialog').html(msg);\n            $('#myModelDialog').modal({backdrop: 'static'});\n        },\n        error: function(){\n            $('#myModelDialog').html(\"request gagal dibuka\");\n            $('#myModelDialog').modal('show');\n            console.log('gagal');\n        }\n        });\n        return true;\n    }\n    function showAddOn(no){\n        $('body').attr('class','sidenav-toggled');\n        var url = \"{{url('all/addon/popUpaddon')}}\";\n        $('.modal-dialog').addClass('modal-lg');\n        $('#myModelDialog').html('');\n\n        $.ajax({\n            url: url,\n            data:{\n              'ajax':1,\n              'no':no,\n          },\n          cache: false,\n          dataType: 'html',\n          success: function(msg){\n            $('#myModelDialog').on('shown.bs.modal', function () {\n\n            });\n\n            $('#myModelDialog').html(msg);\n            $('#myModelDialog').modal({backdrop: 'static'});\n        },\n        error: function(){\n            $('#myModelDialog').html(\"request gagal dibuka\");\n            $('#myModelDialog').modal('show');\n            console.log('gagal');\n        }\n        });\n        return true;\n    }\n    function tambahAddOn(row,label,harga,id_addon){\n        count = parseInt($('#hide_count_addon'+row).val());\n        $('<div class=\"mr-3 p-2\" id=\"add_on_ke-'+count+'\">\\n\\\n            <label class=\"label-info addon'+row+'\" id=\"teks_addon_'+count+'\">'+label+' ~ Rp '+addCommas(harga,false)+'</label>\\n\\\n            <input type=\"hidden\" class=\"hargaaddon'+row+'\" value=\"'+harga+'\" name=\"baris_'+row+'[itemharga_addon][]\">\\n\\\n            <input type=\"hidden\" value=\"'+id_addon+'\" name=\"baris_'+row+'[id_addon][]\">\\n\\\n            &nbsp;\\n\\\n            <button type=\"button\" row=\"'+row+'\" no=\"'+count+'\" style=\"padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;\" class=\"closeAddonMenu\" aria-label=\"Close\">\\n\\\n            <span aria-hidden=\"true\">&times;</span>\\n\\\n            </button>\\n\\\n            </div>').appendTo('#addon_baris_ke-'+row);\n        $('#hide_count_addon'+row).val(count+1);\n        $('.closeAddonMenu').on('click',function(){\n            no=$(this).attr('no');\n            row=$(this).attr('row');\n\n            $('#addon_baris_ke-'+row).find('#add_on_ke-'+no).detach();\n            hitungPerbaris(row);\n            // $('#hide_count_addon'+row).val(count-1);\n        });\n        hitungPerbaris(row);\n    }\n    function tambahModifier(row){\n        count = parseInt($('#hide_count_modifier'+row).val());\n        $('\\n\\\n            <div class=\"mr-3 p-2 row\" id=\"modifier_ke-'+count+'\">\\n\\\n                <div class=\"col-sm-11\"><input type=\"text\" class=\"form-control input-lg mod modifier'+row+'\" name=\"baris_'+row+'[modifier][]\" value=\"\" required=\"required\"></div>\\n\\\n                <button type=\"button\" row=\"'+row+'\" no=\"'+count+'\" style=\"padding: 0; background: 0 0; border: 0; -webkit-appearance: none; float: right; font-size: 1.5rem; font-weight: 700; line-height: 1; color: #000; text-shadow: 0 1px 0 #fff; opacity: .5;\" class=\"closeModifierMenu\" aria-label=\"Close\">\\n\\\n                <span aria-hidden=\"true\">&times;</span>\\n\\\n                </button>\\n\\\n            </div>\\n\\\n            ').appendTo('#modifier_baris_ke-'+row);\n\n        $('#hide_count_modifier'+row).val(count+1);\n        $('.closeModifierMenu').on('click',function(){\n            no=$(this).attr('no');\n            row=$(this).attr('row');\n            console.log(no);\n            $('#modifier_baris_ke-'+row).find('#modifier_ke-'+no).detach();\n            // $('#hide_count_addon'+row).val(count-1);\n        });\n    }\n    function showJalan(){\n        $('body').attr('class','sidenav-toggled');\n        var url = \"{{route('popupjalan')}}\";\n        $('.modal-dialog').addClass('modal-lg');\n        $('#myModelDialog').html('');\n\n        $.ajax({\n                url: url,\n                data:{\n                  'ajax':1,\n              },\n              cache: false,\n              dataType: 'html',\n              success: function(msg){\n                $('#myModelDialog').on('shown.bs.modal', function () {\n                    // $('#layanan').focus();\n                });\n\n                $('#myModelDialog').html(msg);\n                $('#myModelDialog').modal({backdrop: 'static'});\n            },\n            error: function(){\n                $('#myModelDialog').html(\"request gagal dibuka\");\n                $('#myModelDialog').modal('show');\n                console.log('gagal');\n            }\n        });\n        return true;\n    }\n    $(document).ready(function(){\n        @if(session('id'))\n        open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); \n        @endif\n        $('#tab_data_pelanggan2').click();\n        // $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));\n        $('#add_menu').on('click',function(){\n            from=$(this).attr('id');\n            count=$('#hide_count_menu').val();\n            add_data_barang_to_table(count);\n        });\n        $('#menu-table').on('change','.qtyx',function(){\n            count=$(this).attr('untuk');\n            hitungPerbaris(count);\n        });\n\n        $('#menu-table').on('click','.showAddOn',function(){\n            count=$(this).attr('no');\n            showAddOn(count);\n        });\n        $('#myModelDialog').on('click','.pilihAddon',function(){\n            no=$(this).attr('no');\n            id=$(this).attr('id-addon');\n            nama=$(this).attr('nama-addon');\n            harga=$(this).attr('harga-addon');\n            tambahAddOn(no,nama,harga,id);\n            $('.close').click();\n        });\n        $('#menu-table').on('click','.addModifier',function(){\n            no=$(this).attr('no');\n            tambahModifier(no);\n        });\n        @if(isset($Pelanggan))\n        loadAlamat();\n        @endif\n        $('#tempatuntukalamat').on('click','.pilihalamat',function(){\n            id=$(this).attr('id');\n            alamat=$(this).val();\n            nama=$('#alamat').html(alamat);\n            harga=$('#id_alamat').val(id);\n        });\n        // $('#form-transaksi').on('submit',function(){\n        //     validateForm();\n        // });\n        @if(isset($DetailTransaksi))\n        $('.closeAddonMenu').on('click',function(){\n            no=$(this).attr('no');\n            row=$(this).attr('row');\n\n            $('#addon_baris_ke-'+row).find('#add_on_ke-'+no).detach();\n            hitungPerbaris(row);\n            // $('#hide_count_addon'+row).val(count-1);\n        });\n        @endif\n        \n        $('.closeModifierMenu').on('click',function(){\n            no=$(this).attr('no');\n            row=$(this).attr('row');\n            console.log('asdasd');\n            $('#modifier_baris_ke-'+row).find('#modifier_ke-'+no).detach();\n            // $('#hide_count_addon'+row).val(count-1);\n        });\n\n        $('.kurir').on('click',function(){\n            var prevValue = $(this).attr('prevValue');\n            var name = $(this).attr('name');\n            if (prevValue == 'checked') {\n              $(this).prop('checked',false);\n              $(this).attr('prevValue', false);\n              $('#textkurir').text(0);\n              $('#persen_kurir').val(0);\n              $('#nilai_kurir').val(0);\n              $('#persenTampil').text('-> 0 %');\n              $('#tab_menu2').attr('class','nav-link loadtable disabled');\n              $('#nexttab').attr('class','btn btn-primary disabled');\n              $('#cariJalan').prop('disabled',false);\n              $('#tab_data_pelanggan2').click();\n            } else {\n              $(\"input[name=\"+name+\"]:radio\").attr('prevValue', false);\n              $(this).attr('prevValue', 'checked');\n              persen = $(this).attr('nilai');\n              console.log(persen);\n              // $('#textkurir').text(persen);\n              $('#persen_kurir').val(persen);\n              $('#persenTampil').text('->'+persen+' %');\n              $('#tab_menu2').attr('class','nav-link loadtable');\n              $('#nexttab').attr('class','btn btn-primary');\n              $('#cariJalan').prop('disabled',true);\n\n              $('#jalan').val('');\n              $('#id_jalan').val('');\n              $('#id_jenis').val('');\n              $('#harga_tarif_wilayah').val(0);\n              $('#id_tarifwilayah').val('');\n              $('#texttarifwilayah').html('');\n            }\n            grandTotal();\n        });\n    });\n    function submit() {\n        $('.close').click();\n        var x1 = document.forms[\"form-transaksi\"][\"nama\"].value;\n        var x2 = document.forms[\"form-transaksi\"][\"nama_penerima\"].value;\n        var x3 = document.forms[\"form-transaksi\"][\"no_hp\"].value;\n        var x4 = document.forms[\"form-transaksi\"][\"alamat\"].value;\n        var x5 = 0;\n        $.each($('#addModifier'),function(i, price){\n            x5++;\n        });\n        if (x1 == \"\" || x2 == \"\" || x3 == \"\" || x4 == \"\"|| x5>0) {\n            alert(\"ada field yang kosong di tab sebelumnya\");\n            return false;\n        }\n        $('#simpan').click();\n    }\n</script> \n@endpush\n",
 			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
-			"file_size": 57712,
-			"file_write_time": 131794253601797767,
 			"settings":
 			{
-				"buffer_size": 56702,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config/app.php",
-			"settings":
-			{
-				"buffer_size": 9730,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": ".env",
-			"settings":
-			{
-				"buffer_size": 710,
+				"buffer_size": 56706,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Modules/All/Resources/views/Transaksi/form-update.blade.php",
+			"settings":
+			{
+				"buffer_size": 19341,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Modules/All/Entities/Transaksi.php",
+			"settings":
+			{
+				"buffer_size": 3780,
 				"line_ending": "Windows"
 			}
 		}
@@ -677,15 +651,25 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/nnmpz",
-		"/C/xampp/htdocs/nnmpz/config"
+		"/C/xampp/htdocs/nnmpz/public",
+		"/C/xampp/htdocs/nnmpz/public/pict"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/nnmpz/Modules/All/Entities/Kurir.php",
+		"/C/xampp/htdocs/nnmpz/resources/views/auth/login.blade.php",
+		"/C/xampp/htdocs/nnmpz/app/Http/Controllers/Auth/LoginController.php",
+		"/C/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/TransaksiController.php",
+		"/C/xampp/htdocs/nnmpz/.env.example",
+		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Satuan/index.blade.php",
+		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/kwitansi.blade.php",
+		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/index.blade.php",
+		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/form.blade.php",
+		"/C/xampp/htdocs/nnmpz/.env",
+		"/C/xampp/htdocs/nnmpz/.gitignore",
 		"/C/xampp/htdocs/nnmpz/resources/views/layouts/app.blade.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Kurir/index.blade.php",
 		"/C/xampp/htdocs/nnmpz/vendor/mike42/escpos-php/src/Mike42/Escpos/Printer.php",
-		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/kwitansi.blade.php",
-		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/index.blade.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/MenuController.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/KurirController.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Kurir/form.blade.php",
@@ -695,7 +679,6 @@
 		"/C/xampp/htdocs/nnmpz/vendor/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/FilePrintConnector.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/backupkwitansi.blade.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Jalan/popUpJalan.blade.php",
-		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/form.blade.php",
 		"/C/xampp/htdocs/nnmpz/inputdata.bat",
 		"/C/xampp/htdocs/nnmpz/database/seeds/JalanTableSeeder.php",
 		"/C/xampp/htdocs/nnmpz/database/seeds/AddOnTableSeeder.php",
@@ -704,7 +687,6 @@
 		"/C/xampp/htdocs/nnmpz/app/Http/Middleware/AuthenticatesUsersCustoms.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Entities/Transaksi.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Http/routes.php",
-		"/C/xampp/htdocs/nnmpz/Modules/All/Entities/Kurir.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Entities/JenisMakanan.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_23_003754_create_tarif_wilayahs_table.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_19_074303_create_transaksis_table.php",
@@ -712,7 +694,6 @@
 		"/C/xampp/htdocs/nnmpz/app/Http/Controllers/KategoriController.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/JenisMakanan/form.blade.php",
 		"/C/xampp/htdocs/nnmpz/resources/views/Kategori/form.blade.php",
-		"/C/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/TransaksiController.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/SizeController.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/JenisMakananController.php",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/JenisMakanan/index.blade.php",
@@ -802,13 +783,7 @@
 		"/D/xampp/htdocs/nnmpz/vendor/dompdf/dompdf/src/FrameReflower/TableRow.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2018_01_14_124810_create_detail_add_ons_table.php",
 		"/D/xampp/htdocs/nnmpz/Modules/All/Entities/Size.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/AddOn/form.blade.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Http/Controllers/AddOnController.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_19_074032_create_alamats_table.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/Menu/popUpMenu.blade.php",
-		"/D/xampp/htdocs/nnmpz/resources/views/Kategori/form.blade.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Database/Migrations/2017_12_22_111413_create_sizes_table.php",
-		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/AddOn/index.blade.php"
+		"/D/xampp/htdocs/nnmpz/Modules/All/Resources/views/AddOn/form.blade.php"
 	],
 	"find":
 	{
@@ -827,6 +802,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"$vowels = array(\"a\", \"e\", \"i\", \"o\", \"u\", \"A\", \"E\", \"I\", \"O\", \"U\");\n        // $name = str_replace($vowels, \"\", $name);\n        // if(strlen($name)>17){\n        //     $name = substr($name, 0, 17);\n        // }",
+			"cetak",
+			"store",
+			"modifi",
+			"add_on",
+			"update",
+			"lumn('kurir',function($data",
+			"loaddata",
+			"pegawai",
+			"plus",
 			"\\n",
 			"APP_ALAMAT",
 			"cetak",
@@ -944,17 +929,7 @@
 			"size",
 			"id_size",
 			"Size",
-			"JenisMakananController",
-			"size",
-			"Size",
-			"size",
-			"Size",
-			"auth",
-			"showLoginForm",
-			"dd(",
-			"dd()",
-			"showLoginForm",
-			"chart.min"
+			"JenisMakananController"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -975,7 +950,7 @@
 	"groups":
 	[
 		{
-			"selected": 10,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1005,24 +980,28 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/auth/login.blade.php",
+					"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2619,
+						"buffer_size": 6791,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								28,
-								28
+								4828,
+								4828
+							],
+							[
+								4843,
+								4843
 							]
 						],
 						"settings":
@@ -1032,19 +1011,173 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1376.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/Http/Controllers/Auth/LoginController.php",
+					"file": "Modules/All/Resources/views/Transaksi/index-laporan.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1019,
+						"buffer_size": 7130,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4729,
+								4729
+							],
+							[
+								4744,
+								4744
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1335.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Modules/All/Http/Controllers/TransaksiController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 32754,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10279,
+								10070
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4275.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "vendor/mike42/escpos-php/src/Mike42/Escpos/Printer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 44046,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3598,
+								3598
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1824.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 56706,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21516,
+								21516
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2712.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Modules/All/Resources/views/Transaksi/form-update.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19341,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8987,
+								8987
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1914.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Modules/All/Entities/Transaksi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3780,
 						"regions":
 						{
 						},
@@ -1062,250 +1195,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 978.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Modules/All/Http/Controllers/TransaksiController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 32320,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								16209,
-								16209
-							],
-							[
-								16397,
-								16397
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2271.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": ".env.example",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 676,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								100,
-								100
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Modules/All/Resources/views/Satuan/index.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4763,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4425,
-								4425
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1266.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Modules/All/Resources/views/Transaksi/kwitansi.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9777,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3596,
-								3596
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2079.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6662,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2831,
-								2831
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 831.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 56702,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								34936,
-								34936
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 10079.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "config/app.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 9730,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								467,
-								499
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 31.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": ".env",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 710,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								463,
-								463
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1360,6 +1253,38 @@
 		"selected_items":
 		[
 			[
+				"printer",
+				"vendor\\mike42\\escpos-php\\src\\Mike42\\Escpos\\Printer.php"
+			],
+			[
+				"transaksi form",
+				"Modules\\All\\Resources\\views\\Transaksi\\form-update.blade.php"
+			],
+			[
+				"transakform",
+				"Modules\\All\\Resources\\views\\Transaksi\\form.blade.php"
+			],
+			[
+				"transaksi",
+				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
+			],
+			[
+				"kurir",
+				"Modules\\All\\Entities\\Kurir.php"
+			],
+			[
+				"transaks",
+				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
+			],
+			[
+				"transaksiindex",
+				"Modules\\All\\Resources\\views\\Transaksi\\index-laporan.blade.php"
+			],
+			[
+				"transaksi index",
+				"Modules\\All\\Resources\\views\\Transaksi\\index.blade.php"
+			],
+			[
 				".env",
 				".env.example"
 			],
@@ -1370,10 +1295,6 @@
 			[
 				"kwitan",
 				"Modules\\All\\Resources\\views\\Transaksi\\kwitansi.blade.php"
-			],
-			[
-				"transaksi index",
-				"Modules\\All\\Resources\\views\\Transaksi\\index.blade.php"
 			],
 			[
 				"app.blade",
@@ -1416,10 +1337,6 @@
 				"Modules\\All\\Resources\\views\\Kurir\\index.blade.php"
 			],
 			[
-				"kurir",
-				"Modules\\All\\Http\\Controllers\\KurirController.php"
-			],
-			[
 				"ransaksi\\kwitansi.blade.ph",
 				"Modules\\All\\Resources\\views\\Transaksi\\kwitansi.blade.php"
 			],
@@ -1442,14 +1359,6 @@
 			[
 				"rout",
 				"Modules\\All\\Http\\routes.php"
-			],
-			[
-				"transaksi",
-				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
-			],
-			[
-				"transaksi form",
-				"Modules\\All\\Resources\\views\\Transaksi\\form.blade.php"
 			],
 			[
 				"transa",
@@ -1628,10 +1537,6 @@
 				"Modules\\All\\Resources\\views\\Transaksi\\index-laporan.blade.php"
 			],
 			[
-				"transaksiindex",
-				"Modules\\All\\Resources\\views\\Transaksi\\index-laporan.blade.php"
-			],
-			[
 				"tarifwilform",
 				"Modules\\All\\Resources\\views\\TarifWilayah\\form.blade.php"
 			],
@@ -1686,10 +1591,6 @@
 			[
 				"tranaksiinde",
 				"Modules\\All\\Resources\\views\\Transaksi\\index.blade.php"
-			],
-			[
-				"transaks",
-				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
 			],
 			[
 				"appb",
@@ -1862,14 +1763,6 @@
 			[
 				"sizeind",
 				"Modules\\All\\Resources\\views\\Size\\index.blade.php"
-			],
-			[
-				"we",
-				"routes\\web.php"
-			],
-			[
-				"addonind",
-				"Modules\\All\\Resources\\views\\AddOn\\index.blade.php"
 			]
 		],
 		"width": 0.0
