@@ -1011,10 +1011,15 @@
         $.each($('#addModifier'),function(i, price){
             x5++;
         });
-        if (x1 == "" || x2 == "" || x3 == "" || x4 == ""|| x5>0) {
+        if ((x1 == "" || x2 == "" || x3 == "" || x4 == ""|| x5>0) && isNaN($('.kurir:checked').val())) {
             alert("ada field yang kosong di tab sebelumnya");
             return false;
-        }
+        }else if((x1 == "" || x2 == "" || x5>0) && !isNaN($('.kurir:checked').val())){
+            alert("ada field yang kosong di tab sebelumnya");
+            return false;
+
+        } 
+
         $('#simpan').click();
     }
 </script> 
