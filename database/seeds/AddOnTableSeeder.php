@@ -67,12 +67,16 @@ class AddOnTableSeeder extends Seeder
             ['id'=>50,'id_kategori'=>'21','nama'=>'Raspberry Sauce','harga'=>'8000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
             ['id'=>51,'id_kategori'=>'21','nama'=>'Almond Cake','harga'=>'20000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
             ['id'=>52,'id_kategori'=>'21','nama'=>'Raspberry Granite','harga'=>'8000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
-
-
-
-
-
-
+            ['id'=>53,'id_kategori'=>'22','nama'=>'Coffe','harga'=>'5000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
+            ['id'=>54,'id_kategori'=>'23','nama'=>'Madu','harga'=>'5000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
+            ['id'=>55,'id_kategori'=>'22','nama'=>'Bottle Charge','harga'=>'5000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
+            ['id'=>56,'id_kategori'=>'22','nama'=>'Freshmilk','harga'=>'6000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
+            ['id'=>57,'id_kategori'=>'22','nama'=>'Freshmilk Milk Glass','harga'=>'12000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
+            ['id'=>58,'id_kategori'=>'23','nama'=>'Baquette','harga'=>'3000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
+            ['id'=>59,'id_kategori'=>'23','nama'=>'Egg','harga'=>'7000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
+            ['id'=>60,'id_kategori'=>'23','nama'=>'Pasta 1/2 Porsi','harga'=>'14000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
+            ['id'=>61,'id_kategori'=>'23','nama'=>'Patata Duchessa','harga'=>'15000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
+            ['id'=>62,'id_kategori'=>'23','nama'=>'Patata Duchessa','harga'=>'15000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
 
         ];
 
