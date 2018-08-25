@@ -231,7 +231,7 @@ class TransaksiController extends Controller
 
     public function items($jml,$name,$price,$RpSign=true) {
         $rightCols = 10;
-        $midCols = 29;
+        $midCols = 25;
         $leftCols = 3;
         /*if($RpSign) {
             $midCols = $midCols / 2 - $rightCols / 2;
@@ -253,7 +253,7 @@ class TransaksiController extends Controller
     }
     public function addonDanModifier($nama = '') {
         $rightCols = 5;
-        $midCols = 32;
+        $midCols = 28;
         $leftCols = 5;
         
         /*$vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
@@ -270,7 +270,7 @@ class TransaksiController extends Controller
         return "\n$left$mid$right";
     }
     public function footerKwitansi($nama = '', $value='') {
-        $rightCols = 28;
+        $rightCols = 24;
         $leftCols = 14;
         
         $left = str_pad($nama, $leftCols, ' ', STR_PAD_LEFT);
@@ -295,7 +295,9 @@ class TransaksiController extends Controller
         $printer->setJustification(Printer::JUSTIFY_CENTER);
         $printer->setEmphasis(true);
         $printer->text("Nanamia Pizzeria\n");
+        $printer->setTextSize(1,1);
         $printer->text("Traditional Pizza for Modern People\n");
+        $printer->feed();
         //Informasi Alamat
         $printer->text("\n".env('APP_ALAMAT_BARIS1', "Jl. Mozes Gatotkaca B 9 - 17,"));
         $printer->text("\n".env('APP_ALAMAT_BARIS2', "Gejayan, Yogyakarta"));
