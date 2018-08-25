@@ -218,7 +218,7 @@ class TransaksiController extends Controller
             // , 'id'=>$insertTransaksi->id
         }
         DB::commit();
-        session(['id'=>$insertTransaksi->id]);
+        // session(['id'=>$insertTransaksi->id]);
         Auth::logout();
         return redirect("nota/cetaknota/$insertTransaksi->id");
         // return redirect('/all/transaksi')->with('id',$insertTransaksi->id);
@@ -327,7 +327,7 @@ class TransaksiController extends Controller
         $printer->setJustification(Printer::JUSTIFY_RIGHT);
         $printer->setTextSize(1,1);
         $printer->setEmphasis(true);
-$total_yang_dipesan = 0;
+        $total_yang_dipesan = 0;
         foreach ($DetailTransaksi as $val) {
             $totalAddons=0; $iii=0;
             foreach ($DetailTransaksi[$i]->addons as $value){
@@ -609,7 +609,9 @@ $total_yang_dipesan = 0;
         ->addColumn('action',function($data) use($laporan) {
         if(empty($laporan)){
           $content = '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/edit/$data->id").'"><i class="fa fa-pencil-square-o"></i>Edit</a>';
-          $content .= '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/create-from/$data->id_pelanggan").'"><i class="fa fa-pencil-square-o"></i> Order</a>';
+          if(empty($data->id_kurir)){
+              $content .= '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/create-from/$data->id_pelanggan").'"><i class="fa fa-pencil-square-o"></i> Order</a>';
+          }
           return $content;
         }
           return '';
