@@ -327,7 +327,7 @@ class TransaksiController extends Controller
         $printer->setJustification(Printer::JUSTIFY_RIGHT);
         $printer->setTextSize(1,1);
         $printer->setEmphasis(true);
-
+$total_yang_dipesan = 0;
         foreach ($DetailTransaksi as $val) {
             $totalAddons=0; $iii=0;
             foreach ($DetailTransaksi[$i]->addons as $value){
