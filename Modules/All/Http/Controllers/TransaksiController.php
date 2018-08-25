@@ -290,11 +290,15 @@ class TransaksiController extends Controller
         $printer = new Printer($connector);
         /* Name of shop */
         $printer->selectPrintMode(Printer::MODE_FONT_A);
-        $printer->setFont(Printer::FONT_C);
+        $printer->setFont(Printer::FONT_A);
         // $printer->setTextSize(1,1);
         $printer->setJustification(Printer::JUSTIFY_CENTER);
         $printer->setEmphasis(true);
+        $connector->setPrintLeftMargin();
         $printer->text("Nanamia Pizzeria\n");
+        $printer->feed();
+        $printer->selectPrintMode(Printer::MODE_FONT_C);
+        $printer->setFont(Printer::FONT_C);
         $printer->setTextSize(1,1);
         $printer->text("Traditional Pizza for Modern People\n");
         $printer->feed();
