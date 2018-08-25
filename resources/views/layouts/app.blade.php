@@ -148,35 +148,35 @@
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript-->
-  <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('js/fungsitambahan.js') }}"></script>
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('vendor/jquery/jquery.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('js/fungsitambahan.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}?v={{ date('YmdHis') }}"></script>
   <!-- Core plugin JavaScript-->
-  <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}?v={{ date('YmdHis') }}"></script>
   <!-- Page level plugin JavaScript-->
-  <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
-  <script src="{{ asset('vendor/datatables/jquery.dataTables.js') }}"></script>
-  <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+  <script src="{{ asset('vendor/chart.js/Chart.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('vendor/datatables/jquery.dataTables.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.js') }}?v={{ date('YmdHis') }}"></script>
   <!-- Custom scripts for all pages-->
-  <script src="{{ asset('js/sb-admin.min.js') }}"></script>
+  <script src="{{ asset('js/sb-admin.min.js') }}?v={{ date('YmdHis') }}"></script>
   <!-- Custom scripts for this page-->
-  <script src="{{ asset('js/sb-admin-datatables.min.js') }}"></script>
-  {{-- <script src="{{ asset('js/sb-admin-charts.min.js') }}"></script> --}}
+  <script src="{{ asset('js/sb-admin-datatables.min.js') }}?v={{ date('YmdHis') }}"></script>
+  {{-- <script src="{{ asset('js/sb-admin-charts.min.js') }}?v={{ date('YmdHis') }}"></script> --}}
   <!-- Data Table -->
-  <script src="{{ asset('datatables/datatables.min.js') }}"></script>
-  <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.bootstrap.min.js') }}"></script>
-  <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.foundation.min.js') }}"></script>
-  <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.jqueryui.min.js') }}"></script>
-  <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.semanticui.min.js') }}"></script>
-  <script src="{{ asset('datatables/DataTables-1.10.16/js/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.buttons.min.js') }}"></script>
-  <script src="{{ asset('datatables/DataTables-1.10.16/js/buttons.colVis.js') }}"></script>
-  <script src="{{ asset('js/buttons.print.min.js') }}"></script>
-  <script src="{{ asset('js/jszip.min.js') }}"></script>
-  <script src="{{ asset('js/pdfmake.min.js') }}"></script>
+  <script src="{{ asset('datatables/datatables.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.bootstrap.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.foundation.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.jqueryui.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.semanticui.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('datatables/DataTables-1.10.16/js/jquery.dataTables.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.buttons.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('datatables/DataTables-1.10.16/js/buttons.colVis.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('js/buttons.print.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('js/jszip.min.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('js/pdfmake.min.js') }}?v={{ date('YmdHis') }}"></script>
   <script src='{{ asset('js/vfs_fonts.js') }}'></script>
-  <script src="{{ asset('js/buttons.html5.min.js') }}"></script> 
-  <script src="{{ asset('js/gijgo.min.js') }}"></script>
+  <script src="{{ asset('js/buttons.html5.min.js') }}?v={{ date('YmdHis') }}"></script> 
+  <script src="{{ asset('js/gijgo.min.js') }}?v={{ date('YmdHis') }}"></script>
   <script type="text/javascript">
     $('body').delegate('a[target=ajax-modal],button[target=ajax-modal]','click',function(){
       var url = $(this).attr('href');
