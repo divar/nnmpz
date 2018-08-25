@@ -36,7 +36,7 @@ class AddOnTableSeeder extends Seeder
             ['id'=>19,'id_kategori'=>'15','nama'=>'Zuchinni','harga'=>'7000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
             ['id'=>20,'id_kategori'=>'15','nama'=>'Lettuce','harga'=>'7000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
             ['id'=>21,'id_kategori'=>'15','nama'=>'Rucolla','harga'=>'7000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
-            ['id'=>20,'id_kategori'=>'15','nama'=>'Spinach','harga'=>'7000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
+            ['id'=>22,'id_kategori'=>'15','nama'=>'Spinach','harga'=>'7000','keterangan'=>'','created_at'=>date('Y-1-1 H:i:s')],
 
 
         ];
