@@ -294,7 +294,7 @@ class TransaksiController extends Controller
         // $printer->setTextSize(1,1);
         $printer->setJustification(Printer::JUSTIFY_CENTER);
         $printer->setEmphasis(true);
-        $connector->setPrintLeftMargin(0);
+        $connector->setPrintLeftMargin(Printer::GS.'L'.chr(0).chr(0));
         $printer->text("Nanamia Pizzeria\n");
         $printer->feed();
         $printer->selectPrintMode(Printer::MODE_FONT_C);
