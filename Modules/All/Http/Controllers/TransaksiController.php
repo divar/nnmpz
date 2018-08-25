@@ -339,7 +339,7 @@ class TransaksiController extends Controller
             }
 
             $printer->text($this->items($val['jml'],$val['menu']->nama_menu,nominalKoma($val['sub_total'],false)));
-
+            $total_yang_dipesan += $val['jml'];
             $totalAddons=0; $iii=0;
             foreach ($DetailTransaksi[$i]->addons as $value){
                 if($iii==0){
@@ -364,7 +364,7 @@ class TransaksiController extends Controller
         $printer->setEmphasis(true);
 
         $printer->text($this->footerKwitansi('Subtotal',nominalKoma($Transaksi[0]->total_harga-$Transaksi[0]->ppn-$Transaksi[0]->pajak_kurir, true)));
-        $printer->text($this->footerKwitansi('Total Pesanan',$i));
+        $printer->text($this->footerKwitansi('Total Pesanan',$total_yang_dipesan));
         $printer->text($this->footerKwitansi('PPN/Gov Tax 10%','Rp '.nominalKoma($Transaksi[0]->ppn,false)));
         $printer->text($this->footerKwitansi('Tarif Wilayah',nominalKoma($Transaksi[0]->tarif_wilayah,true)));
         $printer->text($this->footerKwitansi('Tax Away Charge',nominalKoma($Transaksi[0]->pajak_kurir,true)));
