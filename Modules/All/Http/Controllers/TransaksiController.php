@@ -219,9 +219,9 @@ class TransaksiController extends Controller
         }
         DB::commit();
         session(['id'=>$insertTransaksi->id]);
-        // Auth::logout();
-        // return redirect("nota/cetaknota/$insertTransaksi->id");
-        return redirect('/all/transaksi')->with('id',$insertTransaksi->id);
+        Auth::logout();
+        return redirect("nota/cetaknota/$insertTransaksi->id");
+        // return redirect('/all/transaksi')->with('id',$insertTransaksi->id);
         if($return == 'Input Lagi'){
             // return redirect('all/transaksi/tambah')->with('return',$return)->with('id',$insertTransaksi->id);
         }else{
@@ -385,15 +385,17 @@ class TransaksiController extends Controller
         $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->with('addons')->with('modifier')->where('id_transaksi',$id)->get();
         try {
             if($sendNota['Transaksi'][0]['flag_kurir']==1){
-                for ($i=0; $i < 2; $i++) { 
+                for ($i=0; $i < 3; $i++) { 
                     $this->printReceipt($id);
                 }
-                return $this->printReceipt($id);
+                return redirect('/');
+                // return $this->printReceipt($id);
                 // return $this->pdfPrint($sendNota);
             }else{
                 /*for ($i=0; $i < 1; $i++) { 
                 }*/
-                return $this->printReceipt($id);
+                 $this->printReceipt($id);
+                return redirect('/');
                 // return $this->pdfPrint($sendNota);
             }
         } catch (Exception $e) {
@@ -571,10 +573,10 @@ class TransaksiController extends Controller
         DB::commit();
         // session(['id'=>$insertTransaksi->id]);
         
-        // Auth::logout();
+        Auth::logout();
         // dd($insertTransaksi->id);
         // return redirect('/logouts')->with('id',$insertTransaksi->id);
-        // return redirect("nota/cetaknota/$insertTransaksi->id");
+        return redirect("nota/cetaknota/$insertTransaksi->id");
         return redirect("all/transaksi")->with('return',$return)->with('id',$insertTransaksi->id);
     }
 
