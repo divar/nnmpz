@@ -299,8 +299,8 @@ class TransaksiController extends Controller
         $printer->feed();
         $printer->selectPrintMode(Printer::MODE_FONT_A);
         $printer->setFont(Printer::FONT_C);
-        $printer->setTextSize(1,1);
-        $printer->text("Traditional Pizza for Modern People\n");
+        // $printer->setTextSize(1,1);
+        // $printer->text("Traditional Pizza for Modern People\n");
         $printer->feed();
         //Informasi Alamat
         $printer->text("\n".env('APP_ALAMAT_BARIS1', "Jl. Mozes Gatotkaca B 9 - 17,"));
