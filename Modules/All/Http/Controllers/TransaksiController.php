@@ -365,7 +365,7 @@ class TransaksiController extends Controller
 
         $printer->text($this->footerKwitansi('Subtotal',nominalKoma($Transaksi[0]->total_harga-$Transaksi[0]->ppn-$Transaksi[0]->pajak_kurir, true)));
         $printer->text($this->footerKwitansi('Total Pesanan',$i));
-        $printer->text($this->footerKwitansi('Goverment Tax 10%',nominalKoma($Transaksi[0]->ppn,true)));
+        $printer->text($this->footerKwitansi('Goverment Tax 10%','Rp '.nominalKoma($Transaksi[0]->ppn,false)));
         $printer->text($this->footerKwitansi('Tarif Wilayah',nominalKoma($Transaksi[0]->tarif_wilayah,true)));
         $printer->text($this->footerKwitansi('Tax Away Charge',nominalKoma($Transaksi[0]->pajak_kurir,true)));
         $printer->text($this->footerKwitansi('Total',nominalKoma($Transaksi[0]->total_harga, true)));
