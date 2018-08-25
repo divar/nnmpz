@@ -48,7 +48,7 @@ class KategoriTableSeeder extends Seeder
           ['id' => '23','nama' => 'LAIN-LAIN','flag_addon' => 'Y','id_satuan' => '1','id_jenis_makanan' => '2','trash' => NULL,'created_at' => '2018-08-23 02:46:59'],
           ['id' => '24','nama' => 'Pizza','flag_addon' => 'N','id_satuan' => '5','id_jenis_makanan' => '1','trash' => NULL,'created_at' => '2018-08-26 05:27:48'],
           ['id' => '25','nama' => 'Soft Drink','flag_addon' => 'N','id_satuan' => '1','id_jenis_makanan' => '2','trash' => NULL,'created_at' => '2018-08-26 06:06:46'],
-          ['id' => '26','nama' => 'Dolci','flag_addon' => 'N','id_satuan' => '1','id_jenis_makanan' => NULL,'trash' => NULL,'created_at' => '2018-08-25 08:18:08')
+          ['id' => '26','nama' => 'Dolci','flag_addon' => 'N','id_satuan' => '1','id_jenis_makanan' => NULL,'trash' => NULL,'created_at' => '2018-08-25 08:18:08']
         ];
 
         \DB::table('kategoris')->insert($data);

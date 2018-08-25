@@ -210,7 +210,7 @@ class MenuTableSeeder extends Seeder
                   ['id'=>'194','id_kategori'=>'26','id_satuan'=>'8','nama_menu'=>'Tiramisu Italiano','harga'=>'29000','keterangan'=>'','id_size'=>NULL,'trash'=>NULL,'created_at'=>'2018-08-25 08:23:55'],
                   ['id'=>'195','id_kategori'=>'26','id_satuan'=>'8','nama_menu'=>'Torta di Mirtilli','harga'=>'29000','keterangan'=>'','id_size'=>NULL,'trash'=>NULL,'created_at'=>'2018-08-25 08:24:36'],
                   ['id'=>'196','id_kategori'=>'26','id_satuan'=>'8','nama_menu'=>'Torta Mia','harga'=>'29000','keterangan'=>'','id_size'=>NULL,'trash'=>NULL,'created_at'=>'2018-08-25 08:25:04'],
-                  ['id'=>'197','id_kategori'=>'26','id_satuan'=>'8','nama_menu'=>'Strudel di Mele','harga'=>'29000','keterangan'=>'','id_size'=>NULL,'trash'=>NULL,'created_at'=>'2018-08-25 08:26:07')
+                  ['id'=>'197','id_kategori'=>'26','id_satuan'=>'8','nama_menu'=>'Strudel di Mele','harga'=>'29000','keterangan'=>'','id_size'=>NULL,'trash'=>NULL,'created_at'=>'2018-08-25 08:26:07']
 
             // ['id'=>1,'id_kategori'=>'xxx','id_satuan'=>'Satuan','nama_menu'=>'Menu','harga'=>'Harga','keterangan'=>'Keter','id_size'=>'Size','created_at'=>date('Y-m-d H:i:s')],
             // ['id'=>1,'id_kategori'=>'xxx','id_satuan'=>'Satuan','nama_menu'=>'Menu','harga'=>'Harga','keterangan'=>'Keter','id_size'=>'Size','created_at'=>date('Y-m-d H:i:s')],
