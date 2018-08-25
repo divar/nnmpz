@@ -22,6 +22,7 @@ class SatuanTableSeeder extends Seeder
             ['id'=>6,'satuan'=>'Box Large','created_at'=>date('Y-1-1 00:00:00')],
             ['id'=>7,'satuan'=>'Cup','created_at'=>date('Y-1-1 00:00:00')],
             ['id'=>8,'satuan'=>'Dessert Box','created_at'=>date('Y-1-1 00:00:00')],
+            ['id'=>9,'satuan'=>'Cup, Plastik','created_at'=>date('Y-1-1 00:00:00')],
         ];
 
         \DB::table('satuans')->insert($data);
