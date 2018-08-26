@@ -318,10 +318,11 @@ class TransaksiController extends Controller
         $printer->text("\nCreated  : ".date('H.i'));
         $printer->text("\nPemesan  : ".$Transaksi[0]->pelanggan->nama);
         $printer->text("\nPenerima : ".$Transaksi[0]->penerima);
-        $printer->text("\nNo.Hp    : ".$Transaksi[0]->alamat->alamat."\n");
-        $printer->text("\nArea     : ".$Transaksi[0]->alamat->alamat."\n");
-        $printer->text("\nAlamat   : ".$Transaksi[0]->alamat->alamat."\n");
-
+        if(empty($Transaksi[0]->id_kurir)){
+            $printer->text("\nNo.Hp    : ".$Transaksi[0]->Pelanggan->no_hp);
+            $printer->text("\nArea     : ".$Transaksi[0]->TarifWilayah->nama);
+            $printer->text("\nAlamat   : ".$Transaksi[0]->alamat->alamat);
+        }
         $printer->feed();
         $i=0;
         
