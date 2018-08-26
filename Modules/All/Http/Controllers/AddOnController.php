@@ -132,7 +132,7 @@ class AddOnController extends Controller
      * Remove the specified resource from storage.
      * @return Response
      */
-    public function destroy()
+    public function destroy($id)
     {
         DB::beginTransaction();
         try {

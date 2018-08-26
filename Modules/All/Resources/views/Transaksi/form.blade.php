@@ -88,7 +88,7 @@
                                 <a href="#tab_data_pelanggan" onclick="$('#judulform').text('Data Diri');" data-toggle="tab" class="nav-link loadtable" from="data_pelanggan" id="tab_data_pelanggan2">Data Pelanggan</a>
                             </li>
                             <li id="tab_menu" class="tab-pane table-active">
-                                <a href="#tab_input_menu" data-toggle="tab" onclick="judulform();" class="nav-link loadtable {{ isset($DetailTransaksi)?'':'disabled' }}" from="input_menu" id="tab_menu2">Tab Menu</a>
+                                <a href="#tab_input_menu" data-toggle="tab" onclick="judulform();" class="nav-link loadtable {{-- isset($DetailTransaksi)?'':'disabled' --}}" from="input_menu" id="tab_menu2">Tab Menu</a>
                             </li>
                         </ul>
                     </nav>
@@ -895,9 +895,9 @@
     }
     $(document).ready(function(){
         @if(session('id'))
-        open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); 
+        {{-- open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank');  --}}
         @endif
-        $('#tab_data_pelanggan2').click();
+        $('#tab_menu2').click();
         // $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
         $('#add_menu').on('click',function(){
             from=$(this).attr('id');
