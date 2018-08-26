@@ -966,6 +966,8 @@
               $('#tab_menu2').attr('class','nav-link loadtable disabled');
               $('#nexttab').attr('class','btn btn-primary disabled');
               $('#cariJalan').prop('disabled',false);
+              $('#no_hp').prop('disabled',false);
+              $('#alamat').prop('disabled',false);
               $('#tab_data_pelanggan2').click();
             } else {
               $("input[name="+name+"]:radio").attr('prevValue', false);
@@ -978,6 +980,8 @@
               $('#tab_menu2').attr('class','nav-link loadtable');
               $('#nexttab').attr('class','btn btn-primary');
               $('#cariJalan').prop('disabled',true);
+              $('#no_hp').prop('disabled',true);
+              $('#alamat').prop('disabled',true);
 
               $('#jalan').val('');
               $('#id_jalan').val('');

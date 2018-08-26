@@ -231,7 +231,7 @@ class TransaksiController extends Controller
 
     public function items($jml,$name,$price,$RpSign=true) {
         $rightCols = 10;
-        $midCols = 17;
+        $midCols = 29;
         $leftCols = 3;
         /*if($RpSign) {
             $midCols = $midCols / 2 - $rightCols / 2;
@@ -270,8 +270,8 @@ class TransaksiController extends Controller
         return "\n$left$mid$right";
     }
     public function footerKwitansi($nama = '', $value='') {
-        $rightCols = 16;
-        $leftCols = 8;
+        $rightCols = 28;
+        $leftCols = 14;
         
         $left = str_pad($nama, $leftCols, ' ', STR_PAD_LEFT);
         $right = str_pad($value, $rightCols, ' ', STR_PAD_LEFT);
@@ -294,7 +294,8 @@ class TransaksiController extends Controller
         // $printer->setTextSize(1,1);
         $printer->setJustification(Printer::JUSTIFY_CENTER);
         $printer->setEmphasis(true);
-        $printer->text("Nanamia\n");
+        $printer->text("Nanamia Pizzeria\n");
+        $printer->text("Traditional Pizza for Modern People\n");
         //Informasi Alamat
         $printer->text("\n".env('APP_ALAMAT_BARIS1', "Jl. Mozes Gatotkaca B 9 - 17,"));
         $printer->text("\n".env('APP_ALAMAT_BARIS2', "Gejayan, Yogyakarta"));
@@ -358,9 +359,9 @@ class TransaksiController extends Controller
 
         $printer->text($this->footerKwitansi('Subtotal',nominalKoma($Transaksi[0]->total_harga-$Transaksi[0]->ppn-$Transaksi[0]->pajak_kurir, true)));
         $printer->text($this->footerKwitansi('Total Pesanan',$i));
-        $printer->text($this->footerKwitansi('tax goverment',nominalKoma($Transaksi[0]->ppn,true)));
+        $printer->text($this->footerKwitansi('Goverment Tax 10%',nominalKoma($Transaksi[0]->ppn,true)));
         $printer->text($this->footerKwitansi('Tarif Wilayah',nominalKoma($Transaksi[0]->tarif_wilayah,true)));
-        $printer->text($this->footerKwitansi('tax away charge',nominalKoma($Transaksi[0]->pajak_kurir,true)));
+        $printer->text($this->footerKwitansi('Tax Away Charge',nominalKoma($Transaksi[0]->pajak_kurir,true)));
         $printer->text($this->footerKwitansi('Total',nominalKoma($Transaksi[0]->total_harga, true)));
         
         $printer->feed(); 
