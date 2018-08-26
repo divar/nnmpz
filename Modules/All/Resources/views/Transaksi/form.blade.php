@@ -480,7 +480,11 @@
             console.log(x6);
             }
         });
-        if ((x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5==0 ) || x6!=0) {
+        console.log();
+        if (((x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5==0 ) || x6!=0) && isNaN($('.kurir:checked').val())) {
+            alert("ada field yang kosong di tab sebelumnya");
+            return false;
+        }else if(((x1 == "" || x2 == "" || x5==0 ) || x6!=0) && !isNaN($('.kurir:checked').val())){
             alert("ada field yang kosong di tab sebelumnya");
             return false;
         }
@@ -967,7 +971,9 @@
               $('#nexttab').attr('class','btn btn-primary disabled');
               $('#cariJalan').prop('disabled',false);
               $('#no_hp').prop('disabled',false);
+              $('#no_hp').val('');
               $('#alamat').prop('disabled',false);
+              $('#alamat').val('');
               $('#tab_data_pelanggan2').click();
             } else {
               $("input[name="+name+"]:radio").attr('prevValue', false);
@@ -981,7 +987,9 @@
               $('#nexttab').attr('class','btn btn-primary');
               $('#cariJalan').prop('disabled',true);
               $('#no_hp').prop('disabled',true);
+              $('#no_hp').val('');
               $('#alamat').prop('disabled',true);
+              $('#alamat').val('');
 
               $('#jalan').val('');
               $('#id_jalan').val('');
@@ -1003,10 +1011,15 @@
         $.each($('#addModifier'),function(i, price){
             x5++;
         });
-        if (x1 == "" || x2 == "" || x3 == "" || x4 == ""|| x5>0) {
+        if ((x1 == "" || x2 == "" || x3 == "" || x4 == ""|| x5>0) && isNaN($('.kurir:checked').val())) {
             alert("ada field yang kosong di tab sebelumnya");
             return false;
-        }
+        }else if((x1 == "" || x2 == "" || x5>0) && !isNaN($('.kurir:checked').val())){
+            alert("ada field yang kosong di tab sebelumnya");
+            return false;
+
+        } 
+
         $('#simpan').click();
     }
 </script> 

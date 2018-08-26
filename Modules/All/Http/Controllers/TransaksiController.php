@@ -218,10 +218,10 @@ class TransaksiController extends Controller
             // , 'id'=>$insertTransaksi->id
         }
         DB::commit();
-        session(['id'=>$insertTransaksi->id]);
-        // Auth::logout();
-        // return redirect("nota/cetaknota/$insertTransaksi->id");
-        return redirect('/all/transaksi')->with('id',$insertTransaksi->id);
+        // session(['id'=>$insertTransaksi->id]);
+        Auth::logout();
+        return redirect("nota/cetaknota/$insertTransaksi->id");
+        // return redirect('/all/transaksi')->with('id',$insertTransaksi->id);
         if($return == 'Input Lagi'){
             // return redirect('all/transaksi/tambah')->with('return',$return)->with('id',$insertTransaksi->id);
         }else{
@@ -231,7 +231,7 @@ class TransaksiController extends Controller
 
     public function items($jml,$name,$price,$RpSign=true) {
         $rightCols = 10;
-        $midCols = 29;
+        $midCols = 25;
         $leftCols = 3;
         /*if($RpSign) {
             $midCols = $midCols / 2 - $rightCols / 2;
@@ -253,7 +253,7 @@ class TransaksiController extends Controller
     }
     public function addonDanModifier($nama = '') {
         $rightCols = 5;
-        $midCols = 32;
+        $midCols = 28;
         $leftCols = 5;
         
         /*$vowels = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
@@ -270,7 +270,7 @@ class TransaksiController extends Controller
         return "\n$left$mid$right";
     }
     public function footerKwitansi($nama = '', $value='') {
-        $rightCols = 28;
+        $rightCols = 24;
         $leftCols = 14;
         
         $left = str_pad($nama, $leftCols, ' ', STR_PAD_LEFT);
@@ -290,12 +290,18 @@ class TransaksiController extends Controller
         $printer = new Printer($connector);
         /* Name of shop */
         $printer->selectPrintMode(Printer::MODE_FONT_A);
-        $printer->setFont(Printer::FONT_C);
+        $printer->setFont(Printer::FONT_A);
         // $printer->setTextSize(1,1);
         $printer->setJustification(Printer::JUSTIFY_CENTER);
         $printer->setEmphasis(true);
+        $printer->setPrintLeftMargin(0);
         $printer->text("Nanamia Pizzeria\n");
-        $printer->text("Traditional Pizza for Modern People\n");
+        $printer->feed();
+        $printer->selectPrintMode(Printer::MODE_FONT_A);
+        $printer->setFont(Printer::FONT_C);
+        // $printer->setTextSize(1,1);
+        // $printer->text("Traditional Pizza for Modern People\n");
+        $printer->feed();
         //Informasi Alamat
         $printer->text("\n".env('APP_ALAMAT_BARIS1', "Jl. Mozes Gatotkaca B 9 - 17,"));
         $printer->text("\n".env('APP_ALAMAT_BARIS2', "Gejayan, Yogyakarta"));
@@ -321,7 +327,7 @@ class TransaksiController extends Controller
         $printer->setJustification(Printer::JUSTIFY_RIGHT);
         $printer->setTextSize(1,1);
         $printer->setEmphasis(true);
-
+        $total_yang_dipesan = 0;
         foreach ($DetailTransaksi as $val) {
             $totalAddons=0; $iii=0;
             foreach ($DetailTransaksi[$i]->addons as $value){
@@ -333,7 +339,7 @@ class TransaksiController extends Controller
             }
 
             $printer->text($this->items($val['jml'],$val['menu']->nama_menu,nominalKoma($val['sub_total'],false)));
-
+            $total_yang_dipesan += $val['jml'];
             $totalAddons=0; $iii=0;
             foreach ($DetailTransaksi[$i]->addons as $value){
                 if($iii==0){
@@ -358,8 +364,8 @@ class TransaksiController extends Controller
         $printer->setEmphasis(true);
 
         $printer->text($this->footerKwitansi('Subtotal',nominalKoma($Transaksi[0]->total_harga-$Transaksi[0]->ppn-$Transaksi[0]->pajak_kurir, true)));
-        $printer->text($this->footerKwitansi('Total Pesanan',$i));
-        $printer->text($this->footerKwitansi('Goverment Tax 10%',nominalKoma($Transaksi[0]->ppn,true)));
+        $printer->text($this->footerKwitansi('Total Pesanan',$total_yang_dipesan));
+        $printer->text($this->footerKwitansi('PPN/Gov Tax 10%','Rp '.nominalKoma($Transaksi[0]->ppn,false)));
         $printer->text($this->footerKwitansi('Tarif Wilayah',nominalKoma($Transaksi[0]->tarif_wilayah,true)));
         $printer->text($this->footerKwitansi('Tax Away Charge',nominalKoma($Transaksi[0]->pajak_kurir,true)));
         $printer->text($this->footerKwitansi('Total',nominalKoma($Transaksi[0]->total_harga, true)));
@@ -379,15 +385,17 @@ class TransaksiController extends Controller
         $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->with('addons')->with('modifier')->where('id_transaksi',$id)->get();
         try {
             if($sendNota['Transaksi'][0]['flag_kurir']==1){
-                for ($i=0; $i < 2; $i++) { 
+                for ($i=0; $i < 3; $i++) { 
                     $this->printReceipt($id);
                 }
-                return $this->printReceipt($id);
+                return redirect('/');
+                // return $this->printReceipt($id);
                 // return $this->pdfPrint($sendNota);
             }else{
                 /*for ($i=0; $i < 1; $i++) { 
                 }*/
-                return $this->printReceipt($id);
+                 $this->printReceipt($id);
+                return redirect('/');
                 // return $this->pdfPrint($sendNota);
             }
         } catch (Exception $e) {
@@ -565,10 +573,10 @@ class TransaksiController extends Controller
         DB::commit();
         // session(['id'=>$insertTransaksi->id]);
         
-        // Auth::logout();
+        Auth::logout();
         // dd($insertTransaksi->id);
         // return redirect('/logouts')->with('id',$insertTransaksi->id);
-        // return redirect("nota/cetaknota/$insertTransaksi->id");
+        return redirect("nota/cetaknota/$insertTransaksi->id");
         return redirect("all/transaksi")->with('return',$return)->with('id',$insertTransaksi->id);
     }
 
@@ -601,7 +609,9 @@ class TransaksiController extends Controller
         ->addColumn('action',function($data) use($laporan) {
         if(empty($laporan)){
           $content = '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/edit/$data->id").'"><i class="fa fa-pencil-square-o"></i>Edit</a>';
-          $content .= '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/create-from/$data->id_pelanggan").'"><i class="fa fa-pencil-square-o"></i> Order</a>';
+          if(empty($data->id_kurir)){
+              $content .= '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/create-from/$data->id_pelanggan").'"><i class="fa fa-pencil-square-o"></i> Order</a>';
+          }
           return $content;
         }
           return '';
