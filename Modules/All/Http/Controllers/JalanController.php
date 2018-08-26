@@ -41,7 +41,7 @@ class JalanController extends Controller
      */
     public function create()
     {
-        $tarifWilayah = TarifWilayah::all();
+        $tarifWilayah = TarifWilayah::where('trash','<>','Y')->orWhereNull('trash')->get();
         return $this->view('form',['tarifWilayah'=>$tarifWilayah]);
     }
 
@@ -84,8 +84,12 @@ class JalanController extends Controller
      */
     public function edit($id, Request $request)
     {
-        $send['tarifWilayah'] = TarifWilayah::all();
         $send['Jalan'] = Jalan::find($id);
+        // dd($send['Jalan']);
+        $send['tarifWilayah'] = TarifWilayah::where('trash','<>','Y')->orWhereNull('trash')->get()->merge(
+          TarifWilayah::where('id',Jalan::find($id)->get()->pluck('id_tarif_wilayah'))->get()
+        )->toArray();
+        // dd($send['tarifWilayah']);
         return $this->view('form',$send);
     }
 
@@ -162,7 +166,7 @@ class JalanController extends Controller
         ->addColumn('action',function($data) use($from) { 
           $content = '';
           if($from != 'popup'){
-            $content .='<a href="'.url('all/jalan/edit/'.$data->id).'" target="ajax-modal" class="btn btn-info"> Edit </a>';
+            $content .='<a href="'.url('all/jalan/edit/'.$data->id).'" target="ajax-modal" class="btn btn-sm btn-info"> <i class="fa fa-pencil"> Edit</i> </a> &nbsp;';
             $content .= '<button type="button" id-jalan="'.$data->id.'" class="btn btn-danger btn-sm DeleteData"><i class="fa fa-trash-o"> Hapus</i></button>';
           }
           if ($from == 'popup') {

@@ -97,7 +97,7 @@ var xtable;
         buttons: [
             // 'csvHtml5',
            {
-               text: '<i class="fa fa-refresh"> refresh</i>',
+               text: '<i class="fa fa-refresh reloads"> refresh</i>',
                className: 'btn btn-sm btn-info',
                action: function ( e, dt, node, config ) {
                    dt.ajax.reload();
@@ -134,6 +134,7 @@ function deleteData(id){
         success: function(response){
         }
     });
+            $('.reloads').click();
     xtable.ajax.reload();
 }
 }

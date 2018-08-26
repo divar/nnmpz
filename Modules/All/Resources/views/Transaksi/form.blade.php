@@ -140,8 +140,7 @@
                                     <div class="form-group row">
                                         <label for="alamat" class="col-md-3 col-form-label">Area</label>
                                         <div class="col-md-7">
-                                            <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly" value="{{ isset($Transaksi->Jalan)?$Transaksi->Jalan->nama
-                                                :'' }}">
+                                            <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly" value="{{ isset($Transaksi->Jalan)?$Transaksi->Jalan->nama:'' }} ~ {{ isset($Transaksi->Jalan)?$Transaksi->Jenis->jenis:'' }}">
                                             <input type="hidden" class="form-control" id="id_jenis" name="id_jenis" value="{{ isset($Transaksi)?$Transaksi->id_jenis:'' }}">
                                             <input type="hidden" class="form-control" id="id_jalan" name="id_jalan" value="{{ isset($Transaksi)?$Transaksi->id_tarif_wilayah:'' }}">
                                             <input type="hidden" class="form-control" id="harga_tarif_wilayah" name="harga_tarif_wilayah" value="{{ isset($Transaksi)?$Transaksi->tarif_wilayah:0 }}">
