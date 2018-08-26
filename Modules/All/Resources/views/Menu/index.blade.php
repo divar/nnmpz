@@ -46,6 +46,7 @@
 
 @push('js')
 <script type="text/javascript">
+    var xtable;
 $(document).ready(function(){
     $('#menu-table').on('click','.DeleteData',function(){
         id_menu = $(this).attr('id-menu');
@@ -127,6 +128,8 @@ $(document).ready(function(){
     $('#menu-table_filter').attr('style','float:none;');
 
 function deleteData(id_menu){
+    var v = confirm('Anda yakin akan menghapus data ini ?');
+    if(v){
     $.ajax({
         type: "GET",
         url: "{{ url('all/menu/delete') }}/"+id_menu,
@@ -139,6 +142,7 @@ function deleteData(id_menu){
         }
     });
     xtable.ajax.reload();
+}
 }
 </script>
 @endpush

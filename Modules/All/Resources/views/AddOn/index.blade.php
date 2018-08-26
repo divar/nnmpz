@@ -58,6 +58,7 @@
 
 @push('js')
 <script type="text/javascript">
+    var xtable;
     $(document).ready(function(){
         $('#addon-table').on('click','.DeleteData',function(){
             id_addon = $(this).attr('id-addon');
@@ -141,7 +142,9 @@
     $('#addon-table_filter').attr('style','float:none;');
 
     function deleteData(id_addon){
-        $.ajax({
+        var v = confirm('Anda yakin akan menghapus data ini ?');
+        if(v){
+            $.ajax({
             type: "GET",
             url: "{{ url('all/addon/delete') }}/"+id_addon,
             data: {
@@ -153,6 +156,7 @@
             }
         });
         xtable.ajax.reload();
+        }
     }
 </script>
 @endpush

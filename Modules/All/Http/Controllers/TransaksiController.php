@@ -318,6 +318,8 @@ class TransaksiController extends Controller
         $printer->text("\nCreated  : ".date('H.i'));
         $printer->text("\nPemesan  : ".$Transaksi[0]->pelanggan->nama);
         $printer->text("\nPenerima : ".$Transaksi[0]->penerima);
+        $printer->text("\nNo.Hp    : ".$Transaksi[0]->alamat->alamat."\n");
+        $printer->text("\nArea     : ".$Transaksi[0]->alamat->alamat."\n");
         $printer->text("\nAlamat   : ".$Transaksi[0]->alamat->alamat."\n");
 
         $printer->feed();
@@ -561,6 +563,7 @@ class TransaksiController extends Controller
             //update data yang belum terinput
             $insertTransaksi->total_harga = (($grandtotal+$harga_tarif_wilayah)*1.1)+$pajak_kurir;
             $insertTransaksi->ppn = ($grandtotal+$harga_tarif_wilayah)*0.1;
+            $insertTransaksi->tarif_wilayah = $harga_tarif_wilayah;
             $insertTransaksi->save();
             $return = 'sukses';
             if(!empty($r['return'])){

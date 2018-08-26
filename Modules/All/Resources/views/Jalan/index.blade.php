@@ -51,6 +51,7 @@
             deleteData(id_jalan);
         });
     });
+    var xtable;
     $(function() {
         xtable = $('#jalan-table').DataTable({
             stateSave: true,
@@ -123,6 +124,8 @@
         $('#jalan-table_filter').attr('style','float:none;');
     });
     function deleteData(id_jalan){
+        var v = confirm('Anda yakin akan menghapus data ini ?');
+        if(v){
         $.ajax({
             type: "GET",
             url: "{{ url('all/jalan/delete') }}/"+id_jalan,
@@ -135,6 +138,7 @@
             }
         });
         xtable.ajax.reload();
+        }
     }
 </script>
 @endpush

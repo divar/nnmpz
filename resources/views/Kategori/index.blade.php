@@ -50,6 +50,7 @@ $(document).ready(function(){
         deleteData(id_kategori);
     });
 });
+var xtable;
  $(function() {
     xtable = $('#Kategori-table').DataTable({
         stateSave: true,
@@ -121,6 +122,8 @@ $(document).ready(function(){
     $('#Kategori-table_filter').attr('style','float:none;');
 });
 function deleteData(id_kategori){
+    var v = confirm('Anda yakin akan menghapus data ini ?');
+    if(v){
     $.ajax({
         type: "GET",
         url: "{{ url('administrasi/kategori/delete') }}/"+id_kategori,
@@ -133,6 +136,7 @@ function deleteData(id_kategori){
         }
     });
     xtable.ajax.reload();
+    }
 }
 </script>
 @endpush

@@ -51,6 +51,7 @@ $(document).ready(function(){
         deleteData(id_tarif);
     });
 });
+ var xtable;
  $(function() {
     xtable = $('#TarifWilayah-table').DataTable({
         stateSave: true,
@@ -123,18 +124,21 @@ $(document).ready(function(){
     $('#TarifWilayah-table_filter').attr('style','float:none;');
 });
 function deleteData(id_tarif){
-    $.ajax({
-        type: "GET",
-        url: "{{ url('all/TarifWilayah/delete') }}/"+id_tarif,
-        data: {
-                        
-        },  
-        dataType: 'json',
-        success: function(response){
-            
-        }
-    });
-    xtable.ajax.reload();
+    var v = confirm('Anda yakin akan menghapus data ini ?');
+    if(v){
+        $.ajax({
+            type: "GET",
+            url: "{{ url('all/TarifWilayah/delete') }}/"+id_tarif,
+            data: {
+                            
+            },  
+            dataType: 'json',
+            success: function(response){
+                
+            }
+        });
+        xtable.ajax.reload();
+    }
 }
 </script>
 @endpush

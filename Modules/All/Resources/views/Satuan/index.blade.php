@@ -50,6 +50,7 @@ $(document).ready(function(){
         xtable.ajax.reload();
     });
 });
+var xtable;
  $(function() {
     xtable = $('#Size-table').DataTable({
         stateSave: true,
@@ -120,6 +121,8 @@ $(document).ready(function(){
     $('#Size-table_filter').attr('style','float:none;');
 });
 function deleteData(id_satuan){
+    var v = confirm('Anda yakin akan menghapus data ini ?');
+    if(v){
     $.ajax({
         type: "GET",
         url: "{{ url('all/Satuan/delete') }}/"+id_satuan,
@@ -131,7 +134,7 @@ function deleteData(id_satuan){
             
         }
     });
-    xtable.ajax.reload();
+    xtable.ajax.reload();}
 }
 </script>
 @endpush

@@ -49,6 +49,7 @@ $(document).ready(function(){
         deleteData(id_size);
     });
 });
+var xtable;
  $(function() {
     xtable = $('#Size-table').DataTable({
         stateSave: true,
@@ -119,6 +120,8 @@ $(document).ready(function(){
     $('#Size-table_filter').attr('style','float:none;');
 });
 function deleteData(id_size){
+    var v = confirm('Anda yakin akan menghapus data ini ?');
+    if(v){
     $.ajax({
         type: "GET",
         url: "{{ url('all/Size/delete') }}/"+id_size,
@@ -131,6 +134,7 @@ function deleteData(id_size){
         }
     });
     xtable.ajax.reload();
+}
 }
 </script>
 @endpush

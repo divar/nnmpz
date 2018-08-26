@@ -49,6 +49,7 @@ $(document).ready(function(){
         deleteData(id_jenis_makanan);
     });
 });
+var xtable;
  $(function() {
     xtable = $('#JenisMakanan-table').DataTable({
         stateSave: true,
@@ -119,6 +120,8 @@ $(document).ready(function(){
     $('#JenisMakanan-table_filter').attr('style','float:none;');
 });
 function deleteData(id_jenis_makanan){
+    var v = confirm('Anda yakin akan menghapus data ini ?');
+    if(v){
     $.ajax({
         type: "GET",
         url: "{{ url('all/JenisMakanan/delete') }}/"+id_jenis_makanan,
@@ -131,6 +134,7 @@ function deleteData(id_jenis_makanan){
         }
     });
     xtable.ajax.reload();
+    }
 }
 </script>
 @endpush

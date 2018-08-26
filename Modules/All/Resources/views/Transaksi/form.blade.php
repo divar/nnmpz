@@ -961,8 +961,10 @@
             var prevValue = $(this).attr('prevValue');
             var name = $(this).attr('name');
             if (prevValue == 'checked') {
+              @if(!isset($Transaksi->id_kurir) || empty($Transaksi->id_kurir))
               $(this).prop('checked',false);
               $(this).attr('prevValue', false);
+              @endif
               $('#textkurir').text(0);
               $('#persen_kurir').val(0);
               $('#nilai_kurir').val(0);
@@ -970,14 +972,16 @@
               $('#tab_menu2').attr('class','nav-link loadtable disabled');
               $('#nexttab').attr('class','btn btn-primary disabled');
               $('#cariJalan').prop('disabled',false);
-              $('#no_hp').prop('disabled',false);
+              $('#no_hp').prop('readonly',false);
               $('#no_hp').val('');
-              $('#alamat').prop('disabled',false);
+              $('#alamat').prop('readonly',false);
               $('#alamat').val('');
               $('#tab_data_pelanggan2').click();
             } else {
+              @if(!isset($Transaksi->id_kurir) || empty($Transaksi->id_kurir))
               $("input[name="+name+"]:radio").attr('prevValue', false);
               $(this).attr('prevValue', 'checked');
+              @endif
               persen = $(this).attr('nilai');
               console.log(persen);
               // $('#textkurir').text(persen);
@@ -986,9 +990,9 @@
               $('#tab_menu2').attr('class','nav-link loadtable');
               $('#nexttab').attr('class','btn btn-primary');
               $('#cariJalan').prop('disabled',true);
-              $('#no_hp').prop('disabled',true);
+              $('#no_hp').prop('readonly',true);
               $('#no_hp').val('');
-              $('#alamat').prop('disabled',true);
+              $('#alamat').prop('readonly',true);
               $('#alamat').val('');
 
               $('#jalan').val('');

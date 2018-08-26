@@ -50,6 +50,7 @@ $(document).ready(function(){
         deleteData(id);
     });
 });
+var xtable;
  $(function() {
     xtable = $('#Kurir-table').DataTable({
         stateSave: true,
@@ -121,6 +122,8 @@ $(document).ready(function(){
     $('#Kurir-table_filter').attr('style','float:none;');
 });
 function deleteData(id){
+    var v = confirm('Anda yakin akan menghapus data ini ?');
+    if(v){
     $.ajax({
         type: "GET",
         url: "{{ url('all/kurir/delete') }}/"+id,
@@ -132,6 +135,7 @@ function deleteData(id){
         }
     });
     xtable.ajax.reload();
+}
 }
 </script>
 @endpush
