@@ -44,6 +44,7 @@
                                     <th>Tanggal Pesan</th>
                                     <th>Alamat</th>
                                     <th>pegawai</th>
+                                    <th>Kurir</th>
                                     <th>Addon</th>
                                     <th>Modifier</th>
                                 </tr>
@@ -103,6 +104,7 @@ function refresh(){
             { data: 'tgl_pesan', name: 'tgl_pesan', searchable:false,orderable:true},
             { data: 'alamat', name: 'alamat', searchable:false,orderable:true},
             { data: 'pegawai', name: 'pegawai', searchable:false,orderable:true},
+            { data: 'kurir', name: 'kurir', searchable:false,orderable:true},
             { data: 'addon', name: 'addon', searchable:false,orderable:true},
             { data: 'modifier', name: 'modifier', searchable:false,orderable:true},
         ],

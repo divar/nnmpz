@@ -88,7 +88,7 @@
                                 <a href="#tab_data_pelanggan" onclick="$('#judulform').text('Data Diri');" data-toggle="tab" class="nav-link loadtable" from="data_pelanggan" id="tab_data_pelanggan2">Data Pelanggan</a>
                             </li>
                             <li id="tab_menu" class="tab-pane table-active">
-                                <a href="#tab_input_menu" data-toggle="tab" onclick="judulform();" class="nav-link loadtable {{ isset($DetailTransaksi)?'':'disabled' }}" from="input_menu" id="tab_menu2">Tab Menu</a>
+                                <a href="#tab_input_menu" data-toggle="tab" onclick="judulform();" class="nav-link loadtable {{-- isset($DetailTransaksi)?'':'disabled' --}}" from="input_menu" id="tab_menu2">Tab Menu</a>
                             </li>
                         </ul>
                     </nav>
@@ -140,8 +140,7 @@
                                     <div class="form-group row">
                                         <label for="alamat" class="col-md-3 col-form-label">Area</label>
                                         <div class="col-md-7">
-                                            <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly" value="{{ isset($Transaksi->Jalan)?$Transaksi->Jalan->nama
-                                                :'' }}">
+                                            <input type="text" class="form-control" id="jalan" name="jalan" readonly="readonly" value="{{ isset($Transaksi->Jalan)?$Transaksi->Jalan->nama:'' }} ~ {{ isset($Transaksi->Jalan)?$Transaksi->Jenis->jenis:'' }}">
                                             <input type="hidden" class="form-control" id="id_jenis" name="id_jenis" value="{{ isset($Transaksi)?$Transaksi->id_jenis:'' }}">
                                             <input type="hidden" class="form-control" id="id_jalan" name="id_jalan" value="{{ isset($Transaksi)?$Transaksi->id_tarif_wilayah:'' }}">
                                             <input type="hidden" class="form-control" id="harga_tarif_wilayah" name="harga_tarif_wilayah" value="{{ isset($Transaksi)?$Transaksi->tarif_wilayah:0 }}">
@@ -245,8 +244,8 @@
                                         <input type="hidden" id="idmenu_0" name="baris_0[id_menu]"/></div>
                                     <div class="col-md-3">&nbsp;
                                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu(0)" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
-                                        <button disabled="disabled" id="sowaddon0" type="button" no="0" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>
-                                        <button id="addModifier0" type="button" no="0" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>{{-- di duplikat --}}
+                                        <button disabled="disabled" id="sowaddon0" type="button" no="0" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-plus"></i></button>
+                                        <button id="addModifier0" type="button" no="0" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-minus"></i></button>{{-- di duplikat --}}
                                     </div>
                                 </div>
                                 <div class="row">
@@ -316,8 +315,8 @@
                                         </div>
                                         <div class="col-md-3">&nbsp;
                                             <button type="button" class="btn btn-sm btn-info" onclick="showMenu({{$i}})" title="Cari Menu"><i class="fa fa-search-plus"></i></button>
-                                            <button id="sowaddon{{$i}}" type="button" no="{{$i}}" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>
-                                            <button id="addModifier{{ $i }}" type="button" no="{{ $i }}" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>
+                                            <button id="sowaddon{{$i}}" type="button" no="{{$i}}" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-plus"></i></button>
+                                            <button id="addModifier{{ $i }}" type="button" no="{{ $i }}" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-minus"></i></button>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -480,7 +479,11 @@
             console.log(x6);
             }
         });
-        if ((x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5==0 ) || x6!=0) {
+        console.log();
+        if (((x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5==0 ) || x6!=0) && isNaN($('.kurir:checked').val())) {
+            alert("ada field yang kosong di tab sebelumnya");
+            return false;
+        }else if(((x1 == "" || x2 == "" || x5==0 ) || x6!=0) && !isNaN($('.kurir:checked').val())){
             alert("ada field yang kosong di tab sebelumnya");
             return false;
         }
@@ -519,8 +522,8 @@
                 <div class="container-fluid">\n\
                     <div class="col-md-12 col-md-offset-2">\n\
                     <center><strong>{{ config('app.name') }}</strong></center>\n\
-                    <center><strong>Jl. Mozes Gatotkaca B 9 – 17, Gejayan, Yogyakarta</strong></center>\n\
-                    <center><strong>0274 – 556494 / 549090</strong></center>\n\
+                    <center><strong>{{ env('APP_ALAMAT_BARIS1') }}, {{ env('APP_ALAMAT_BARIS2') }}</strong></center>\n\
+                    <center><strong>{{ env('APP_ALAMAT_BARIS3') }}</strong></center>\n\
                     <center><strong>OP : {{ Auth::user()->name}}</strong></center>\n\
                     </div>\n\
                     <div class="col-md-12 col-md-offset-2">\n\
@@ -567,8 +570,8 @@
                     <div class="col-md-9"><input id="menu_'+count+'" type="text" name="baris_'+count+'[menu]" class="form-control required" /><input type="hidden" id="idmenu_'+count+'" name="baris_'+count+'[id_menu]"/></div>\n\
                     <div class="col-md-3">&nbsp;\n\
                         <button type="button" class="btn btn-sm btn-info" onclick="showMenu('+count+')" title="Cari Menu"><i class="fa fa-search-plus"></i></button>\n\
-                        <button disabled="disabled" id="sowaddon'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-bars"></i></button>\n\
-                        <button id="addModifier'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-plus"></i></button>\n\
+                        <button disabled="disabled" id="sowaddon'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-info showAddOn" title="Cari addon"><i class="fa fa-plus"></i></button>\n\
+                        <button id="addModifier'+count+'" type="button" no="'+count+'" class="btn btn-sm btn-warning addModifier" title="Cari Modifier"><i class="fa fa-minus"></i></button>\n\
                     </div>\n\
                 </div>\n\
                 <div class="row">\n\
@@ -892,9 +895,9 @@
     }
     $(document).ready(function(){
         @if(session('id'))
-        open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank'); 
+        {{-- open('{{ url('all/cetaknota') }}/{{ session('id') }}','_blank');  --}}
         @endif
-        $('#tab_data_pelanggan2').click();
+        $('#tab_menu2').click();
         // $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
         $('#add_menu').on('click',function(){
             from=$(this).attr('id');
@@ -957,8 +960,10 @@
             var prevValue = $(this).attr('prevValue');
             var name = $(this).attr('name');
             if (prevValue == 'checked') {
+              @if(!isset($Transaksi->id_kurir) || empty($Transaksi->id_kurir))
               $(this).prop('checked',false);
               $(this).attr('prevValue', false);
+              @endif
               $('#textkurir').text(0);
               $('#persen_kurir').val(0);
               $('#nilai_kurir').val(0);
@@ -966,10 +971,16 @@
               $('#tab_menu2').attr('class','nav-link loadtable disabled');
               $('#nexttab').attr('class','btn btn-primary disabled');
               $('#cariJalan').prop('disabled',false);
+              $('#no_hp').prop('readonly',false);
+              $('#no_hp').val('');
+              $('#alamat').prop('readonly',false);
+              $('#alamat').val('');
               $('#tab_data_pelanggan2').click();
             } else {
+              @if(!isset($Transaksi->id_kurir) || empty($Transaksi->id_kurir))
               $("input[name="+name+"]:radio").attr('prevValue', false);
               $(this).attr('prevValue', 'checked');
+              @endif
               persen = $(this).attr('nilai');
               console.log(persen);
               // $('#textkurir').text(persen);
@@ -978,6 +989,10 @@
               $('#tab_menu2').attr('class','nav-link loadtable');
               $('#nexttab').attr('class','btn btn-primary');
               $('#cariJalan').prop('disabled',true);
+              $('#no_hp').prop('readonly',true);
+              $('#no_hp').val('');
+              $('#alamat').prop('readonly',true);
+              $('#alamat').val('');
 
               $('#jalan').val('');
               $('#id_jalan').val('');
@@ -999,10 +1014,15 @@
         $.each($('#addModifier'),function(i, price){
             x5++;
         });
-        if (x1 == "" || x2 == "" || x3 == "" || x4 == ""|| x5>0) {
+        if ((x1 == "" || x2 == "" || x3 == "" || x4 == ""|| x5>0) && isNaN($('.kurir:checked').val())) {
             alert("ada field yang kosong di tab sebelumnya");
             return false;
-        }
+        }else if((x1 == "" || x2 == "" || x5>0) && !isNaN($('.kurir:checked').val())){
+            alert("ada field yang kosong di tab sebelumnya");
+            return false;
+
+        } 
+
         $('#simpan').click();
     }
 </script> 

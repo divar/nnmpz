@@ -50,6 +50,7 @@ $(document).ready(function(){
         deleteData(id);
     });
 });
+var xtable;
  $(function() {
     xtable = $('#Kurir-table').DataTable({
         stateSave: true,
@@ -96,7 +97,7 @@ $(document).ready(function(){
         buttons: [
             // 'csvHtml5',
            {
-               text: '<i class="fa fa-refresh"> refresh</i>',
+               text: '<i class="fa fa-refresh reloads"> refresh</i>',
                className: 'btn btn-sm btn-info',
                action: function ( e, dt, node, config ) {
                    dt.ajax.reload();
@@ -121,6 +122,8 @@ $(document).ready(function(){
     $('#Kurir-table_filter').attr('style','float:none;');
 });
 function deleteData(id){
+    var v = confirm('Anda yakin akan menghapus data ini ?');
+    if(v){
     $.ajax({
         type: "GET",
         url: "{{ url('all/kurir/delete') }}/"+id,
@@ -131,7 +134,9 @@ function deleteData(id){
         success: function(response){
         }
     });
+            $('.reloads').click();
     xtable.ajax.reload();
+}
 }
 </script>
 @endpush

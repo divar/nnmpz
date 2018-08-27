@@ -2,7 +2,7 @@
 @section('title', $title=(isset($Jalan)?'Edit':'Tambah').' Jalan')
 @section('modalClass','min-width:90%;')
 @section('sub-content')
-<div class="content-wrapper">
+<div class="content-wrapper" style="min-height: 400px;">
 @if(isset($Jalan))
 <form action="{{ route('updateJalan') }}" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
     <input type="hidden" name="id_jalan" value="{{ $Jalan->id }}">
@@ -27,7 +27,7 @@
                             <div class="col-md-9">
                                 <select class="form-control" name="wilayah">
                                     @foreach($tarifWilayah as $val)
-                                        <option {{ isset($jalan)?($Jalan->id_tarif_wilayah==$val['id']?'selected':''):'' }} value="{{ $val['id'] }}">{{ $val['nama'] }}- Rp {{ $val['harga'] }}</option>
+                                        <option {{ isset($Jalan)?($Jalan->id_tarif_wilayah==$val['id']?'selected':''):'' }} value="{{ $val['id'] }}">{{ $val['nama'] }}- Rp {{ $val['harga'] }}</option>
                                     @endforeach
                                 </select>
                             </div>  

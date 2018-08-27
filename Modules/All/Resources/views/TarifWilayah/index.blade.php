@@ -51,6 +51,7 @@ $(document).ready(function(){
         deleteData(id_tarif);
     });
 });
+ var xtable;
  $(function() {
     xtable = $('#TarifWilayah-table').DataTable({
         stateSave: true,
@@ -98,7 +99,7 @@ $(document).ready(function(){
         buttons: [
             // 'csvHtml5',
            {
-               text: '<i class="fa fa-refresh"> refresh</i>',
+               text: '<i class="fa fa-refresh reloads"> refresh</i>',
                className: 'btn btn-sm btn-info',
                action: function ( e, dt, node, config ) {
                    dt.ajax.reload();
@@ -123,18 +124,22 @@ $(document).ready(function(){
     $('#TarifWilayah-table_filter').attr('style','float:none;');
 });
 function deleteData(id_tarif){
-    $.ajax({
-        type: "GET",
-        url: "{{ url('all/TarifWilayah/delete') }}/"+id_tarif,
-        data: {
-                        
-        },  
-        dataType: 'json',
-        success: function(response){
-            
-        }
-    });
-    xtable.ajax.reload();
+    var v = confirm('Anda yakin akan menghapus data ini ?');
+    if(v){
+        $.ajax({
+            type: "GET",
+            url: "{{ url('all/TarifWilayah/delete') }}/"+id_tarif,
+            data: {
+                            
+            },  
+            dataType: 'json',
+            success: function(response){
+                
+            }
+        });
+            $('.reloads').click();
+        xtable.ajax.reload();
+    }
 }
 </script>
 @endpush
