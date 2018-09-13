@@ -21,7 +21,7 @@
                     <div class="clearfix">&nbsp;</div>
                     <div class="row">
                         <div class='col-sm-2'>
-                            <input type="text" value="{{ date('1-1-2015') }}" id="fromdate" readonly class="date-picker">
+                            <input type="text" value="{{ date('d-m-Y') }}" id="fromdate" readonly class="date-picker">
                         </div>
                         <div class="col-md-2">
                             <input type="text" value="{{ date('d-m-Y') }}" id="todate" readonly class="date-picker">
@@ -80,8 +80,8 @@ function refresh(){
     table = $('#menu-table').DataTable({
         stateSave: true,
         processing: true,
-        // serverSide: true,
-        pageLength:20,
+        serverSide: true,
+        pageLength:10,
         // ajax: '{{ url('all/pelanggan/load-data') }}',
         ajax: {
             url:"{{ url('all/transaksi/load-data') }}",
