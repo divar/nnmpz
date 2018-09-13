@@ -1,6 +1,8 @@
 /node_modules
 /public/hot
 /public/pict/bg.jpg
+/public/pict/bg1.jpg
+/public/pict/bg2.jpg
 /public/pict/logo.jpg
 /public/storage
 /storage/*.key
@@ -13,4 +15,3 @@ npm-debug.log
 yarn-error.log
 .env
 nnmpz.sublime-project
-nnmpz.sublime-workspace
