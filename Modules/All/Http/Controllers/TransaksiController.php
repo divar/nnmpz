@@ -588,8 +588,20 @@ class TransaksiController extends Controller
      * Remove the specified resource from storage.
      * @return Response
      */
-    public function destroy()
+    public function destroy($id)
     {
+        DB::beginTransaction();
+        try {
+          $T = Transaksi::find($id);
+          $T->trash='Y';
+          $T->save();
+          $DT = DetailTransaksi::where('id_transaksi',$id)->update(['trash'=>'Y']);
+        }catch(Exception $e){
+          DB::rollBack();
+          return 'bad';
+        }
+        DB::commit();
+          return 'ok';
     }
 
     public function loadData()
@@ -602,7 +614,7 @@ class TransaksiController extends Controller
         $to=\Request::get('to',null);
         $to=Carbon::createFromFormat('d-m-Y', $to);
         $to=$to->format('Y-m-d');
-        $dataList = Transaksi::select('*')->with('DetailTransaksi')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59");
+        $dataList = Transaksi::select('*')->with('DetailTransaksi')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59")->whereNull('trash');
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
@@ -616,6 +628,7 @@ class TransaksiController extends Controller
           if(empty($data->id_kurir)){
               $content .= '<a class="btn btn-primary btn-sm m-1" href="'.url("all/transaksi/create-from/$data->id_pelanggan").'"><i class="fa fa-pencil-square-o"></i> Order</a>';
           }
+          $content .= '<button class="btn btn-danger btn-sm m-1" onclick="deleteData('.$data->id.');"><i class="fa fa-pencil-square-o"></i>delete</button>';
           return $content;
         }
           return '';
@@ -692,7 +705,7 @@ class TransaksiController extends Controller
         $to=Carbon::createFromFormat('d-m-Y', $to)->format('Y-m-d');
 
         $satuan = Satuan::select('id','satuan')->get()->toArray();
-        $dataTransaksi = Transaksi::select('*')->with('DetailTransaksi')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59")->get();
+        $dataTransaksi = Transaksi::select('*')->with('DetailTransaksi')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59")->whereNull('trash')->get();
         $dataList = new Collection;
         // dd(count($dataTransaksi->toArray()));
         for ($i=0; $i < count($dataTransaksi->toArray()); $i++) {

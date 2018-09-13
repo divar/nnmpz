@@ -63,6 +63,7 @@
 
 @push('js')
 <script type="text/javascript">
+    var table;
 $(document).ready(function(){
     @if(session('id'))
         open('{{ url('nota/cetaknota') }}/{{ session('id') }}','_blank'); 
@@ -78,10 +79,11 @@ function refresh(){
 }
  $(function() {
     table = $('#menu-table').DataTable({
-        stateSave: true,
+        // stateSave: true,
         processing: true,
         serverSide: true,
         pageLength:10,
+        // "iDisplayLength": 10,
         // ajax: '{{ url('all/pelanggan/load-data') }}',
         ajax: {
             url:"{{ url('all/transaksi/load-data') }}",
@@ -126,7 +128,7 @@ function refresh(){
         },
         buttons: [
            {
-               text: '<i class="fa fa-refresh"> refresh</i>',
+               text: '<i class="fa fa-refresh reloads"> refresh</i>',
                className: 'btn btn-sm btn-info',
                action: function ( e, dt, node, config ) {
                    dt.ajax.reload();
@@ -150,6 +152,23 @@ function refresh(){
     $('.dt-buttons').appendTo('div.dataTables_filter');
     $('#menu-table_filter').attr('style','float:none;');
 });
-
+function deleteData(id){
+    var v = confirm('Anda yakin akan menghapus data ini ?');
+    if(v){
+        $.ajax({
+            type: "GET",
+            url: "{{ url('all/transaksi/delete') }}/"+id,
+            data: {
+                            
+            },  
+            dataType: 'json',
+            success: function(response){
+                
+            }
+        });
+            $('.reloads').click();
+        table.ajax.reload();
+    }
+}
 </script>
 @endpush
