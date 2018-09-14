@@ -1,0 +1,1418 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"on",
+				"onsubmit\tAttr"
+			],
+			[
+				"jaba",
+				"jabatan_id_bawahan"
+			],
+			[
+				"sta",
+				"staff"
+			],
+			[
+				"akti",
+				"aktivitas"
+			],
+			[
+				"jso",
+				"json_encode"
+			],
+			[
+				"print",
+				"printf"
+			],
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"alasa",
+				"alasan_cuti"
+			],
+			[
+				"a",
+				"aktivitas_negatif"
+			],
+			[
+				"st",
+				"style\tAttr"
+			],
+			[
+				"text-lg",
+				"text-lg-left \tBootstrap 4 Class"
+			],
+			[
+				"aktivia",
+				"aktivitas_bawahan"
+			],
+			[
+				"mode",
+				"models"
+			],
+			[
+				"satuan",
+				"satuan_kerja_id"
+			],
+			[
+				"is",
+				"isset"
+			],
+			[
+				"where",
+				"whereIn"
+			],
+			[
+				"JabatanS",
+				"JabatanSimpeg"
+			],
+			[
+				"jab",
+				"jabatan_id"
+			],
+			[
+				"jabatan",
+				"jabatan_nama"
+			],
+			[
+				"pegaa",
+				"pegawai"
+			],
+			[
+				"nip",
+				"nip18"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"nip_ata",
+				"nip_atasan_1"
+			],
+			[
+				"nipa",
+				"nip_atasan_1"
+			],
+			[
+				"valid",
+				"validasiCuti2"
+			],
+			[
+				"isi",
+				"isi_aktifitas"
+			],
+			[
+				"esel",
+				"eselon_kd"
+			],
+			[
+				"eselon",
+				"eselon_id"
+			],
+			[
+				"perse",
+				"persen_iki"
+			],
+			[
+				"jsn",
+				"json_encode"
+			],
+			[
+				"v-",
+				"v-if\t<div v-if=\"\">"
+			],
+			[
+				"alasan",
+				"alasan-ditolak"
+			],
+			[
+				"els",
+				"else"
+			],
+			[
+				"status",
+				"status_2"
+			],
+			[
+				"consol",
+				"console_log"
+			],
+			[
+				"tangg",
+				"tanggal-merah"
+			],
+			[
+				"onkey",
+				"onkeyup\tAttr"
+			],
+			[
+				"onke",
+				"onkeypress\tAttr"
+			],
+			[
+				"tangga",
+				"tanggal"
+			],
+			[
+				"atasa",
+				"status_atasan"
+			],
+			[
+				"loca",
+				"location\t: Location Window"
+			],
+			[
+				"pi",
+				"pilih_semua"
+			],
+			[
+				"stat",
+				"status_atasan"
+			],
+			[
+				"detai",
+				"detailCuti"
+			],
+			[
+				"to",
+				"toArray"
+			],
+			[
+				"iss",
+				"isset"
+			],
+			[
+				"id",
+				"id_cuti"
+			],
+			[
+				"conf",
+				"confirm"
+			],
+			[
+				"col-md",
+				"col-md-4 \tBootstrap 3 Class"
+			],
+			[
+				"peg",
+				"peg_nip"
+			],
+			[
+				"tanggal",
+				"tanggal-aktif"
+			],
+			[
+				"remo",
+				"removeAssign"
+			],
+			[
+				"cons",
+				"console_log"
+			],
+			[
+				"foreac",
+				"forEach\t( callbackfn: Function, thisArg?: any ): Array Array"
+			],
+			[
+				"v",
+				"v-if\t<div v-if=\"\">"
+			],
+			[
+				"mt-",
+				"mt-1 \tBootstrap 4 Class"
+			],
+			[
+				"col",
+				"col-6 \tBootstrap 4 Class"
+			],
+			[
+				"inp",
+				"input-lg \tBootstrap 3 Class"
+			],
+			[
+				"jaa",
+				"jabatan_id"
+			],
+			[
+				"satua",
+				"satuan_kerja"
+			],
+			[
+				"Pegawa",
+				"PegawaiSimpeg"
+			],
+			[
+				"btn-se",
+				"btn-success \tBootstrap 4 Class"
+			],
+			[
+				"mt",
+				"mt-4 \tBootstrap 4 Class"
+			],
+			[
+				"sat",
+				"satker-"
+			],
+			[
+				"btn",
+				"btn-info \tBootstrap 3 Class"
+			],
+			[
+				"bt",
+				"btn \tBootstrap 3 Class"
+			],
+			[
+				"date",
+				"date_create"
+			],
+			[
+				"text",
+				"textarea"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"pull",
+				"pull-right \tBootstrap 3 Class"
+			],
+			[
+				"btn-p",
+				"btn-primary \tBootstrap 4 Class"
+			],
+			[
+				"nama",
+				"nama_aktifitas"
+			],
+			[
+				"json",
+				"JSON_parse\t( json: string ): any JSON"
+			],
+			[
+				"kode_a",
+				"kode_aktivitas"
+			],
+			[
+				"jen",
+				"jenjang_jabatan"
+			],
+			[
+				"text-w",
+				"text-white \tBootstrap 4 Class"
+			],
+			[
+				"tex",
+				"text-info \tBootstrap 4 Class"
+			],
+			[
+				"getN",
+				"getByNip"
+			],
+			[
+				"chan",
+				"changeOutput"
+			],
+			[
+				"math",
+				"Math_round\t( x: number ): number Math"
+			],
+			[
+				"str",
+				"strtolower"
+			],
+			[
+				"id_tupoksi_",
+				"id_tupoksi_atasan"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"getn",
+				"getNip"
+			],
+			[
+				"kode",
+				"kode_jabatan"
+			],
+			[
+				"koj",
+				"kojab"
+			],
+			[
+				"S",
+				"SatuanKerja"
+			],
+			[
+				"tang",
+				"tanggal_dipilih"
+			],
+			[
+				"push",
+				"push\t( items_..: any ): Array Array"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"control",
+				"control-label \tBootstrap 3 Class"
+			],
+			[
+				"form",
+				"form-control \tBootstrap 4 Class"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"margi",
+				"margin-bottom\tproperty"
+			],
+			[
+				"aut",
+				"auto\tmargin-top"
+			],
+			[
+				"mar",
+				"margin-top\tproperty"
+			],
+			[
+				"jsco",
+				"json_encode"
+			],
+			[
+				"exi",
+				"exists"
+			],
+			[
+				"panel",
+				"panel-default \tBootstrap 3 Class"
+			],
+			[
+				"m",
+				"m-3 \tBootstrap 4 Class"
+			],
+			[
+				"text-",
+				"text-justify \tBootstrap 3 Class"
+			],
+			[
+				"h",
+				"h3 \tBootstrap 3 Class"
+			],
+			[
+				"col-",
+				"col-12 \tBootstrap 4 Class"
+			],
+			[
+				"rea",
+				"readyState\t: unsigned short FileReader"
+			],
+			[
+				"center",
+				"text-center \tBootstrap 3 Class"
+			],
+			[
+				"ro",
+				"rows\tAttr"
+			],
+			[
+				"brea",
+				"break-word\tword-wrap"
+			],
+			[
+				"war",
+				"word-wrap\tproperty"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"JS",
+				"JSON_parse\t( json: string ): any JSON"
+			],
+			[
+				"par",
+				"parse\t( json: string ): any JSON"
+			],
+			[
+				"pul",
+				"pull-right \tBootstrap 3 Class"
+			],
+			[
+				"min",
+				"min-width\tproperty"
+			],
+			[
+				"li",
+				"li\tTag"
+			],
+			[
+				"margin",
+				"margin-top\tproperty"
+			],
+			[
+				"b",
+				"b\tTag"
+			],
+			[
+				"cent",
+				"text-center \tBootstrap 3 Class"
+			],
+			[
+				"sim",
+				"simpan-btn-umum"
+			],
+			[
+				"tam",
+				"tampilDataApi"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"find",
+				"findInSso"
+			],
+			[
+				"error",
+				"error_log"
+			],
+			[
+				"val",
+				"validateDate"
+			],
+			[
+				"max",
+				"max_id"
+			],
+			[
+				"fora",
+				"foreach\tforeach …"
+			],
+			[
+				"wid",
+				"width\t = 'auto' Style CSS"
+			],
+			[
+				"kelom",
+				"kelompok_pertanyaan"
+			],
+			[
+				"kelm",
+				"kelompok_pertanyaan"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
+			"settings":
+			{
+				"buffer_size": 58054,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 203.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inste",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:  insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: pac",
+				"Package Control: List Packages"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 444.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"php artisan",
+			"php artisan cache:lear",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/nnmpz"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/erk/app/Console/Commands/temporaryCommand.php",
+		"/C/xampp/htdocs/erk/node_modules/csso/lib/compressor/restructure/prepare/createDeclarationIndexer.js",
+		"/C/xampp/htdocs/erk/resources/views/home.blade.php",
+		"/C/xampp/htdocs/erk/resources/views/pages/perhitungan-kinerja/pilih-bulan-headerless.blade.php",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/HomeController.php",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/Auth/LoginController.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/PegawaiBawahanNilai.vue",
+		"/C/xampp/htdocs/erk/resources/views/pages/cuti-online/form-permintaan.blade.php",
+		"/C/xampp/htdocs/erk/resources/views/pages/cuti-online/index.blade.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/modal/KinerjaPegawai.vue",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/PegawaiNilaiBawahan.vue",
+		"/C/xampp/htdocs/erk/app/Model/Simpeg/Pegawai.php",
+		"/C/xampp/htdocs/erk/app/global_functions.php",
+		"/C/xampp/htdocs/erk/app/Model/Kelompok.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-header/PerhitunganKinerja.vue",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-row/PerhitunganKinerja.vue",
+		"/C/xampp/htdocs/erk/rapat 7-9-2018.txt",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/ReviewPerilakuController.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/ReviewPerilaku.vue",
+		"/C/xampp/htdocs/erk/resources/views/pages/review-perilaku/review.blade.php",
+		"/C/xampp/htdocs/erk/app/Service/PenilaianCounter.php",
+		"/C/xampp/htdocs/erk/app/Model/Simpeg/Jabatan.php",
+		"/C/xampp/htdocs/erk/app/Model/IsiAktifitas.php",
+		"/C/xampp/htdocs/erk/app/Service/AktivitasNegatifCounter.php",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/CutiOnlineController.php",
+		"/C/xampp/htdocs/erk/app/Http/Middleware/CekSisaCutiMiddleware.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-row/ValidasiCuti.vue",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/modal/DetailValidasiCuti.vue",
+		"/C/xampp/htdocs/erk/resources/views/pages/cuti-online/index-validasi.blade.php",
+		"/C/xampp/htdocs/erk/storage/logs/laravel-www-2018-09-10.log",
+		"/C/xampp/htdocs/erk/storage/logs/laravel-www-2018-09-11.log",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/InputAktivitasController.php",
+		"/C/xampp/htdocs/erk/app/Model/Simpeg/UnitKerja.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_09_05_100900_create_kinerja_table.php",
+		"/C/xampp/htdocs/erk/storage/logs/laravel-www-2018-09-07.log",
+		"/C/xampp/htdocs/erk/app/Model/SasaranKerja.php",
+		"/C/xampp/htdocs/erk/app/Console/Kernel.php",
+		"/C/xampp/htdocs/erk/resources/views/layouts/app.blade.php",
+		"/C/xampp/htdocs/erk/resources/views/pages/aktivitas/index.blade.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_09_05_102226_create_detail_kinerja.php",
+		"/C/xampp/htdocs/erk/app/Model/Module.php",
+		"/C/xampp/htdocs/erk/resources/views/pages/aktivitas/validasi.blade.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-row-mobile/ValidasiAktivitas.vue",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/ValidasiAktivitas.vue",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/modal/ValidasiAktivitas.vue",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-row/ValidasiAktivitas.vue",
+		"/C/xampp/htdocs/erk/.gitignore",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-row/Cuti.vue",
+		"/C/xampp/htdocs/erk/public/index.php",
+		"/C/xampp/htdocs/erk/app/Model/ModuleAkses.php",
+		"/C/xampp/htdocs/erk/app/Model/Simpeg/SatuanKerja.php",
+		"/C/xampp/htdocs/erk/app/Model/SatuanKerja.php",
+		"/C/xampp/htdocs/erk/app/Console/Commands/OldGeneratePenilaian.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_09_05_100556_create_kinerja.php",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/AdminController.php",
+		"/C/xampp/htdocs/erk/app/Http/Kernel.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/AjaxTable.vue",
+		"/C/xampp/htdocs/erk/public/css/custom.css",
+		"/C/xampp/htdocs/erk/app/Model/Cuti.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_08_07_125218_create_cuti_table.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_08_07_125230_create_detail_cuti_table.php",
+		"/C/xampp/htdocs/erk/app/Console/Commands/GeneratePenilaian.php",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/AdminSkpdController.php",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/SasaranKerjaController.php",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/PerhitunganKinerjaController.php",
+		"/C/xampp/htdocs/erk/routes/breadcrumbs.php",
+		"/C/xampp/htdocs/erk/.env",
+		"/C/xampp/htdocs/erk/app/Console/Commands/GenerateViewPegawai.php",
+		"/C/xampp/htdocs/erk/app/Service/SiapApi.php",
+		"/C/xampp/htdocs/erk/app/Console/Commands/GenerateViewPegawaiAll.php",
+		"/C/xampp/htdocs/erk/app/Console/Commands/GenerateReviewer.php",
+		"/C/xampp/htdocs/erk/vendor/guzzlehttp/guzzle/src/Client.php",
+		"/C/xampp/htdocs/erk/vendor/guzzlehttp/psr7/src/MessageTrait.php",
+		"/C/xampp/htdocs/erk/composer.json",
+		"/C/xampp/htdocs/erk/node_modules/envify/custom.js",
+		"/C/xampp/htdocs/erk/database/migrations/2018_08_27_022835_create_assign_plt_table.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_08_23_093655_master_jenis_cuti.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_05_16_165305_rumpun.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_05_16_161658_create_aktifitas_jabatans_table.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_04_19_143212_create_module_access_table.php",
+		"/C/xampp/htdocs/erk/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_03_29_181433_create_permission_tables.php",
+		"/C/xampp/htdocs/erk/database/migrations/2018_04_15_104418_create_kreativitas_table.php",
+		"/C/xampp/htdocs/erk/app/Model/AssignPlt.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/modal/SasaranKerjaEntri.vue",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/modal/DetailJabatan.vue",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/modal/AssignPlt.vue",
+		"/C/xampp/htdocs/erk/resources/views/pages/admin/monitoring-pegawai.blade.php",
+		"/C/xampp/htdocs/erk/app/Model/AktivitasJabatan.php",
+		"/C/xampp/htdocs/erk/app/Model/Pegawai.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-row/DataJabatan.vue",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/ValidasiAktivitasController.php",
+		"/C/xampp/htdocs/erk/resources/views/pages/admin/rekap/jabatan.blade.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/app.js",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-row/SasaranPegawai.vue",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/modal/FormEditAtasan.vue",
+		"/C/xampp/htdocs/erk/app/Console/Commands/RefreshDataJabatan.php",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/StrukturPegawaiController.php",
+		"/C/xampp/htdocs/erk/public/js/app.js",
+		"/C/xampp/htdocs/erk/app/Model/StrukturBayangan.php",
+		"/C/xampp/htdocs/erk/vendor/adldap2/adldap2/src/Connections/Ldap.php",
+		"/C/xampp/htdocs/erk/config/adldap.php",
+		"/C/xampp/htdocs/erk/vendor/nurmanhabib/navigator/src/Navigator.php",
+		"/C/xampp/htdocs/erk/vendor/nurmanhabib/navigator/src/NavCollection.php",
+		"/C/xampp/htdocs/erk/vendor/nurmanhabib/navigator/src/NavigatorRendering.php",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/KonfigurasiController.php",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/MenuController.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/PegawaiBawahan.vue",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/modal/PegawaiReviewer.vue",
+		"/C/xampp/htdocs/erk/storage/logs/laravel-www-2018-08-24.log",
+		"/C/xampp/htdocs/erk/app/Http/Controllers/SettingReviewerController.php",
+		"/C/xampp/htdocs/erk/app/const.php",
+		"/C/xampp/htdocs/erk/routes/web.php",
+		"/C/xampp/htdocs/erk/app/Model/Reviewers.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-row/SasaranKerja.vue",
+		"/C/xampp/htdocs/erk/resources/views/pages/sasaran/input-kreativitas.blade.php",
+		"/C/xampp/htdocs/erk/app/Model/DetailCuti.php",
+		"/C/xampp/htdocs/erk/app/Model/Analytic/MonitoringPegawai.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-row/SasaranVerifikasi.vue",
+		"/C/xampp/htdocs/erk/resources/views/pages/struktur-pegawai/index.blade.php",
+		"/C/xampp/htdocs/erk/app/Model/MasterJenisCuti.php",
+		"/C/xampp/htdocs/erk/resources/views/pages/sasaran/input-sasaran.blade.php",
+		"/C/xampp/htdocs/erk/resources/assets/js/components/table-row/SasaranAktivitas.vue",
+		"/C/xampp/htdocs/erk/public/bower_components/bootstrap-calendar/js/app.js",
+		"/C/Users/Divar/Downloads/Telegram Desktop/id_rsa.pub",
+		"/C/xampp/htdocs/erk/app/Console/Commands/AktivitasCutiInject.php",
+		"/C/xampp/htdocs/erk/app/Console/Commands/RefreshMaterialized.php",
+		"/C/xampp/htdocs/erk/app/Console/Commands/SyncInaktif.php"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 142.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"onkeypress=\"pressEnter();\"",
+			"enter",
+			"konfirmasi"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 58054,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32615,
+								32615
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9417.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 50.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "nnmpz.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"transaksifo",
+				"Modules\\All\\Resources\\views\\Transaksi\\form.blade.php"
+			],
+			[
+				"APIpe",
+				"app\\Http\\Controllers\\ApiPerhitunganKinerjaController.php"
+			],
+			[
+				"pegawa",
+				"app\\Model\\Simpeg\\Pegawai.php"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"cuti index",
+				"resources\\views\\pages\\cuti-online\\index.blade.php"
+			],
+			[
+				"cutionindex",
+				"node_modules\\csso\\lib\\compressor\\restructure\\prepare\\createDeclarationIndexer.js"
+			],
+			[
+				"indexva",
+				"resources\\views\\pages\\cuti-online\\index-validasi.blade.php"
+			],
+			[
+				"cutic",
+				"app\\Http\\Controllers\\CutiOnlineController.php"
+			],
+			[
+				"detailvalidasic",
+				"resources\\assets\\js\\components\\modal\\DetailValidasiCuti.vue"
+			],
+			[
+				"pilih",
+				"resources\\views\\pages\\perhitungan-kinerja\\pilih-bulan.blade.php"
+			],
+			[
+				"",
+				"resources\\views\\home.blade.php"
+			],
+			[
+				"pilihhea",
+				"resources\\views\\pages\\perhitungan-kinerja\\pilih-bulan-headerless.blade.php"
+			],
+			[
+				"pilihb",
+				"resources\\views\\pages\\perhitungan-kinerja\\pilih-bulan.blade.php"
+			],
+			[
+				"home.blade",
+				"resources\\views\\home.blade.php"
+			],
+			[
+				"homec",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"validasiakti",
+				"app\\Http\\Controllers\\ValidasiAktivitasController.php"
+			],
+			[
+				"rhitungan-kinerja\\struktur.blade.p",
+				"resources\\views\\pages\\perhitungan-kinerja\\struktur.blade.php"
+			],
+			[
+				"loginco",
+				"app\\Http\\Controllers\\Auth\\LoginController.php"
+			],
+			[
+				"modalkinerja",
+				"resources\\assets\\js\\components\\modal\\KinerjaPegawai.vue"
+			],
+			[
+				"pegawainil",
+				"resources\\assets\\js\\components\\PegawaiBawahanNilai.vue"
+			],
+			[
+				"homecon",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"module",
+				"app\\Model\\Module.php"
+			],
+			[
+				"formper",
+				"resources\\views\\pages\\cuti-online\\form-permintaan.blade.php"
+			],
+			[
+				"detailc",
+				"resources\\assets\\js\\components\\modal\\DetailValidasiCuti.vue"
+			],
+			[
+				"cutionline in",
+				"resources\\views\\pages\\cuti-online\\index.blade.php"
+			],
+			[
+				"pegawainila",
+				"resources\\assets\\js\\components\\PegawaiNilaiBawahan.vue"
+			],
+			[
+				"pegawainilai",
+				"resources\\assets\\js\\components\\PegawaiNilaiBawahan.vue"
+			],
+			[
+				"ws\\pages\\perhitungan-kinerja\\pilih-bulan.blade.ph",
+				"resources\\views\\pages\\perhitungan-kinerja\\pilih-bulan.blade.php"
+			],
+			[
+				"perhi",
+				"app\\Http\\Controllers\\PerhitunganKinerjaController.php"
+			],
+			[
+				"adminc",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"Konfigurasi",
+				"app\\Model\\Konfigurasi.php"
+			],
+			[
+				"konfigurasiNilai",
+				"resources\\assets\\js\\components\\KonfigurasiNilai.vue"
+			],
+			[
+				"global",
+				"app\\global_functions.php"
+			],
+			[
+				"generateview",
+				"app\\Console\\Commands\\GenerateViewPegawai.php"
+			],
+			[
+				"perhitungankinerjavue",
+				"resources\\assets\\js\\components\\table-row\\ListPerhitunganKinerja.vue"
+			],
+			[
+				"perhitungankinerja",
+				"resources\\assets\\js\\components\\table-header\\PerhitunganKinerja.vue"
+			],
+			[
+				"perhitungankiner",
+				"resources\\assets\\js\\components\\table-row\\PerhitunganKinerja.vue"
+			],
+			[
+				"penilaian",
+				"app\\Service\\PenilaianCounter.php"
+			],
+			[
+				"perhitungan",
+				"app\\Http\\Controllers\\PerhitunganKinerjaController.php"
+			],
+			[
+				"createki",
+				"database\\migrations\\2018_09_05_100900_create_kinerja_table.php"
+			],
+			[
+				"unitkerja",
+				"app\\Model\\Simpeg\\UnitKerja.php"
+			],
+			[
+				"aktivitasc",
+				"app\\Http\\Controllers\\InputAktivitasController.php"
+			],
+			[
+				"cuti",
+				"app\\Http\\Controllers\\CutiOnlineController.php"
+			],
+			[
+				"reviewperilaku",
+				"resources\\views\\pages\\review-perilaku\\review.blade.php"
+			],
+			[
+				"revie",
+				"resources\\assets\\js\\components\\ReviewPerilaku.vue"
+			],
+			[
+				"cutimi",
+				"app\\Http\\Middleware\\CekSisaCutiMiddleware.php"
+			],
+			[
+				"isiak",
+				"app\\Model\\IsiAktifitas.php"
+			],
+			[
+				"isia",
+				"app\\Model\\IsiAktifitas.php"
+			],
+			[
+				"sasaran",
+				"app\\Model\\SasaranKerja.php"
+			],
+			[
+				"jabatan",
+				"app\\Model\\Simpeg\\Jabatan.php"
+			],
+			[
+				"indexvalidasi",
+				"resources\\views\\pages\\cuti-online\\index-validasi.blade.php"
+			],
+			[
+				"app.blade",
+				"resources\\views\\layouts\\app.blade.php"
+			],
+			[
+				"cution",
+				"app\\Http\\Controllers\\CutiOnlineController.php"
+			],
+			[
+				"validasic",
+				"resources\\assets\\js\\components\\table-row\\ValidasiCuti.vue"
+			],
+			[
+				"aktivitas index",
+				"resources\\views\\pages\\aktivitas\\index.blade.php"
+			],
+			[
+				"cuti detailvalidasi",
+				"resources\\assets\\js\\components\\modal\\DetailValidasiCuti.vue"
+			],
+			[
+				"indexvalid",
+				"resources\\views\\pages\\cuti-online\\index-validasi.blade.php"
+			],
+			[
+				"cutionline index",
+				"resources\\views\\pages\\cuti-online\\index.blade.php"
+			],
+			[
+				"formpermintaa",
+				"resources\\views\\pages\\cuti-online\\form-permintaan.blade.php"
+			],
+			[
+				"validasiaktivitas",
+				"resources\\assets\\js\\components\\modal\\ValidasiAktivitas.vue"
+			],
+			[
+				"validasi",
+				"resources\\assets\\js\\components\\ValidasiAktivitas.vue"
+			],
+			[
+				"mobvalidasiaktivitas",
+				"resources\\assets\\js\\components\\table-row-mobile\\ValidasiAktivitas.vue"
+			],
+			[
+				"aktivivalidasi",
+				"resources\\views\\pages\\aktivitas\\validasi.blade.php"
+			],
+			[
+				"formperm",
+				"resources\\views\\pages\\cuti-online\\form-permintaan.blade.php"
+			],
+			[
+				"modu",
+				"app\\Model\\Module.php"
+			],
+			[
+				"globa",
+				"app\\global_functions.php"
+			],
+			[
+				"cuti-online index",
+				"resources\\views\\pages\\cuti-online\\index.blade.php"
+			],
+			[
+				"index",
+				"public\\index.php"
+			],
+			[
+				"App\\Model\\Simpeg\\SatuanKerja",
+				"app\\Model\\Simpeg\\SatuanKerja.php"
+			],
+			[
+				"SatuanKerja",
+				"app\\Model\\SatuanKerja.php"
+			],
+			[
+				"AktivitasNegatifCounter",
+				"app\\Service\\AktivitasNegatifCounter.php"
+			],
+			[
+				"generate",
+				"app\\Console\\Commands\\GeneratePenilaian.php"
+			],
+			[
+				"penila",
+				"app\\Service\\PenilaianCounter.php"
+			],
+			[
+				"pegawai",
+				"app\\Model\\Simpeg\\Pegawai.php"
+			],
+			[
+				"formperminta",
+				"resources\\views\\pages\\cuti-online\\form-permintaan.blade.php"
+			],
+			[
+				"inputak",
+				"app\\Http\\Controllers\\InputAktivitasController.php"
+			],
+			[
+				"ajax",
+				"resources\\assets\\js\\components\\AjaxTable.vue"
+			],
+			[
+				"ajaxta",
+				"resources\\assets\\js\\components\\AjaxTable.vue"
+			],
+			[
+				"admin",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"inputa",
+				"app\\Http\\Controllers\\InputAktivitasController.php"
+			],
+			[
+				"custom.cs",
+				"public\\css\\custom.css"
+			],
+			[
+				"custom",
+				"public\\css\\custom.css"
+			],
+			[
+				"login",
+				"app\\Http\\Controllers\\Auth\\LoginController.php"
+			],
+			[
+				"loginc",
+				"app\\Http\\Controllers\\Auth\\LoginController.php"
+			],
+			[
+				"cuti detail",
+				"resources\\assets\\js\\components\\modal\\DetailValidasiCuti.vue"
+			],
+			[
+				"validasicuti",
+				"resources\\assets\\js\\components\\table-row\\ValidasiCuti.vue"
+			],
+			[
+				"cuti online index-va",
+				"resources\\views\\pages\\cuti-online\\index-validasi.blade.php"
+			],
+			[
+				"cuti.vue",
+				"resources\\assets\\js\\components\\table-row\\Cuti.vue"
+			],
+			[
+				"cutionline inde",
+				"resources\\views\\pages\\cuti-online\\index.blade.php"
+			],
+			[
+				"cuti valid",
+				"resources\\assets\\js\\components\\table-row\\ValidasiCuti.vue"
+			],
+			[
+				"generatepe",
+				"app\\Console\\Commands\\GeneratePenilaian.php"
+			],
+			[
+				"controller",
+				"app\\Http\\Controllers\\SasaranKerjaController.php"
+			],
+			[
+				"admincon",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"admins",
+				"app\\Http\\Controllers\\AdminSkpdController.php"
+			],
+			[
+				"sasarankerja",
+				"app\\Http\\Controllers\\SasaranKerjaController.php"
+			],
+			[
+				".en",
+				".env"
+			],
+			[
+				"generate peni",
+				"app\\Console\\Commands\\GeneratePenilaian.php"
+			],
+			[
+				"generatere",
+				"app\\Console\\Commands\\GenerateReviewer.php"
+			],
+			[
+				"generatevi",
+				"app\\Console\\Commands\\GenerateViewPegawaiAll.php"
+			],
+			[
+				"generatevie",
+				"app\\Console\\Commands\\GenerateViewPegawai.php"
+			],
+			[
+				"composer",
+				"composer.json"
+			],
+			[
+				"siap",
+				"app\\Service\\SiapApi.php"
+			],
+			[
+				"cutionline form",
+				"resources\\views\\pages\\cuti-online\\form-permintaan.blade.php"
+			],
+			[
+				"aktivitas ind",
+				"resources\\views\\pages\\aktivitas\\index.blade.php"
+			],
+			[
+				"createassign",
+				"database\\migrations\\2018_08_27_022835_create_assign_plt_table.php"
+			],
+			[
+				"assign",
+				"app\\Model\\AssignPlt.php"
+			],
+			[
+				"createdeta",
+				"database\\migrations\\2018_08_07_125230_create_detail_cuti_table.php"
+			],
+			[
+				"sasarankerjae",
+				"resources\\assets\\js\\components\\modal\\SasaranKerjaEntri.vue"
+			],
+			[
+				"index vali",
+				"resources\\views\\pages\\cuti-online\\index-validasi.blade.php"
+			],
+			[
+				"validasi cut",
+				"resources\\assets\\js\\components\\table-row\\ValidasiCuti.vue"
+			],
+			[
+				"aktivitas/index",
+				"resources\\views\\pages\\aktivitas\\index.blade.php"
+			],
+			[
+				"aktivitas",
+				"app\\Model\\AktivitasJabatan.php"
+			],
+			[
+				"pages\\admin\\monitoring-pegawai.blade.",
+				"resources\\views\\pages\\admin\\monitoring-pegawai.blade.php"
+			],
+			[
+				"plt.",
+				"resources\\assets\\js\\components\\modal\\AssignPlt.vue"
+			],
+			[
+				"detailjaba",
+				"resources\\assets\\js\\components\\modal\\DetailJabatan.vue"
+			],
+			[
+				"create plt",
+				"database\\migrations\\2018_08_27_022835_create_assign_plt_table.php"
+			],
+			[
+				"assig",
+				"app\\Model\\AssignPlt.php"
+			],
+			[
+				"custocss",
+				"public\\css\\custom.css"
+			],
+			[
+				"custo",
+				"node_modules\\envify\\custom.js"
+			],
+			[
+				"validasi cuti",
+				"resources\\assets\\js\\components\\table-row\\ValidasiCuti.vue"
+			],
+			[
+				"detail cuti",
+				"resources\\assets\\js\\components\\modal\\DetailValidasiCuti.vue"
+			],
+			[
+				"indexval",
+				"resources\\views\\pages\\cuti-online\\index-validasi.blade.php"
+			],
+			[
+				"cuti vue",
+				"resources\\assets\\js\\components\\table-row\\Cuti.vue"
+			],
+			[
+				"app.js",
+				"resources\\assets\\js\\app.js"
+			],
+			[
+				"glo",
+				"app\\global_functions.php"
+			],
+			[
+				"reviewperilakublade",
+				"resources\\views\\pages\\review-perilaku\\review.blade.php"
+			],
+			[
+				"review",
+				"app\\Http\\Controllers\\ReviewPerilakuController.php"
+			],
+			[
+				"home.",
+				"resources\\views\\home.blade.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\xampp\\htdocs\\stable5-IM2\\stable5-IM2.sublime-project"
+			],
+			[
+				"nn",
+				"C:\\xampp\\htdocs\\nnmpz\\nnmpz.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 798.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 411.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
