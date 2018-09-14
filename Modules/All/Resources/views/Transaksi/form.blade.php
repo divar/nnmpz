@@ -67,9 +67,9 @@
 </style>
 <div class="content-wrapper">
     @if(!isset($DetailTransaksi))
-    <form action="{{ route('postTambahTransaksi') }}" onsubmit="return konfirmasi()" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+    <form action="{{ route('postTambahTransaksi') }}" onsubmit="return subm();" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
     @else
-    <form action="{{ route('postEditTransaksi') }}" onsubmit="return konfirmasi()" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
+    <form action="{{ route('postEditTransaksi') }}" onsubmit="return subm();" id="form-transaksi" method="POST" name="tambahMenu-form" enctype="multipart/form-data">
     @endif
         <div class="container-fluid">
             <div class="col-md-12">
@@ -435,7 +435,7 @@
             </div>
             <div class="pull-right">
                 <button type="button" data-toggle="modal" class="btn btn-info" id="submit" data-target="#myModal" onclick="konfirmasi();">Simpan</button>
-                <input type="submit"  id="simpan" name="submit" onkeypress="return pressEnter(event)" value="Simpan Pesanan" class="btn btn-info submit d-none">
+                <input type="submit"  id="simpan" name="submit" value="Simpan Pesanan" class="btn btn-info submit d-none">
                 {{-- @if(!isset($Pelanggan))<input type="submit" id="inputlagi" name="submit" value="Input Lagi" class="btn btn-info submit">@endif --}}
             </div>
         </div>
@@ -453,7 +453,7 @@
 
 @push('js')
 <script type="text/javascript">
-
+var ks = false;
     function judulform(){
         setTimeout(function(){ 
             if($('#tab_input_menu').attr('class')!='tab-pane'){
@@ -462,7 +462,13 @@
         }, 100);
         
     }
-        
+    function subm(){
+        if(ks!=true){
+            konfirmasi();
+            return false;
+        }
+        return true;
+    }  
     function konfirmasi(){
         var x1 = document.forms["form-transaksi"]["nama"].value;
         var x2 = document.forms["form-transaksi"]["nama_penerima"].value;
@@ -557,7 +563,6 @@
     </div>';
         $('#myModelDialog').html(isi);
         $('#myModelDialog').modal('show');
-        return false;
     }
     function add_data_barang_to_table(count){
         $('#hide_count_menu').val(parseInt(count)+1);
@@ -1023,7 +1028,7 @@
             return false;
 
         } 
-
+        ks=true;
         $('#simpan').click();
     }
 </script> 
