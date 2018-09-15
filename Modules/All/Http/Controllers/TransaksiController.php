@@ -607,6 +607,8 @@ class TransaksiController extends Controller
     public function loadData()
     {
         $GLOBALS['nomor']=\Request::input('start',0)+1;
+        $search=\Request::input('search',null);
+        $columns=\Request::input('columns',null);
         $from=\Request::get('from',null);
         $laporan=\Request::get('laporan',null);
         $from=Carbon::createFromFormat('d-m-Y', $from);
@@ -614,7 +616,14 @@ class TransaksiController extends Controller
         $to=\Request::get('to',null);
         $to=Carbon::createFromFormat('d-m-Y', $to);
         $to=$to->format('Y-m-d');
-        $dataList = Transaksi::select('*')->with('DetailTransaksi')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59")->whereNull('trash');
+        $dataList = Transaksi::select('transaksis.*','pelanggans.no_hp')->join('pelanggans','pelanggans.id','transaksis.id_pelanggan')->with('DetailTransaksi')->where('transaksis.created_at','>=',$from." 00:00:00")->where('transaksis.created_at','<=',$to." 23:59:59")->whereNull('transaksis.trash');
+        if(!empty($search['value'])&&isset($search)&&$search['value']!=''){
+            foreach ($columns as $value) {
+                if ($value['searchable']=='true') {
+                    $dataList=$dataList->where($value['name'],'like','%'.$search['value'].'%');
+                }
+            }
+        }
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
@@ -657,9 +666,9 @@ class TransaksiController extends Controller
             $nominal = nominalKoma($data->total_harga,true);
           return $nominal;
         })
-        ->addColumn('no_hp',function($data){
+        /*->addColumn('no_hp',function($data){
           return $data->Pelanggan->no_hp;
-        })
+        })*/
         ->addColumn('pegawai',function($data){
           return $data->userinput->name;
         })

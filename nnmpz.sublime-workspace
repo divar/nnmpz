@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"sub",
+				"subm"
+			],
+			[
 				"on",
 				"onsubmit\tAttr"
 			],
@@ -510,10 +514,6 @@
 			[
 				"kelom",
 				"kelompok_pertanyaan"
-			],
-			[
-				"kelm",
-				"kelompok_pertanyaan"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
 			"settings":
 			{
-				"buffer_size": 58054,
+				"buffer_size": 57942,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -743,7 +743,7 @@
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
@@ -757,6 +757,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"submit",
+			"isi",
+			"onkeypress",
 			"onkeypress=\"pressEnter();\"",
 			"enter",
 			"konfirmasi"
@@ -786,15 +789,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 58054,
+						"buffer_size": 57942,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								32615,
-								32615
+								32571,
+								32571
 							]
 						],
 						"settings":
@@ -804,7 +807,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 9417.0,
+						"translation.y": 9918.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -815,7 +818,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 29.0
 	},
 	"input":
 	{
@@ -852,7 +855,7 @@
 	"project": "nnmpz.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
