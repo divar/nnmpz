@@ -707,7 +707,7 @@ class TransaksiController extends Controller
 
     public function loadDataLaporan()
     {
-        $GLOBALS['nomor']=\Request::input('start',0)+1;
+        $GLOBALS['no']=\Request::input('start',1);
         $from=\Request::get('from',null);
         $from=Carbon::createFromFormat('d-m-Y', $from)->format('Y-m-d');
         $to=\Request::get('to',null);
@@ -744,6 +744,7 @@ class TransaksiController extends Controller
             }
             $columnPerTransaksi = [
                 'nama'=> $dataTransaksi[$i]->Pelanggan->nama,
+                'nomor'=> $i+1 ,
                 'no_hp'=> $dataTransaksi[$i]->Pelanggan->no_hp ,
                 'penerima'=> $dataTransaksi[$i]->penerima ,
                 'pesanan'=> $pesanan ,
@@ -766,9 +767,7 @@ class TransaksiController extends Controller
             $dataList->push($columnPerTransaksi);
         }
         return Datatables::of($dataList)
-        ->addColumn('nomor',function(){
-          return $GLOBALS['nomor']++;
-        })
+        
         ->addColumn('kurir',function($data){
           return empty($data->Kurir->nama)?'Nanamia':$data->Kurir->nama;
         })

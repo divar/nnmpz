@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"data",
+				"dataList"
+			],
+			[
 				"sub",
 				"subm"
 			],
@@ -510,20 +514,25 @@
 			[
 				"wid",
 				"width\t = 'auto' Style CSS"
-			],
-			[
-				"kelom",
-				"kelompok_pertanyaan"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
+			"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 57942,
+				"buffer_size": 7305,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Modules/All/Http/Controllers/TransaksiController.php",
+			"settings":
+			{
+				"buffer_size": 34658,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -612,6 +621,7 @@
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/nnmpz/Modules/All/Resources/views/Transaksi/form.blade.php",
 		"/C/xampp/htdocs/erk/app/Console/Commands/temporaryCommand.php",
 		"/C/xampp/htdocs/erk/node_modules/csso/lib/compressor/restructure/prepare/createDeclarationIndexer.js",
 		"/C/xampp/htdocs/erk/resources/views/home.blade.php",
@@ -738,8 +748,7 @@
 		"/C/xampp/htdocs/erk/public/bower_components/bootstrap-calendar/js/app.js",
 		"/C/Users/Divar/Downloads/Telegram Desktop/id_rsa.pub",
 		"/C/xampp/htdocs/erk/app/Console/Commands/AktivitasCutiInject.php",
-		"/C/xampp/htdocs/erk/app/Console/Commands/RefreshMaterialized.php",
-		"/C/xampp/htdocs/erk/app/Console/Commands/SyncInaktif.php"
+		"/C/xampp/htdocs/erk/app/Console/Commands/RefreshMaterialized.php"
 	],
 	"find":
 	{
@@ -757,6 +766,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"loaddata",
 			"submit",
 			"isi",
 			"onkeypress",
@@ -780,24 +790,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
+					"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 57942,
+						"buffer_size": 7305,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								32571,
-								32571
+								4325,
+								4330
 							]
 						],
 						"settings":
@@ -807,7 +817,37 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 9918.0,
+						"translation.y": 1620.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Modules/All/Http/Controllers/TransaksiController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 34658,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27653,
+								27653
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 12040.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -864,6 +904,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"transaksic",
+				"Modules\\All\\Http\\Controllers\\TransaksiController.php"
+			],
+			[
+				"transaksi index",
+				"Modules\\All\\Resources\\views\\Transaksi\\index.blade.php"
+			],
 			[
 				"transaksifo",
 				"Modules\\All\\Resources\\views\\Transaksi\\form.blade.php"
@@ -1367,14 +1415,6 @@
 			[
 				"reviewperilakublade",
 				"resources\\views\\pages\\review-perilaku\\review.blade.php"
-			],
-			[
-				"review",
-				"app\\Http\\Controllers\\ReviewPerilakuController.php"
-			],
-			[
-				"home.",
-				"resources\\views\\home.blade.php"
 			]
 		],
 		"width": 0.0
@@ -1387,7 +1427,7 @@
 		[
 			[
 				"",
-				"C:\\xampp\\htdocs\\stable5-IM2\\stable5-IM2.sublime-project"
+				"C:\\xampp\\htdocs\\nnmpz\\nnmpz.sublime-project"
 			],
 			[
 				"nn",

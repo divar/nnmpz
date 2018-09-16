@@ -75,10 +75,10 @@ function refresh(){
 }
  $(function() {
     table = $('#menu-table').DataTable({
-        stateSave: true,
+        // stateSave: true,
         processing: true,
-        // serverSide: true,
-        pageLength:20,
+        serverSide: true,
+        pageLength:10,
         // ajax: '{{ url('all/pelanggan/load-data') }}',
         ajax: {
             url:"{{ url('all/transaksi/load-data-laporan') }}",
@@ -94,7 +94,7 @@ function refresh(){
         columns: [
             { data: 'nomor', name: 'nomor', searchable:false,orderable:true},
             { data: 'nama', name: 'nama', searchable:false,orderable:true},
-            { data: 'no_hp', name: 'no_hp', searchable:true,orderable:true},
+            { data: 'no_hp', name: 'pelanggans.no_hp', searchable:true,orderable:true},
             { data: 'penerima', name: 'penerima', searchable:false,orderable:true},
             { data: 'pesanan', name: 'pesanan', searchable:false,orderable:true},
             { data: 'total', name: 'total', searchable:false,orderable:true},
