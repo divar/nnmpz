@@ -73,12 +73,15 @@ today = {{ date('d-m-Y') }};
 function refresh(){
     table.ajax.reload();
 }
+function exportExcel(v){
+    window,open($(v).attr('link')+"?from="+$('#fromdate').val()+"&to="+$('#todate').val(), '_blank');
+}
  $(function() {
     table = $('#menu-table').DataTable({
         // stateSave: true,
         processing: true,
         serverSide: true,
-        pageLength:10,
+        pageLength: 10,
         // ajax: '{{ url('all/pelanggan/load-data') }}',
         ajax: {
             url:"{{ url('all/transaksi/load-data-laporan') }}",
@@ -94,7 +97,7 @@ function refresh(){
         columns: [
             { data: 'nomor', name: 'nomor', searchable:false,orderable:true},
             { data: 'nama', name: 'nama', searchable:false,orderable:true},
-            { data: 'no_hp', name: 'pelanggans.no_hp', searchable:true,orderable:true},
+            { data: 'no_hp', name: 'no_hp', searchable:true,orderable:true},
             { data: 'penerima', name: 'penerima', searchable:false,orderable:true},
             { data: 'pesanan', name: 'pesanan', searchable:false,orderable:true},
             { data: 'total', name: 'total', searchable:false,orderable:true},
@@ -131,12 +134,12 @@ function refresh(){
                    dt.ajax.reload();
                    // alert('Datatable reloaded!');
                }
-            },
+            },/*
             { extend: 'excel', className: 'btn btn-sm btn-info',text: '<i class="fa fa-file-excel-o"> export excel</i>',
                 exportOptions:{
                    columns:[0,1,2,3,4,5,6,7,8,9,10,@for ($i = 0; $i < $satuan ; $i++) {{ $i+11 }}{{ $i != $satuan-1?',':'' }} @endfor]
                 }
-            }
+            }*/
 
         ],
         // bFilter : true,
@@ -147,6 +150,7 @@ function refresh(){
         "dom": "<'row'<'col-md-6 col-sm-6'><'col-md-6 col-sm-6'fB>r><'table-scrollable't><'row'<'col-md-6 col-sm-6'i><'col-md-6 col-sm-6'p>>",
     });
     $('.dt-buttons').appendTo('div.dataTables_filter');
+    $('<button class="btn btn-info btn-sm" onclick="exportExcel(this);" link="{{ url('all/transaksi/exportexcel') }}">Export excle</button>').appendTo('div.dt-buttons');
     $('#menu-table_filter').attr('style','float:none;');
     table.columns([@for ($i = 0; $i < $satuan ; $i++) {{ $i+11 }}{{ $i != $satuan-1?',':'' }} @endfor]).visible( false, false );
 });

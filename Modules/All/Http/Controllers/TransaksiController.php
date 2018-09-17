@@ -27,6 +27,8 @@ use Mike42\Escpos\Printer;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
+use Maatwebsite\Excel\Facades\Excel;
+use Modules\All\Http\Controllers\ExportlaporanController;
 class TransaksiController extends Controller
 {
     public function __construct()
@@ -708,71 +710,107 @@ class TransaksiController extends Controller
     public function loadDataLaporan()
     {
         $GLOBALS['no']=\Request::input('start',1);
+        $skip= \Request::input('start',1);
+        $GLOBALS['length']=\Request::input('length',1);
+        // $skip = $skip-($skip>9?$GLOBALS['length']:0);
         $from=\Request::get('from',null);
         $from=Carbon::createFromFormat('d-m-Y', $from)->format('Y-m-d');
         $to=\Request::get('to',null);
         $to=Carbon::createFromFormat('d-m-Y', $to)->format('Y-m-d');
 
         $satuan = Satuan::select('id','satuan')->get()->toArray();
-        $dataTransaksi = Transaksi::select('*')->with('DetailTransaksi')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59")->whereNull('trash')->get();
+        $total_record =count(Transaksi::select('*')->with('DetailTransaksi')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59")->whereNull('trash')->get()->toArray());
+        $dataTransaksi = Transaksi::select('*')->with('DetailTransaksi')->where('created_at','>=',$from." 00:00:00")->where('created_at','<=',$to." 23:59:59")->whereNull('trash')->skip($skip)->limit($GLOBALS['length'])->get();
+        // dd($dataTransaksi);
         $dataList = new Collection;
         // dd(count($dataTransaksi->toArray()));
-        for ($i=0; $i < count($dataTransaksi->toArray()); $i++) {
-            $detail_transaksi = $dataTransaksi[$i]->DetailTransaksi;
-            $pesanan='';
-            $modifier='';
-            for ($x=0; $x < count($detail_transaksi); $x++){
-                $pesanan .= ($x+1).'. '.$detail_transaksi[$x]->menu->nama_menu.'<br>';
-                $addon = '';
-                $lm = $detail_transaksi;
-                // for ($xi=0; $xi < count($lm); $xi++) { 
-                    $md = DetailAddOn::where('id_detail_transaksi',$lm[$x]['id'])->get();
-                    if(count($md)>0){
-                        for ($ii=0; $ii < count($md); $ii++) {
-                            $val = $md[$ii]->Addons;
-                            $addon .= 'Rp. <label class="label-default">'.$x.'('.($ii+1).'). '.$val->nama.'</label><br>'; 
-                        }
-                    }
-                    $md2 = Modifier::where('id_detail_transaksi',$lm[$x]['id'])->get();
-                    if(count($md2)>0){
-                        for ($ii=0; $ii < count($md2); $ii++) { 
-                            $val2 = $md2[$ii]->modifier;
-                            $modifier .= '<label class="label-default">'.$x.'('.($ii+1).'). '.$val2.'</label><br>'; 
-                        }
-                    }
-                // }
-            }
-            $columnPerTransaksi = [
-                'nama'=> $dataTransaksi[$i]->Pelanggan->nama,
-                'nomor'=> $i+1 ,
-                'no_hp'=> $dataTransaksi[$i]->Pelanggan->no_hp ,
-                'penerima'=> $dataTransaksi[$i]->penerima ,
-                'pesanan'=> $pesanan ,
-                'total'=> '<div class="pull-right">'.$dataTransaksi[$i]->total_harga."</div>",
-                'tgl_pesan'=> Carbon::createFromFormat('Y-m-d H:i:s',$dataTransaksi[$i]->created_at)->format('d M Y'),
-                'alamat'=> $dataTransaksi[$i]->Alamat->alamat,
-                'pegawai'=> $dataTransaksi[$i]->userinput->name,
-                'addon'=> $addon ,
-                'modifier'=> $modifier
-            ];
-            for ($a=0; $a < count($satuan); $a++) {
-                $jmlsatuan = 0;
-                for ($x=0; $x < count($detail_transaksi); $x++){
-                    if($satuan[$a]['id'] == $detail_transaksi[$x]->menu->id_satuan){
-                        $jmlsatuan=$jmlsatuan+1;
-                    }
+        for ($i=0; $i < $skip+count($dataTransaksi->toArray()); $i++) {
+            if ($i<$skip) {
+                $columnPerTransaksi = [
+                    'nama'=>'',
+                    'nomor'=>'',
+                    'no_hp'=>'',
+                    'penerima'=>'',
+                    'pesanan'=>'',
+                    'total'=>'',
+                    'tgl_pesan'=>'',
+                    'alamat'=>'',
+                    'pegawai'=>'',
+                    'addon'=>'',
+                    'modifier'=>'',
+                ];
+                for ($a=0; $a < count($satuan); $a++) {
+                    $jmlsatuan = 0;
+                    
+                    $columnPerTransaksi[$satuan[$a]['satuan']] = $jmlsatuan;
                 }
-                $columnPerTransaksi[$satuan[$a]['satuan']] = $jmlsatuan;
+                $dataList->push($columnPerTransaksi);
+            }else{
+                $detail_transaksi = $dataTransaksi[$i-$skip]->DetailTransaksi;
+                $pesanan='';
+                $modifier='';
+                for ($x=0; $x < count($detail_transaksi); $x++){
+                    $pesanan .= ($x+1).'. '.$detail_transaksi[$x]->menu->nama_menu.'<br>';
+                    $addon = '';
+                    $lm = $detail_transaksi;
+                    // for ($xi=0; $xi < count($lm); $xi++) { 
+                        $md = DetailAddOn::where('id_detail_transaksi',$lm[$x]['id'])->get();
+                        if(count($md)>0){
+                            for ($ii=0; $ii < count($md); $ii++) {
+                                $val = $md[$ii]->Addons;
+                                $addon .= 'Rp. <label class="label-default">'.$x.'('.($ii+1).'). '.$val->nama.'</label><br>'; 
+                            }
+                        }
+                        $md2 = Modifier::where('id_detail_transaksi',$lm[$x]['id'])->get();
+                        if(count($md2)>0){
+                            for ($ii=0; $ii < count($md2); $ii++) { 
+                                $val2 = $md2[$ii]->modifier;
+                                $modifier .= '<label class="label-default">'.$x.'('.($ii+1).'). '.$val2.'</label><br>'; 
+                            }
+                        }
+                    // }
+                }
+                $columnPerTransaksi = [
+                    'nama'=> $dataTransaksi[$i-$skip]->Pelanggan->nama,
+                    'nomor'=> $i+1 ,
+                    'no_hp'=> $dataTransaksi[$i-$skip]->Pelanggan->no_hp ,
+                    'penerima'=> $dataTransaksi[$i-$skip]->penerima ,
+                    'pesanan'=> $pesanan ,
+                    'total'=> '<div class="pull-right">'.$dataTransaksi[$i-$skip]->total_harga."</div>",
+                    'tgl_pesan'=> Carbon::createFromFormat('Y-m-d H:i:s',$dataTransaksi[$i-$skip]->created_at)->format('d M Y'),
+                    'alamat'=> $dataTransaksi[$i-$skip]->Alamat->alamat,
+                    'pegawai'=> $dataTransaksi[$i-$skip]->userinput->name,
+                    'addon'=> $addon ,
+                    'modifier'=> $modifier
+                ];
+                for ($a=0; $a < count($satuan); $a++) {
+                    $jmlsatuan = 0;
+                    for ($x=0; $x < count($detail_transaksi); $x++){
+                        if($satuan[$a]['id'] == $detail_transaksi[$x]->menu->id_satuan){
+                            $jmlsatuan=$jmlsatuan+1;
+                        }
+                    }
+                    $columnPerTransaksi[$satuan[$a]['satuan']] = $jmlsatuan;
+                }
+                $dataList->push($columnPerTransaksi);
             }
-            $dataList->push($columnPerTransaksi);
         }
+        // dd($dataList);
         return Datatables::of($dataList)
         
         ->addColumn('kurir',function($data){
           return empty($data->Kurir->nama)?'Nanamia':$data->Kurir->nama;
         })
         ->rawColumns(['pesanan','action','modifier','addon','total'])
+        ->setTotalRecords($total_record)
         ->make(true);
     }
-
+    public function excel(Request $request){
+        $from=$request->get('from',null);
+        $from=Carbon::createFromFormat('d-m-Y',$from)->format('Y-m-d');
+        $to=$request->get('to',null);
+        $to=Carbon::createFromFormat('d-m-Y', $to)->format('Y-m-d');
+        
+        return Excel::download(new ExportlaporanController($from, $to), 'laporan'.$from.'-'.$to.'.xlsx');
+    }
 }
