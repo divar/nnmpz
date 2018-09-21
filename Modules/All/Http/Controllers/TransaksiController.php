@@ -626,6 +626,7 @@ class TransaksiController extends Controller
                 }
             }
         }
+        $dataList=$dataList->orderBy('transaksis.created_at','desc');
         return Datatables::of($dataList)
         ->addColumn('nomor',function(){
           return $GLOBALS['nomor']++;
