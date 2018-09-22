@@ -170,7 +170,7 @@
   <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.semanticui.min.js') }}?v={{ date('YmdHis') }}"></script>
   <script src="{{ asset('datatables/DataTables-1.10.16/js/jquery.dataTables.min.js') }}?v={{ date('YmdHis') }}"></script>
   <script src="{{ asset('datatables/DataTables-1.10.16/js/dataTables.buttons.min.js') }}?v={{ date('YmdHis') }}"></script>
-  <script src="{{ asset('datatables/DataTables-1.10.16/js/buttons.colVis.js') }}?v={{ date('YmdHis') }}"></script>
+  <script src="{{ asset('js/buttons.colVis.js') }}"></script>
   <script src="{{ asset('js/buttons.print.min.js') }}?v={{ date('YmdHis') }}"></script>
   <script src="{{ asset('js/jszip.min.js') }}?v={{ date('YmdHis') }}"></script>
   <script src="{{ asset('js/pdfmake.min.js') }}?v={{ date('YmdHis') }}"></script>

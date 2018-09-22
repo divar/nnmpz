@@ -36,6 +36,7 @@ Route::group(['middleware' => ['web','auth'], 'prefix' => 'all', 'namespace' => 
     Route::get('transaksi/load-data', 'TransaksiController@loadData');
     Route::get('transaksi/load-data-laporan', 'TransaksiController@loadDataLaporan');
     Route::get('transaksi', 'TransaksiController@index')->name('loaddataTransaksi');
+    Route::get('transaksi/exportexcel', 'TransaksiController@excel');
     Route::get('transaksi/laporan', 'TransaksiController@index2')->name('loaddataTransaksi-laporan');
     Route::get('transaksi/load-alamat', 'PelangganController@loadAlamat')->name('loadAlamat');
 

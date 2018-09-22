@@ -503,7 +503,7 @@ var ks = false;
         ii=1;
         $.each($('.data_menu'),function(i, price){
             var row=$(this).attr('no');
-            menu = '<strong>'+ii+". "+$(this).find('#menu_'+row).val()+"</strong><br>";
+            menu = '<strong>'+$(this).find('#qty_menu_'+row).val()+" "+$(this).find('#menu_'+row).val()+"</strong><br>";
             addon='<i>Addon</i><br>';
             modifier='<i>Modifier</i><br>';
             o = oo =1
