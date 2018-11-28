@@ -74,6 +74,7 @@ class ExportlaporanController implements FromCollection,ShouldAutoSize,WithHeadi
             }
             $columnPerTransaksi = [
                 'nomor'=> $i+1 ,
+                'Date'=> $dataTransaksi[$i]->created_at,
                 'nama'=> $dataTransaksi[$i]->Pelanggan->nama,
                 'no_hp'=> $dataTransaksi[$i]->Pelanggan->no_hp ,
                 'penerima'=> $dataTransaksi[$i]->penerima ,
@@ -104,7 +105,6 @@ class ExportlaporanController implements FromCollection,ShouldAutoSize,WithHeadi
         $column = [
             '#',
             'Date',
-            'nomor',
             'nama',
             'no_hp',
             'penerima',
