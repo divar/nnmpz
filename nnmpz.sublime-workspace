@@ -523,8 +523,16 @@
 			"file": "Modules/All/Http/Controllers/TransaksiController.php",
 			"settings":
 			{
-				"buffer_size": 36585,
+				"buffer_size": 36655,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Modules/All/Entities/Transaksi.php",
+			"settings":
+			{
+				"buffer_size": 3780,
 				"line_ending": "Windows"
 			}
 		},
@@ -556,10 +564,43 @@
 			}
 		},
 		{
+			"file": "config/database.php",
+			"settings":
+			{
+				"buffer_size": 3974,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Modules/All/Entities/DetailTransaksi.php",
+			"settings":
+			{
+				"buffer_size": 2205,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
+			"settings":
+			{
+				"buffer_size": 38438,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
 			"settings":
 			{
 				"buffer_size": 7305,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
+			"settings":
+			{
+				"buffer_size": 57975,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -663,6 +704,7 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/nnmpz",
+		"/C/xampp/htdocs/nnmpz/app",
 		"/C/xampp/htdocs/nnmpz/Modules",
 		"/C/xampp/htdocs/nnmpz/Modules/All",
 		"/C/xampp/htdocs/nnmpz/Modules/All/Http",
@@ -801,7 +843,7 @@
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -815,6 +857,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"connection",
+			"loaddata",
 			"'=>",
 			"br",
 			"from",
@@ -858,7 +902,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -867,15 +911,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 36585,
+						"buffer_size": 36655,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								48,
-								911
+								1660,
+								1660
 							]
 						],
 						"settings":
@@ -885,14 +929,44 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 432.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "Modules/All/Entities/Transaksi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3780,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3662,
+								3677
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1080.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "Modules/All/Http/Controllers/ExportlaporanController.php",
 					"semi_transient": false,
 					"settings":
@@ -915,14 +989,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1558.0,
+						"translation.y": 316.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "resources/views/layouts/app.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -948,11 +1022,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "app/Providers/AppServiceProvider.php",
 					"semi_transient": false,
 					"settings":
@@ -964,8 +1038,8 @@
 						"selection":
 						[
 							[
-								349,
-								349
+								222,
+								222
 							]
 						],
 						"settings":
@@ -978,11 +1052,101 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
+					"file": "config/database.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3974,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3251,
+								3251
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1179.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Modules/All/Entities/DetailTransaksi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								155,
+								155
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 38438,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6874,
+								6884
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4812.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "Modules/All/Resources/views/Transaksi/index.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -1005,14 +1169,44 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 600.0,
+						"translation.y": 2079.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 9,
+					"file": "Modules/All/Resources/views/Transaksi/form.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 57975,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								34163,
+								34163
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 11166.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
 					"file": "Modules/All/Resources/views/Transaksi/index-laporan.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -1024,8 +1218,8 @@
 						"selection":
 						[
 							[
-								3374,
-								3374
+								1528,
+								1528
 							]
 						],
 						"settings":
@@ -1035,14 +1229,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1111.0,
+						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 11,
 					"file": "Modules/All/Http/routes.php",
 					"semi_transient": false,
 					"settings":
@@ -1068,7 +1262,7 @@
 						"translation.y": 125.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 11,
 					"type": "text"
 				}
 			]
@@ -1076,7 +1270,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -1113,7 +1307,7 @@
 	"project": "nnmpz.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1122,6 +1316,22 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"transaksi",
+				"Modules\\All\\Entities\\Transaksi.php"
+			],
+			[
+				"model",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php"
+			],
+			[
+				"app",
+				"C:\\xampp\\htdocs\\nnmpz\\app\\Providers\\AppServiceProvider.php"
+			],
+			[
+				"transaksi for",
+				"Modules\\All\\Resources\\views\\Transaksi\\form.blade.php"
+			],
 			[
 				"app.bl",
 				"resources\\views\\layouts\\app.blade.php"
@@ -1149,10 +1359,6 @@
 			[
 				"providerre",
 				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php"
-			],
-			[
-				"app",
-				"config\\app.php"
 			],
 			[
 				"composer",
@@ -1621,18 +1827,6 @@
 			[
 				"aktivitas",
 				"app\\Model\\AktivitasJabatan.php"
-			],
-			[
-				"pages\\admin\\monitoring-pegawai.blade.",
-				"resources\\views\\pages\\admin\\monitoring-pegawai.blade.php"
-			],
-			[
-				"plt.",
-				"resources\\assets\\js\\components\\modal\\AssignPlt.vue"
-			],
-			[
-				"detailjaba",
-				"resources\\assets\\js\\components\\modal\\DetailJabatan.vue"
 			]
 		],
 		"width": 0.0
@@ -1645,7 +1839,7 @@
 		[
 			[
 				"",
-				"C:\\xampp\\htdocs\\nnmpz\\nnmpz.sublime-project"
+				"C:\\xampp\\htdocs\\erk\\x.sublime-project"
 			],
 			[
 				"nn",

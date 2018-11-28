@@ -83,7 +83,8 @@ class ExportlaporanController implements FromCollection,ShouldAutoSize,WithHeadi
                 'alamat'=> $dataTransaksi[$i]->Alamat->alamat,
                 'pegawai'=> $dataTransaksi[$i]->userinput->name,
                 'addon'=> $addon ,
-                'modifier'=> $modifier
+                'modifier'=> $modifier,
+                'kurir'=>!empty($dataTransaksi[$i]->id_kurir)?$dataTransaksi[$i]->Kurir->nama:'Nanamia'
             ];
             for ($a=0; $a < count($satuan); $a++) {
                 $jmlsatuan = 0;
@@ -114,6 +115,7 @@ class ExportlaporanController implements FromCollection,ShouldAutoSize,WithHeadi
             'pegawai',
             'addon',
             'modifier',
+            'kurir',
         ];
         $satuan = Satuan::select('id','satuan')->get()->toArray();
         for ($a=0; $a < count($satuan); $a++) {

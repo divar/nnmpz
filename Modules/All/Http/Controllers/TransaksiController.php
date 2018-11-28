@@ -739,6 +739,7 @@ class TransaksiController extends Controller
                     'pegawai'=>'',
                     'addon'=>'',
                     'modifier'=>'',
+                    'kurir'=>'',
                 ];
                 for ($a=0; $a < count($satuan); $a++) {
                     $jmlsatuan = 0;
@@ -782,7 +783,8 @@ class TransaksiController extends Controller
                     'alamat'=> $dataTransaksi[$i-$skip]->Alamat->alamat,
                     'pegawai'=> $dataTransaksi[$i-$skip]->userinput->name,
                     'addon'=> $addon ,
-                    'modifier'=> $modifier
+                    'modifier'=> $modifier,
+                    'kurir'=>!empty($dataTransaksi[$i-$skip]->id_kurir)?$dataTransaksi[$i-$skip]->Kurir->nama:'Nanamia',
                 ];
                 for ($a=0; $a < count($satuan); $a++) {
                     $jmlsatuan = 0;
@@ -798,10 +800,6 @@ class TransaksiController extends Controller
         }
         // dd($dataList);
         return Datatables::of($dataList)
-        
-        ->addColumn('kurir',function($data){
-          return empty($data->Kurir->nama)?'Nanamia':$data->Kurir->nama;
-        })
         ->rawColumns(['pesanan','action','modifier','addon','total'])
         ->setTotalRecords($total_record)
         ->make(true);
