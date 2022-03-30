@@ -205,7 +205,7 @@ class TransaksiController extends Controller
             //update data yang belum terinput
             $insertPelanggan->id_alamat = $id_alamat;
             $insertPelanggan->save();
-            $insertTransaksi->total_harga = (($grandtotal+$harga_tarif_wilayah)*1.1)+$pajak_kurir;
+            $insertTransaksi->total_harga = (($grandtotal+$harga_tarif_wilayah)*1.11)+$pajak_kurir;
             $insertTransaksi->ppn = ($grandtotal+$harga_tarif_wilayah)*0.11;
             $insertTransaksi->tarif_wilayah = $harga_tarif_wilayah;
             $insertTransaksi->id_jalan = $id_jalan;
@@ -564,7 +564,7 @@ class TransaksiController extends Controller
                 $grandtotal = $grandtotal+$sub_total;
             }
             //update data yang belum terinput
-            $insertTransaksi->total_harga = (($grandtotal+$harga_tarif_wilayah)*1.1)+$pajak_kurir;
+            $insertTransaksi->total_harga = (($grandtotal+$harga_tarif_wilayah)*1.11)+$pajak_kurir;
             $insertTransaksi->ppn = ($grandtotal+$harga_tarif_wilayah)*0.11;
             $insertTransaksi->tarif_wilayah = $harga_tarif_wilayah;
             $insertTransaksi->save();

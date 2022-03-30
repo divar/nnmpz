@@ -679,7 +679,7 @@ var ks = false;
         gtotal = parseInt(total)+currencyToNumber(tarifwilayah);
         kurir = gtotal * $('#persen_kurir').val()/100;
         ppn = gtotal*0.11;
-        gtotal = Math.round(gtotal*1.1)+kurir;
+        gtotal = Math.round(gtotal*1.11)+kurir;
         // $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
         $('#textgrandtotal').html(addCommas(gtotal));
         $('#textppn').html(addCommas(ppn));

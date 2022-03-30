@@ -248,7 +248,7 @@ function grandTotal(){
     tarifwilayah = $('#tarifwilayah option:selected').attr('harga');
     gtotal = parseInt(total)+currencyToNumber(tarifwilayah);
     ppn = gtotal*0.11;
-    gtotal = Math.round(gtotal*1.1);
+    gtotal = Math.round(gtotal*1.11);
     $('#texttarifwilayah').html(addCommas($('#tarifwilayah option:selected').attr('harga')));
     $('#textgrandtotal').html(addCommas(gtotal));
     $('#textppn').html(addCommas(ppn));

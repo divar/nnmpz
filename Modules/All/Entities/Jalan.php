@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jalan extends Model
 {
-    protected $table = 'Jalans';
+    protected $table = 'jalans';
 	public $guarded = ["id","created_at","updated_at"];
 	public $timestamps=true;
     protected $primaryKey = "id";
