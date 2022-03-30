@@ -390,7 +390,7 @@ class TransaksiController extends Controller
         $sendNota['DetailTransaksi'] = DetailTransaksi::with('Menu')->with('addons')->with('modifier')->where('id_transaksi',$id)->get();
         try {
             if($sendNota['Transaksi'][0]['flag_kurir']==1){
-                for ($i=0; $i < 3; $i++) { 
+                for ($i=0; $i < 2; $i++) {
                     $this->printReceipt($id);
                 }
                 return redirect('/');
